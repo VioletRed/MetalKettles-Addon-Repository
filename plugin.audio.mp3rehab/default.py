@@ -17,7 +17,7 @@ def Top10(url):
 
 def Search(url):
         search_entered =''
-        keyboard = xbmc.Keyboard(search_entered, 'test')
+        keyboard = xbmc.Keyboard(search_entered, 'Enter Atist or Song to find')
         keyboard.doModal()
         if keyboard.isConfirmed():
                 search_entered = keyboard.getText().replace(' ','+')
