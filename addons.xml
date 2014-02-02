@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="plugin.audio.mp3rehab" name="MP3Rehab" version="0.0.1" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Search mp3s from mp3rehab.com</summary>
+    <description lang="en">Search mp3s from mp3rehab.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.audio.televisiontunes" name="TelevisionTunes" version="0.0.5" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
