@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="plugin.audio.televisiontunes" name="TelevisionTunes" version="0.0.5" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Browse TelevisionTunes.com</summary>
+    <description lang="en">Listen to TV Theme music and songs from different television shows</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.program.ukjamcams" name="UK Jam Cams" version="0.0.7" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video image executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Traffic Camera Images from The Highways Authority </summary>
+    <description lang="en">Traffic Camera Images from The Highways Authority </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.familyguydirect" name="Family Guy Direct" version="0.0.6" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch all episode of Family Guy from familygutdirect.com</summary>
+    <description lang="en">Watch all episode of Family Guy from familygutdirect.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.putlocker" name="Putlocker" version="0.0.5" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+    <import addon="script.module.urlresolver" version="2.0.9"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Browse Putlocker.bz</summary>
+    <description lang="en">Play links found at Putlocker.bz</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.pythontut" name="The New Boston Python Tutorial" version="0.0.5" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+    <import addon="script.module.urlresolver" version="2.0.9"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"> </summary>
+    <description lang="en"> Learn Python using these easy to follow videos </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.spacetelescope" name="Space Telescope" version="0.0.2" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Videos and news releases from the Hubble Space Telescope project</summary>
+    <description lang="en">Videos and news releases from the Hubble Space Telescope project</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.ultrabox" name="UltraBox" version="0.0.6" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+    <import addon="script.module.urlresolver" version="2.0.9"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">All Boxing </summary>
+    <description lang="en">Includes bouts, movies, podcasts </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.metalkettle" name="MetalKettles Addon Repository" version="1.1" provider-name="MetalKettle">
+	<extension point="xbmc.addon.repository" name="MetalKettles Addon Repository">
+		<info compressed="false">https://dl.dropboxusercontent.com/u/132305723/My-Repo/addons.xml</info>
+		<checksum>https://dl.dropboxusercontent.com/u/132305723/My-Repo/addons.xml.md5</checksum>
+		<datadir zip="true">https://dl.dropboxusercontent.com/u/132305723/My-Repo/zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install my Addons</summary>
+		<description>Download and install addons from MetalKettle</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+</addons>

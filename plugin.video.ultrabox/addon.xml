@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.ultrabox" name="UltraBox" version="0.0.6" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+    <import addon="script.module.urlresolver" version="2.0.9"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">All Boxing </summary>
+    <description lang="en">Includes bouts, movies, podcasts </description>
+    <platform>all</platform>
+  </extension>
+</addon>
