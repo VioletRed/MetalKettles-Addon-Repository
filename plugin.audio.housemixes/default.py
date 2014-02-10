@@ -14,7 +14,6 @@ def Index():
          addDir('Popular Mixes','http://www.house-mixes.com/mixes/popular',2,icon,'',fanart)
          addDir('Latest Mixes','http://www.house-mixes.com/mixes',2,icon,'',fanart)
          addDir('Mixes by Genre','url',1,icon,'',fanart)
-         #addDir('Featured Tracks','http://www.house-mixes.com/tracks/featured/1/latest',2,icon,'',fanart)
          addDir('Trending Tracks','http://www.house-mixes.com/tracks/trending',2,icon,'',fanart)
          addDir('Popular Tracks','http://www.house-mixes.com/tracks/popular',2,icon,'',fanart)
          addDir('Latest Tracks','http://www.house-mixes.com/tracks',2,icon,'',fanart)
@@ -23,15 +22,14 @@ def Index():
 def latestgenre(url):    
          link = open_url(baseurl)
          match=re.compile('<li class="genre-item"><a href="(.+?)" alt=".+? Mixes">(.+?)</a></li>').findall(link)
-         for url, name in match:
+         match2 = sorted (match, key=lambda info: info[1]) 
+         for url, name in match2:
              url = baseurl2+url
              addDir(name,url,2,icon,'',fanart)
 
 def getmixes(url):
         link = open_url(url)
         match=re.compile('height="80" src="(.+?)/80/45/true" width="80" /></a>\r\n    </div>\r\n    <div class="audio-element-body">\r\n        <a class="name" href="(.+?)">(.+?)</a>\r\n        <span class="by">by</span>\r\n        <a class="artist" href=".+?">(.+?)</a>\r\n').findall(link)
-        for nextpage in match:
-            npurl = baseurl2 + nextpage[0]
         for thumb, url, name, dj in match:
             name2 = name.decode("ascii","ignore")
             url = baseurl2+url
