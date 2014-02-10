@@ -12,9 +12,13 @@ def Index():
          addDir('Featured Mixes','http://www.house-mixes.com/mixes/featured/1/latest',2,icon,'',fanart)
          addDir('Trending Mixes','http://www.house-mixes.com/mixes/trending',2,icon,'',fanart)
          addDir('Popular Mixes','http://www.house-mixes.com/mixes/popular',2,icon,'',fanart)
-         addDir('Newly Added Mixes','http://www.house-mixes.com/mixes',2,icon,'',fanart)
+         addDir('Latest Mixes','http://www.house-mixes.com/mixes',2,icon,'',fanart)
          addDir('Mixes by Genre','url',1,icon,'',fanart)
-         addDir('Search Mixes','url',50,icon,'',fanart)
+         #addDir('Featured Tracks','http://www.house-mixes.com/tracks/featured/1/latest',2,icon,'',fanart)
+         addDir('Trending Tracks','http://www.house-mixes.com/tracks/trending',2,icon,'',fanart)
+         addDir('Popular Tracks','http://www.house-mixes.com/tracks/popular',2,icon,'',fanart)
+         addDir('Latest Tracks','http://www.house-mixes.com/tracks',2,icon,'',fanart)
+         addDir('Search','url',50,icon,'',fanart)
          
 def latestgenre(url):    
          link = open_url(baseurl)
