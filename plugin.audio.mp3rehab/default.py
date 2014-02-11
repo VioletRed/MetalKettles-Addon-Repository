@@ -7,6 +7,7 @@ addon = Addon('plugin.audio.mp3rehab', sys.argv)
 baseurl = 'http://mp3rehab.com'
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
+playlist = xbmc.PlayList( xbmc.PLAYLIST_MUSIC )
 
 def Index():
          addDir('Top 10 Downloads',baseurl,1,'http://mp3rehab.com/images/Mp3%20Gray.png','',fanart)
@@ -47,13 +48,18 @@ def GetLinks(url):
 ############################ STANDARD  #####################################################################################
         
 def PLAYLINK(url):
-         liz=xbmcgui.ListItem(name.replace('.mp3',''), iconImage="http://mp3rehab.com/images/Mp3%20Gray.png", thumbnailImage='http://mp3rehab.com/images/Mp3%20Gray.png')
          link = open_url(url)
          match=re.compile('<a class="filedownload" href="(.+?)" download=".+?" data-file-id=".+?" target="_blank" rel="nofollow"><strong>Download Mp3</strong></a>').findall(link)
          for tune in match:
-                music = tune.replace(' ','%20')        
-         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_MPLAYER)
-         xbmcPlayer.play(music)
+                music = tune.replace(' ','%20').replace('.html','')
+         listitem = xbmcgui.ListItem(name)
+         listitem.setInfo('audio', {'Title': name})
+         if xbmc.Player().isPlayingAudio() == False:
+                playlist.clear()
+                playlist.add(music, listitem)
+                xbmc.Player().play(playlist)
+         else:
+            playlist.add(music, listitem)
          exit()
                 
 def open_url(url):
@@ -91,15 +97,6 @@ def addDir(name,url,mode,iconimage,description,fanart):
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
         return ok
 
-def addLink(name,url,iconimage,description,fanart):
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels={ "Title": name, "Plot": description } )
-        liz.setProperty("IsPlayable","true")
-        liz.setProperty("fanart_Image",fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz,isFolder=False)
-        return ok
- 
  
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
