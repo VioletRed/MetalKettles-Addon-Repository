@@ -18,7 +18,9 @@ def Index():
          addDir('Science',apibase + 'science' + apicatend,1,icon,'',fanart)
          addDir('Sports',apibase + 'sports' + apicatend,1,icon,'',fanart)
          addDir('Technology',apibase + 'technology' + apicatend,1,icon,'',fanart)
-         
+         addDir('[B][COLOR red]LIVE NOW[/COLOR][/B]','http://api.spreaker.com/episodes/live?format=xml',3,icon,'',fanart)
+         addDir('[B][COLOR gold]Search Show[/COLOR][/B]','url',50,icon,'',fanart)
+
 def getshows(url):
          npbase = url
          link = open_url(url)
@@ -47,18 +49,30 @@ def getepisodes(url):
             playurl = 'http://api.spreaker.com/listen/episode/'+ episode + '/http'
             addDir(name,playurl,100,img,'',fanart)
     
-def Search(url):
+def livenow(url):
+         link = open_url(url)
+         match=re.compile('<episode_id>(.+?)</episode_id>.+?<title>(.+?)</title>.+?<site_url>(.+?)</site_url>.+?<play_url>(.+?)</play_url>',re.DOTALL).findall(link) 
+         for episode,name,url,thumb in match:
+             name2 = name.decode("ascii","ignore")
+             playurl = 'http://api.spreaker.com/listen/episode/'+ episode + '/http'
+             addDir(name2,playurl,100,thumb,'',fanart)
+
+def searchshow(url):
         search_entered =''
-        keyboard = xbmc.Keyboard(search_entered, 'Enter Atist or Song to find')
+        keyboard = xbmc.Keyboard(search_entered, 'Enter show to find')
         keyboard.doModal()
         if keyboard.isConfirmed():
                 search_entered = keyboard.getText().replace(' ','+')
         if search_entered == None or len(search_entered)<1:
                 end()
         else:
-                url = 'http://www.house-mixes.com/Search?query='+ search_entered
-        getmixes(url)
-        
+                url = 'http://api.spreaker.com/show/search/' + search_entered + '?format=xml&max_per_page=999&page=1'
+                link = open_url(url)
+                match=re.compile('<title>(.+?)</title>.+?<site_url>(.+?)</site_url>.+?<play_url>(.+?)</play_url>',re.DOTALL).findall(link) 
+                for name,url,thumb in match:
+                    name2 = name.decode("ascii","ignore")
+                    addDir(name2,url,2,thumb,'',fanart)
+
 ############################ STANDARD  #####################################################################################
         
 def PLAYLINK(url):
@@ -116,6 +130,7 @@ print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); prin
 if mode==None or url==None or len(url)<1: Index()
 elif mode==1: getshows(url)
 elif mode==2: getepisodes(url)
-elif mode==50: Search(url)
+elif mode==3: livenow(url)
+elif mode==50: searchshow(url)
 elif mode==100: PLAYLINK(url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
