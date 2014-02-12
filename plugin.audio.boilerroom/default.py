@@ -9,8 +9,8 @@ fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , '
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
 
 def Index():
-         addDir('Featured',baseurl,1,'','',fanart)
-         addDir('Archive','http://boilerroom.tv/archive/',1,'','',fanart)
+         addDir('Featured',baseurl,1,icon,'',fanart)
+         addDir('Archive','http://boilerroom.tv/archive/',1,icon,'',fanart)
          #addDir('Search...',baseurl,3,'','',fanart)
 
 def Featured(url):
@@ -25,7 +25,6 @@ def Search(url):
         keyboard.doModal()
         if keyboard.isConfirmed():
                 search_entered = keyboard.getText().replace(' ','%20')
-                print search_entered
         if search_entered == None or len(search_entered)<1:
                 end()
         else:
@@ -41,8 +40,9 @@ def Search(url):
 
 def GetLinks(url):
         link = open_url(url)
+        link2 = link.replace('\n','').replace('\t','').replace(' ','')
         np=re.compile('<div class="next"><a href="(.+?)" >Older <span class="icon-angle-right"></span></a></div>').findall(link)
-        match=re.compile('<div class="result recording">\n\t\t  \t      <a href="(.+?)">\n\t      \t<span class="main_image">\n\t      \t  <img src="(.+?)" />\n\t\t      \t\t      <span class="duration">(.+?)</span>\n\t\t\t  \n\t\t\t  \t\t\t  <i class="icon-play"></i>\n\t\t\t  \t\t    </span>\n\t        <span class="post_type">Recording</span>\n\t        <span class="post_title">(.+?)</span>\n\t        \t        <span class="city">(.+?)</span>\n\t    \t\t        <span class="date">(.+?)</span>\n\t      </a>\n\t      \t    </div>\n\t\t\t\t').findall(link)
+        match=re.compile('<divclass="resultrecording"><ahref="(.+?)"><spanclass="main_image"><imgsrc="(.+?)"/><spanclass="duration">(.+?)</span><spanclass="play"></span></span><spanclass="post_type">Recording</span><spanclass="post_title">(.+?)</span><spanclass="city">(.+?)</span><spanclass="date">(.+?)</span></a>').findall(link2)
         for url, img, dur, djname, city, rel in match:
                 vid = dur + '    ' + djname.replace('#038','').replace(';','') + '  (' + rel + ')  -  ' + city
                 addDir(vid,url,100,img,'',fanart)
@@ -53,11 +53,8 @@ def GetLinks(url):
         
 def PLAYLINK(url):
          link = open_url(url)
-         print url
          match=re.compile('<meta property="og:video" content="https://www.youtube.com/v/(.+?)"/>').findall(link)    
          youtube_id = match[0]
-         print '############'
-         print youtube_id
          url =  'plugin://plugin.video.youtube/?path=root/video&action=play_video&videoid='+ youtube_id
          xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
          xbmcPlayer.play(url)
