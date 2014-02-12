@@ -1,33 +1,79 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon
- 
-SiteName='TelevisionTunes.com  [v0.0.1]  [Audio]'
-BASE0 = 'http://www.televisiontunes.com/'
-BASE = 'http://www.televisiontunes.com'
+import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os
+from resources.libs.common_addon import Addon
 
-def CATEGORIES():
-        AZurl = ('http://TelevisionTunes.com')
-        req = urllib2.Request(AZurl)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        azlist=re.compile('<li><a href="(.+?)" >(.+?)</a></li>').findall(link)
-        addDir('Search','url',2,'')
-        for url,name in azlist:
-                print BASE
-                addDir(name,BASE0 + url,1,'http://www.televisiontunes.com/images/TVGuy-Big2.png')
-               
-def GETTHEMES(url):
+addon_id = 'plugin.audio.televisiontunes'
+addon = Addon('plugin.audio.televisiontunes', sys.argv)
+fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
+icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
+ad = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'ad.png')) 
+afb = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'afb.png'))
+console = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'console.png'))
+tv = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'tv.png'))
+football = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'football.png'))
+
+def index():
+        addDir('Television Tunes','http://www.televisiontunes.com/',1,tv,'',fanart)
+        addDir('Game Theme Songs','http://gamethemesongs.com/',1,console,'',fanart)
+        addDir('TV Ad Songs','http://tvadsongs.com/',1,ad,'',fanart)
+        addDir('Soccer Songs','http://fcsongs.com/',1,football,'',fanart)
+        addDir('Football Music','http://footballfightmusic.com/',4,afb,'',fanart)
+
+def AZ(url):
+        if 'television' in url : img = tv
+        if 'game' in url : img = console
+        if 'tvad' in url : img = ad
+        if 'fight' in url : img = afb
+        if 'fc' in url : img = football
+        base = url
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<tr><td><a href="(.+?)">(.+?)</a></td></tr><tr><td>').findall(link)
+        azlist=re.compile('<li><a href="(.+?)" >(.+?)</a></li>').findall(link)
+        addDir('Search',url,3,img,'',fanart)
+        for url,name in azlist:
+                addDir(name,base + url,2,img,'',fanart)
+               
+def GETTHEMES(url):
+        if 'television' in url : img = tv
+        if 'game' in url : img = console
+        if 'tvad' in url : img = ad
+        if 'fight' in url : img = afb
+        if 'fc' in url : img = football
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        match=re.compile('<a href="(.+?)">(.+?)</a></td></tr><tr><td>').findall(link)
         for url,name in match:
-                addDir(name,url,100,'http://www.televisiontunes.com/images/TVGuy-Big2.png')
+                addDir(name,url,100,img,'',fanart)
+                
+def afblist(url):
+        base = url
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        catlist=re.compile('<a href="(.+?)"><img src="(.+?)" alt="(.+?)" width="150" height="100" border="0" /></a></td>').findall(link)
+        for url,thumb,name in catlist:
+                thumb2 = base + thumb
+                addDir(name,url,2,thumb2,'',fanart)
         
-def SEARCH():
+def getafbthemes(url):
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        match=re.compile('<a href="(.+?)">(.+?)</a></td></tr>').findall(link)
+        for url,name in match:
+                addDir(name,url,100,icon,'',fanart)
+                
+def SEARCH(url):
+    base = url
     search_entered =''
     keyboard = xbmc.Keyboard(search_entered, 'Search TelevistionTunes')
     keyboard.doModal()
@@ -36,7 +82,7 @@ def SEARCH():
     if search_entered == None or len(search_entered)<1:
         end()
     else:
-        url = 'http://www.televisiontunes.com/search.php?searWords=' + search_entered + '&Send=Search'
+        url = base + 'search.php?searWords=' + search_entered + '&Send=Search'
         print url
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -45,9 +91,10 @@ def SEARCH():
         response.close()
         match=re.compile('&nbsp;<a href="(.+?)">(.+?)</a>').findall(link)
         for url,name in match:
-                addDir(name,url,100,'http://www.televisiontunes.com/images/TVGuy-Big2.png') 
+                addDir(name,url,100,icon,'',fanart) 
     
 def TUNELINKS(url,name):
+        base ='http://' + url.split('/',3)[2]
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -55,11 +102,9 @@ def TUNELINKS(url,name):
         response.close()
         tune=re.compile('mp3: "(.+?)"').findall(link)
         for url in tune:
-                fulllink = BASE + url
+                fulllink = base + url
                 nospace = str(fulllink).replace(' ','%20')
                 xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-                print fulllink
-                print nospace
                 xbmcPlayer.play(nospace)
                 exit()
  
@@ -81,22 +126,14 @@ def get_params():
                                
         return param
                
-def addLink(name,url,iconimage):
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        return ok
- 
- 
-def addDir(name,url,mode,iconimage,isFolder=True):
-        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
+def addDir(name,url,mode,iconimage,description,fanart):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
         return ok
- 
  
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
@@ -110,8 +147,10 @@ except: pass
  
 print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); print "Name: "+str(name)
  
-if mode==None or url==None or len(url)<1: CATEGORIES()
-elif mode==1: GETTHEMES(url)
-elif mode==2: SEARCH()
+if mode==None or url==None or len(url)<1: index()
+elif mode==1: AZ(url)
+elif mode==2: GETTHEMES(url)
+elif mode==3: SEARCH(url)
+elif mode==4: afblist(url)
 elif mode==100: TUNELINKS(url,name)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

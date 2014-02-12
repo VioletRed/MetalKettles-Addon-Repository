@@ -56,7 +56,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.audio.televisiontunes" name="TelevisionTunes" version="0.0.5" provider-name="MetalKettle">
+<addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.6" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
   </requires>
