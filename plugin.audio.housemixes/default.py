@@ -7,6 +7,7 @@ baseurl = 'http://www.house-mixes.com/mixes'
 baseurl2 = 'http://www.house-mixes.com'
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
+genres = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'genres.txt'))
 
 def Index():
          addDir('Featured Mixes','http://www.house-mixes.com/mixes/featured/1/latest',2,icon,'',fanart)
@@ -20,8 +21,10 @@ def Index():
          addDir('Search','url',50,icon,'',fanart)
          
 def latestgenre(url):    
-         link = open_url(baseurl)
-         match=re.compile('<li class="genre-item"><a href="(.+?)" alt=".+? Mixes">(.+?)</a></li>').findall(link)
+         #link = open_url(baseurl)
+         gens = open(genres, 'r')
+         link = gens.read()
+         match=re.compile('<a href="(.+?)">(.+?)</a>').findall(link)
          match2 = sorted (match, key=lambda info: info[1]) 
          for url, name in match2:
              url = baseurl2+url
@@ -29,8 +32,8 @@ def latestgenre(url):
 
 def getmixes(url):
         link = open_url(url)
-        match=re.compile('height="80" src="(.+?)/80/45/true" width="80" /></a>\r\n    </div>\r\n    <div class="audio-element-body">\r\n        <a class="name" href="(.+?)">(.+?)</a>\r\n        <span class="by">by</span>\r\n        <a class="artist" href=".+?">(.+?)</a>\r\n').findall(link)
-        for thumb, url, name, dj in match:
+        match=re.compile('<a href="(.+?)"><img src="(.+?)" alt="(.+?)" class="img-responsive" /></a>').findall(link)
+        for url, thumb, name in match:
             name2 = name.decode("ascii","ignore")
             url = baseurl2+url
             addDir(name2,url,100,thumb,'',fanart)
@@ -51,7 +54,7 @@ def Search(url):
         
 def PLAYLINK(url):
          link = open_url(url)
-         match=re.compile('<a href="(.+?)" class="noblank exclude player-playpause" id="player-playpause"></a>').findall(link)
+         match=re.compile('<a href="(.+?)" class="player-playpause" id="player-playpause"></a>').findall(link)
          playabletune = match[0]
          playlist = xbmc.PlayList(1)
          playlist.clear()

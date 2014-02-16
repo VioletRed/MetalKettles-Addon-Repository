@@ -1,0 +1,175 @@
+<a href="/mixes/dnb-dj-mixes">Drum n Bass</a>
+
+                    <ul class="list-unstyled">
+                            <li>
+                                <a href="/mixes/darkstep-dj-mixes">Darkstep</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/intelligent-dnb-dj-mixes">Intelligent Drum n Bass</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/jumpup-dnb-dj-mixes">Jump Up</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/jungle-dnb-dj-mixes">Jungle</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/liquid-dnb-dj-mixes">Liquid Drum n Bass</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/neurofunk-dj-mixes">Neurofunk</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/techstep-dj-mixes">Techstep</a>
+                            </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="/mixes/house-dj-mixes">House</a>
+
+                    <ul class="list-unstyled">
+                            <li>
+                                <a href="/mixes/chillout-dj-mixes">Ambient / Chillout</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/chicago-house-dj-mixes">Chicago House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/commercial-house-dj-mixes">Commercial House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/deep-house-dj-mixes">Deep House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/deep-tech-house-dj-mixes">Deep Tech House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/electro-house-dj-mixes">Electro House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/fidget-house-dj-mixes">Fidget House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/funk-disco-dj-mixes">Funk / Disco / Nu-Disco</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/funky-house-dj-mixes">Funky House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/jackin-house-dj-mixes">Jackin House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/latin-dj-mixes">Latin House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/progressive-house-dj-mixes">Progressive House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/soulful-house-dj-mixes">Soulful House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/tech-house-dj-mixes">Tech House</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/tribal-dj-mixes">Tribal House</a>
+                            </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="/mixes/Mash-Ups-dj-mixes">Mash-Ups</a>
+
+            </li>
+            <li>
+                <a href="/mixes/mixed-genre-dj-mixes">Mixed Genre</a>
+
+            </li>
+            <li>
+                <a href="/mixes/old-skool-dj-mixes">Old Skool</a>
+
+            </li>
+            <li>
+                <a href="/mixes/productions-dj-mixes">Original Productions</a>
+
+            </li>
+            <li>
+                <a href="/mixes/Remixes-dj-mixes">Remixes</a>
+
+            </li>
+            <li>
+                <a href="/mixes/techno-dj-mixes">Techno</a>
+
+                    <ul class="list-unstyled">
+                            <li>
+                                <a href="/mixes/destroit-techno-dj-mixes">Detroit Techno</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/hardhouse-dj-mixes">Hard House / Hard Dance</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/hardcore-gabber-dj-mixes">Hardcore Gabber</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/hardstyle-dj-mixes">Hardstyle</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/minimal-techno-dj-mixes">Minimal / Techno</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/uk-hardcore-dj-mixes">UK Hardcore</a>
+                            </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="/mixes/trance-dj-mixes">Trance</a>
+
+                    <ul class="list-unstyled">
+                            <li>
+                                <a href="/mixes/goa-trance-dj-mixes">Goa Trance</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/progressive-trance-dj-mixes">Progressive Trance</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/psy-trance-dj-mixes">Psy  Trance</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/uplifting-trance-dj-mixes">Uplifting Trance</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/vocal-trance-dj-mixes">Vocal  Trance</a>
+                            </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="/mixes/urban-dj-mixes">Urban</a>
+
+                    <ul class="list-unstyled">
+                            <li>
+                                <a href="/mixes/bassline-house-dj-mixes">Bassline House / Speed Garage / 4x4</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/breakbeat-dj-mixes">Breakbeat</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/dub-dj-mixes">Dub</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/dub-step-dj-mixes">Dubstep</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/reggae-dj-mixes">Reggae</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/hiphop-dj-mixes">RnB / Hip Hop</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/trap-dj-mixes">Trap</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/trip-hop-dj-mixes">Trip Hop</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/uk-funky-dj-mixes">UK Funky</a>
+                            </li>
+                            <li>
+                                <a href="/mixes/uk-garage-dj-mixes">UK Garage</a>
