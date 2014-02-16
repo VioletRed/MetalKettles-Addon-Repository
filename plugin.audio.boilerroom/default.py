@@ -40,10 +40,9 @@ def Search(url):
 
 def GetLinks(url):
         link = open_url(url)
-        link2 = link.replace('\n','').replace('\t','').replace(' ','')
         np=re.compile('<div class="next"><a href="(.+?)" >Older <span class="icon-angle-right"></span></a></div>').findall(link)
-        match=re.compile('<divclass="resultrecording"><ahref="(.+?)"><spanclass="main_image"><imgsrc="(.+?)"/><spanclass="duration">(.+?)</span><spanclass="play"></span></span><spanclass="post_type">Recording</span><spanclass="post_title">(.+?)</span><spanclass="city">(.+?)</span><spanclass="date">(.+?)</span></a>').findall(link2)
-        for url, img, dur, djname, city, rel in match:
+        match=re.compile('</article><article class="result recording">.+?<a href="(.+?)">.+?<img src="(.+?)" />.+?<span class="post_title">(.+?)</span>.+?<span class="city">(.+?)</span>.+?<span class="date">(.+?)</span>.+?<span class="duration">(.+?)</span>',re.DOTALL).findall(link)
+        for url, img, djname, city, rel, dur in match:
                 vid = dur + '    ' + djname.replace('#038','').replace(';','') + '  (' + rel + ')  -  ' + city
                 addDir(vid,url,100,img,'',fanart)
         addDir('[B][COLOR gold]Next Page>>>[/COLOR][/B]',np[0],4,'','',fanart)
@@ -53,7 +52,7 @@ def GetLinks(url):
         
 def PLAYLINK(url):
          link = open_url(url)
-         match=re.compile('<meta property="og:video" content="https://www.youtube.com/v/(.+?)"/>').findall(link)    
+         match=re.compile('<iframe id="main_video" src="//www.youtube.com/v/(.+?)?enable').findall(link)
          youtube_id = match[0]
          url =  'plugin://plugin.video.youtube/?path=root/video&action=play_video&videoid='+ youtube_id
          xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
