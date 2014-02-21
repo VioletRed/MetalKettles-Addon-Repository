@@ -52,7 +52,7 @@ def GetLinks(url):
         
 def PLAYLINK(url):
          link = open_url(url)
-         match=re.compile('<iframe id="main_video" src="//www.youtube.com/v/(.+?)?enable').findall(link)
+         match=re.compile('<meta property="twitter:player" content="//www.youtube.com/embed/(.+?)?enable').findall(link)
          youtube_id = match[0]
          url =  'plugin://plugin.video.youtube/?path=root/video&action=play_video&videoid='+ youtube_id
          xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
