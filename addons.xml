@@ -112,7 +112,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.putlocker" name="MK Movies" version="1.0.0" provider-name="MetalKettle">
+<addon id="plugin.video.putlocker" name="Putlocker" version="0.0.5" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
     <import addon="script.module.urlresolver" version="2.0.9"/>
@@ -142,7 +142,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.spacetelescope" name="Space Telescope" version="0.0.2" provider-name="MetalKettle">
+<addon id="plugin.video.spacetelescope" name="Space Telescope" version="0.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
   </requires>
