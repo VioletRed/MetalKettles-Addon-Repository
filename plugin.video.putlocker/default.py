@@ -1,9 +1,9 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,simplejson,os
+import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,simplejson,os,socket
 from t0mm0.common.addon import Addon
 from t0mm0.common.net import Net
-
 from metahandler import metahandlers
- 
+
+socket.setdefaulttimeout(5) 
 addon_id = 'plugin.video.putlocker'
 selfAddon = xbmcaddon.Addon(id=addon_id)
 metaget = metahandlers.MetaData(preparezip=False)
@@ -19,7 +19,9 @@ def CATEGORIES():
         addDir2('Genres','url',2,artpath+'genres.png','',fanart)
         addDir2('Years','url',3,artpath+'year2.png','',fanart)
         addDir2('A - Z','url',4,artpath+'alphabet.png','',fanart)
-        addDir2('Search','url',5,artpath+'search.png','',fanart)    
+        addDir2('Search','url',5,artpath+'search.png','',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+
 
 def GETMOVIES(url):
         xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -29,9 +31,13 @@ def GETMOVIES(url):
         link=response.read()
         response.close()
         match=re.compile('td width="20%" valign="top" style="padding-top: 5px; padding-left: 5px; padding-right: 5px;padding-bottom: 10px;"><a href="(.+?)" title="(.+?)"><img src="(.+?)" border="0" ').findall(link)
+        inc = 1
         for url,name,thumb in match:
-		addDir(name,url,100,thumb)
+                #if inc > 5:
+                        addDir(name,url,100,thumb,len(match))
+                #inc = inc + 1
 	xbmcplugin.setContent(int(sys.argv[1]), 'movies')
+	xbmc.executebuiltin('Container.SetViewMode(500)')
         CheckForNextPage(link)
         
 def GENRES(url):
@@ -56,9 +62,11 @@ def GENRES(url):
         addDir2('Thriller','http://putlocker.bz/genre/thriller/1',1,artpath+'thriller.png','',fanart)
         addDir2('War','http://putlocker.bz/genre/war/1',1,artpath+'war.png','',fanart)
         addDir2('Western','http://putlocker.bz/genre/western/1',1,artpath+'western.png','',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
  
 def YEARS(url):
         xbmc.executebuiltin('Container.SetViewMode(500)')
+        addDir2('2014','http://putlocker.bz/year/2014/1',1,artpath+'year2.png','',fanart)
         addDir2('2013','http://putlocker.bz/year/2013/1',1,artpath+'year2.png','',fanart)
         addDir2('2012','http://putlocker.bz/year/2012/1',1,artpath+'year2.png','',fanart)
         addDir2('2011','http://putlocker.bz/year/2011/1',1,artpath+'year2.png','',fanart)
@@ -80,6 +88,7 @@ def YEARS(url):
         addDir2('1995','http://putlocker.bz/year/1995/1',1,artpath+'year2.png','',fanart)
         addDir2('1994','http://putlocker.bz/year/1994/1',1,artpath+'year2.png','',fanart)
         addDir2('1993','http://putlocker.bz/year/1993/1',1,artpath+'year2.png','',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
  
 def AZ(url):
         xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -92,9 +101,9 @@ def AZ(url):
         azlist=re.compile('<a href="(.+?)" title="(.+?)" style="text-decoration:none;').findall(link)
         for url,name in azlist:
                 name2 = name.split(' ',1)
-                print name2
                 if name2[0]=='0-9': name2[0]='num'
                 addDir2(name,url,1,artpath+name2[0]+'.png','',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
         
 def SEARCH():
     xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -116,8 +125,9 @@ def SEARCH():
     inc = 0
     for url,name,thumb in match:
                         if inc > 4:        
-                            addDir(name,url,100,thumb)
+                            addDir(name,url,100,thumb,len(match))
                         inc+=1
+    xbmc.executebuiltin('Container.SetViewMode(500)')
     
 def VIDEOLINKS(url,name):
         xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -135,6 +145,7 @@ def VIDEOLINKS(url,name):
                 else:
                         if urlresolver.HostedMediaFile(url).valid_url():
                                 addDir (hoster,url,200,icon,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
                 	
 def PLAYLINK(name,url):
         playlist = xbmc.PlayList(1)
@@ -177,14 +188,12 @@ def PLAYLINKMainServer(name,url):
         if vformatid>len(match)-1:
 		vformatid=len(match)-1
         newurl=match[vformatid][0];
-	print vformatid
 	newurl='http://'+newurl;
         playlist = xbmc.PlayList(1)
 	playlist.clear()
 	listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
 	listitem.setInfo("Video", {"Title":''})
 	listitem.setProperty('IsPlayable', 'true')
-	print newurl
 	playlist.add(newurl,listitem)
 	xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
 	xbmcPlayer.play(playlist)
@@ -254,10 +263,11 @@ def addDir2(name,url,mode,iconimage,description,fanart):
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
         return ok
  
  
-def addDir(name,url,mode,iconimage,isFolder=True):
+def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
         xbmc.executebuiltin('Container.SetViewMode(500)')
         splitName=name.partition('(')
 	simplename=""
@@ -277,7 +287,8 @@ def addDir(name,url,mode,iconimage,isFolder=True):
         liz.addContextMenuItems(contextMenuItems, replaceItems=True)
         if not meta['backdrop_url'] == '': liz.setProperty('fanart_image', meta['backdrop_url'])
         else: liz.setProperty('fanart_image', fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
         return ok
  
 params=get_params(); url=None; name=None; mode=None; site=None
