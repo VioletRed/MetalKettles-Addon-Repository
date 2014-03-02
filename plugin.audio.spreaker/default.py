@@ -31,10 +31,10 @@ def getshows(url):
          pp = tp+1
          nextpage = npbase[:-1] + str(pp)
          print nextpage
-         match=re.compile('<title>(.+?)</title>.+?<site_url>(.+?)</site_url>.+?<play_url>(.+?)</play_url>',re.DOTALL).findall(link) 
-         for name,url,thumb in match:
-             name2 = name.decode("ascii","ignore")
-             addDir(name2,url,2,thumb,'',fanart)
+         match=re.compile('<show_id>(.+?)</show_id>.+?<title>(.+?)</title>.+?<site_url>(.+?)</site_url>.+?<play_url>(.+?)</play_url>',re.DOTALL).findall(link) 
+         for showid,name,url,thumb in match:
+             name2 = name.decode("ascii","ignore").replace('&amp;#039;','')
+             addDir(name2,url,2,thumb,'',fanart,showid)
          if pp > lp:
              pass
          else:
@@ -43,19 +43,20 @@ def getshows(url):
 def getepisodes(url):
         link = open_url(url)
         imgmatch=re.compile('<meta property="og:image" content="(.+?)"/>').findall(link)
-        img = imgmatch[0] 
+        img = imgmatch[0]
         match=re.compile('<a class="btnn_player play" data-episode_id="(.+?)" title="(.+?)"').findall(link)
         for episode, name in match:
+            name2 = name.decode("ascii","ignore").replace('&amp;#039;','')
             playurl = 'http://api.spreaker.com/listen/episode/'+ episode + '/http'
-            addDir(name,playurl,100,img,'',fanart)
+            addDirPlayable(name2,playurl,100,img,'',fanart)
     
 def livenow(url):
          link = open_url(url)
          match=re.compile('<episode_id>(.+?)</episode_id>.+?<title>(.+?)</title>.+?<site_url>(.+?)</site_url>.+?<play_url>(.+?)</play_url>',re.DOTALL).findall(link) 
          for episode,name,url,thumb in match:
-             name2 = name.decode("ascii","ignore")
+             name2 = name.decode("ascii","ignore").replace('&amp;#039;','')
              playurl = 'http://api.spreaker.com/listen/episode/'+ episode + '/http'
-             addDir(name2,playurl,100,thumb,'',fanart)
+             addDirPlayable(name2,playurl,100,thumb,'',fanart)
 
 def searchshow(url):
         search_entered =''
@@ -70,16 +71,22 @@ def searchshow(url):
                 link = open_url(url)
                 match=re.compile('<title>(.+?)</title>.+?<site_url>(.+?)</site_url>.+?<play_url>(.+?)</play_url>',re.DOTALL).findall(link) 
                 for name,url,thumb in match:
-                    name2 = name.decode("ascii","ignore")
+                    name2 = name.decode("ascii","ignore").replace('&amp;#039;','')
                     addDir(name2,url,2,thumb,'',fanart)
 
 ############################ STANDARD  #####################################################################################
         
-def PLAYLINK(url):
-         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-         xbmcPlayer.play(url)
-         exit()
-                
+def PLAYLINK(url,name):
+        name = name.replace('Play','')
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage='')
+        liz.setInfo('music', {'Title':name})
+        liz.setProperty('mimetype', 'audio/mpeg')                
+        playlist.add(url, liz)
+        xbmcPlayer = xbmc.Player()
+        xbmcPlayer.play(playlist)
+
 def open_url(url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -106,13 +113,22 @@ def get_params():
                                
         return param
                
-def addDir(name,url,mode,iconimage,description,fanart):
+def addDir(name,url,mode,iconimage,description,fanart,showid=''):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+        return ok
+    
+def addDirPlayable(name,url,mode,iconimage,description,fanart):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok 
  
 params=get_params(); url=None; name=None; mode=None; site=None
@@ -132,5 +148,5 @@ elif mode==1: getshows(url)
 elif mode==2: getepisodes(url)
 elif mode==3: livenow(url)
 elif mode==50: searchshow(url)
-elif mode==100: PLAYLINK(url)
+elif mode==100: PLAYLINK(url,name)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
