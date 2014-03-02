@@ -32,7 +32,7 @@ def showsearch(url):
         link = open_url(url)
         match=re.compile('<img class="album_art" src="(.+?)" alt=".+?">\r\n                              \r\n                <a class="headlink" href="(.+?)">\r\n                                      <h2 style="padding: 2px 8px 0 0; margin-bottom: 5px">(.+?)</h2>\r\n').findall(link)
         for art,url,name in match:
-                addDir(name.replace('MP3',""),url,100,'http://mp3rehab.com/images/Mp3%20Gray.png','',fanart)
+                addDirPlayable(name.replace('MP3',""),url,100,'http://mp3rehab.com/images/Mp3%20Gray.png','',fanart)
         match=re.compile('<a href="(.+?)" class="button gray right">Next Page</a>').findall(link)
         for np in match:
                 addDir('Next Page>>>',np,3,'http://mp3rehab.com/images/Mp3%20Gray.png','',fanart)
@@ -42,7 +42,7 @@ def GetLinks(url):
         link = open_url(url)
         match=re.compile('<img class="album_art" src="(.+?)" alt="(.+?)">\r\n                              \r\n                <a class="headlink" href="(.+?)">\r\n').findall(link)
         for art,name, url in match:
-                    addDir(name,url,100,art,'',fanart)
+                    addDirPlayable(name,url,100,art,'',fanart)
                
 
 ############################ STANDARD  #####################################################################################
@@ -52,16 +52,16 @@ def PLAYLINK(url):
          match=re.compile('<a class="filedownload" href="(.+?)" download=".+?" data-file-id=".+?" target="_blank" rel="nofollow"><strong>Download Mp3</strong></a>').findall(link)
          for tune in match:
                 music = tune.replace(' ','%20').replace('.html','')
-         listitem = xbmcgui.ListItem(name)
-         listitem.setInfo('audio', {'Title': name})
+         liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage='')
+         liz.setInfo('music', {'Title':name})
+         liz.setProperty('mimetype', 'audio/mpeg')                
          if xbmc.Player().isPlayingAudio() == False:
                 playlist.clear()
-                playlist.add(music, listitem)
+                playlist.add(music, liz)
                 xbmc.Player().play(playlist)
          else:
-            playlist.add(music, listitem)
-         exit()
-                
+            playlist.add(music, liz)
+
 def open_url(url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -95,6 +95,15 @@ def addDir(name,url,mode,iconimage,description,fanart):
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+        return ok
+
+def addDirPlayable(name,url,mode,iconimage,description,fanart):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
 
  
