@@ -21,7 +21,6 @@ def Index():
          addDir('Search','url',50,icon,'',fanart)
          
 def latestgenre(url):    
-         #link = open_url(baseurl)
          gens = open(genres, 'r')
          link = gens.read()
          match=re.compile('<a href="(.+?)">(.+?)</a>').findall(link)
@@ -34,9 +33,9 @@ def getmixes(url):
         link = open_url(url)
         match=re.compile('<a href="(.+?)"><img src="(.+?)" alt="(.+?)" class="img-responsive" /></a>').findall(link)
         for url, thumb, name in match:
-            name2 = name.decode("ascii","ignore")
+            name2 = name.decode("ascii","ignore").replace('&#39;','')
             url = baseurl2+url
-            addDir(name2,url,100,thumb,'',fanart)
+            addDirPlayable(name2,url,100,thumb,'',fanart)
 
 def Search(url):
         search_entered =''
@@ -52,21 +51,26 @@ def Search(url):
         
 ############################ STANDARD  #####################################################################################
         
-def PLAYLINK(url):
+def PLAYLINK(url,name):
          link = open_url(url)
-         match=re.compile('<a href="(.+?)" class="player-playpause" id="player-playpause"></a>').findall(link)
-         playabletune = match[0]
-         playlist = xbmc.PlayList(1)
-         playlist.clear()
-         listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-         listitem.setInfo("Video", {"Title":name})
-         listitem.setProperty('mimetype', 'video/x-msvideo')
-         listitem.setProperty('IsPlayable', 'true')
-         playlist.add(playabletune,listitem)
-         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-         xbmcPlayer.play(playlist)
-         exit()
-                
+         if 'Media Not Found - May no longer exist' in link:
+            notification('House Mixes', 'Media Not Found - May no longer exist', '5000',icon)
+         else:
+             match=re.compile('<a href="(.+?)" class="player-playpause" id="player-playpause"></a>').findall(link)
+             playabletune = match[0].replace('<','').replace('>','').replace(' ','%20')
+             print playabletune
+             playlist = xbmc.PlayList(1)
+             playlist.clear()
+             liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage='')
+             liz.setInfo('music', {'Title':name})
+             liz.setProperty('mimetype', 'audio/mpeg')                
+             playlist.add(playabletune, liz)
+             xbmcPlayer = xbmc.Player()
+             xbmcPlayer.play(playlist)
+                                     
+def notification(title, message, ms, nart):
+    xbmc.executebuiltin("XBMC.notification(" + title + "," + message + "," + ms + "," + nart + ")")
+                                     
 def open_url(url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -100,7 +104,16 @@ def addDir(name,url,mode,iconimage,description,fanart):
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
-        return ok 
+        return ok
+    
+def addDirPlayable(name,url,mode,iconimage,description,fanart):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+        return ok
  
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
@@ -118,5 +131,5 @@ if mode==None or url==None or len(url)<1: Index()
 elif mode==1: latestgenre(url)
 elif mode==2: getmixes(url)
 elif mode==50: Search(url)
-elif mode==100: PLAYLINK(url)
+elif mode==100: PLAYLINK(url,name)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

@@ -14,7 +14,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.audio.housemixes" name="House Mixes" version="1.1.2" provider-name="MetalKettle">
+<addon id="plugin.audio.housemixes" name="House Mixes" version="1.1.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
   </requires>
@@ -28,7 +28,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.audio.mp3rehab" name="MP3Rehab" version="0.0.2" provider-name="MetalKettle">
+<addon id="plugin.audio.mp3rehab" name="MP3Rehab" version="0.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
   </requires>
@@ -42,7 +42,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.audio.spreaker" name="Spreaker" version="1.0.1" provider-name="MetalKettle">
+<addon id="plugin.audio.spreaker" name="Spreaker" version="1.0.2" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
   </requires>
@@ -56,7 +56,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.6" provider-name="MetalKettle">
+<addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.7" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
   </requires>
@@ -112,7 +112,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.putlocker" name="MK Movies" version="1.0.3" provider-name="MetalKettle">
+<addon id="plugin.video.putlocker" name="MK Movies" version="1.0.4" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
     <import addon="script.module.urlresolver" version="2.0.9"/>
