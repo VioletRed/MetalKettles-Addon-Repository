@@ -23,7 +23,9 @@ def CATEGORIES():
         xbmc.executebuiltin('Container.SetViewMode(500)')
 
 
-def GETMOVIES(url):
+def GETMOVIES(url,name):
+        print name
+        name2=name
         xbmc.executebuiltin('Container.SetViewMode(500)')
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -33,9 +35,13 @@ def GETMOVIES(url):
         match=re.compile('td width="20%" valign="top" style="padding-top: 5px; padding-left: 5px; padding-right: 5px;padding-bottom: 10px;"><a href="(.+?)" title="(.+?)"><img src="(.+?)" border="0" ').findall(link)
         inc = 1
         for url,name,thumb in match:
-                #if inc > 5:
+                if name2 == 'Featured':
                         addDir(name,url,100,thumb,len(match))
-                #inc = inc + 1
+                else:
+                        if inc > 5:
+                                addDir(name,url,100,thumb,len(match))
+                        inc = inc + 1
+
 	xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 	xbmc.executebuiltin('Container.SetViewMode(500)')
         CheckForNextPage(link)
@@ -306,7 +312,7 @@ print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); prin
 print params
 
 if mode==None or url==None or len(url)<1: CATEGORIES()
-elif mode==1: GETMOVIES(url)
+elif mode==1: GETMOVIES(url,name)
 elif mode==2: GENRES(url)
 elif mode==3: YEARS(url)
 elif mode==4: AZ(url)
