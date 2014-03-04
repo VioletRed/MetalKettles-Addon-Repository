@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.7" provider-name="MetalKettle">
+<addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.8" provider-name="MetalKettle">
   <requires>
-    <import addon="xbmc.python" version="2.0"/>
+    <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>audio</provides>
