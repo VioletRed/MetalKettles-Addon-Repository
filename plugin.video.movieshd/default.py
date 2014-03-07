@@ -28,8 +28,8 @@ def GETMOVIES(url,name):
         response.close()
         match=re.compile('<div class="cover"><a href="(.+?)" title="(.+?)"><img src="(.+?)" alt').findall(link)
         for url,name,thumb in match:
-                name2 = name.decode("ascii","ignore").replace('&#8217;','')
-                addDir(name2,url,100,thumb,len(match))
+                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','')
+                addDir(name2,url,100,'',len(match))
         match=re.compile('<a class="next page-numbers" href="(.+?)">Next  &rarr;</a></div>').findall(link)
         if len(match)>0:
                 addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match))
@@ -62,18 +62,16 @@ def SEARCH():
     keyboard.doModal()
     if keyboard.isConfirmed():
         search_entered = keyboard.getText().replace(' ','+')
-    if search_entered == None or len(search_entered)<1:
-        end()
-    else:
+    if len(search_entered)>1:
         url = 'http://movieshd.co/?s='+ search_entered
-    req = urllib2.Request(url)
-    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-    response = urllib2.urlopen(req)
-    link=response.read()
-    response.close()
-    xbmc.executebuiltin('Container.SetViewMode(500)')
-    GETMOVIES(url,name)
-    xbmc.executebuiltin('Container.SetViewMode(500)')
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+        GETMOVIES(url,name)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
 
                 	
 def PLAYLINK(name,url):
@@ -93,7 +91,6 @@ def PLAYLINK(name,url):
         playlist.add(stream_url,listitem)
         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
         xbmcPlayer.play(playlist)
-        exit()
       
 def get_params():
         param=[]
@@ -125,7 +122,7 @@ def addDir2(name,url,mode,iconimage,description,fanart):
         return ok
  
  
-def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
+def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
         xbmc.executebuiltin('Container.SetViewMode(500)')
         splitName=name.partition('(')
 	simplename=""
@@ -136,9 +133,10 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
 		if len(simpleyear)>0:
 			simpleyear=simpleyear[0]
         meta = metaget.get_meta('movie', simplename ,simpleyear)
+        print meta
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
         ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz=xbmcgui.ListItem(name, iconImage=meta['cover_url'], thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels= meta )
         contextMenuItems = []
         contextMenuItems.append(('Movie Information', 'XBMC.Action(Info)'))
