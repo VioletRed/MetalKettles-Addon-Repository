@@ -169,6 +169,7 @@ def PLAYLINK(name,url):
 def PLAYLINKMainServer(name,url):
         req = urllib2.Request(url)
 	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        req.add_header('Referer', 'http://static1.movsharing.com/player.swf')
 	response = urllib2.urlopen(req)
 	link=response.read()
 	response.close()
@@ -176,11 +177,25 @@ def PLAYLINKMainServer(name,url):
         newurl=decodeURL(match[0]);
         mydata=[('isslverify','true'),('iagent','Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8'),('url',newurl),('ihttpheader','true')]    #The first is the var name the second is the value
 	mydata=urllib.urlencode(mydata)
-	path='http://static2.movsharing.com/pluginss/plugins_player.php'
-	req=urllib2.Request(path, mydata)
-	req.add_header("Content-type", "application/x-www-form-urlencoded")
-	link=urllib2.urlopen(req).read()
-        response.close()
+
+	
+        try:
+                path='http://static2.movsharing.com/pluginss/plugins_player.php'
+                req=urllib2.Request(path, mydata)
+                req.add_header("Content-type", "application/x-www-form-urlencoded")
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+        except:
+                path='http://static1.movsharing.com/pluginss/plugins_player.php'
+                req=urllib2.Request(path, mydata)
+                req.add_header("Content-type", "application/x-www-form-urlencoded")
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+                
 	match=re.compile('{"url":"http:\/\/(.*?)",".*?"type":"(.*?)"}').findall(link)
         indexurl=0;
         vformat=selfAddon.getSetting( "VideoFromat" ) 
