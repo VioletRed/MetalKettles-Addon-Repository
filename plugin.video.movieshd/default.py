@@ -29,10 +29,11 @@ def GETMOVIES(url,name):
         match=re.compile('<div class="cover"><a href="(.+?)" title="(.+?)"><img src="(.+?)" alt').findall(link)
         for url,name,thumb in match:
                 name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','')
-                addDir(name2,url,100,'',len(match))
+                addDir(name2,url,100,'',len(match),isFolder=False)
         match=re.compile('<a class="next page-numbers" href="(.+?)">Next  &rarr;</a></div>').findall(link)
+        print match
         if len(match)>0:
-                addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match))
+                addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match),isFolder=True)
         xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 	xbmc.executebuiltin('Container.SetViewMode(500)')
         
@@ -122,7 +123,7 @@ def addDir2(name,url,mode,iconimage,description,fanart):
         return ok
  
  
-def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
+def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
         xbmc.executebuiltin('Container.SetViewMode(500)')
         splitName=name.partition('(')
 	simplename=""
