@@ -41,7 +41,7 @@ def Search(url):
 def GetLinks(url):
         link = open_url(url)
         np=re.compile('<div class="next"><a href="(.+?)" >Older <span class="icon-angle-right"></span></a></div>').findall(link)
-        match=re.compile('</article><article class="result recording">.+?<a href="(.+?)">.+?<img src="(.+?)" />.+?<span class="post_title">(.+?)</span>.+?<span class="city">(.+?)</span>.+?<span class="date">(.+?)</span>.+?<span class="duration">(.+?)</span>',re.DOTALL).findall(link)
+        match=re.compile('<article class="result recording">.+?<a href="(.+?)">.+?<img src="(.+?)" />.+?<span class="post_title">(.+?)</span>.+?<span class="city">(.+?)</span>.+?<span class="date">(.+?)</span>.+?<span class="duration">(.+?)</span>',re.DOTALL).findall(link)
         for url, img, djname, city, rel, dur in match:
                 vid = dur + '    ' + djname.replace('#038','').replace(';','') + '  (' + rel + ')  -  ' + city
                 addDir(vid,url,100,img,'',fanart)
