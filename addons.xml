@@ -185,11 +185,11 @@
   </extension>
 </addon>
 
-<addon id="repository.metalkettle" name="MetalKettles Addon Repository" version="1.3" provider-name="MetalKettle">
+<addon id="repository.metalkettle" name="MetalKettles Addon Repository" version="1.4" provider-name="MetalKettle">
 	<extension point="xbmc.addon.repository" name="MetalKettles Addon Repository">
-		<info compressed="false">http://github.com/metalkettle/MetalKettles-Addon-Repository/raw/master/addons.xml</info>
-		<checksum>http://github.com/metalkettle/MetalKettles-Addon-Repository/raw/master/addons.xml.md5</checksum>
-		<datadir zip="true">http://github.com/metalkettle/MetalKettles-Addon-Repository/raw/master/zips</datadir>
+		<info compressed="false">http://raw.github.com/metalkettle/MetalKettles-Addon-Repository/master/addons.xml</info>
+		<checksum>http://raw.github.com/metalkettle/MetalKettles-Addon-Repository/master/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/metalkettle/MetalKettles-Addon-Repository/master/zips</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Install my Addons</summary>
