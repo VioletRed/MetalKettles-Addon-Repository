@@ -106,6 +106,7 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
+    <broken>deprecated</broken>
     <summary lang="en">Watch all episode of Family Guy from familygutdirect.com</summary>
     <description lang="en">Watch all episode of Family Guy from familygutdirect.com</description>
     <platform>all</platform>
