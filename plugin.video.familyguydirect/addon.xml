@@ -11,4 +11,5 @@
     <description lang="en">Watch all episode of Family Guy from familygutdirect.com</description>
     <platform>all</platform>
   </extension>
+<broken>deprecated</broken>
 </addon>
