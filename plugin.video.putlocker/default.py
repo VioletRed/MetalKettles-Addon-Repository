@@ -3,6 +3,7 @@ from t0mm0.common.addon import Addon
 from t0mm0.common.net import Net
 from metahandler import metahandlers
 
+net = Net()
 socket.setdefaulttimeout(5) 
 addon_id = 'plugin.video.putlocker'
 selfAddon = xbmcaddon.Addon(id=addon_id)
@@ -137,22 +138,25 @@ def SEARCH():
     
 def VIDEOLINKS(url,name):
         xbmc.executebuiltin('Container.SetViewMode(500)')
-	req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        links=re.compile('<a.+?href="(.+?)".+?title=".+?">Version .+?<\/a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.+?').findall(link)
-        for url in links:
-                hostname=re.compile('http://(.+?)/').findall(url)
-                hoster = str(hostname[0]).replace('www.','')
-		if hoster=='putlocker.bz' :
-                        PLAYLINKMainServer(name,url)
-                else:
-                        if urlresolver.HostedMediaFile(url).valid_url():
-                                addDir (hoster,url,200,icon,'',fanart)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
-                	
+        url2 =''
+        movielink = net.http_GET(url).content
+        match = re.compile('proxy.file\':\'(.+?)\',\n\t\t\t\t\t\t\t\tfile:\'(.+?)\'').findall(movielink)
+        for swplayerhost, key in match:
+            realmovielinks = net.http_POST(swplayerhost, {'url': key}).content.replace('""','"null"')
+            links = re.compile('"file":"(.+?)"').findall(realmovielinks)
+            for url in links:
+                url2 = url.replace('\\','').replace('"','').replace('&begin=0r','').replace(' ','')
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
+        listitem.setInfo("Video", {"Title":name})
+        listitem.setProperty('mimetype', 'video/x-msvideo')
+        listitem.setProperty('IsPlayable', 'true')
+        playlist.add(url2,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist)
+        exit()
+
 def PLAYLINK(name,url):
         playlist = xbmc.PlayList(1)
         playlist.clear()
@@ -160,93 +164,9 @@ def PLAYLINK(name,url):
         listitem.setInfo("Video", {"Title":name})
         listitem.setProperty('mimetype', 'video/x-msvideo')
         listitem.setProperty('IsPlayable', 'true')
-        stream_url = urlresolver.HostedMediaFile(url).resolve()
-        playlist.add(stream_url,listitem)
+        playlist.add(url,listitem)
         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
         xbmcPlayer.play(playlist)
-        exit()
-
-def PLAYLINKMainServer(name,url):
-        req = urllib2.Request(url)
-	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        req.add_header('Referer', 'http://static1.movsharing.com/player.swf')
-	response = urllib2.urlopen(req)
-	link=response.read()
-	response.close()
-	match=re.compile('proxy.link=movs[*](.*?)&').findall(link)
-        newurl=decodeURL(match[0]);
-        mydata=[('isslverify','true'),('iagent','Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8'),('url',newurl),('ihttpheader','true')]    #The first is the var name the second is the value
-	mydata=urllib.urlencode(mydata)
-
-	
-        try:
-                path='http://static2.movsharing.com/pluginss/plugins_player.php'
-                req=urllib2.Request(path, mydata)
-                req.add_header("Content-type", "application/x-www-form-urlencoded")
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-        except:
-                path='http://static1.movsharing.com/pluginss/plugins_player.php'
-                req=urllib2.Request(path, mydata)
-                req.add_header("Content-type", "application/x-www-form-urlencoded")
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-                
-	match=re.compile('{"url":"http:\/\/(.*?)",".*?"type":"(.*?)"}').findall(link)
-        indexurl=0;
-        vformat=selfAddon.getSetting( "VideoFromat" ) 
-	vformatid=len(match)-1
-        if vformat=="0":
-		vformatid=0
-	elif vformat=="1":
-		vformatid=1
-	elif vformat=="2":
-		vformatid=2
-        if vformatid>len(match)-1:
-		vformatid=len(match)-1
-        newurl=match[vformatid][0];
-	newurl='http://'+newurl;
-        playlist = xbmc.PlayList(1)
-	playlist.clear()
-	listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-	listitem.setInfo("Video", {"Title":''})
-	listitem.setProperty('IsPlayable', 'true')
-	playlist.add(newurl,listitem)
-	xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-	xbmcPlayer.play(playlist)
-	exit()
-
-def m_array_index(arr, searchItem):
-    for i,x in enumerate(arr):
-        for j,y in enumerate(x):
-            if y == searchItem:
-                return i
-    return -1
-
-def decodeURL(movieurl):
-	UnEncrypKey="001000003100000000000030000020011200000000200000310000";
-	indexer=0;
-	newurl="";
-	magicCode = int(movieurl[len(movieurl)-4:len(movieurl)],10);
-	movieurl=movieurl[0:len(movieurl)-4];
-        var7=0;
-	while indexer<len(movieurl):
-		var7=var7+2;
-		currentChar = movieurl[indexer:indexer+4];
-		currentChar = int(currentChar,16);
-		currentChar = (currentChar - magicCode - (var7*var7) -16)/3
-		currentChar=currentChar-int(UnEncrypKey[((indexer/4) % len(UnEncrypKey))],10);
-		if currentChar>0:
-			newurl=newurl+chr(currentChar)
-		else:
-			indexer=len(movieurl);
-		indexer=indexer+4;
-	return newurl;
-
 
 def CheckForNextPage(page):
     xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -334,5 +254,4 @@ elif mode==4: AZ(url)
 elif mode==5: SEARCH()
 elif mode==100: VIDEOLINKS(url,name)
 elif mode==200: PLAYLINK(name,url)
-elif mode==400: PLAYLINKMainServer(name,url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

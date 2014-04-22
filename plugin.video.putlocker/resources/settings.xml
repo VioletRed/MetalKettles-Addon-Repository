@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <category label="32001">
-         <setting label="32018" type="enum" id="VideoFromat" values="Low(Flash)|Medium(mpeg)|High(Dvd)"/>
-     </category>
+
+<category label="Auto-View">
+
+<setting id="auto-view" type="bool" label="[COLOR red]Enable Autoview[/COLOR]" default="false"/>
+
+<setting id="movies-view" type="number" label="Global View" default="500" enable="!eq(-1,false)"/>
+
+</category>
+
 </settings>
