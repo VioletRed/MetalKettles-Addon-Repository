@@ -14,7 +14,9 @@ xbmc.executebuiltin('Container.SetViewMode(500)')
 
 def CATEGORIES():
         xbmc.executebuiltin('Container.SetViewMode(500)')
-        addDir2('Featured','http://movieshd.co/',1,artpath+'movies.png','',fanart)
+        addDir2('Recently Added','http://movieshd.eu/?filtre=date&cat=0',1,artpath+'movies.png','',fanart)
+        addDir2('Most Viewed','http://movieshd.eu/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
+        addDir2('Highest Rated','http://movieshd.eu/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Genres','url',2,artpath+'genres.png','',fanart)
         addDir2('Search','url',3,artpath+'search.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -26,37 +28,41 @@ def GETMOVIES(url,name):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<div class="cover"><a href="(.+?)" title="(.+?)"><img src="(.+?)" alt').findall(link)
-        for url,name,thumb in match:
+        #match=re.compile('<div class="cover"><a href="(.+?)" title="(.+?)"><img src="(.+?)" alt').findall(link)
+        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
+        for url,name in match:
                 name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','')
                 addDir(name2,url,100,'',len(match),isFolder=False)
-        match=re.compile('<a class="next page-numbers" href="(.+?)">Next  &rarr;</a></div>').findall(link)
+        match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
         print match
         if len(match)>0:
                 addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match),isFolder=True)
         xbmcplugin.setContent(int(sys.argv[1]), 'movies')
-	xbmc.executebuiltin('Container.SetViewMode(500)')
-        
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+
 def GENRES(url):
         xbmc.executebuiltin('Container.SetViewMode(500)')
-        addDir2('Action','http://movieshd.co/watch-online/category/action/',1,artpath+'action.png','',fanart)
-        addDir2('Adventure','http://movieshd.co/watch-online/category/adventure/',1,artpath+'adventure.png','',fanart)
-        addDir2('Animation','http://movieshd.co/watch-online/category/animation/',1,artpath+'animation.png','',fanart)
-        addDir2('Biography','http://movieshd.co/watch-online/category/biography/',1,artpath+'biography.png','',fanart)
-        addDir2('Comedy','http://movieshd.co/watch-online/category/comedy/',1,artpath+'comedy.png','',fanart)
-        addDir2('Crime','http://movieshd.co/watch-online/category/crime/',1,artpath+'crime.png','',fanart)
-        addDir2('Drama','http://movieshd.co/watch-online/category/drama/',1,artpath+'drama.png','',fanart)
-        addDir2('Family','http://movieshd.co/watch-online/category/family/',1,artpath+'family.png','',fanart)
-        addDir2('Fantasy','http://movieshd.co/watch-online/category/fantasy/',1,artpath+'fantasy.png','',fanart)
-        addDir2('History','http://movieshd.co/watch-online/category/history/',1,artpath+'history.png','',fanart)
-        addDir2('Horror','http://movieshd.co/watch-online/category/horror/',1,artpath+'horror.png','',fanart)
-        addDir2('Music','http://movieshd.co/watch-online/category/music/',1,artpath+'musical.png','',fanart)
-        addDir2('Mystery','http://movieshd.co/watch-online/category/mystery/',1,artpath+'mystery.png','',fanart)
-        addDir2('Romance','http://movieshd.co/watch-online/category/romance/',1,artpath+'romance.png','',fanart)
-        addDir2('Sci-Fi','http://movieshd.co/watch-online/category/sci-fi/',1,artpath+'sci-fi.png','',fanart)
-        addDir2('Thriller','http://movieshd.co/watch-online/category/thriller/',1,artpath+'thriller.png','',fanart)
+        addDir2('Action','http://movieshd.eu/watch-online/category/action/',1,artpath+'action.png','',fanart)
+        addDir2('Adventure','http://movieshd.eu/watch-online/category/adventure/',1,artpath+'adventure.png','',fanart)
+        addDir2('Animation','http://movieshd.eu/watch-online/category/animation/',1,artpath+'animation.png','',fanart)
+        addDir2('Biography','http://movieshd.eu/watch-online/category/biography/',1,artpath+'biography.png','',fanart)
+        addDir2('Comedy','http://movieshd.eu/watch-online/category/comedy/',1,artpath+'comedy.png','',fanart)
+        addDir2('Crime','http://movieshd.eu/watch-online/category/crime/',1,artpath+'crime.png','',fanart)
+        addDir2('Drama','http://movieshd.eu/watch-online/category/drama/',1,artpath+'drama.png','',fanart)
+        addDir2('Family','http://movieshd.eu/watch-online/category/family/',1,artpath+'family.png','',fanart)
+        addDir2('Fantasy','http://movieshd.eu/watch-online/category/fantasy/',1,artpath+'fantasy.png','',fanart)
+        addDir2('History','http://movieshd.eu/watch-online/category/history/',1,artpath+'history.png','',fanart)
+        addDir2('Horror','http://movieshd.eu/watch-online/category/horror/',1,artpath+'horror.png','',fanart)
+        addDir2('Music','http://movieshd.eu/watch-online/category/music/',1,artpath+'musical.png','',fanart)
+        addDir2('Mystery','http://movieshd.eu/watch-online/category/mystery/',1,artpath+'mystery.png','',fanart)
+        addDir2('Romance','http://movieshd.eu/watch-online/category/romance/',1,artpath+'romance.png','',fanart)
+        addDir2('Sci-Fi','http://movieshd.eu/watch-online/category/sci-fi/',1,artpath+'sci-fi.png','',fanart)
+        addDir2('Sports','http://movieshd.eu/watch-online/category/sports/',1,artpath+'sport.png','',fanart)
+        addDir2('Thriller','http://movieshd.eu/watch-online/category/thriller/',1,artpath+'thriller.png','',fanart)
+        addDir2('War','http://movieshd.eu/watch-online/category/war/',1,artpath+'war.png','',fanart)
+        addDir2('Western','http://movieshd.eu/watch-online/category/western/',1,artpath+'western.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(500)')
- 
+
 def SEARCH():
     search_entered =''
     keyboard = xbmc.Keyboard(search_entered, 'Search Movies HD')
@@ -64,24 +70,42 @@ def SEARCH():
     if keyboard.isConfirmed():
         search_entered = keyboard.getText().replace(' ','+')
     if len(search_entered)>1:
-        url = 'http://movieshd.co/?s='+ search_entered
+        url = 'http://movieshd.eu/?s='+ search_entered
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        xbmc.executebuiltin('Container.SetViewMode(500)')
         GETMOVIES(url,name)
         xbmc.executebuiltin('Container.SetViewMode(500)')
 
-                	
+
 def PLAYLINK(name,url):
+        # Request MoviesHD page
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile("'file': '(.+?)',").findall(link)
+        # Find videomega reference and request video page from there.
+        match=re.compile("'text/javascript'>ref='(.+?)';width.*iframe").findall(link)
+        if (len(match) < 1):
+            return
+        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0]
+        req = urllib2.Request(videomega_url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        # Finally, find the actual filename
+        match=re.compile("document.write.unescape.\"(.+?)\"").findall(link)
+        if (len(match) < 1):
+            return
+        encoded=match[0]
+        link = urllib.unquote(encoded)
+        match=re.compile("file: \"(.+?)\",flash").findall(link)
+        if (len(match) < 1):
+            return
         stream_url = match[0]
         playlist = xbmc.PlayList(1)
         playlist.clear()
@@ -92,7 +116,7 @@ def PLAYLINK(name,url):
         playlist.add(stream_url,listitem)
         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
         xbmcPlayer.play(playlist)
-      
+
 def get_params():
         param=[]
         paramstring=sys.argv[2]
@@ -108,31 +132,31 @@ def get_params():
                         splitparams=pairsofparams[i].split('=')
                         if (len(splitparams))==2:
                                 param[splitparams[0]]=splitparams[1]
-                               
+
         return param
-               
+
 def addDir2(name,url,mode,iconimage,description,fanart):
         xbmc.executebuiltin('Container.SetViewMode(500)')
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz=xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
         xbmc.executebuiltin('Container.SetViewMode(500)')
         return ok
- 
- 
+
+
 def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
         xbmc.executebuiltin('Container.SetViewMode(500)')
         splitName=name.partition('(')
-	simplename=""
-	simpleyear=""
-	if len(splitName)>0:
-		simplename=splitName[0]
-		simpleyear=splitName[2].partition(')')
-		if len(simpleyear)>0:
-			simpleyear=simpleyear[0]
+        simplename=""
+        simpleyear=""
+        if len(splitName)>0:
+            simplename=splitName[0]
+            simpleyear=splitName[2].partition(')')
+            if len(simpleyear)>0:
+                simpleyear=simpleyear[0]
         meta = metaget.get_meta('movie', simplename ,simpleyear)
         print meta
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
@@ -147,7 +171,7 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
         xbmc.executebuiltin('Container.SetViewMode(500)')
         return ok
- 
+
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
 except: pass
@@ -158,7 +182,7 @@ except: pass
 try: mode=int(params["mode"])
 except: pass
 
- 
+
 print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); print "Name: "+str(name)
 print params
 
@@ -169,3 +193,4 @@ elif mode==3: SEARCH()
 elif mode==100: PLAYLINK(name,url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
