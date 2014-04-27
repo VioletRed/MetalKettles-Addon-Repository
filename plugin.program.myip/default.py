@@ -6,7 +6,30 @@ addon = Addon('plugin.program.myip', sys.argv)
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 
+#Network
+exip = xbmc.getInfoLabel('Network.IPAddress')
+gateway = xbmc.getInfoLabel('Network.GatewayAddress')
+dns1 = xbmc.getInfoLabel('Network.DNS1Address')
+dns2 = xbmc.getInfoLabel('Network.DNS2Address')
+fname = xbmc.getInfoLabel('System.FriendlyName').replace('XBMC (','').replace(')','')
+
+#System
+systime = xbmc.getInfoLabel('System.Time')
+sysdate = xbmc.getInfoLabel('System.Date')
+hddused = xbmc.getInfoLabel('System.UsedSpace')
+hddfree = xbmc.getInfoLabel('System.FreeSpace')
+sysbuild = xbmc.getInfoLabel('System.BuildVersion')
+sysbuilddate = xbmc.getInfoLabel('System.BuildDate')
+freemem = xbmc.getInfoLabel('System.FreeMemory')
+screen = xbmc.getInfoLabel('System.ScreenMode')
+lang = xbmc.getInfoLabel('System.Language')
+plat = sys.platform
+
 def Index():
+    addDir('[B][COLOR gold]Network Information [/COLOR][/B]','url',1,icon,'',fanart)
+    addDir('[B][COLOR gold]System Information [/COLOR][/B]','url',2,icon,'',fanart)
+
+def Network():
     url = 'http://www.iplocation.net/'
     req = urllib2.Request(url)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -17,12 +40,25 @@ def Index():
     inc = 1
     for ip, region, country, isp in match:
         if inc <2:
-            addDir('[B][COLOR gold]Your IP Address is: [/COLOR][/B]' + ip,'','',icon,'',fanart)
+            addDir('[B][COLOR gold]Your External IP Address is: [/COLOR][/B]' + ip,'','',icon,'',fanart)
             addDir('[B][COLOR gold]Your IP is based in: [/COLOR][/B]' + country,'','',icon,'',fanart)
             addDir('[B][COLOR gold]Your Service Provider is:[/COLOR][/B] ' + isp,'','',icon,'',fanart)
-        inc = inc+1
+            inc = inc+1
+    addDir('[B][COLOR gold]Your Internal IP Address is:[/COLOR][/B] ' + exip,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Network Friendly Name is:[/COLOR][/B] ' + fname,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Network Gateway IP Address is:[/COLOR][/B] ' + gateway,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Network DNS 1 Address is:[/COLOR][/B] ' + dns1,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Network DNS 2 Address is:[/COLOR][/B] ' + dns2,'','',icon,'',fanart)
        
-
+def System():
+    addDir('[B][COLOR gold]Your System Time is:[/COLOR][/B] ' + systime,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your System Date is:[/COLOR][/B] ' + sysdate,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Storage Used Space is:[/COLOR][/B] ' + hddused,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Storage Free Space is:[/COLOR][/B] ' + hddfree,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Free Memory is:[/COLOR][/B] ' + freemem,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Screen Mode is:[/COLOR][/B] ' + screen,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your System Language is:[/COLOR][/B] ' + lang,'','',icon,'',fanart)
+    addDir('[B][COLOR gold]Your Ststem Platform is:[/COLOR][/B] ' + plat,'','',icon,'',fanart)
 
 def get_params():
         param=[]
@@ -64,4 +100,7 @@ except: pass
 print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); print "Name: "+str(name)
  
 if mode==None or url==None or len(url)<1: Index()
+elif mode==1: Network()
+elif mode==2: System()
+
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
