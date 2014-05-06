@@ -28,10 +28,9 @@ def GETMOVIES(url,name):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        #match=re.compile('<div class="cover"><a href="(.+?)" title="(.+?)"><img src="(.+?)" alt').findall(link)
         match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
         for url,name in match:
-                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','')
+                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','')
                 addDir(name2,url,100,'',len(match),isFolder=False)
         match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
         print match
