@@ -10,19 +10,19 @@ addon = Addon(addon_id, sys.argv)
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
-xbmc.executebuiltin('Container.SetViewMode(500)')
+xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def CATEGORIES():
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         addDir2('Recently Added','http://movieshd.eu/?filtre=date&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Most Viewed','http://movieshd.eu/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Highest Rated','http://movieshd.eu/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Genres','url',2,artpath+'genres.png','',fanart)
         addDir2('Search','url',3,artpath+'search.png','',fanart)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def GETMOVIES(url,name):
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -37,10 +37,10 @@ def GETMOVIES(url,name):
         if len(match)>0:
                 addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match),isFolder=True)
         xbmcplugin.setContent(int(sys.argv[1]), 'movies')
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def GENRES(url):
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         addDir2('Action','http://movieshd.eu/watch-online/category/action/',1,artpath+'action.png','',fanart)
         addDir2('Adventure','http://movieshd.eu/watch-online/category/adventure/',1,artpath+'adventure.png','',fanart)
         addDir2('Animation','http://movieshd.eu/watch-online/category/animation/',1,artpath+'animation.png','',fanart)
@@ -60,7 +60,7 @@ def GENRES(url):
         addDir2('Thriller','http://movieshd.eu/watch-online/category/thriller/',1,artpath+'thriller.png','',fanart)
         addDir2('War','http://movieshd.eu/watch-online/category/war/',1,artpath+'war.png','',fanart)
         addDir2('Western','http://movieshd.eu/watch-online/category/western/',1,artpath+'western.png','',fanart)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def SEARCH():
     search_entered =''
@@ -76,7 +76,7 @@ def SEARCH():
         link=response.read()
         response.close()
         GETMOVIES(url,name)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
 
 
 def PLAYLINK(name,url):
@@ -86,11 +86,17 @@ def PLAYLINK(name,url):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
+
+        
         # Find videomega reference and request video page from there.
         match=re.compile("'text/javascript'>ref='(.+?)';width.*iframe").findall(link)
+        
+        if (len(match) == 1):
+                videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0] 
         if (len(match) < 1):
-            return
-        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0]
+                match=re.compile("frameborder='.+?' src='(.+?)&").findall(link)
+                videomega_url = match[0]            
+        
         req = urllib2.Request(videomega_url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -135,19 +141,19 @@ def get_params():
         return param
 
 def addDir2(name,url,mode,iconimage,description,fanart):
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         return ok
 
 
 def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         splitName=name.partition('(')
         simplename=""
         simpleyear=""
@@ -168,7 +174,7 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
         if not meta['backdrop_url'] == '': liz.setProperty('fanart_image', meta['backdrop_url'])
         else: liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
+        xbmc.executebuiltin('Container.SetViewMode(50)')
         return ok
 
 params=get_params(); url=None; name=None; mode=None; site=None
