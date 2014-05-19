@@ -2,8 +2,9 @@ import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,simpl
 from t0mm0.common.addon import Addon
 from t0mm0.common.net import Net
 from metahandler import metahandlers
+import decrypter
 
-socket.setdefaulttimeout(5) 
+#socket.setdefaulttimeout(15) 
 addon_id = 'plugin.video.putlocker'
 selfAddon = xbmcaddon.Addon(id=addon_id)
 metaget = metahandlers.MetaData(preparezip=False)
@@ -14,19 +15,16 @@ artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + 
 xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def CATEGORIES():
+        addCat('Featured','http://putlocker.bz/featured/1',1,artpath+'movies.png','',fanart)
+        addCat('Genres','url',2,artpath+'genres.png','',fanart)
+        addCat('Years','url',3,artpath+'year2.png','',fanart)
+        addCat('A - Z','url',4,artpath+'alphabet.png','',fanart)
+        addCat('Search','url',5,artpath+'search.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
-        addDir2('Featured','http://putlocker.bz/featured/1',1,artpath+'movies.png','',fanart)
-        addDir2('Genres','url',2,artpath+'genres.png','',fanart)
-        addDir2('Years','url',3,artpath+'year2.png','',fanart)
-        addDir2('A - Z','url',4,artpath+'alphabet.png','',fanart)
-        addDir2('Search','url',5,artpath+'search.png','',fanart)
-        xbmc.executebuiltin('Container.SetViewMode(50)')
-
 
 def GETMOVIES(url,name):
         print name
         name2=name
-        xbmc.executebuiltin('Container.SetViewMode(50)')
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -36,68 +34,64 @@ def GETMOVIES(url,name):
         inc = 1
         for url,name,thumb in match:
                 if name2 == 'Featured':
-                        addDir(name,url,100,thumb,len(match))
+                        addDir(name,url,400,thumb,len(match),isFolder=False)
                 else:
                         if inc > 5:
-                                addDir(name,url,100,thumb,len(match))
+                                addDir(name,url,400,thumb,len(match),isFolder=False)
                         inc = inc + 1
-
 	xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 	xbmc.executebuiltin('Container.SetViewMode(50)')
         CheckForNextPage(link)
         
 def GENRES(url):
-        xbmc.executebuiltin('Container.SetViewMode(50)')
-        addDir2('Action','http://putlocker.bz/genre/action/1',1,artpath+'action.png','',fanart)
-        addDir2('Adventure','http://putlocker.bz/genre/adventure/1',1,artpath+'adventure.png','',fanart)
-        addDir2('Animation','http://putlocker.bz/genre/animation/1',1,artpath+'animation.png','',fanart)
-        addDir2('Biography','http://putlocker.bz/genre/biography/1',1,artpath+'biography.png','',fanart)
-        addDir2('Comedy','http://putlocker.bz/genre/comedy/1',1,artpath+'comedy.png','',fanart)
-        addDir2('Crime','http://putlocker.bz/genre/crime/1',1,artpath+'crime.png','',fanart)
-        addDir2('Documentary','http://putlocker.bz/genre/documentary/1',1,artpath+'documentary.png','',fanart)
-        addDir2('Drama','http://putlocker.bz/genre/drama/1',1,artpath+'drama.png','',fanart)
-        addDir2('Family','http://putlocker.bz/genre/family/1',1,artpath+'family.png','',fanart)
-        addDir2('Fantasy','http://putlocker.bz/genre/fantasy/1',1,artpath+'fantasy.png','',fanart)
-        addDir2('History','http://putlocker.bz/genre/history/1',1,artpath+'history.png','',fanart)
-        addDir2('Horror','http://putlocker.bz/genre/horror/1',1,artpath+'horror.png','',fanart)
-        addDir2('Musical','http://putlocker.bz/genre/musical/1',1,artpath+'musical.png','',fanart)
-        addDir2('Mystery','http://putlocker.bz/genre/mystery/1',1,artpath+'mystery.png','',fanart)
-        addDir2('Romance','http://putlocker.bz/genre/romance/1',1,artpath+'romance.png','',fanart)
-        addDir2('Sci-Fi','http://putlocker.bz/genre/sci-fi/1',1,artpath+'sci-fi.png','',fanart)
-        addDir2('Sport','http://putlocker.bz/genre/sport/1',1,artpath+'sport.png','',fanart)
-        addDir2('Thriller','http://putlocker.bz/genre/thriller/1',1,artpath+'thriller.png','',fanart)
-        addDir2('War','http://putlocker.bz/genre/war/1',1,artpath+'war.png','',fanart)
-        addDir2('Western','http://putlocker.bz/genre/western/1',1,artpath+'western.png','',fanart)
+        addCat('Action','http://putlocker.bz/genre/action/1',1,artpath+'action.png','',fanart)
+        addCat('Adventure','http://putlocker.bz/genre/adventure/1',1,artpath+'adventure.png','',fanart)
+        addCat('Animation','http://putlocker.bz/genre/animation/1',1,artpath+'animation.png','',fanart)
+        addCat('Biography','http://putlocker.bz/genre/biography/1',1,artpath+'biography.png','',fanart)
+        addCat('Comedy','http://putlocker.bz/genre/comedy/1',1,artpath+'comedy.png','',fanart)
+        addCat('Crime','http://putlocker.bz/genre/crime/1',1,artpath+'crime.png','',fanart)
+        addCat('Documentary','http://putlocker.bz/genre/documentary/1',1,artpath+'documentary.png','',fanart)
+        addCat('Drama','http://putlocker.bz/genre/drama/1',1,artpath+'drama.png','',fanart)
+        addCat('Family','http://putlocker.bz/genre/family/1',1,artpath+'family.png','',fanart)
+        addCat('Fantasy','http://putlocker.bz/genre/fantasy/1',1,artpath+'fantasy.png','',fanart)
+        addCat('History','http://putlocker.bz/genre/history/1',1,artpath+'history.png','',fanart)
+        addCat('Horror','http://putlocker.bz/genre/horror/1',1,artpath+'horror.png','',fanart)
+        addCat('Musical','http://putlocker.bz/genre/musical/1',1,artpath+'musical.png','',fanart)
+        addCat('Mystery','http://putlocker.bz/genre/mystery/1',1,artpath+'mystery.png','',fanart)
+        addCat('Romance','http://putlocker.bz/genre/romance/1',1,artpath+'romance.png','',fanart)
+        addCat('Sci-Fi','http://putlocker.bz/genre/sci-fi/1',1,artpath+'sci-fi.png','',fanart)
+        addCat('Sport','http://putlocker.bz/genre/sport/1',1,artpath+'sport.png','',fanart)
+        addCat('Thriller','http://putlocker.bz/genre/thriller/1',1,artpath+'thriller.png','',fanart)
+        addCat('War','http://putlocker.bz/genre/war/1',1,artpath+'war.png','',fanart)
+        addCat('Western','http://putlocker.bz/genre/western/1',1,artpath+'western.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
  
 def YEARS(url):
-        xbmc.executebuiltin('Container.SetViewMode(50)')
-        addDir2('2014','http://putlocker.bz/year/2014/1',1,artpath+'year2.png','',fanart)
-        addDir2('2013','http://putlocker.bz/year/2013/1',1,artpath+'year2.png','',fanart)
-        addDir2('2012','http://putlocker.bz/year/2012/1',1,artpath+'year2.png','',fanart)
-        addDir2('2011','http://putlocker.bz/year/2011/1',1,artpath+'year2.png','',fanart)
-        addDir2('2010','http://putlocker.bz/year/2010/1',1,artpath+'year2.png','',fanart)
-        addDir2('2009','http://putlocker.bz/year/2009/1',1,artpath+'year2.png','',fanart)
-        addDir2('2008','http://putlocker.bz/year/2008/1',1,artpath+'year2.png','',fanart)
-        addDir2('2007','http://putlocker.bz/year/2007/1',1,artpath+'year2.png','',fanart)
-        addDir2('2006','http://putlocker.bz/year/2006/1',1,artpath+'year2.png','',fanart)
-        addDir2('2005','http://putlocker.bz/year/2005/1',1,artpath+'year2.png','',fanart)
-        addDir2('2004','http://putlocker.bz/year/2004/1',1,artpath+'year2.png','',fanart)
-        addDir2('2003','http://putlocker.bz/year/2003/1',1,artpath+'year2.png','',fanart)
-        addDir2('2002','http://putlocker.bz/year/2002/1',1,artpath+'year2.png','',fanart)
-        addDir2('2001','http://putlocker.bz/year/2001/1',1,artpath+'year2.png','',fanart)
-        addDir2('2000','http://putlocker.bz/year/2000/1',1,artpath+'year2.png','',fanart)
-        addDir2('1999','http://putlocker.bz/year/1999/1',1,artpath+'year2.png','',fanart)
-        addDir2('1998','http://putlocker.bz/year/1998/1',1,artpath+'year2.png','',fanart)
-        addDir2('1997','http://putlocker.bz/year/1997/1',1,artpath+'year2.png','',fanart)
-        addDir2('1996','http://putlocker.bz/year/1996/1',1,artpath+'year2.png','',fanart)
-        addDir2('1995','http://putlocker.bz/year/1995/1',1,artpath+'year2.png','',fanart)
-        addDir2('1994','http://putlocker.bz/year/1994/1',1,artpath+'year2.png','',fanart)
-        addDir2('1993','http://putlocker.bz/year/1993/1',1,artpath+'year2.png','',fanart)
+        addCat('2014','http://putlocker.bz/year/2014/1',1,artpath+'year2.png','',fanart)
+        addCat('2013','http://putlocker.bz/year/2013/1',1,artpath+'year2.png','',fanart)
+        addCat('2012','http://putlocker.bz/year/2012/1',1,artpath+'year2.png','',fanart)
+        addCat('2011','http://putlocker.bz/year/2011/1',1,artpath+'year2.png','',fanart)
+        addCat('2010','http://putlocker.bz/year/2010/1',1,artpath+'year2.png','',fanart)
+        addCat('2009','http://putlocker.bz/year/2009/1',1,artpath+'year2.png','',fanart)
+        addCat('2008','http://putlocker.bz/year/2008/1',1,artpath+'year2.png','',fanart)
+        addCat('2007','http://putlocker.bz/year/2007/1',1,artpath+'year2.png','',fanart)
+        addCat('2006','http://putlocker.bz/year/2006/1',1,artpath+'year2.png','',fanart)
+        addCat('2005','http://putlocker.bz/year/2005/1',1,artpath+'year2.png','',fanart)
+        addCat('2004','http://putlocker.bz/year/2004/1',1,artpath+'year2.png','',fanart)
+        addCat('2003','http://putlocker.bz/year/2003/1',1,artpath+'year2.png','',fanart)
+        addCat('2002','http://putlocker.bz/year/2002/1',1,artpath+'year2.png','',fanart)
+        addCat('2001','http://putlocker.bz/year/2001/1',1,artpath+'year2.png','',fanart)
+        addCat('2000','http://putlocker.bz/year/2000/1',1,artpath+'year2.png','',fanart)
+        addCat('1999','http://putlocker.bz/year/1999/1',1,artpath+'year2.png','',fanart)
+        addCat('1998','http://putlocker.bz/year/1998/1',1,artpath+'year2.png','',fanart)
+        addCat('1997','http://putlocker.bz/year/1997/1',1,artpath+'year2.png','',fanart)
+        addCat('1996','http://putlocker.bz/year/1996/1',1,artpath+'year2.png','',fanart)
+        addCat('1995','http://putlocker.bz/year/1995/1',1,artpath+'year2.png','',fanart)
+        addCat('1994','http://putlocker.bz/year/1994/1',1,artpath+'year2.png','',fanart)
+        addCat('1993','http://putlocker.bz/year/1993/1',1,artpath+'year2.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
  
 def AZ(url):
-        xbmc.executebuiltin('Container.SetViewMode(50)')
         AZurl = ('http://putlocker.bz/a-z/')
         req = urllib2.Request(AZurl)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -108,11 +102,10 @@ def AZ(url):
         for url,name in azlist:
                 name2 = name.split(' ',1)
                 if name2[0]=='0-9': name2[0]='num'
-                addDir2(name,url,1,artpath+name2[0]+'.png','',fanart)
+                addCat(name,url,1,artpath+name2[0]+'.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
         
 def SEARCH():
-    xbmc.executebuiltin('Container.SetViewMode(50)')
     search_entered =''
     keyboard = xbmc.Keyboard(search_entered, 'Search Putlocker.bz')
     keyboard.doModal()
@@ -131,66 +124,28 @@ def SEARCH():
     inc = 0
     for url,name,thumb in match:
                         if inc > 4:        
-                            addDir(name,url,100,thumb,len(match))
+                            addDir(name,url,100,thumb,len(match),isFolder=False)
                         inc+=1
     xbmc.executebuiltin('Container.SetViewMode(50)')
     
-def VIDEOLINKS(url,name):
-        xbmc.executebuiltin('Container.SetViewMode(50)')
-	req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        links=re.compile('<a rel="nofollow" href="(.+?)" target="_blank"').findall(link)
-        for url in links:
-                hostname=re.compile('http://(.+?)/').findall(url)
-                hoster = str(hostname).replace('www.','')
-                if urlresolver.HostedMediaFile(url).valid_url(): addDir2 (hoster,url,200,'','','')
-        xbmc.executebuiltin('Container.SetViewMode(50)')
-                	
-def PLAYLINK(name,url):
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        stream_url = urlresolver.HostedMediaFile(url).resolve()
-        playlist.add(stream_url,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
-        exit()
-
 def PLAYLINKMainServer(name,url):
+    try:
         req = urllib2.Request(url)
 	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
 	response = urllib2.urlopen(req)
 	link=response.read()
 	response.close()
-	match=re.compile('proxy.link=movs[*](.*?)&').findall(link)
-        newurl=decodeURL(match[0]);
-        mydata=[('isslverify','true'),('iagent','Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8'),('url',newurl),('ihttpheader','true')]    #The first is the var name the second is the value
-	mydata=urllib.urlencode(mydata)
-	path='http://static2.movsharing.com/pluginss/plugins_player.php'
-	req=urllib2.Request(path, mydata)
-	req.add_header("Content-type", "application/x-www-form-urlencoded")
-	link=urllib2.urlopen(req).read()
-        response.close()
-	match=re.compile('{"url":"http:\/\/(.*?)",".*?"type":"(.*?)"}').findall(link)
-        indexurl=0;
-        vformat=selfAddon.getSetting( "VideoFromat" ) 
-	vformatid=len(match)-1
-        if vformat=="0":
-		vformatid=0
-	elif vformat=="1":
-		vformatid=1
-	elif vformat=="2":
-		vformatid=2
-        if vformatid>len(match)-1:
-		vformatid=len(match)-1
-        newurl=match[vformatid][0];
-	newurl='http://'+newurl;
+	match=re.compile('FlashVars="plugins=http://static1.movsharing.com/plugin1/proxy.swf&proxy.link=movs*(.+?)&proxy.imag').findall(link)
+        match = match[0].replace('*','')
+        s= decrypter.decrypter(192,128)
+        decryped = s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
+        req = urllib2.Request(decryped)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+	response = urllib2.urlopen(req)
+	link=response.read()
+	response.close()
+	match=re.compile('{"file":"(.+?)"').findall(link)
+	newurl = match[0].replace ('\/','/')
         playlist = xbmc.PlayList(1)
 	playlist.clear()
 	listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
@@ -199,46 +154,20 @@ def PLAYLINKMainServer(name,url):
 	playlist.add(newurl,listitem)
 	xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
 	xbmcPlayer.play(playlist)
-	exit()
+    except:
+        notification('MK Movies', 'Media may have been removed', '5000',icon)
 
-def m_array_index(arr, searchItem):
-    for i,x in enumerate(arr):
-        for j,y in enumerate(x):
-            if y == searchItem:
-                return i
-    return -1
-
-def decodeURL(movieurl):
-	UnEncrypKey="001000003100000000000030000020011200000000200000310000";
-	indexer=0;
-	newurl="";
-	magicCode = int(movieurl[len(movieurl)-4:len(movieurl)],10);
-	movieurl=movieurl[0:len(movieurl)-4];
-        var7=0;
-	while indexer<len(movieurl):
-		var7=var7+2;
-		currentChar = movieurl[indexer:indexer+4];
-		currentChar = int(currentChar,16);
-		currentChar = (currentChar - magicCode - (var7*var7) -16)/3
-		currentChar=currentChar-int(UnEncrypKey[((indexer/4) % len(UnEncrypKey))],10);
-		if currentChar>0:
-			newurl=newurl+chr(currentChar)
-		else:
-			indexer=len(movieurl);
-		indexer=indexer+4;
-	return newurl;
-
+def notification(title, message, ms, nart):
+    xbmc.executebuiltin("XBMC.notification(" + title + "," + message + "," + ms + "," + nart + ")")
 
 def CheckForNextPage(page):
-    xbmc.executebuiltin('Container.SetViewMode(50)')
     if '">Next</a>' in page:
         try:
             NextPage=page.split('">Next</a>')[0].split('href="')[-1].split('"')[0]
             if len(NextPage) > 0:
-                addDir2("Next Page",NextPage,mode,artpath+'nextpage.png','',fanart) 
+                addCat("Next Page",NextPage,mode,artpath+'nextpage.png','',fanart) 
         except: pass
         
- 
 def get_params():
         param=[]
         paramstring=sys.argv[2]
@@ -257,7 +186,7 @@ def get_params():
                                
         return param
                
-def addDir2(name,url,mode,iconimage,description,fanart):
+def addCat(name,url,mode,iconimage,description,fanart):
         xbmc.executebuiltin('Container.SetViewMode(50)')
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
@@ -313,7 +242,5 @@ elif mode==2: GENRES(url)
 elif mode==3: YEARS(url)
 elif mode==4: AZ(url)
 elif mode==5: SEARCH()
-elif mode==100: VIDEOLINKS(url,name)
-elif mode==200: PLAYLINK(name,url)
 elif mode==400: PLAYLINKMainServer(name,url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
