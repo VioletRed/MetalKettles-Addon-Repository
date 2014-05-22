@@ -1,7 +1,3 @@
-<info>
-<message>Box Sets Submitted by MetalKettle</message>
-</info>
-
 #####
 
 <item>
@@ -37,13 +33,13 @@
 <item>
 <name>Twilight</name>
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/twilight.xml</link>
-<thumbnail>IMAGE URL</thumbnail>
+<thumbnail>http://ecx.images-amazon.com/images/I/81wgxiuxhSL._SL1500_.jpg</thumbnail>
 </item>
 
 <item>
 <name>Taken</name>
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/Taken.xml</link>
-<thumbnail>http://ecx.images-amazon.com/images/I/81wgxiuxhSL._SL1500_.jpg</thumbnail>
+<thumbnail>http://ecx.images-amazon.com/images/I/91PAfJMQM-L._SL1500_.jpg</thumbnail>
 </item>
 
 <item>
@@ -67,7 +63,7 @@
 <item>
 <name>Lethal Weapon</name>
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/lethalweapon.xml</link>
-<thumbnail>IMAGE URL</thumbnail>
+<thumbnail>http://ecx.images-amazon.com/images/I/816NXaglffL._SL1500_.jpg</thumbnail>
 </item>
 
 <item>
