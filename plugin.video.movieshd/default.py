@@ -14,9 +14,9 @@ xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def CATEGORIES():
         xbmc.executebuiltin('Container.SetViewMode(50)')
-        addDir2('Recently Added','http://movieshd.eu/?filtre=date&cat=0',1,artpath+'movies.png','',fanart)
-        addDir2('Most Viewed','http://movieshd.eu/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
-        addDir2('Highest Rated','http://movieshd.eu/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
+        addDir2('Recently Added','http://movieshd.co/?filtre=date&cat=0',1,artpath+'movies.png','',fanart)
+        addDir2('Most Viewed','http://movieshd.co/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
+        addDir2('Highest Rated','http://movieshd.co/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Genres','url',2,artpath+'genres.png','',fanart)
         addDir2('Search','url',3,artpath+'search.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
@@ -41,25 +41,25 @@ def GETMOVIES(url,name):
 
 def GENRES(url):
         xbmc.executebuiltin('Container.SetViewMode(50)')
-        addDir2('Action','http://movieshd.eu/watch-online/category/action/',1,artpath+'action.png','',fanart)
-        addDir2('Adventure','http://movieshd.eu/watch-online/category/adventure/',1,artpath+'adventure.png','',fanart)
-        addDir2('Animation','http://movieshd.eu/watch-online/category/animation/',1,artpath+'animation.png','',fanart)
-        addDir2('Biography','http://movieshd.eu/watch-online/category/biography/',1,artpath+'biography.png','',fanart)
-        addDir2('Comedy','http://movieshd.eu/watch-online/category/comedy/',1,artpath+'comedy.png','',fanart)
-        addDir2('Crime','http://movieshd.eu/watch-online/category/crime/',1,artpath+'crime.png','',fanart)
-        addDir2('Drama','http://movieshd.eu/watch-online/category/drama/',1,artpath+'drama.png','',fanart)
-        addDir2('Family','http://movieshd.eu/watch-online/category/family/',1,artpath+'family.png','',fanart)
-        addDir2('Fantasy','http://movieshd.eu/watch-online/category/fantasy/',1,artpath+'fantasy.png','',fanart)
-        addDir2('History','http://movieshd.eu/watch-online/category/history/',1,artpath+'history.png','',fanart)
-        addDir2('Horror','http://movieshd.eu/watch-online/category/horror/',1,artpath+'horror.png','',fanart)
-        addDir2('Music','http://movieshd.eu/watch-online/category/music/',1,artpath+'musical.png','',fanart)
-        addDir2('Mystery','http://movieshd.eu/watch-online/category/mystery/',1,artpath+'mystery.png','',fanart)
-        addDir2('Romance','http://movieshd.eu/watch-online/category/romance/',1,artpath+'romance.png','',fanart)
-        addDir2('Sci-Fi','http://movieshd.eu/watch-online/category/sci-fi/',1,artpath+'sci-fi.png','',fanart)
-        addDir2('Sports','http://movieshd.eu/watch-online/category/sports/',1,artpath+'sport.png','',fanart)
-        addDir2('Thriller','http://movieshd.eu/watch-online/category/thriller/',1,artpath+'thriller.png','',fanart)
-        addDir2('War','http://movieshd.eu/watch-online/category/war/',1,artpath+'war.png','',fanart)
-        addDir2('Western','http://movieshd.eu/watch-online/category/western/',1,artpath+'western.png','',fanart)
+        addDir2('Action','http://movieshd.co/watch-online/category/action/',1,artpath+'action.png','',fanart)
+        addDir2('Adventure','http://movieshd.co/watch-online/category/adventure/',1,artpath+'adventure.png','',fanart)
+        addDir2('Animation','http://movieshd.co/watch-online/category/animation/',1,artpath+'animation.png','',fanart)
+        addDir2('Biography','http://movieshd.co/watch-online/category/biography/',1,artpath+'biography.png','',fanart)
+        addDir2('Comedy','http://movieshd.co/watch-online/category/comedy/',1,artpath+'comedy.png','',fanart)
+        addDir2('Crime','http://movieshd.co/watch-online/category/crime/',1,artpath+'crime.png','',fanart)
+        addDir2('Drama','http://movieshd.co/watch-online/category/drama/',1,artpath+'drama.png','',fanart)
+        addDir2('Family','http://movieshd.co/watch-online/category/family/',1,artpath+'family.png','',fanart)
+        addDir2('Fantasy','http://movieshd.co/watch-online/category/fantasy/',1,artpath+'fantasy.png','',fanart)
+        addDir2('History','http://movieshd.co/watch-online/category/history/',1,artpath+'history.png','',fanart)
+        addDir2('Horror','http://movieshd.co/watch-online/category/horror/',1,artpath+'horror.png','',fanart)
+        addDir2('Music','http://movieshd.co/watch-online/category/music/',1,artpath+'musical.png','',fanart)
+        addDir2('Mystery','http://movieshd.co/watch-online/category/mystery/',1,artpath+'mystery.png','',fanart)
+        addDir2('Romance','http://movieshd.co/watch-online/category/romance/',1,artpath+'romance.png','',fanart)
+        addDir2('Sci-Fi','http://movieshd.co/watch-online/category/sci-fi/',1,artpath+'sci-fi.png','',fanart)
+        addDir2('Sports','http://movieshd.co/watch-online/category/sports/',1,artpath+'sport.png','',fanart)
+        addDir2('Thriller','http://movieshd.co/watch-online/category/thriller/',1,artpath+'thriller.png','',fanart)
+        addDir2('War','http://movieshd.co/watch-online/category/war/',1,artpath+'war.png','',fanart)
+        addDir2('Western','http://movieshd.co/watch-online/category/western/',1,artpath+'western.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def SEARCH():
@@ -69,7 +69,7 @@ def SEARCH():
     if keyboard.isConfirmed():
         search_entered = keyboard.getText().replace(' ','+')
     if len(search_entered)>1:
-        url = 'http://movieshd.eu/?s='+ search_entered
+        url = 'http://movieshd.co/?s='+ search_entered
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -89,12 +89,12 @@ def PLAYLINK(name,url):
 
         
         # Find videomega reference and request video page from there.
-        match=re.compile("'text/javascript'>ref='(.+?)';width.*iframe").findall(link)
+        match=re.compile("'text/javascript'>ref='(.+?)?';width.*iframe").findall(link)
         
         if (len(match) == 1):
                 videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0] 
         if (len(match) < 1):
-                match=re.compile("frameborder='.+?' src='(.+?)&").findall(link)
+                match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                 videomega_url = match[0]            
         
         req = urllib2.Request(videomega_url)
