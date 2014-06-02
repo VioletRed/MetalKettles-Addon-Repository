@@ -129,17 +129,18 @@ def SEARCH():
     xbmc.executebuiltin('Container.SetViewMode(50)')
     
 def PLAYLINKMainServer(name,url):
-   try:
         req = urllib2.Request(url)
 	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
 	response = urllib2.urlopen(req)
 	link=response.read()
 	response.close()
-	match=re.compile('plugins=http://static1.movsharing.com/plugin1/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+        match=re.compile('plugins=http://static1.movsharing.com/plugin1/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+        if len(match) == 0:
+                match=re.compile('plugins=http://static1.movsharing.com/plugin2/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+                if len (match) == 0:
+                        match=re.compile('plugins=http://static1.movsharing.com/plugin3/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
         match = match[0].replace('*','')
-        print match
         s= decrypter.decrypter(192,128)
-        print s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
         uncode = s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
         req = urllib2.Request(uncode)
         req.add_header('User-Agent','Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -155,27 +156,6 @@ def PLAYLINKMainServer(name,url):
         listitem.setProperty('mimetype', 'video/x-msvideo')
         listitem.setProperty('IsPlayable', 'true')
         playlist.add(newurl,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
-   except:
-        req = urllib2.Request(url)
-	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-	response = urllib2.urlopen(req)
-	link=response.read()
-	response.close()
-	match=re.compile('plugins=http://static1.movsharing.com/plugin1/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-        match = match[0].replace('*','')
-        s= decrypter.decrypter(192,128)
-        print s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
-        uncode = s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        stream_url = urlresolver.HostedMediaFile(uncode).resolve()
-        playlist.add(stream_url,listitem)
         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
         xbmcPlayer.play(playlist)
     
