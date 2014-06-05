@@ -15,7 +15,7 @@ artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + 
 xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def CATEGORIES():
-        addCat('Featured','http://putlocker.bz/featured/1',1,artpath+'movies.png','',fanart)
+        addCat('Featured','http://putlocker.is/featured/1',1,artpath+'movies.png','',fanart)
         addCat('Genres','url',2,artpath+'genres.png','',fanart)
         addCat('Years','url',3,artpath+'year2.png','',fanart)
         addCat('A - Z','url',4,artpath+'alphabet.png','',fanart)
@@ -44,55 +44,55 @@ def GETMOVIES(url,name):
         CheckForNextPage(link)
         
 def GENRES(url):
-        addCat('Action','http://putlocker.bz/genre/action/1',1,artpath+'action.png','',fanart)
-        addCat('Adventure','http://putlocker.bz/genre/adventure/1',1,artpath+'adventure.png','',fanart)
-        addCat('Animation','http://putlocker.bz/genre/animation/1',1,artpath+'animation.png','',fanart)
-        addCat('Biography','http://putlocker.bz/genre/biography/1',1,artpath+'biography.png','',fanart)
-        addCat('Comedy','http://putlocker.bz/genre/comedy/1',1,artpath+'comedy.png','',fanart)
-        addCat('Crime','http://putlocker.bz/genre/crime/1',1,artpath+'crime.png','',fanart)
-        addCat('Documentary','http://putlocker.bz/genre/documentary/1',1,artpath+'documentary.png','',fanart)
-        addCat('Drama','http://putlocker.bz/genre/drama/1',1,artpath+'drama.png','',fanart)
-        addCat('Family','http://putlocker.bz/genre/family/1',1,artpath+'family.png','',fanart)
-        addCat('Fantasy','http://putlocker.bz/genre/fantasy/1',1,artpath+'fantasy.png','',fanart)
-        addCat('History','http://putlocker.bz/genre/history/1',1,artpath+'history.png','',fanart)
-        addCat('Horror','http://putlocker.bz/genre/horror/1',1,artpath+'horror.png','',fanart)
-        addCat('Musical','http://putlocker.bz/genre/musical/1',1,artpath+'musical.png','',fanart)
-        addCat('Mystery','http://putlocker.bz/genre/mystery/1',1,artpath+'mystery.png','',fanart)
-        addCat('Romance','http://putlocker.bz/genre/romance/1',1,artpath+'romance.png','',fanart)
-        addCat('Sci-Fi','http://putlocker.bz/genre/sci-fi/1',1,artpath+'sci-fi.png','',fanart)
-        addCat('Sport','http://putlocker.bz/genre/sport/1',1,artpath+'sport.png','',fanart)
-        addCat('Thriller','http://putlocker.bz/genre/thriller/1',1,artpath+'thriller.png','',fanart)
-        addCat('War','http://putlocker.bz/genre/war/1',1,artpath+'war.png','',fanart)
-        addCat('Western','http://putlocker.bz/genre/western/1',1,artpath+'western.png','',fanart)
+        addCat('Action','http://putlocker.is/genre/action/1',1,artpath+'action.png','',fanart)
+        addCat('Adventure','http://putlocker.is/genre/adventure/1',1,artpath+'adventure.png','',fanart)
+        addCat('Animation','http://putlocker.is/genre/animation/1',1,artpath+'animation.png','',fanart)
+        addCat('Biography','http://putlocker.is/genre/biography/1',1,artpath+'biography.png','',fanart)
+        addCat('Comedy','http://putlocker.is/genre/comedy/1',1,artpath+'comedy.png','',fanart)
+        addCat('Crime','http://putlocker.is/genre/crime/1',1,artpath+'crime.png','',fanart)
+        addCat('Documentary','http://putlocker.is/genre/documentary/1',1,artpath+'documentary.png','',fanart)
+        addCat('Drama','http://putlocker.is/genre/drama/1',1,artpath+'drama.png','',fanart)
+        addCat('Family','http://putlocker.is/genre/family/1',1,artpath+'family.png','',fanart)
+        addCat('Fantasy','http://putlocker.is/genre/fantasy/1',1,artpath+'fantasy.png','',fanart)
+        addCat('History','http://putlocker.is/genre/history/1',1,artpath+'history.png','',fanart)
+        addCat('Horror','http://putlocker.is/genre/horror/1',1,artpath+'horror.png','',fanart)
+        addCat('Musical','http://putlocker.is/genre/musical/1',1,artpath+'musical.png','',fanart)
+        addCat('Mystery','http://putlocker.is/genre/mystery/1',1,artpath+'mystery.png','',fanart)
+        addCat('Romance','http://putlocker.is/genre/romance/1',1,artpath+'romance.png','',fanart)
+        addCat('Sci-Fi','http://putlocker.is/genre/sci-fi/1',1,artpath+'sci-fi.png','',fanart)
+        addCat('Sport','http://putlocker.is/genre/sport/1',1,artpath+'sport.png','',fanart)
+        addCat('Thriller','http://putlocker.is/genre/thriller/1',1,artpath+'thriller.png','',fanart)
+        addCat('War','http://putlocker.is/genre/war/1',1,artpath+'war.png','',fanart)
+        addCat('Western','http://putlocker.is/genre/western/1',1,artpath+'western.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
  
 def YEARS(url):
-        addCat('2014','http://putlocker.bz/year/2014/1',1,artpath+'year2.png','',fanart)
-        addCat('2013','http://putlocker.bz/year/2013/1',1,artpath+'year2.png','',fanart)
-        addCat('2012','http://putlocker.bz/year/2012/1',1,artpath+'year2.png','',fanart)
-        addCat('2011','http://putlocker.bz/year/2011/1',1,artpath+'year2.png','',fanart)
-        addCat('2010','http://putlocker.bz/year/2010/1',1,artpath+'year2.png','',fanart)
-        addCat('2009','http://putlocker.bz/year/2009/1',1,artpath+'year2.png','',fanart)
-        addCat('2008','http://putlocker.bz/year/2008/1',1,artpath+'year2.png','',fanart)
-        addCat('2007','http://putlocker.bz/year/2007/1',1,artpath+'year2.png','',fanart)
-        addCat('2006','http://putlocker.bz/year/2006/1',1,artpath+'year2.png','',fanart)
-        addCat('2005','http://putlocker.bz/year/2005/1',1,artpath+'year2.png','',fanart)
-        addCat('2004','http://putlocker.bz/year/2004/1',1,artpath+'year2.png','',fanart)
-        addCat('2003','http://putlocker.bz/year/2003/1',1,artpath+'year2.png','',fanart)
-        addCat('2002','http://putlocker.bz/year/2002/1',1,artpath+'year2.png','',fanart)
-        addCat('2001','http://putlocker.bz/year/2001/1',1,artpath+'year2.png','',fanart)
-        addCat('2000','http://putlocker.bz/year/2000/1',1,artpath+'year2.png','',fanart)
-        addCat('1999','http://putlocker.bz/year/1999/1',1,artpath+'year2.png','',fanart)
-        addCat('1998','http://putlocker.bz/year/1998/1',1,artpath+'year2.png','',fanart)
-        addCat('1997','http://putlocker.bz/year/1997/1',1,artpath+'year2.png','',fanart)
-        addCat('1996','http://putlocker.bz/year/1996/1',1,artpath+'year2.png','',fanart)
-        addCat('1995','http://putlocker.bz/year/1995/1',1,artpath+'year2.png','',fanart)
-        addCat('1994','http://putlocker.bz/year/1994/1',1,artpath+'year2.png','',fanart)
-        addCat('1993','http://putlocker.bz/year/1993/1',1,artpath+'year2.png','',fanart)
+        addCat('2014','http://putlocker.is/year/2014/1',1,artpath+'year2.png','',fanart)
+        addCat('2013','http://putlocker.is/year/2013/1',1,artpath+'year2.png','',fanart)
+        addCat('2012','http://putlocker.is/year/2012/1',1,artpath+'year2.png','',fanart)
+        addCat('2011','http://putlocker.is/year/2011/1',1,artpath+'year2.png','',fanart)
+        addCat('2010','http://putlocker.is/year/2010/1',1,artpath+'year2.png','',fanart)
+        addCat('2009','http://putlocker.is/year/2009/1',1,artpath+'year2.png','',fanart)
+        addCat('2008','http://putlocker.is/year/2008/1',1,artpath+'year2.png','',fanart)
+        addCat('2007','http://putlocker.is/year/2007/1',1,artpath+'year2.png','',fanart)
+        addCat('2006','http://putlocker.is/year/2006/1',1,artpath+'year2.png','',fanart)
+        addCat('2005','http://putlocker.is/year/2005/1',1,artpath+'year2.png','',fanart)
+        addCat('2004','http://putlocker.is/year/2004/1',1,artpath+'year2.png','',fanart)
+        addCat('2003','http://putlocker.is/year/2003/1',1,artpath+'year2.png','',fanart)
+        addCat('2002','http://putlocker.is/year/2002/1',1,artpath+'year2.png','',fanart)
+        addCat('2001','http://putlocker.is/year/2001/1',1,artpath+'year2.png','',fanart)
+        addCat('2000','http://putlocker.is/year/2000/1',1,artpath+'year2.png','',fanart)
+        addCat('1999','http://putlocker.is/year/1999/1',1,artpath+'year2.png','',fanart)
+        addCat('1998','http://putlocker.is/year/1998/1',1,artpath+'year2.png','',fanart)
+        addCat('1997','http://putlocker.is/year/1997/1',1,artpath+'year2.png','',fanart)
+        addCat('1996','http://putlocker.is/year/1996/1',1,artpath+'year2.png','',fanart)
+        addCat('1995','http://putlocker.is/year/1995/1',1,artpath+'year2.png','',fanart)
+        addCat('1994','http://putlocker.is/year/1994/1',1,artpath+'year2.png','',fanart)
+        addCat('1993','http://putlocker.is/year/1993/1',1,artpath+'year2.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
  
 def AZ(url):
-        AZurl = ('http://putlocker.bz/a-z/')
+        AZurl = ('http://putlocker.is/a-z/')
         req = urllib2.Request(AZurl)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -107,14 +107,14 @@ def AZ(url):
         
 def SEARCH():
     search_entered =''
-    keyboard = xbmc.Keyboard(search_entered, 'Search Putlocker.bz')
+    keyboard = xbmc.Keyboard(search_entered, 'Search Putlocker.is')
     keyboard.doModal()
     if keyboard.isConfirmed():
         search_entered = keyboard.getText().replace(' ','+')
     if search_entered == None or len(search_entered)<1:
         end()
     else:
-        url = 'http://putlocker.bz/search/search.php?q=%s'%(search_entered)
+        url = 'http://putlocker.is/search/search.php?q=%s'%(search_entered)
     req = urllib2.Request(url)
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
     response = urllib2.urlopen(req)
@@ -124,7 +124,7 @@ def SEARCH():
     inc = 0
     for url,name,thumb in match:
                         if inc > 4:        
-                            addDir(name,url,100,thumb,len(match),isFolder=False)
+                            addDir(name,url,400,thumb,len(match),isFolder=False)
                         inc+=1
     xbmc.executebuiltin('Container.SetViewMode(50)')
     
@@ -139,6 +139,14 @@ def PLAYLINKMainServer(name,url):
                 match=re.compile('plugins=http://static1.movsharing.com/plugin2/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
                 if len (match) == 0:
                         match=re.compile('plugins=http://static1.movsharing.com/plugin3/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+                        if len (match) == 0:
+                                match=re.compile('plugins=http://static1.movsharing.com/plugin4/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+                                if len (match) == 0:
+                                        match=re.compile('plugins=http://static1.movsharing.com/plugin5/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+                                        if len (match) == 0:
+                                                match=re.compile('plugins=http://static1.movsharing.com/plugin6/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+                                                if len (match) == 0:
+                                                        match=re.compile('FlashVars="plugins=captions,http://static1.movsharing.com/plugin4/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
         match = match[0].replace('*','')
         s= decrypter.decrypter(192,128)
         uncode = s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
