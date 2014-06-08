@@ -134,38 +134,42 @@ def PLAYLINKMainServer(name,url):
 	response = urllib2.urlopen(req)
 	link=response.read()
 	response.close()
-        match=re.compile('plugins=http://static1.movsharing.com/plugin1/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-        if len(match) == 0:
-                match=re.compile('plugins=http://static1.movsharing.com/plugin2/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-                if len (match) == 0:
-                        match=re.compile('plugins=http://static1.movsharing.com/plugin3/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-                        if len (match) == 0:
-                                match=re.compile('plugins=http://static1.movsharing.com/plugin4/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-                                if len (match) == 0:
-                                        match=re.compile('plugins=http://static1.movsharing.com/plugin5/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-                                        if len (match) == 0:
-                                                match=re.compile('plugins=http://static1.movsharing.com/plugin6/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-                                                if len (match) == 0:
-                                                        match=re.compile('FlashVars="plugins=captions,http://static1.movsharing.com/plugin4/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
-        match = match[0].replace('*','')
-        s= decrypter.decrypter(192,128)
-        uncode = s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
-        req = urllib2.Request(uncode)
-        req.add_header('User-Agent','Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-	response = urllib2.urlopen(req)
-	link=response.read()
-	response.close()
-	match=re.compile('"file":"(.+?)",').findall(link)
-	newurl = match[0].replace ('\/','/')
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        playlist.add(newurl,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
+
+	try:
+                match=re.compile('plugins=http://static1.movsharing.com/plugin.+?/proxy.swf&proxy.link=movs*(.+?)&').findall(link)
+                match = match[0].replace('*','') 
+                s= decrypter.decrypter(192,128)
+                uncode = s.decrypt(match,'u3332bcCRs2DvUf17rqq','ECB').split('\0')[0]
+                req = urllib2.Request(uncode)
+                req.add_header('User-Agent','Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+                match=re.compile('"file":"(.+?)",').findall(link)
+                newurl = match[0].replace ('\/','/')
+                playlist = xbmc.PlayList(1)
+                playlist.clear()
+                listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
+                listitem.setInfo("Video", {"Title":name})
+                listitem.setProperty('mimetype', 'video/x-msvideo')
+                listitem.setProperty('IsPlayable', 'true')
+                playlist.add(newurl,listitem)
+                xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+                xbmcPlayer.play(playlist)
+        except:
+                match=re.compile('<a rel="nofollow" href="(.+?)" title=').findall(link)
+                newurl = match[0]
+                print newurl
+                resolved_url = urlresolver.HostedMediaFile(newurl).resolve()
+                playlist = xbmc.PlayList(1)
+                playlist.clear()
+                listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
+                listitem.setInfo("Video", {"Title":name})
+                listitem.setProperty('mimetype', 'video/x-msvideo')
+                listitem.setProperty('IsPlayable', 'true')
+                playlist.add(resolved_url,listitem)
+                xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+                xbmcPlayer.play(playlist)
     
 def notification(title, message, ms, nart):
     xbmc.executebuiltin("XBMC.notification(" + title + "," + message + "," + ms + "," + nart + ")")
