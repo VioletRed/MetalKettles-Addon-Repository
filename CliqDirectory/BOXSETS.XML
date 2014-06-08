@@ -1,4 +1,5 @@
-#####
+<thumbnail>http://doena-soft.de/dvds/thumbnails/movie01.jpg</thumbnail>
+<fanart>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/fanart.jpg</fanart>
 
 <item>
 <name>Harry Potter</name>
@@ -82,4 +83,125 @@
 <name>Transporter</name>
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/transporter.xml</link>
 <thumbnail>http://ecx.images-amazon.com/images/I/91JSiYHMRML._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Barbie</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/barbie.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91Rp3OyuQlL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Blade</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/blade.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/51jmA5D1xAL.jpg</thumbnail>
+</item>
+
+<item>
+<name>Death Race</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/deathrace.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/51jmA5D1xAL.jpg</thumbnail>
+</item>
+
+<item>
+<name>Fast & Furious</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/fast and furious.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/41Ln2eaWQtL.jpg</thumbnail>
+</item>
+
+<item>
+<name>Hunger Games</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/hunger.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/71X6QoZsVkL._SL1024_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Iron Man</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/ironman.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91x%2BKUgVfXL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Johnny English</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/johnnyenglist.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/81KoQEhJOiL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Jurassic Park</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/jurassic park.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91wQKYjdGUS._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Men in Black</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/meninblack.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/71h%2BBmMre7L._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Mr Bean</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/mrbean.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/81Ov8eOdSwL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Oceans</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/oceans.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/81VkEq6tNKL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>RoboCop</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/robocop.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91Wl3rZTn0L._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Rush Hour</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/rush hour.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/51rx5poljeL.jpg</thumbnail>
+</item>
+
+<item>
+<name>Star Wars</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/starwars.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/81lykz%2B5iHL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Superman</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/supernam.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/81OdtOHt8gL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>The Hangover</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/thehangover.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/81VBUQnPlML._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Titans</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/titans.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91Urtc4APKL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Transformers</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/2/transformers.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91qmUW5WYQL._SL1500_.jpg</thumbnail>
+</item>
+
+
+<item>
+<name>Ice Age</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/3/iceage.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/91HRiTwxQHL._SL1500_.jpg</thumbnail>
+</item>
+
+<item>
+<name>Madagascar</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqBoxSets/3/madagascar.xml</link>
+<thumbnail>http://ecx.images-amazon.com/images/I/919uTTYIUXL._SL1500_.jpg</thumbnail>
 </item>
