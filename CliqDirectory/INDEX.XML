@@ -1,8 +1,8 @@
 <thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/icon.png</thumbnail>
 <fanart>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/fanart.jpg</fanart>
 
-<item>
+<dir>
 <name>Box Sets</name>
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/BOXSETS.XML</link>
 <thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/movies.png</thumbnail>
-</item>
+</dir>
