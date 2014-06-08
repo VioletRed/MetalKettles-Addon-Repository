@@ -1,13 +1,8 @@
-#####
+<thumbnail>http://mikey1234-repo.googlecode.com/svn/icon.png</thumbnail>
+<fanart>http://mikey1234-repo.googlecode.com/svn/fanart.jpg</fanart>
 
 <item>
 <name>Box Sets</name>
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/BOXSETS.XML</link>
 <thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/movies.png</thumbnail>
-</item>
-
-<item>
-<name>Audio</name>
-<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/RADIO.XML</link>
-<thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/musical.png</thumbnail>
 </item>
