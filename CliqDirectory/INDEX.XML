@@ -7,3 +7,9 @@
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/BOXSETS.XML</link>
 <thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/movies.png</thumbnail>
 </dir>
+
+<dir>
+<name>BBC Radio</name>
+<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/BBC_RADIO.xml</link>
+<thumbnail>http://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BBC_Radio_logo.svg/300px-BBC_Radio_logo.svg.png</thumbnail>
+</dir>
