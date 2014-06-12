@@ -7,9 +7,3 @@
 <link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/BOXSETS.XML</link>
 <thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/movies.png</thumbnail>
 </dir>
-
-<dir>
-<name>Live Sports Streams</name>
-<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/SPORTS.XML</link>
-<thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/movies.png</thumbnail>
-</dir>
