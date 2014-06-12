@@ -1,0 +1,1269 @@
+# 2269155
+
+name=World Cup 2014 Brazil 
+thumb=http://1.bp.blogspot.com/-lXF2XhoV_Ro/UqtqfmcUdsI/AAAAAAAAAc4/EVW4FMOQus0/s1600/fifa-ffffffffffffff1.gif
+date=2014-06-12
+URL=rtmp://94.20.21.34:1935/live/zdf.stream
+
+
+
+# 2254574
+
+name=Australia | Sky Racing 
+thumb=http://www.mcn.com.au/Upload/FileStore/Cache/media/7318-logo-17980181.jpg
+URL=rtmp://37.220.36.68:443/liverepeater playpath=8 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2254443
+
+name=Bahrain | Alayam TV 
+thumb=http://bna.bh/portal/sites/default/files/alayyam.jpg
+URL=rtmp://alayam.netromedia.net/btv3/btv3
+
+
+
+# 2254566
+
+name=Brazil | ESPN Sports 
+thumb=http://www.tvmagazine.com.br/imagens/mva_espnbrasil1999.jpg
+URL=rtmp://174.127.73.32/master3/?_fcs_vhost=_defaultVHost_/1hd swfUrl=http://75.126.217.6/site/flash/player_aovivo.swf pageUrl=http://75.126.217.6/videoteca/play live=true timeout=10
+
+
+
+# 2254560
+
+name=Brazil | TV POCOS 
+thumb=http://3.bp.blogspot.com/-Z0pvGlTsKC8/Uy46BSpP9_I/AAAAAAAADTU/Fw2_nBFeTIA/s1600/TV_PO%C3%87OS+.jpg
+URL=rtmp://rtmp.cdn.upx.net.br/00084/myStream.sdp timeout=15
+
+
+
+# 2254514
+
+name=Brazil | TVN Sports HD 
+thumb=http://www.fotech.cl/wp-content/uploads/2013/09/2013-09-06_TVN_Brasil.jpg
+URL=http://edge-20-gtd.edge.mdstrm.com/tvn-live/_definst_/smil:7cb6048ff45cb5cdf7f5fed828597fd1/chunklist_b1500000.m3u8
+player=mplayer
+
+
+# 2254511
+
+name=Brazil | TVN Sports SD 
+thumb=http://www.fotech.cl/wp-content/uploads/2013/09/2013-09-06_TVN_Brasil.jpg
+URL=http://edge-20-gtd.edge.mdstrm.com/tvn-live/_definst_/smil:7cb6048ff45cb5cdf7f5fed828597fd1/chunklist_b950000.m3u8
+
+
+
+# 2254445
+
+name=Bulgaria | LiveSport BG 
+thumb=http://image.cloud.livemedia.bg/2013/08/06/5200dc90e16b9_large.jpg
+URL=mms://83.222.161.217/100livesport
+
+
+
+# 2254555
+
+name=Canada | TSN Sports 
+thumb=http://www.androidegis.com/wp-content/uploads/2013/07/TSN-Android-App.jpg
+URL=rtmp://31.220.0.104:1935/live playpath=tsn1 token=%ZZri(nKa@#Z pageUrl=http://www.eucast.tv/embed.php?live=tsn1&vw=620&vh=490 live=true timeout=10
+
+
+
+# 2254458
+
+name=Caribbean | SportMax 
+thumb=http://564ccca6a641eac6e5b0-38e3bbf162f44470d3635a7244f7971b.r55.cf3.rackcdn.com/sport-max-channel-images-logo-large.png?1362388705
+URL=http://46.249.213.93/iPhone/broadcast/sportmax-tablet.3gp/sportmax-tablet.3gp-mr497k.m3u8
+
+
+description=http://m1.behance.net/rendition/projects/10503081/orig/1107c56390ca4fffc58387d2cbcd7002.jpeg/description
+
+# 2254559
+
+name=China | Blas Sport 
+thumb=http://ichef.bbci.co.uk/images/ic/480x270/p01gj0yc.jpg
+URL=http://218.202.219.67/channels/xjyx/JinBaoTiYu-Suma/flv:300k_flv
+
+
+
+# 2254546
+
+name=China | Hbtv 
+thumb=http://i.ytimg.com/vi/FMu6pCV-mOk/hqdefault.jpg
+URL=mms://58.48.156.93/hubeitiyu
+
+
+
+# 2254547
+
+name=China | Hubei Sports 
+thumb=http://china-screen-news.com/wp-content/uploads/2012/07/Hubei-TV.jpg
+URL=http://218.202.219.67/channels/xjyx/JinBaoTiYu-Suma/flv:300k_flv
+
+
+
+# 2254561
+
+name=China | Shanghai Sports 
+thumb=http://www.indiantelevision.com/sites/drupal7.indiantelevision.co.in/files/images/tv-images/2014/03/10/SMG.jpg
+URL=http://live-cdn1.smgbb.tv/channels/bbtv/ssty/flv:sd
+
+
+
+# 2254447
+
+name=Denmark | Sport DK HD 
+thumb=http://antenne.nu/assets/images/Kanal_sport.jpg
+URL=http://lswb-de-08.servers.octoshape.net:1935/live/kanalsport_2000k/hasbahca.m3u8
+
+
+
+# 2254448
+
+name=Egypt | Al Nahar Sport v.2 
+thumb=http://www.alnaharlive.net/wp-content/themes/nahar/images/channel2.png
+URL=http://cdn-streamer1.magictvbox.com/live/10179.stream/chunklist.m3u8
+player=dvdplayer
+
+
+# 2254534
+
+name=Egypt | Al Nahar Sport 
+thumb=http://www.alnaharlive.net/wp-content/themes/nahar/images/channel2.png
+URL=rtmp://50.7.180.18/nahar1 playpath=naharsports.stream_720p swfUrl=http://demos.streamtrix.com/swf/flowplayer.commercial-3.2.15.swf live=true timeout=15  pageUrl=http://demos.streamtrix.com/alnaharsport timeout=10
+
+
+
+# 2254554
+
+name=Egypt | Nile Sports 
+thumb=http://www.goalzz.com/images/logo/tv/117.jpg
+URL=rtmp://livestreaming4.onlinehorizons.net/NTNNileSport playpath=livestream swfUrl=http://niletc.tv/player/player.swf pageUrl=http://niletc.tv/stream.php?ch=sport live=1 timeout=10
+
+
+
+# 2254541
+
+name=Germany | SPORT1 
+thumb=http://www.designtagebuch.de/wp-content/uploads/mediathek//2010/02/sport1.jpg
+URL=rtmp://46.246.29.138:1935/stream/ playpath=0D1cF7GNSf.stream swfUrl=http://04stream.com/p/boopo.swf live=1 pageUrl=http://negmtv.altervista.org/php/sportsplayer3.php?ch=btn
+
+
+
+# 2254449
+
+name=Germany | SportTime 1 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel1_1200
+
+
+
+# 2254450
+
+name=Germany | SportTime 2 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel2_1200
+
+
+
+# 2254451
+
+name=Germany | SportTime 3 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel3_1200
+
+
+
+# 2254452
+
+name=Germany | SportTime 4 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel4_1200
+
+
+
+# 2254453
+
+name=Germany | SportTime 5 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel5_1200
+
+
+
+# 2254454
+
+name=Germany | SportTime 6 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel6_1200
+
+
+
+# 2254455
+
+name=Germany | SportTime 7 HD 
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel7_1200
+
+
+
+# 2254568
+
+name=Germany | ZDF Sports v.2 
+thumb=http://1.bp.blogspot.com/-lXF2XhoV_Ro/UqtqfmcUdsI/AAAAAAAAAc4/EVW4FMOQus0/s1600/fifa-ffffffffffffff1.gif
+URL=rtmp://server.az1.stream-server.org:1935/live/zdf.stream
+
+
+
+# 2254590
+
+name=Germany | ZDF Sports 
+thumb=http://1.bp.blogspot.com/-lXF2XhoV_Ro/UqtqfmcUdsI/AAAAAAAAAc4/EVW4FMOQus0/s1600/fifa-ffffffffffffff1.gif
+URL=rtmp://94.20.21.34:1935/live/zdf.stream
+
+
+
+# 2254446
+
+name=Greece | Nova Sports 5 
+thumb=http://www.trikalabc.gr/wp-content/uploads/2013/08/nova.jpg
+URL=http://81.201.52.159:8023/
+
+
+
+# 2254562
+
+name=Greece | OTE Sport 
+thumb=http://www.frosat.net/images/logotv/original/ote-sport.jpg
+URL=rtmp://188.40.85.80/tilesport playpath=movie1 swfUrl=http://www.tilesport.tv/embed/mediaplayer.swf live=1 pageUrl=http://greekchannelslive2.blogspot.com/2011/01/tile-sport-tv-greece_4280.html
+
+
+
+# 2254579
+
+name=Greece | Tilesport TV 
+thumb=http://tv-online.in/wp-content/uploads/2012/11/TileSport-TV.jpg
+URL=rtmp://188.40.85.80/tilesport playpath=movie1 swfUrl=http://www.tilesport.tv/embed/mediaplayer.swf live=1 pageUrl=http://greekchannelslive2.blogspot.com/2011/01/tile-sport-tv-greece_4280.html timeout=10
+
+
+
+# 2254468
+
+name=India | DD Sports 
+thumb=http://ballbyballlivescore.com/wp-content/uploads/2014/01/DD-Sports-TV-Channel-India.jpg
+URL=rtmp://50.7.175.253:1939/base2 playpath=dd3.stream token=Vu4KaBzaxa swfUrl=http://desilivetv.net/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://desilivetv.net/dd-sports/ timeout=10
+
+
+
+# 2254550
+
+name=Indonesia | MNC Sports 
+thumb=http://2.bp.blogspot.com/-CEciCYXpltM/U3SW4a4sBpI/AAAAAAAAAFw/TnB-Tz9oByQ/s1600/Logo+MNC+Sport+1+TV+indonesia.jpg
+URL=rtmp://edge.okeinfo.net:1935/live/mncoke12_512.stream
+
+
+
+# 2254565
+
+name=Ireland | Setanta Sports v.2 
+thumb=http://www.businessandleadership.com/fs/img/news/201404/rs-426x288/ss.jpg
+URL=http://202.75.23.36:8800/live/ch44/04.m3u8
+
+
+
+# 2254498
+
+name=Ireland | Setanta Sports 
+thumb=http://www.businessandleadership.com/fs/img/news/201404/rs-426x288/ss.jpg
+URL=rtmpe://146.185.31.234:1935/redirect playpath=setantahdfoots token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf pageUrl=http://cdn.watchjsc.us/embed.php?u=setantahdfoots&vw=640&vh=460&domain=hdfoots.com live=true timeout=10
+
+
+
+# 2254599
+
+name=Italy | Sky Italia 1 
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=sky1italia swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254600
+
+name=Italy | Sky Italia 2 
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=sky2italia swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254604
+
+name=Italy | Sky Italia 24 
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=rtmp://31.220.0.86:1935/live playpath=skycalcioit token=%ZZri(nKa@#Z swfUrl=http://www.eucast.tv/ePlayerr.swf live=1 pageUrl=http://www.eucast.tv/embed.php?live=skycalcioit&vw=620&vh=490 timeout=10
+
+
+
+# 2254601
+
+name=Italy | Sky Italia 3 
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=sky3italia swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254456
+
+name=Italy | TeleArena 
+thumb=http://m1.behance.net/rendition/modules/25678387/disp/bd581d9033087d792911836e5a463d86.jpg
+URL=http://wma07.fluidstream.net/TeleArena/livestream/sansar.m3u8
+
+
+
+# 2254500
+
+name=Korea | MFS Golf 
+thumb=http://2.bp.blogspot.com/-LrC9HVX4Cts/UScfbb2vKGI/AAAAAAAAAAY/X3LYRKcU3VU/s1600/logo+MFS.jpg
+URL=rtmp://lm01.everyon.tv:1935/ptv/pld58
+
+
+
+# 2254459
+
+name=Oman | Oman TV2 
+thumb=http://en.kingofsat.net/jpg/omantv2.jpg
+URL=rtmp://38.96.148.30:1935/live/omantv2
+
+
+
+# 2254466
+
+name=Poland | Canal+ Sport 
+thumb=http://www.frosat.net/images/logotv/original/CanalPlusSPORT_HD.gif
+URL=rtsp://l125.polwizjer.com:1935/pl/2014tvcanalplussport
+
+
+
+# 2254464
+
+name=Poland | TVP Sport 
+thumb=http://s1.fbcdn.pl/4/clubs/43704/data/images/n/2bdaa47d79a885218f985ddbe97117aa.jpg
+URL=rtmp://s2.goodcast.tv/live/ playpath=tvpsport.stream swfUrl=http://p.jwpcdn.com/6/8/jwplayer.flash.swf live=1 pageUrl=http://goodcast.tv/ timeout=10
+
+
+
+# 2254460
+
+name=Portugal | Sport TV 1 
+thumb=http://2.bp.blogspot.com/-egqPz3rk2Vo/UC6oQEedvNI/AAAAAAAAAEg/MsRMtmCVKVQ/s1600/sport%2Btv.jpg
+URL=rtmp://89.248.168.130:443/share/live1-rbi6c swfUrl=http://adbuck.cc/player/player2.swf pageUrl=http://sharecast.to/embed.php?ch=live1-rbi6c timeout=10
+
+
+
+# 2254584
+
+name=Portugal | Sport TV 3 
+thumb=http://2.bp.blogspot.com/-egqPz3rk2Vo/UC6oQEedvNI/AAAAAAAAAEg/MsRMtmCVKVQ/s1600/sport%2Btv.jpg
+URL=rtmp://80.82.70.239:443/share/live3-qszlx swfUrl=http://adbuck.cc/player/player2.swf pageUrl=http://sharecast.to/embed.php?ch=live3-qszlx timeout=10
+
+
+
+# 2254463
+
+name=Qatar | beIN Sports 1 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://202.75.23.37:8800/live/ch18/04.m3u8?sd=10&rebase=on
+
+
+description=http://202.75.23.37:8800/live/ch18/live.m3u8/description
+
+# 2254492
+
+name=Qatar | beIN Sports 10 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein10 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein10t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254493
+
+name=Qatar | beIN Sports 11 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein11 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein11t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254494
+
+name=Qatar | beIN Sports 12 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein12 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein12t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254495
+
+name=Qatar | beIN Sports 13 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein13 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein13t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254496
+
+name=Qatar | beIN Sports 14 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein14 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein14t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254497
+
+name=Qatar | beIN Sports 15 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein15 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf pageUrl=http://cdn.watchjsc.us/embed.php?u=bein15t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254473
+
+name=Qatar | beIN Sports 2 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein2 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein2t&vw=640&vh=460&domain=funkeysports.com timeout=10
+player=dvdplayer
+
+
+# 2254474
+
+name=Qatar | beIN Sports 3 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein3 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein3t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254476
+
+name=Qatar | beIN Sports 4 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein4 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein4t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254478
+
+name=Qatar | beIN Sports 5 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein5 token=Fo5_n0w?U.rA6l3-70w47ch  swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein5t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254479
+
+name=Qatar | beIN Sports 6 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein6 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein6t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254484
+
+name=Qatar | beIN Sports 7 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein7 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein7t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254490
+
+name=Qatar | beIN Sports 8 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein8 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein8t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254491
+
+name=Qatar | beIN Sports 9 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmpe://5.153.29.68:1935/redirect playpath=bein9 token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf live=1 pageUrl=http://cdn.watchjsc.us/embed.php?u=bein9t&vw=640&vh=460&domain=funkeysports.com timeout=10
+
+
+
+# 2254505
+
+name=Qatar | beIN Sports Spanish HD 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmp://beinsportgeolivefs.fplive.net:1935/beinsportgeolive-live playpath=beinsport_spa_4 swfurl=http://sportsinfonet.info/player/Player.swf live=true timeout=15 pageurl=http://sportsinfonet.info/beinsports.php?n=beinsport_spa_4&vw=650&vh=450
+
+
+
+# 2254564
+
+name=Qatar | beIN Sports Spanish v.2 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmp://206.190.128.116/stream playpath=as3sdadafsd?id=1412 swfUrl=http://www.liveflash.tv/resources/scripts/eplayer.swf live=1 pageUrl=http://www.liveflash.tv/embedplayer/as3sdadafsd/1/650/450 conn=S:OK --live
+
+
+
+# 2254532
+
+name=Qatar | beIN Sports USA HD 
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmp://beinsportgeolivefs.fplive.net:1935/beinsportgeolive-live playpath=beinsport_eng_4 swfurl=http://sportsinfonet.info/player/Player.swf live=true timeout=15 pageurl=http://sportsinfonet.info/beinsports.php?n=beinsport_eng_4&vw=650&vh=450
+
+
+
+# 2254481
+
+name=Romania | Sports Moldova HD 
+thumb=http://3.bp.blogspot.com/-p3m3aLL12X8/UpCMN_5AjiI/AAAAAAAAArE/9OvJO0GJp3Q/s1600/Moldova+Sport+TV.jpg
+URL=http://sportmoldova.web.tvbox.md/
+
+
+
+# 2254486
+
+name=Russia | Futbol 
+thumb=http://www.barifutbol.mx/wp-content/uploads/2013/11/6-ESTADISTICAS-Y-RESULTADOS.jpg
+URL=http://hls.novotelecom.ru/streaming/futbol/tvrec/playlist.m3u8
+
+
+
+# 2254527
+
+name=Russia | Python Sports 
+thumb=http://2.bp.blogspot.com/-p8LAJTnczB8/UE-8uaF2EqI/AAAAAAAAM7Q/8fFi0KuGyzQ/s1600/Futbol+logo+2012.png
+URL=http://178.49.132.73/streaming/futbol/tvrec/playlist.m3u8
+
+
+
+# 2254533
+
+name=Russia | Rubin TV 
+thumb=http://tunshow.bugs3.com/games/images/news_3997.jpg
+URL=rtmp://grey.ether.tv/live/rubin/broadcast4.flv pageUrl=http://www.planeta-online.tv pageUrl=http://www.planeta-online.tv/planeta_player.swf?ver=767 live=1 timeout=10
+
+
+
+# 2254525
+
+name=Russia | Sport 1 HD v.2 
+thumb=http://www.frosat.net/images/logotv/original/Sport-1_ru.jpg
+URL=http://178.49.132.73/streaming/sport1/tvrec/playlist.m3u8
+
+
+
+# 2254487
+
+name=Russia | Sport 1 HD 
+thumb=http://www.frosat.net/images/logotv/original/Sport-1_ru.jpg
+URL=http://hls.novotelecom.ru/streaming/sport1/tvrec/playlist.m3u8
+
+
+
+# 2254524
+
+name=Russia | Sport 2 v.2 
+thumb=http://supergags.com/wp-content/uploads/2013/02/sport-2.png
+URL=http://178.49.132.73/streaming/sport/tvrec/playlist.m3u8
+
+
+
+# 2254572
+
+name=Spain | Canal+ Futbol v.2 
+thumb=http://zimblektvsports.site88.net/subcontainer/eventosdeportivos/imagenes3/canal+futbol.jpg
+URL=rtmp://50.7.189.66/iguide playpath=yr9edw1f4e8s567 token=#ed%h0#w18623jsda6523lDGD swfUrl=http://cdn.iguide.to/player/secure_player_iguide_embed_token.swf live=1 pageUrl=http://www.iguide.to/ timeout=10
+
+
+
+# 2254571
+
+name=Spain | Canal+ Futbol 
+thumb=http://zimblektvsports.site88.net/subcontainer/eventosdeportivos/imagenes3/canal+futbol.jpg
+URL=rtmp://50.7.137.90/iguide playpath=yr9edw1f4e8s567 token=#ed%h0#w18623jsda6523lDGD swfUrl=http://www.iguide.to/player/secure_player_iguide_embed_token.swf live=1 pageUrl=http://www.iguide.to/ timeout=10
+
+
+
+# 2254483
+
+name=Spain | Canal+ Golf 
+thumb=http://www.panoramaaudiovisual.com/wp-content/uploads/2010/01/GRAFISMO-3.jpg
+URL=rtmp://146.185.25.162/live playpath=plusgolf?id=14960 swfUrl=http://www.ezcast.tv/static/scripts/eplayer.swf live=1 pageUrl=http://www.ezcast.tv/embedded/plusgolf/1/650/400 Conn=S:OK
+
+
+
+# 2254576
+
+name=Spain | Canal+ Liga De Campeones v.2 
+thumb=http://img.vayatele.com/2012/09/canalplus-ligacampeones.jpg
+URL=rtmp://5.79.72.3/vl/_definst_ playpath=abralacabra1 swfUrl=http://www.veemi.com/player/player-licensed.swf live=1 pageUrl=http://www.veemi.com/
+
+
+
+# 2254575
+
+name=Spain | Canal+ Liga De Campeones 
+thumb=http://img.vayatele.com/2012/09/canalplus-ligacampeones.jpg
+URL=rtmp://95.211.168.161/vl/_definst_ playpath=abralacabra1 swfUrl=http://www.veemi.com/player/player-licensed.swf live=1 pageUrl=http://www.veemi.com/embed.php
+
+
+
+# 2254475
+
+name=Spain | Canal+ Toros 
+thumb=http://www.mitaurored.es/archivos/noticias/20110309_CanalPlus.jpg
+URL=rtmp://50.7.191.234/iguide playpath=a1lnmnmpgnc6f9s token=#ed%h0#w18623jsda6523lDGD swfUrl=http://cdn.iguide.to/player/secure_player_iguide_embed_token.swf live=1 pageUrl=http://www.iguide.to/ timeout=10
+
+
+
+# 2254545
+
+name=Spain | Esport3 
+thumb=http://taylorhits.com/wp-content/uploads/ESPORT3.jpg
+URL=rtmp://tv-nogeo-flashlivefs.fplive.net/tv-nogeo-flashlive-live/ playpath=stream_ES3_FLV swfUrl=http://04stream.com/p/boopo.swf live=1 pageUrl=http://negmtv.altervista.org/php/sportsplayer3.php?ch=Esport3 timeout=10
+
+
+
+# 2254580
+
+name=Spain | GOL TV 
+thumb=http://b.vimeocdn.com/ts/191/093/191093595_640.jpg
+URL=rtmp://50.7.137.82/iguide playpath=j69ud1kifqwy05s token=#ed%h0#w18623jsda6523lDGD swfUrl=http://www.iguide.to/player/secure_player_iguide_embed_token.swf live=1 pageUrl=http://www.iguide.to/ timeout=10
+
+
+
+# 2254577
+
+name=Spain | Sevilla FC 
+thumb=http://www.wallsave.com/wallpapers/1920x1080/ajax-fc/657997/ajax-fc-internationaal-657997.jpg
+URL=rtmp://flash0.80137-live0.dna.qbrick.com/80137-live0/sevillafc
+
+
+
+# 2254569
+
+name=Sweden | TV4 Sports HD 
+thumb=http://ohlsonsmith.se/files/TV4Sport_logotype.jpg
+URL=http://tvhdslive-f.akamaihd.net/i/EDCSPORTHDS_1@108870/index_4_av-b.m3u8?sd=10&rebase=on&rebase=on
+
+
+
+# 2254502
+
+name=Turkey | BursaSpor 
+thumb=http://image.cdn.haber7.com/haber/haber7/photos/bursaspor_5_transferini_geceklestirdi13594539190_h983223.jpg
+URL=http://stream.yayindayiz.biz/Bursaspor/bursaspor/playlist.m3u8
+
+
+
+# 2254503
+
+name=Turkey | Galatasaray SK  Sport 
+thumb=http://www.fm-base.co.uk/forum/attachments/football-manager-2014-manager-stories/504014d1392838200-galatasaray-sports-club-money-not-spoken-here-heart-galatasaray_wallpaper_by_sanchezdesign-d5zjp121.jpg
+URL=rtmp://cdn21.motiwe.com/live/gstv370
+
+
+
+# 2254549
+
+name=Turkey | NTV Spor 
+thumb=http://img-cdn.ntvspor.net/C/I/124/ntvspor_net_logo_600_RNXBY.jpg
+URL=http://doguslive-i.akamaihd.net/hls/live/205605/ntvsporhd/stream3/streamPlaylist.m3u8
+
+
+
+# 2254472
+
+name=Turkey | SportsTV 3 
+thumb=http://supergags.com/wp-content/uploads/2013/02/sportstv.jpg
+URL=rtmp://stream.sportstv.com.tr/sportstv//SportsTV3
+
+
+
+# 2254553
+
+name=UK | AutoSport TV 
+thumb=http://fourtitude.com/wp-content/uploads/2013/11/autosport-logo-600x241.jpg
+URL=mms://100automoto.tv/100livesport
+
+
+
+# 2254597
+
+name=UK | BT Sport 1 v.2 
+thumb=http://static.trustedreviews.com/94/0000286fc/7300/BT-Sport.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=bt1x swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254506
+
+name=UK | BT Sport 1 
+thumb=http://static.trustedreviews.com/94/0000286fc/7300/BT-Sport.jpg
+URL=rtmp://37.220.32.53:443/liverepeater playpath=1 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2254598
+
+name=UK | BT Sport 2 v.2 
+thumb=http://static.trustedreviews.com/94/0000286fc/7300/BT-Sport.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=bt2x swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254507
+
+name=UK | BT Sport 2 
+thumb=http://static.trustedreviews.com/94/0000286fc/7300/BT-Sport.jpg
+URL=rtmp://37.220.32.53:443/liverepeater playpath=2 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2254548
+
+name=UK | Chelsea TV 
+thumb=http://4.bp.blogspot.com/-xDSutIt_okE/UVipsb3IUlI/AAAAAAAACB8/3v1lu-jdzfg/s170/chelsea%2Btv.jpg
+URL=rtmp://cp96798.live.edgefcs.net/live playpath=ChelTV_Ch01_1000k@26291 swfUrl=http://player.longtailvideo.com/player.swf?file=ChelTV_Ch01_1000k@26291&streamer=rtmp://cp96798.live.edgefcs.net/live&autostart=true pageUrl=http://coolsport.tv/chelseatv.html live=1 timeout=10
+
+
+
+# 2254482
+
+name=UK | euroSport 1 British 
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=euro1x swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254470
+
+name=UK | euroSport 1 v.2 British 
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=http://hls01-09.az.myvideo.az/hls-live/livepkgr/eurosport/eurosport/eurosport.m3u8?karamba=1
+
+
+
+# 2254508
+
+name=UK | euroSport 1 
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=http://202.75.23.37:8800/live/ch21/live.m3u8
+
+
+
+# 2254522
+
+name=UK | euroSport 2 British 
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=euro2x swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254471
+
+name=UK | euroSport 2 v.2 British 
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=http://hls01-04.az.myvideo.az/hls-live/livepkgr/eurosport2/eurosport2/eurosport2.m3u8?karamba=1
+
+
+
+# 2254523
+
+name=UK | euroSport 2 
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=rtmp://31.220.0.195:1935/live playpath=euro2x token=%ZZri(nKa@#Z swfUrl=http://www.eucast.tv/ePlayerr.swf live=1  pageUrl=http://www.eucast.tv/ timeout=10
+
+
+
+# 2254509
+
+name=UK | FIGHT Sports 
+thumb=http://4.bp.blogspot.com/-0M9AOMeW7oA/UYAzKDJVTcI/AAAAAAAAE7s/7dWrPLPXUV4/s1600/tv4+copy.jpg
+URL=http://202.75.23.37:8800/live/ch20/live.m3u8
+
+
+
+# 2254462
+
+name=UK | Premier Sports 
+thumb=http://upload.wikimedia.org/wikipedia/en/8/83/Premier_Sports_logo.png
+URL=rtmpe://146.185.31.234:1935/redirect playpath=premiersportshdfoot token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf pageUrl=http://cdn.watchjsc.us/embed.php?u=premiersportshdfoot&vw=640&vh=460&domain=hdfoots.com live=true timeout=10
+
+
+
+# 2254480
+
+name=UK | Racing UK 
+thumb=http://www.racinguk.com/images/articles/Racing-UK-Logo.jpg
+URL=rtmpe://5.153.25.44:1935/redirect playpath=racingukhdfoots token=Fo5_n0w?U.rA6l3-70w47ch swfUrl=http://cdn.watchjsc.us/jwplayer.swf pageUrl=http://cdn.watchjsc.us/embed.php?u=racingukhdfoots&vw=640&vh=460&domain=hdfoots.com live=true timeout=10
+
+
+
+# 2254596
+
+name=UK | Sky Calcio 
+thumb=http://www.juvecusano1913.it/foto/grandi/sky_calcio_show.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=skycalcioit swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254592
+
+name=UK | Sky Sports 1 v.2 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=ss1x swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254536
+
+name=UK | Sky Sports 1 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://37.220.36.68:443/liverepeater playpath=11 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/  timeout=10
+
+
+
+# 2254593
+
+name=UK | Sky Sports 2 v.2 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=ss2x swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv token=%ZZri(nKa@#Z
+
+
+
+# 2254535
+
+name=UK | Sky Sports 2 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://37.220.32.53:443/liverepeater playpath=12 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2254594
+
+name=UK | Sky Sports 3 v.2 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=ss3x token=%ZZri(nKa@#Z swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv
+
+
+
+# 2254537
+
+name=UK | Sky Sports 3 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://37.220.32.53:443/liverepeater playpath=13 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2254595
+
+name=UK | Sky Sports 4 v.2 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=ss4x token=%ZZri(nKa@#Z swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv
+
+
+
+# 2254538
+
+name=UK | Sky Sports 4 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://37.220.32.53:443/liverepeater playpath=14 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2254539
+
+name=UK | Sky Sports News 
+thumb=http://www.digitaltveurope.net/wp-content/uploads/2012/01/Sky-Sports-deutschland.jpg
+URL=rtmp://31.220.0.195:1935/live playpath=ssnewsrx token=%ZZri(nKa@#Z swfUrl=http://www.eucast.tv/ePlayerr.swf live=1  pageUrl=http://www.eucast.tv/ timeout=10
+
+
+
+# 2254603
+
+name=UK | Sports Tonight 
+thumb=http://www.sportstonightlive.com/templates/ideabox/images/logo.png
+URL=rtmp://freeview.fms.visionip.tv/live/// playpath=sports_tonight-sports_tonight-live-25f-16x9-SD swfUrl=http://negmtv.altervista.org/play/jwplayer.flash.swf pageUrl=http://negmtv.altervista.org/php/sportplayer.php?ch=sportstonight live=1 timeout=10
+
+
+
+# 2254558
+
+name=USA | Automotive TV.net 
+thumb=http://www.automotivetv.net/images/inside/logo_inside.jpg
+URL=rtsp://46.249.213.87/broadcast/automotivetv-tablet.3gp
+
+
+
+# 2254589
+
+name=USA | Big Ten Network HD 
+thumb=http://payload.cargocollective.com/1/3/109141/1518850/Big10_05.jpg
+URL=http://bigten247.cdnak.bigtenhd.neulion.com/nlds/btn2go/btnnetwork/as/live/btnnetwork_hd_3000.m3u8
+
+
+
+# 2254588
+
+name=USA | Big Ten Network SD 
+thumb=http://payload.cargocollective.com/1/3/109141/1518850/Big10_05.jpg
+URL=http://bigten247.cdnak.bigtenhd.neulion.com/nlds/btn2go/btnnetwork/as/live/btnnetwork_hd_1840.m3u8
+
+
+
+# 2254543
+
+name=USA | ESPN v.2 
+thumb=http://talentmechanic.files.wordpress.com/2011/06/espn_3d.jpg
+URL=rtmp://31.7.58.250:1935/stream/ playpath=42q5retrgh.stream swfUrl=http://04stream.com/p/boopo.swf live=1 pageUrl=http://negmtv.altervista.org/php/sportsplayer3.php?ch=ESPNb
+
+
+
+# 2254542
+
+name=USA | ESPN 
+thumb=http://talentmechanic.files.wordpress.com/2011/06/espn_3d.jpg
+URL=rtmp://46.246.29.130:1935/stream/ playpath=46terg.stream swfUrl=http://04stream.com/p/boopo.swf live=1 pageUrl=http://negmtv.altervista.org/php/sportsplayer3.php?ch=ESPN
+
+
+
+# 2254512
+
+name=USA | FOX Sports 1 
+thumb=http://msn.foxsports.com/speed/wp-content/uploads/2013/08/1129922_article_img_xlarge6.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=fox1 token=%ZZri(nKa@#Z swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv  timeout=10
+
+
+
+# 2254513
+
+name=USA | FOX Sports 2 
+thumb=http://sport.sky.it/static/contentimages/original/sezioni/sport/altri_sport/2013/12/19/visore_foxsports2.jpg
+URL=rtmp://31.220.0.103:1935/live playpath=fox2 token=%ZZri(nKa@#Z swfUrl=http://static2.sawlive.tv/player.swf live=1 pageUrl=http://www.eucast.tv timeout=10
+
+
+
+# 2254501
+
+name=USA | Fox Sports Deportes 
+thumb=http://influentialaccess.files.wordpress.com/2012/04/fox_deportes.jpg
+URL=rtmp://46.165.230.40/live playpath=deporhd7?id=204137 swfUrl=http://www.mips.tv/content/scripts/eplayer.swf live=1 pageUrl=http://www.mips.tv/embedplayer/deporhd7/1/620/382 Conn=S:OK
+
+
+
+# 2254583
+
+name=USA | NBA Network v.2 
+thumb=http://s3files.core77.com/blog/images/2013/04/nbatv-set-02.jpg
+URL=rtmpe://watch.playfooty.tv/live playpath=nba1569 swfUrl=http://www.playfooty.tv/play/player/player.swf live=1 pageUrl=http://www.playfooty.tv/
+
+
+
+# 2254585
+
+name=USA | NBA Network v.3 
+thumb=http://s3files.core77.com/blog/images/2013/04/nbatv-set-02.jpg
+URL=rtmp://46.246.29.141:1935/stream/ playpath=K8l9h6j8.stream swfUrl=http://thecdn.04stream.com/p/boopo.swf live=schuster92 pageUrl=http://04stream.com/
+
+
+
+# 2254586
+
+name=USA | NBA Network v.4 
+thumb=http://s3files.core77.com/blog/images/2013/04/nbatv-set-02.jpg
+URL=rtmp://46.246.29.157:1935/stream/ playpath=y8m0NU0.stream swfUrl=http://thecdn.04stream.com/p/ooolo1.swf live=1 pageUrl=http://www.04stream.com/
+
+
+
+# 2254540
+
+name=USA | NBA Network 
+thumb=http://s3files.core77.com/blog/images/2013/04/nbatv-set-02.jpg
+URL=rtmp://46.246.29.130:1935/stream/ playpath=W3h4q9Z6.stream swfUrl=http://04stream.com/p/boopo.swf live=1 pageUrl=http://negmtv.altervista.org/php/sportsplayer3.php?ch=nba1
+
+
+
+# 2254551
+
+name=USA | NBC Golf Channel HD 
+thumb=http://upload.wikimedia.org/wikipedia/en/9/98/Golf_Channel_old_logo.png
+URL=http://xrxs.net/video/live-golf-4096.m3u8
+
+
+
+# 2254515
+
+name=USA | NBC Sport Network 
+thumb=http://www.twcmedia.com/uploadedImages/SharedContent/Smartforms/Network/nbcusportsheroimage1.jpg
+URL=http://202.75.23.33:8800/live/ch26/03.m3u8?sd=10&rebase=on%20timeout=10
+
+
+
+# 2254544
+
+name=USA | NFL Network 
+thumb=http://m1.behance.net/rendition/modules/56004503/disp/ed1a828ae401ee36df7da07dc595bbe0.png
+URL=rtmp://46.246.29.130:1935/stream/ playpath=bdpZdSfpz0.stream swfUrl=http://04stream.com/p/boopo.swf live=1 pageUrl=http://negmtv.altervista.org/php/sportsplayer3.php?ch=NFL1
+
+
+
+# 2254516
+
+name=USA | PAC 12 Arizona HD 
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://xrxs.net/video/live-p12ariz-2328.m3u8
+
+
+
+# 2254517
+
+name=USA | PAC 12 Bay Area HD 
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://xrxs.net/video/live-p12baya-2328.m3u8
+
+
+
+# 2254518
+
+name=USA | PAC 12 Los Angeles HD 
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://xrxs.net/video/live-p12losa-2328.m3u8
+
+
+
+# 2254519
+
+name=USA | PAC 12 Network HD 
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://xrxs.net/video/live-p12netw-2328.m3u8
+
+
+
+# 2254520
+
+name=USA | PAC 12 Oregon HD 
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://xrxs.net/video/live-p12oreg-2328.m3u8
+
+
+
+# 2254521
+
+name=USA | PAC 12 Washington HD 
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://xrxs.net/video/live-p12wash-2328.m3u8
+
+
+
+# 2254556
+
+name=USA | Red Bull TV HD 
+thumb=http://www.redbull.com/cs/RedBull/RBImages/000/000/422/542/photo610x343a/ScreenShot149.jpg
+URL=http://live.iphone.redbull.de.edgesuite.net/webtvHD.m3u8
+
+
+
+# 2254591
+
+name=USA | Univision Deportes 
+thumb=http://globalfootballtoday.com/wp-content/uploads/2013/03/univision-deportes.jpg
+URL=rtmp://5.63.151.44/live playpath=sdaserasdfasdf?id=204029 swfUrl=http://www.mips.tv/content/scripts/eplayer.swf live=1 pageUrl=http://www.mips.tv/ Conn=S:OK
+
+
+
+# 2254602
+
+name=USA | WWE Network 
+thumb=http://www.wwe.com/f/styles/ep_trending/public/article/thumb/2014/02/wwe-network/20140102_EPLIGHT_Network_Announcement_nodate_C.jpg
+URL=rtmp://37.220.32.53:443/liverepeater playpath=16 token=#atd%#$ZH swfUrl=http://filotv.pw/atdedead.swf live=1 pageUrl=http://filotv.pw/ timeout=10
+
+
+
+# 2269016
+
+name=
+date=2014-06-12
+URL=http://94.76.109.30:4500
+
+
+
+# 2269017
+
+name=
+date=2014-06-12
+URL=http://94.76.109.30:4500
+
+
+
+# 2269018
+
+name=
+date=2014-06-12
+URL=http://94.76.109.30:4500
+
+
+
+# 2269019
+
+name=
+date=2014-06-12
+URL=http://94.76.109.30:4500
+
+
+
+# 2269020
+
+name=
+date=2014-06-12
+URL=http://94.76.109.30:4500
+
+
+
+# 2254605
+
+name=|***LINKS BELOW ARE NOT STABLE OR RELIABLE BUT MAY WORK
+thumb=http://thumbs.dreamstime.com/z/stop-sign-different-countries-illustration-traffic-descriptions-various-states-33352709.jpg
+URL=http://gogo.jksw.cz:8023/
+
+
+
+# 2254465
+
+name=|**Albania | Super Sport 1 
+thumb=http://www.vatra.net/foto/supersport.jpg
+URL=http://149.255.39.122/aasd/8733/index.m3u8
+
+
+
+# 2254467
+
+name=|**Albania | Super Sport 2 
+thumb=http://www.vatra.net/foto/supersport.jpg
+URL=http://149.255.39.122/aasd/8734/index.m3u8
+
+
+
+# 2254469
+
+name=|**Albania | Super Sport 3 
+thumb=http://www.vatra.net/foto/supersport.jpg
+URL=http://149.255.39.122/aasd/8741/index.m3u8
+
+
+
+# 2254557
+
+name=|**Czech | CT Sport 
+thumb=http://www.hcpce.cz/znaky/2013/large/ct_sport.jpg
+URL=http://212.79.96.134:8014/
+
+
+
+# 2254461
+
+name=|**Portugal | Sport TV 2 
+thumb=http://2.bp.blogspot.com/-egqPz3rk2Vo/UC6oQEedvNI/AAAAAAAAAEg/MsRMtmCVKVQ/s1600/sport%2Btv.jpg
+URL=rtmp://fire.tvzune.org/live/ playpath=sporttv2 swfUrl=http://mudade5em5dias.tvzune.co/player_que_vai_mudar.swf live=1 pageUrl=http://www.tvzune.tv/soft.php?novo=1&token=8321
+player=mplayer
+
+
+# 2254485
+
+name=|**Russia | Fight Club 
+thumb=http://media-cache-ak0.pinimg.com/236x/a8/d5/30/a8d530c8339811f5e7a473fc3b19b20e.jpg
+URL=http://94.249.128.163:80/spi/fightboxhd_0_1/chunklist.
+
+
+
+# 2254489
+
+name=|**Russia | ViaSat Sport 
+thumb=http://m1.behance.net/rendition/modules/58230509/disp/efae7ef84ea7ffa1fbae0c84a1549653.jpg
+URL=rtmp://176.31.234.134:80/live playpath=viasatsportlt.stream swfUrl=http://www.rodom.tv/components/com_watchtv/views/watch/tmpl/compilephp.swf live=1 pageUrl=http://www.internetine-tv.narod.ru/_vsbflash.html timeout=10
+
+
+
+# 2254578
+
+name=|**Serbia | Arena Sport 1 
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://85.114.139.20:17213/
+
+
+
+# 2254581
+
+name=|**Serbia | Arena Sport 3 
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://85.114.139.20:2048/
+
+
+
+# 2254582
+
+name=|**Serbia | Arena Sport 4 
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://85.114.139.20:2049/
+
+
+
+# 2254570
+
+name=|**Serbia | Sky+ 
+thumb=http://www.skyplus.rs/wp-content/uploads/2013/04/SKYPLUSLOGO.png
+URL=rtsp://62.240.13.114/skyplus
+
+
+
+# 2254444
+
+name=|**Serbia | Sport Klub 1 
+thumb=http://img1.wikia.nocookie.net/__cb20130118161042/logopedia/images/7/78/SportKlub.png
+URL=http://85.114.139.20:2029/
+
+
+
+# 2254457
+
+name=|**Serbia | Sport Klub 2 
+thumb=http://img1.wikia.nocookie.net/__cb20130118161042/logopedia/images/7/78/SportKlub.png
+URL=rtmp://94.20.21.34:1935/live/zdf.stream
+
+
+
+# 2254567
+
+name=|**Spain | Canal+ Deportes 
+thumb=http://www.pontucanal.mobi/images/logos/deportes.png
+URL=rtmp://149.255.34.122/live playpath=deppontucanal?id=203748 swfUrl=http://www.mips.tv/content/scripts/eplayer.swf live=1 pageUrl=http://www.mips.tv/ conn=S:OK --live
+
+
+
+# 2254573
+
+name=|**Spain | Canal+ Liga 
+thumb=http://vertvonline.xtrweb.com/logostv/CANAL%20+%20LIGA%20HD.png
+URL=rtmp://37.48.66.83:5587/loadbalance playpath=ligahdptc swfUrl=http://p.jwpcdn.com/6/8/jwplayer.flash.swf live=1 pageUrl=http://flexstream.net/
+
+
+
+# 2254552
+
+name=|**UK | Sky Sports F1 v.2 
+thumb=http://www.creativetimes.co.uk/system/files/4436/large/Sky-F1.jpg?1331026042
+URL=rtmp://31.220.0.195:1935/live playpath=ssf1x token=%ZZri(nKa@#Z swfUrl=http://www.eucast.tv/ePlayerr.swf live=1  pageUrl=http://www.eucast.tv/ timeout=10
+
+
+
+# 2254477
+
+name=|**UK | Sky Sports F1 
+thumb=http://www.creativetimes.co.uk/system/files/4436/large/Sky-F1.jpg?1331026042
+URL=rtmp://31.220.0.195:1935/live playpath=ssf1x token=%ZZri(nKa@#Z swfUrl=http://www.eucast.tv/ePlayerr.swf live=1 pageUrl=http://www.eucast.tv/ timeout=10
+
+
+
+
+# cached
