@@ -1,9 +1,934 @@
-<poster>MetalKettle</poster>
-<thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/icon.png</thumbnail>
-<fanart>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/fanart.jpg</fanart>
+<poster>BEATBOX8501 PLAYLIST</poster>
+<fanart>http://i1295.photobucket.com/albums/b636/beatbox8501/fanart_zps5ca17583.jpg</fanart>
+<message>[COLOR crimson]Please Report Dead Links On Twitter @Beabix8501[/COLOR]</message>
+<message>[COLOR crimson]Join the group for updates - www.facebook.com/groups/Beatbox8501Playlist[/COLOR]</message>
+<message>[COLOR lime]OFFLINE STREAMS ARE BEING WORKED ON[/COLOR]</message>
+#BEATBOX8501 PLAYLIST#
+<info>
+        <message>[COLOR crimson]--------Live SPORTS Test--------[/COLOR]</message>
+	<message></message></message>
+	
+<title>[B][COLOR white]BTSPORTS 1 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://i.espn.co.uk/espnuk/splash/bt_sport.png</thumbnail>
+<fanart></fanart>
+<link>rtmp://31.220.0.134:1935/live playpath=bt1x swfUrl=http://www.flashtv.co/ePlayerr.swf live=1 pageUrl=http://www.flashtv.co/ token=%ZZri(nKa@#Z</link>
+</item>
+	<item>
+<title>[B][COLOR white]BTSPORTS 2 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://www.livesport-stream.com/channel-logo/BT-Sport-2-Live_Logo.png</thumbnail>
+<fanart></fanart>
+<link>rtmp://31.220.0.134:1935/live playpath=bt2x swfUrl=http://www.flashtv.co/ePlayerr.swf live=1 pageUrl=http://www.flashtv.co/ token=%ZZri(nKa@#Z</link>
+</item>
+	<item>
+<title>[B][COLOR white]SKY SPORTS F1 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://www.lyngsat-logo.com/hires/ss/sky_uk_sports_f1.png</thumbnail>
+<fanart></fanart>
+<link>rtmp://31.220.0.103:1935/live playpath=skyf1x swfUrl=http://www.flashtv.co/ePlayerr.swf pageUrl=http://www.flashtv.co/embed.php?live=skyf1x&vw=620&vh=490 token=%ZZri(nKa@#Z</link>
+</item>
+	<item>
+<title>[B][COLOR white]SKY SPORTS NEWS [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://www.fm-base.co.uk/forum/attachments/football-manager-2012-stories/268180d1300972362-juventus-il-nuovo-barca-new-barcelona-sky-sports-news-logo-1.png</thumbnail>
+<fanart></fanart>
+<link>rtmp://31.220.0.103:1935/live playpath=ssnx swfUrl=http://www.flashtv.co/ePlayerr.swf pageUrl=http://www.flashtv.co/embed.php?live=ssnx&vw=620&vh=490 token=%ZZri(nKa@#Z</link>
+</item>
 
-<dir>
-<name>Movie Box Sets</name>
-<link>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/CliqDirectory/BOXSETS.XML</link>
-<thumbnail>https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/plugin.video.movieshd/resources/art/movies.png</thumbnail>
-</dir>
+	<item>
+<title>[B][COLOR white]ESPN [COLOR lime]USA[/COLOR][/COLOR][/B]</title>
+<thumbnail>http://upload.wikimedia.org/wikipedia/fr/9/9b/Logo_ESPN.png</thumbnail>
+<fanart></fanart>
+<link>http://37.187.133.146:1935/gtfo/prem15/playlist.m3u8|User-Agent=AppleCoreMedia%2f1.0.0.8F455%20(AppleTV%3b%20U%3b%20CPU%20OS%204_3%20like%20Mac%20OS%20X%3b%20de_de)</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]NHL NETWORK [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://moodystreet.tv/wp-content/uploads/2013/04/nhl-network-logo.png</thumbnail>
+<fanart></fanart>
+<link>http://37.187.133.146:1935/gtfo/prem22/playlist.m3u8|User-Agent=AppleCoreMedia%2f1.0.0.8F455%20(AppleTV%3b%20U%3b%20CPU%20OS%204_3%20like%20Mac%20OS%20X%3b%20de_de)</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]EUROSPORT [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link>http://90.189.178.110:35555/udp/233.7.70.132:5000</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]NFL NETWORK [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link>http://37.187.133.146:1935/gtfo/prem19/playlist.m3u8</link>
+</item>
+
+	<item>
+<title>[B][COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link></link>
+</item>
+
+	<item>
+<title>[B][COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link></link>
+</item>
+
+
+	<item>
+<title>[B][COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link></link>
+</item>
+
+
+        <message>[COLOR crimson]--------RANDOM CHANNEL TEST--------[/COLOR]</message>
+	<item>
+<title>[B][COLOR white]HISTORY [COLOR lime]USA [/COLOR][/COLOR][/B]</title>
+<thumbnail>http://img1.wikia.nocookie.net/__cb20100624030706/indianajones/images/e/e3/History_channel_logo.png</thumbnail>
+<fanart></fanart>
+<link>http://37.187.133.146:1935/gtfo/prem11/playlist.m3u8|User-Agent=AppleCoreMedia%2f1.0.0.8F455%20(AppleTV%3b%20U%3b%20CPU%20OS%204_3%20like%20Mac%20OS%20X%3b%20de_de)</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]ITV1 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://i1.cdnds.net/10/04/logo_itv1_0.jpg</thumbnail>
+<fanart></fanart>
+<link>rtmpe://cp97930.live.edgefcs.net/live playpath=itv1liveeuro_600@6207 swfUrl=http://www.itv.com/mediaplayer/ITVMediaPlayer.swf live=true timeout=10 swfvfy=true</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]BBC ONE [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://vozplus.com/wp-content/uploads/Watch-BBC-One.png</thumbnail>
+<fanart></fanart>
+<link>rtmp://bbcmedia.fc.llnwd.net:1935/ app=bbcmedia?as=adobe-hmac-sha256&av=1&te=connect&mp=s_bbc1_inlet_480,s_bbc1_inlet_396,s_bbc1_inlet_800,s_bbc1_inlet_1500,s_bbc1_inlet_176,s_bbc1_inlet_56&et=1404656327&fmta-token=e4b9cf1c676a542c3bc4026bd833f927ba89c499f9dbfb93c43b6b8eec908b13 tcurl=rtmp://bbcmedia.fc.llnwd.net:1935/bbcmedia?as=adobe-hmac-sha256&av=1&te=connect&mp=s_bbc1_inlet_480,s_bbc1_inlet_396,s_bbc1_inlet_800,s_bbc1_inlet_1500,s_bbc1_inlet_176,s_bbc1_inlet_56&et=1404656327&fmta-token=e4b9cf1c676a542c3bc4026bd833f927ba89c499f9dbfb93c43b6b8eec908b13 playpath=s_bbc1_inlet_1500 live=1 timeout=180</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]ANIMAL PLANET [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://hybridtechcar.com/wp-content/uploads/2013/10/pentkhaus-113.jpg</thumbnail>
+<fanart></fanart>
+<link>http://iphone-streaming.ustream.tv/uhls/12762028/streams/live/iphone/hasbahca.m3u8</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]TV 1000 [COLOR lime]MOVIE CHANNEL[/COLOR][/COLOR][/B]</title>
+<thumbnail>http://img4.wikia.nocookie.net/__cb20100308163331/tvkanal/da/images/c/c6/TV1000.png</thumbnail>
+<fanart></fanart>
+<link>http://130.0.24.5:9999/udp/225.255.255.124:30000</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]MTV HITS [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link>http://130.0.24.5:9999/udp/225.255.255.119:30000</link>
+</item>
+
+
+
+
+
+	<message>********[COLOR lightsteelblue]BEATBOX8501 HD MOVIES [/COLOR]********</message>
+	<message></message>
+	
+	
+
+	
+	<item>
+<title>[B][COLOR white]Bullet To The Head [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/aj5JAQG2FA0MeSeq74aFrkjeYDl.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.149.8/index.php?file=1584&start=&hd=0&auth=1053108d21c337d43dd4673164e&type=flv&tv=0</link>
+</item>
+
+
+
+	<item>
+<title>[B][COLOR white]Powder [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/original/84YMD4IAWNgsmuYSkI2Z19WfdXE.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=3957&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+
+
+	<item>
+<title>[B][COLOR white]The Green Mile [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/3yJUlOtVa09CYJocwBU8eAryja0.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=53&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Bourne Identity [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/bXQIL36VQdzJ69lcjQR1WQzJqQR.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=1233&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Bourne Supremacy [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/6a74OaZArLNNDHK9SdiLBUu2JYj.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.7/index.php?file=1234&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Bourne Ultimatum [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/fHho6JYYY0nRcETWSoeI19iZsNF.jpg</thumbnail>
+<fanart></fanart>
+<link>http://50.22.50.137/index.php?file=1236&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Bourne Legacy [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/gEtaeMKtGbQUBxyRUHqMgslMV9a.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.138/index.php?file=323&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+<item>
+<title>[B][COLOR white]The Lost Boys  [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/evo7oiay9qDUzY510VhrB3YzyJs.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=1331&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+<item>
+<title>[B][COLOR white]National Treasure Book Of Secrets  [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/5fOwo57lLZ3TFPG5jL6Db9Qaq8Q.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.7/index.php?file=471&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]National Treasure  [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/luMoc56LLMWUt60vUNNpwxrbTNt.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=477&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Man Of Steel [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/uKnhbfNt1ZR2TdoZpdn7vSNZlhX.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=2337&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Lion King [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/bKPtXn9n4M4s8vvZrbw40mYsefB.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=835&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+<item>
+<title>[B][COLOR white]The Fast And The Furious[/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/3cucyEuLOOjjJ8nem5facsTEy68.jpg</thumbnail>
+<fanart></fanart>
+<link>http://50.22.50.136/index.php?file=54&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]2 Fast 2 Furious[/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/3CrNPUulPGbsJIH2ZnLYomGIVrk.jpg</thumbnail>
+<fanart></fanart>
+<link>http://67.215.235.106/index.php?file=55&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]The Fast And The Furious: Tokyo Drift[/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/7zcstia8qDvxLhAQD80uLAlCsL9.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.193.195.153/index.php?file=56&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Fast & Furious[/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/ft8IqAGFs3V7i87z0t0EVRUjK1p.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.44.35.186/index.php?file=57&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Fast Five[/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/cA81CI8odKv5KHRUUzJbj83yN7c.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.44.35.186/index.php?file=61&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Fast & Furious 6[/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/bsH746t5bLZ8U1wIW9FmWXyyhrW.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.130.226.132/index.php?file=2066&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Hook [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/zv17VUh7cVsJXakfaXnbLEaehC5.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.149.8/index.php?file=161&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Kickboxer [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/8kNEhA31mXwUOuFuBGaN0T5oQwU.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.149.8/index.php?file=2205&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+
+	<item>
+<title>[B][COLOR white]I Robot [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/2mkFzf168xJrV6Leqq0bjqOlJCK.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.7/index.php?file=445&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]How High [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/mp8BcPXcMVaJN702KOTh4QVw0BE.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=2974&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]City Of Ember [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/vtlcA292oROPaG74amLsAhtBNbB.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=1788&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Man On Fire [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/qAbRLPe8T7ehKzr1Tgo78T7ASrS.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=4149&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rio 2 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/mxbw3viU83g4MWWwMLm5aunfdCV.jpg</thumbnail>
+<fanart></fanart>
+<link>http://192.96.205.170:182/d/lxa3lig6lhzeh6kduzslzeyk5cl4eskw3suj6cz4qibl3xsngetfm5c5/Rio%202%20(2014)-1080p-ukfilm-in.mkv</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]I Am Legend [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/pfvQ3kkSbFsIPC5exKPUf5nOf60.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=970&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Night At The Roxbury [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/s6DRSRb18d18ApQV4rVeUVltYiO.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.220/index.php?file=2259&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+<item>
+<title>[B][COLOR white]Harry Potter And The Sorcerer's Stone [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=348&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/uLGaJ9FgPWf7EUgwjp9RTmHemw8.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Chamber Of Secrets [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=349&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/xyWKIBq7EVSIXEdxLi9hJWopz4J.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Prisoner Of Azkaban [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=350&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/qMn0YCWKxt7xg8nqRnRj2Ei9qgx.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Goblet Of Fire [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=351&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/6sASqcdrEHXxUhA3nFpjrRecPD2.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Order Of the phoenix [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=352&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/lmYmoXVzVrTadfXHZ3v1ySqA1fn.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Half-Blood Prince [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=353&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/bFXys2nhALwDvpkF3dP3Vvdfn8b.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Deathly Hallows: Part 1 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=354&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/6aEW544qOWoW2h3eQm2zqEzPISO.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Harry Potter And The Deathly Hallows: Part 2 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=355&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/7xmtxRc9nQnCuWINuTT4SMP5NJc.jpg</thumbnail>
+</item>
+
+<item>
+<title>[B][COLOR white]The Rock  [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/pAVaLJQBRM4JlZEGXvezwbxOd15.jpg</thumbnail>
+<fanart></fanart>
+<link>http://67.215.235.106/index.php?file=586&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Con-Air[COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/iVAtR4rQTCafG1tGw8HMC0pBIpU.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.221/index.php?file=1194&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Jeepers Creepers [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/gaIiibMDw95MDT0QtpwMCFDSyQO.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.220/index.php?file=3779&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Jeepers Creepers 2 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/yyCvROn0bSq5VlV3NhQxB3wzbTB.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=3780&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Tarzan [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/p0Ut3h7Sx6GlsVltt2ZAp8XDFmi.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.192.81.175/index.php?file=3833&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Bloodsport [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/E4d48dFICxN1tcGywt1p5zBHYJ.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.138/index.php?file=2231&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Transformers [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/6aOyomjJhepLYeq2IF6o6s6KlGD.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=816&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Transformers: Revenge of the Fallen [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/1zuTuBn03fWFqfNpXXZYU3dnrzy.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.221/index.php?file=817&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+	<item>
+<title>[B][COLOR white]Transformers: Dark of the Moon [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/x3srPojlinkAYxnPXAjZunsPCIL.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.192.81.175/index.php?file=818&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Noah [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/1Wk4dko9nK8SWLYNnt35Z6sdygA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.138/index.php?file=4231&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Robocop [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/wAvXafpudAqMwxG4T6D0ez7Ukmb.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=3789&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Robocop [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/ss1gDlyk3Mf1KkAPr5wvQ7UXWVS.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=1046&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Robocop 2 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/jrfXAz8vZx9PdrFODj171vlSd08.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=1041&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Robocop 3 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/etxjtdc5ED2pXzBMbawaDCtYPI7.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.221/index.php?file=1038&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Dumb & Dumber [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/3xnkZA8mZ5jepijseLXQXFWpJN1.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.192.81.175/index.php?file=1880&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Matrix [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/gynBNzwyaHKtXqlEKKLioNkjKgN.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.221/index.php?file=376&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Titanic [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/6R6ytOIFuYu4why0ktbmkCn8Wsg.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=1121&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Bad Boys [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/nkRagoJbx9H3zVSEDyH5ldfgwyR.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=1267&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Bad Boys II [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/680X9apSqmAcebLg8evnnUeQNeI.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=1268&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Captain America: The Winter Soldier[COLOR lime](Webrip)[/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/pH4oeiZAh9a40tly4D0l6aAB3ms.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=4188&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Robin Hood - Prince Of Thieves [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/gJhnXrom5Zh9yDy9E0maTmFZJsA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.143/index.php?file=4094&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Ghostbusters [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/5uWVocCBSbxfx3sqmjyUwn5bzXs.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.221/index.php?file=1704&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B]Ghostbusters II [COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/cUXhjgbHTNS9u78O9pVNaa5mHa1.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=3683&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Happy Gilmore [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/wxutiNqOIktkywuIU7DOv05A6bn.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=1371&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Adventures of Buckaroo Banzai Across the 8th Dimension [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/zaIvuZWPtmyQvsYMeLtox4vTlD2.jpg</thumbnail>
+<fanart></fanart>
+<link>http://50.7.58.19//d/mfiywl37qm752xrl5fzv553vx3myezy2k6iqjuoyfxywu6a6wvsn3guw/The.Adventures.of.Buckaroo.Banzai.Across.the.8th.Dimension.1984._.X264.AC3-PLAYNOW.mkv</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rocky [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/uiIqUxgmKvGCzM7VTTTwsQuFXx2.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.131/index.php?file=819&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rocky II [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/bSuAUuPRfS5TEk8Yicvej9438TP.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.7/index.php?file=820&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rocky III [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/nYDNZJYwQWiVsectnVs9YyOfJZA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=821&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rock IV [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/o77vppuvHiYHD9IEMTfKFxhDIuf.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.149.8/index.php?file=822&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rocky V [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/pCHqTufpt3m4R88aowA2wuy0rb2.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.143/index.php?file=823&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Rocky Balboa [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/wxjgFk9OOYgfJNXi3KKjLJTbvw2.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.220/index.php?file=824&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Warriors [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/454yzHM5O01U45ZaVtbh4N5sWbl.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=1866&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Speed [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/fYcLPfyzTKcjOcUGx44bBcgMKI5.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.7/index.php?file=1458&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Undisputed [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/4ioPRu8sgNcvoH2In2Ug7XRn3xo.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=1736&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Fly [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/q49tjSe3O152t9QVwaradePGu7W.jpg</thumbnail>
+<fanart></fanart>
+<link>http://50.22.50.137/index.php?file=1490&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Goonies [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/pSitVrkbuncBaVc70iuGPQ7TYkV.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=920&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Willow [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/Akx1CXcDfwvZD5d4ZOsu6DCmYCA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.138/index.php?file=1716&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Friday [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/ld62xd4ZhFPmDEahwEcP2aEnx3L.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=1970&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Next Friday [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/zUzn6YBbnEhdIkqtf9w0xG58NMC.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=2320&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Friday After Next [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/pB49Sg3v247oHFPNvQLJDiX4OgA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.192.81.175/index.php?file=2713&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Liar Liar [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/qd8VcWKrE4cNfInl9Osb8o8h9KP.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.143/index.php?file=964&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Non Stop [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/ifgEHE1ortukpBF6wh03HCuctdr.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=3955&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Back To The Future [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/pTpxQB1N0waaSc3OSn0e9oc8kx9.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.138/index.php?file=1047&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Back To The Future II [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/k5dzvCQkXU2CAhLtlj9BHE7xmyK.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=1045&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Back To The Future III [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/6DmgPTZYaug7QNDjOhUDWyjOQDl.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=1044&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Brave [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/yctGwK2UNuItxCBAU78U105mmjc.jpg</thumbnail>
+<fanart></fanart>
+<link>http://192.96.205.172:182/d/l7a4kno7lhzeh6kdxnsk5xi352sgtbdnbjmnk2pzvncjew3y4qwdmrnm/Brave.2012.1080p.BRrip.x264.YIFY.mp4</link>
+</item>
+	<item>
+<title>[B][COLOR white]Dangerous Mind of a Hooligan [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/o71iTaY1RoUf8qSAyaKCd763UYl.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.220/index.php?file=3930&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Neighbors [COLOR lime](Webrip)[/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/bpj8myebvnTw5HDmzTSI8N6WFYr.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.172/index.php?file=4158&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Amazing Spider-Man 2 [COLOR lime](Webrip)[/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/8yhTuJk3flvXPQ7AwL6r4OdXYYA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.132/index.php?file=3903&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Walk of Shame [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/tw8KLqgjlEaOc4i2Y1iPsG1o3Hw.jpg</thumbnail>
+<fanart></fanart>
+<link>http://37.58.68.220/index.php?file=4005&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Transcendence [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/8CRPncuked3sIUuiZTHGQQGWM7g.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=4218&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+<item>
+<title>[B][COLOR white]Friday The 13th [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2416&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/qZjt0WPfD1AixEXiWpQdjsWFER8.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th Part 2 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2484&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/7zHqOwPBZZHUe2uXUb6hQZW0QX0.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th Part 3 [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2485&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/5wg2NZyIhcMbIBAahBODXHyJ54S.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th: The Final Chapter [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2398&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/ipYQAxWzwVom9sZCwnqewLAoCSf.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th: A New Beginning [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2399&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/p41hV8IdrZluwLHt8W1g2XZhAgZ.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th Part VI: Jason Lives [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2400&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/le636yjPeWkC74nPDIZiQBH1CVt.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th Part VII: The New Blood [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2414&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/mt5ijxnTC5a0sS1oPD58Gt9UT5N.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th Part VIII: Jason Takes Manhattan [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2415&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/cQc4GU9uBZUZh2x2QTigNvuBbWC.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Jason Goes To Hell: The Final Friday [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2401&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/oZP6uVsuOnIwkDSy8AuN1ybsHuf.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Jason X [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2300&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/4RuaJhF4Gw0W1pdpIJi91ZBe17.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Freddy vs. Jason [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=1339&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/3vXiVqrtuUNaVHDFxmWmjWTLjZO.jpg</thumbnail>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Friday The 13th [COLOR lime][/COLOR][/COLOR][/B]</title>
+<link>http://75.126.73.36/index.php?file=2417&start=&hd=0&auth=533970c3f55606c6aced48f31d&type=flv&tv=0</link>
+<thumbnail>http://image.tmdb.org/t/p/w396/y1S4bKk8cQphRBJliUikL3Jpv27.jpg</thumbnail>
+</item>
+
+<item>
+<title>[B][COLOR white]E.T. The Extra-Terrestrial[COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/hrO4FIo4zSyYo9uv6AXenOoZIUf.jpg</thumbnail>
+<fanart></fanart>
+<link>http://50.23.115.99/index.php?file=1520&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+
+<item>
+<title>[B][COLOR white]Saving Private Ryan [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/gc7IN6bWNaWXv4vI6cxSmeB7PeO.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.193.195.153/index.php?file=268&start=&hd=0&auth=671201669120b7997dc4dde563&type=flv&tv=0</link>
+</item>
+
+ <item>
+<title>[B][COLOR white]Lara Croft Tomb Raider: The Cradle Of Life [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/pkSnQzjjQ3Z9B2CJVSZCfL0Ea3s.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.149.8/index.php?file=1626&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+ 
+<item>
+<title>[B][COLOR white]Lara Croft: Tomb Raider [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>https://image.tmdb.org/t/p/w396/m6aodY7SrvlTRiUFkxClaNAIQT.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=1624&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Hot Rod [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/8fDD9wgQ5X65UCoU4XTd7nBZZgK.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.131/index.php?file=2860&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Bone Collector [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/dCTuPRukbDs3mOSx9SD0PCMRd2g.jpg</thumbnail>
+<fanart></fanart>
+<link>http://50.22.50.137/index.php?file=484&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Sabotage [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/iVpNb776SBRslpXBd20G38i9oBy.jpg</thumbnail>
+<fanart></fanart>
+<link>http://www.sockshare.com/file/3B2831ADC962BC8E#</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Kindergarten Cop [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/f2Wc1HV0nbYhIcFPX15gh6j7qeb.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.138/index.php?file=4156&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]American History X[COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/zdvV4tMIP2zkIxaIbXAVd49BzFb.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.196.143/index.php?file=270&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]Frozen [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/jIjdFXKUNtdf1bwqMrhearpyjMj.jpg</thumbnail>
+<fanart></fanart>
+<link>http://75.126.73.36/index.php?file=3093&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]3 Days to Kill [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/8Xwlc1yEsYwIKSt22JYZQq5QvjO.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.131.91/index.php?file=3765&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Monuments Men [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/buKyrMjMaK78uFdZAbp5Wg3Eveq.jpg</thumbnail>
+<fanart></fanart>
+<link>http://173.192.81.175/index.php?file=3755&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Hunger Games [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/iLJdwmzrHFjFwI5lvYAT1gcpRuA.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.145.131/index.php?file=636&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+	<item>
+<title>[B][COLOR white]The Hunger Games: Catching Fire [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail>http://image.tmdb.org/t/p/w396/tAhSyLxpaZJCr1oc2a3flvC2B7x.jpg</thumbnail>
+<fanart></fanart>
+<link>http://159.253.149.8/index.php?file=2814&start=&hd=0&auth=919321308bb2f6c3887457ec9d&type=flv&tv=0</link>
+</item>
+
+
+	<item>
+<title>[B][COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link></link>
+</item>
+
+	<item>
+<title>[B][COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link></link>
+</item>
+
+	<item>
+<title>[B][COLOR white] [COLOR lime][/COLOR][/COLOR][/B]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+<link></link>
+</item>
+
+
+	
+
+	
+	<message>MORE TO COME</message>
+	<message></message>
+	
