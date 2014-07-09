@@ -4,27 +4,44 @@ addon_id = 'plugin.video.bigbuckbunny'
 addon = Addon(addon_id, sys.argv)
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
+thumb = 'http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Big_Buck_Bunny_first_23_seconds_1080p.ogv/mid-Big_Buck_Bunny_first_23_seconds_1080p.ogv.jpg'
 
 def INDEX():
-        addDir('1080p','url',1,'http://www.bigbuckbunny.org/wp-content/uploads/dl_1080p.jpg','',fanart)
-        addDir('720p','url',2,'http://www.bigbuckbunny.org/wp-content/uploads/dl_720p.jpg','',fanart)
-        addDir('480p','url',3,'http://www.bigbuckbunny.org/wp-content/uploads/dl_480p.jpg','',fanart)
+        addDir('Stereoscopic 3D','url',5,thumb,'',fanart)
+        addDir('Anaglyph 3D','url',6,thumb,'',fanart)
+        addDir('4K, Quad-Full-HD','url',7,thumb,'',fanart)
+        addDir('1080p','url',1,thumb,'',fanart)
+        addDir('720p','url',2,thumb,'',fanart)
+        addDir('480p','url',3,thumb,'',fanart)
 
 def ten(url):
-        addLink('[B][COLOR gold]MP4[/COLOR][/B]                 1080p Surround','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_surround.avi',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_1080p.jpg','',fanart)
-        addLink('[B][COLOR gold]H.264[/COLOR][/B]              1080p','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_h264.mov',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_1080p.jpg','',fanart)
-        addLink('[B][COLOR gold]MSMP4[/COLOR][/B]          1080p Stereo','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.avi',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_1080p.jpg','',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]                 1080p Surround','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_surround.avi',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]H.264[/COLOR][/B]              1080p','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_h264.mov',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MSMP4[/COLOR][/B]          1080p Stereo','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.avi',4,thumb,'',fanart)
 
 def seven(url):
-        addLink('[B][COLOR gold]MP4[/COLOR][/B]                 720p Surround','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_surround.avi',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_720p.jpg','',fanart)
-        addLink('[B][COLOR gold]H.264[/COLOR][/B]              720p','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_720p.jpg','',fanart)
-        addLink('[B][COLOR gold]MSMP4[/COLOR][/B]          720p Stereo','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_stereo.avi',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_720p.jpg','',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]                 720p Surround','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_surround.avi',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]H.264[/COLOR][/B]              720p','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MSMP4[/COLOR][/B]          720p Stereo','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_stereo.avi',4,thumb,'',fanart)
 
 def four(url):
-        addLink('[B][COLOR gold]MP4[/COLOR][/B]                 420p Surround','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_480p.jpg','',fanart)
-        addLink('[B][COLOR gold]H.264[/COLOR][/B]              420p','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_480p.jpg','',fanart)
-        addLink('[B][COLOR gold]MSMP4[/COLOR][/B]          420p Stereo','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.avi',4,'http://www.bigbuckbunny.org/wp-content/uploads/dl_480p.jpg','',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]                 420p Surround','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]H.264[/COLOR][/B]              420p','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MSMP4[/COLOR][/B]          420p Stereo','http://blender-mirror.kino3d.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.avi',4,thumb,'',fanart)
 
+def fourk(url):
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              4K, Quad-Full-HD 60 fps','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_60fps_normal.mp4',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              4K, Quad-Full-HD 30 fps','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_30fps_normal.mp4',4,thumb,'',fanart)
+
+def Stereoscopic(url):
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              1080p','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_stereo_abl.mp4',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              4K, Quad-Full-HD','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_30fps_stereo_abl.mp4',4,thumb,'',fanart)
+
+def Anaglyph(url):
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              1080p Red-Cyan Dubois','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_stereo_arcd.mp4',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              1080p Red-Cyan Full Colour','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_stereo_arcc.mp4',4,thumb,'',fanart)
+        addLink('[B][COLOR gold]MP4[/COLOR][/B]              1080p Green-Magenta','http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_stereo_agmh.mp4',4,thumb,'',fanart)
+        
 def PLAYLINK(name,url):
                 playlist = xbmc.PlayList(1)
                 playlist.clear()
@@ -89,4 +106,7 @@ elif mode==1: ten(url)
 elif mode==2: seven(url)
 elif mode==3: four(url)
 elif mode==4: PLAYLINK(name,url)
+elif mode==5: Stereoscopic(url)
+elif mode==6: Anaglyph(url)
+elif mode==7: fourk(url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
