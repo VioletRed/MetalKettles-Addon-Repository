@@ -1,8 +1,8 @@
 import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon
  
 SiteName='Thw New Boston Python Tutirial  [v0.0.3]  [Movies-TV]'
-BaseURL ='http://thenewboston.org/list.php?cat=36'
-url2 = 'http://thenewboston.org/'
+BaseURL ='https://buckysroom.org/videos.php?cat=36'
+url2 = 'https://buckysroom.org'
 
 def CATEGORIES():
         req = urllib2.Request(BaseURL)
@@ -10,7 +10,7 @@ def CATEGORIES():
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('href="(.+?)">(.+?)</a></li><li class="contentList">').findall(link)
+        match=re.compile('<dd><a href="(.+?)" class=.+?>(.+?)</a></dd>').findall(link)
         for url,name in match:
                 url = url2+url
                 addDir(name,url,2,'http://www.python.org/images/python-logo.gif')   
@@ -21,7 +21,8 @@ def VIDEOLINKS(url,name):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        links=re.compile('<iframe width="640" height="360" src="http://www.youtube.com/embed/(.+?)" frameborder="0" allowfullscreen></iframe>').findall(link)
+        
+        links=re.compile('src="//www.youtube.com/embed/(.+?)"').findall(link)
         for video_id in links:
                 playback_url = 'plugin://plugin.video.youtube/?action=play_video&videoid=%s' % video_id
                 print playback_url

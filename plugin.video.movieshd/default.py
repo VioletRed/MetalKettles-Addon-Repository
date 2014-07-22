@@ -30,8 +30,13 @@ def GETMOVIES(url,name):
         response.close()
         match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
         for url,name in match:
-                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','')
-                addDir(name2,url,100,'',len(match),isFolder=False)
+                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
+                if not 'razor' in name2:
+                        if not 'Rls' in name2:
+                                if not 'DCMA' in name2:
+                                        if not 'Privacy' in name2:
+                                                if not 'FAQ' in name2:
+                                                        addDir(name2,url,100,'',len(match),isFolder=False)
         match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
         print match
         if len(match)>0:

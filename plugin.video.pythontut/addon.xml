@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.pythontut" name="The New Boston Python Tutorial" version="0.0.6" provider-name="MetalKettle">
+<addon id="plugin.video.pythontut" name="The New Boston Python Tutorial" version="0.0.7" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.urlresolver" version="2.0.9"/>
