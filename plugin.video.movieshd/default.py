@@ -18,6 +18,7 @@ def CATEGORIES():
         addDir2('Most Viewed','http://movieshd.co/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Highest Rated','http://movieshd.co/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Genres','url',2,artpath+'genres.png','',fanart)
+        addDir2('Bollywood','http://movieshd.co/watch-online/category/bollywood',1,artpath+'movies.png','',fanart) 
         addDir2('Search','url',3,artpath+'search.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
 
@@ -36,7 +37,8 @@ def GETMOVIES(url,name):
                                 if not 'DCMA' in name2:
                                         if not 'Privacy' in name2:
                                                 if not 'FAQ' in name2:
-                                                        addDir(name2,url,100,'',len(match),isFolder=False)
+                                                        if not 'Download' in name2:
+                                                                addDir(name2,url,100,'',len(match),isFolder=False)
         match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
         print match
         if len(match)>0:
@@ -85,15 +87,13 @@ def SEARCH():
 
 
 def PLAYLINK(name,url):
-        # Request MoviesHD page
+
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
 
-        
-        # Find videomega reference and request video page from there.
         match=re.compile("'text/javascript'>ref='(.+?)?';width.*iframe").findall(link)
         
         if (len(match) == 1):
@@ -101,22 +101,16 @@ def PLAYLINK(name,url):
         if (len(match) < 1):
                 match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                 videomega_url = match[0]            
-        
+
         req = urllib2.Request(videomega_url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        # Finally, find the actual filename
-        match=re.compile("document.write.unescape.\"(.+?)\"").findall(link)
-        if (len(match) < 1):
-            return
-        encoded=match[0]
-        link = urllib.unquote(encoded)
-        match=re.compile("file: \"(.+?)\",flash").findall(link)
-        if (len(match) < 1):
-            return
-        stream_url = match[0]
+        url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
+        url = urllib.unquote(url)
+        stream_url = re.compile('file: "(.+?)"').findall(url)[0]
+
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
