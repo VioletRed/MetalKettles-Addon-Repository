@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.audio.boilerroom" name="Boiler Room" version="1.0.5" provider-name="MetalKettle">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>audio</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en"></summary>
-    <description lang="en"></description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="plugin.audio.housemixes" name="House Mixes" version="1.1.4" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -24,20 +10,6 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en"></summary>
     <description lang="en"></description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.audio.mp3rehab" name="MP3Rehab" version="0.0.3" provider-name="MetalKettle">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>audio</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Search mp3s from mp3rehab.com</summary>
-    <description lang="en">Search mp3s from mp3rehab.com</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -56,20 +28,6 @@
   </extension>
 </addon>
 
-<addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.8" provider-name="MetalKettle">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>audio</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Browse TelevisionTunes.com</summary>
-    <description lang="en">Listen to TV Theme music and songs from different television shows</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="plugin.program.myip" name="My IP" version="1.0.2" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -84,20 +42,6 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.ukjamcams" name="UK Jam Cams" version="0.0.9" provider-name="MetalKettle">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>image executable</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Traffic Camera Images from The Highways Authority </summary>
-    <description lang="en">Traffic Camera Images from The Highways Authority </description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="plugin.video.bigbuckbunny" name="Big Buck Bunny" version="1.0.1" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -106,21 +50,6 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Watch all episode of Family Guy from familygutdirect.com</summary>
-    <description lang="en">Watch all episode of Family Guy from familygutdirect.com</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.familyguydirect" name="Family Guy Direct" version="0.0.7" provider-name="MetalKettle">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <broken>deprecated</broken>
     <summary lang="en">Watch all episode of Family Guy from familygutdirect.com</summary>
     <description lang="en">Watch all episode of Family Guy from familygutdirect.com</description>
     <platform>all</platform>
@@ -185,22 +114,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.ultrabox" name="UltraBox" version="0.0.7" provider-name="MetalKettle">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.urlresolver" version="2.0.9"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">All Boxing </summary>
-    <description lang="en">Includes bouts, movies, podcasts </description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="repository.metalkettle" name="MetalKettles Addon Repository" version="1.4.2" provider-name="MetalKettle">
+<addon id="repository.metalkettle" name="MetalKettles Addon Repository" version="1.4.3" provider-name="MetalKettle">
 	<extension point="xbmc.addon.repository" name="MetalKettles Addon Repository">
 		<info compressed="false">http://raw.github.com/metalkettle/MetalKettles-Addon-Repository/master/addons.xml</info>
 		<checksum>http://raw.github.com/metalkettle/MetalKettles-Addon-Repository/master/addons.xml.md5</checksum>
