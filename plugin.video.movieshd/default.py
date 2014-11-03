@@ -91,8 +91,8 @@ def PLAYLINK(name,url):
                         match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                         videomega_url = match[0]
         except:
-                match=re.compile("src=\'(.+?)\'").findall(link)
-                videomega_id_url = match[2]
+                match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
+                videomega_id_url = match[3]
                 print videomega_id_url
                 req = urllib2.Request(videomega_id_url)
                 req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
