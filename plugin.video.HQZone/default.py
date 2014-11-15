@@ -2,8 +2,6 @@
 import xbmc, xbmcgui, xbmcaddon, xbmcplugin, urllib, re, string, os, time
 from t0mm0.common.net import Net as net
 
-#HQ Zone - Original Coding by Mash2k3 All credit to MASH2k3 - XBMC Standalone Addon By mFuk.
-
 addon_id 	= 'plugin.video.HQZone'
 local 		= xbmcaddon.Addon(id=addon_id)
 hqzonepath 	= local.getAddonInfo('path')
@@ -278,7 +276,7 @@ print "Thumb: "+str(iconimage)
 
 if mode==None or url==None or len(url)<1:
     MAIN()    
-    VIEWSB()        
+    #VIEWSB()        
     
 elif mode==2:
     LISTMENU(url)
