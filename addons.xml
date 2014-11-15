@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.audio.boilerroom" name="Boiler Room" version="1.0.6" provider-name="MetalKettle">
+<addon id="plugin.audio.boilerroom" name="Boiler Room" version="1.0.7" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.urlresolver" version="2.0.9"/>
@@ -67,6 +67,28 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Watch all episode of Family Guy from familygutdirect.com</summary>
     <description lang="en">Watch all episode of Family Guy from familygutdirect.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.HQZone"
+       name="HQ Zone Live Streams"
+       version="1.0.0"
+       provider-name="HQ Zone - Live Streams - PPV - VOD">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.urlresolver"  version="0.0.1"/>
+		<import addon="script.module.t0mm0.common" version="1.1.0"/>
+		<import addon="script.module.metahandler"  version="1.0.2"/>
+		<import addon="script.module.beautifulsoup"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+    <summary lang="en">HQ Zone</summary>
+    <description lang="en">HQ Zone Live streams, Video On Demand, PPV + so much more, visit HQZone.tv to learn more. Don´t forget to follow us on Twitter @HQZoneTV.</description>
     <platform>all</platform>
   </extension>
 </addon>

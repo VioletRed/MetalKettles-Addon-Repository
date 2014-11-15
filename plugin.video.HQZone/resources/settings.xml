@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+   <category label="Log-in Details">
+		<setting label="Account Details" type="lsep" />
+		<setting id="hqusername" type="text" label="User Name" default="" visible="true"/>
+		<setting id="hqpassword" type="text"label="Password" default="" visible="true" option="hidden" />
+		<setting label="Visit HQZone.tv to signup for your account - Follow us on Twitter @HQZoneTV" type="lsep" />
+   </category>
+
+</settings>

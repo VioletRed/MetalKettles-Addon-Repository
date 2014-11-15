@@ -11,26 +11,31 @@ icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'ico
 def Index():
          #addDir('Live','http://boilerroom.tv/live/',3,icon,'',fanart)
          #addDir('Program','http://boilerroom.tv/live/',1,icon,'',fanart)
-         addDir('Archive','http://boilerroom.tv/archive/',1,icon,'',fanart)
-         addDir('Cities','http://boilerroom.tv/cities/',2,icon,'',fanart)
+         addDir('Archive','https://boilerroom.tv/archive/?showall=true',1,icon,'',fanart)
+         #addDir('Cities','http://boilerroom.tv/cities/',2,icon,'',fanart)
 
 def GetLinks(url):
         link = open_url(url)
-        np=re.compile('<a href="(.+?)" >Next Page &raquo;</a>').findall(link)
-        match=re.compile('<a href="(.+?)" class="recording recording-container brtv-recording-resize" style="background:url(.+?) no-repeat center center; background-size:cover">\n  <div class="dark-fade"></div>\n  <span class="recording-date">(.+?)</span>\n    <h1 class="recording-title group">\n    <i class="play-recording ic-play-fill left"></i>\n    <div class="facts left">\n      <span>(.+?)</span>\n      <span class="recording-length">(.+?)</span>').findall(link)
-        for url,imgurl,recdate,dj,rec in match:
-                dj = dj.decode("ascii","ignore").replace('#039;','').replace('\u266b ','').replace('\u266b','').replace('#038;','').replace('&#8217;','').replace('&#8220;','').replace('&#8221;','')
-                dj = '[COLOR cyan]%s[/COLOR]'%dj
+        np=re.compile('<a href="(.+?)" >More Recordings</a>').findall(link)     
+        match=re.compile('<a href="https://boilerroom.tv/recording/(.+?)/".+?style="background:url(.+?) no-repeat.+?<span class="recording-date">(.+?)</span>.+?<span class="recording-length">(.+?)</span>',re.DOTALL).findall(link)
+        print match
+        cnt = 0
+        for url,imgurl,recdate,rec in match:
+                cnt = cnt + 1
+                dj = '[COLOR cyan]%s[/COLOR]'%url.upper()
                 img = imgurl.replace('(','').replace(')','')
                 djdesc = dj+' - '+recdate+' - '+rec
-                addDir2(djdesc,url,100,img,'',fanart)
+                url = 'https://boilerroom.tv/recording/' + url
+                if cnt > 2:
+                    addDir2(djdesc,url,100,img,'',fanart)
         for nexturl in np:
                 addDir("[COLOR gold]Next Page..[/COLOR]",nexturl,1,'','',fanart)
 
 def GetCities(url):
         link = open_url(url)
-        match=re.compile('<li class="other-city">\n          <a href="(.+?)">(.+?)</a>').findall(link)
+        match=re.compile('<li class="other-city">.+?<a href="(.+?)">(.+?)</a>',re.DOTALL).findall(link)
         for url,city in match:
+                url = url + '&showall=true'
                 addDir(city,url,1,icon,'',fanart)
 
 def GetLive(url):
@@ -71,15 +76,12 @@ def PLAYLINK(url,img,dj):
                          ytid = newurl.split('/',4)[4].split('?',1)[0]
                          newurl='http://www.youtube.com/watch?v='+ytid              
          resolved_url = urlresolver.HostedMediaFile(newurl).resolve()
-         playlist = xbmc.PlayList(1)
-         playlist.clear()
          listitem = xbmcgui.ListItem(name, iconImage='DefaultVideo.png')
          listitem.setInfo("Video", {"Title":name})
          listitem.setProperty('mimetype', 'video/x-msvideo')
          listitem.setProperty('IsPlayable', 'true')
-         playlist.add(resolved_url,listitem)
          xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-         xbmcPlayer.play(playlist)
+         xbmcPlayer.play(resolved_url)
 
 
 
