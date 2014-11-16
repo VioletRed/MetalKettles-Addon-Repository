@@ -134,17 +134,11 @@ def Play(resolved_url, addon_id, video_type, title, season, episode, year, watch
 		
 def PLAYLINK(mname,murl,thumb):
         ok=True
-        stream_url = get_link(murl)     
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        playlist.add(stream_url,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
-
+        url = get_link(murl)     
+        liz=xbmcgui.ListItem(name, iconImage=thumb,thumbnailImage=thumb); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player ().play(url, liz, False)
+        
 def get_link(murl):
     if 'mp4' in murl:
         swf='http://www.hqzone.tv/forums/jwplayer/jwplayer.flash.swf'
