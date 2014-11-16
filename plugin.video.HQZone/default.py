@@ -135,16 +135,15 @@ def Play(resolved_url, addon_id, video_type, title, season, episode, year, watch
 def PLAYLINK(mname,murl,thumb):
         ok=True
         stream_url = get_link(murl)     
-        playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
+        playlist = xbmc.PlayList(1)
         playlist.clear()
-        listitem = xbmcgui.ListItem(thumbnailImage=thumb)
-        infoL={'Title': mname, 'Genre': 'Live'} 
-        from resources import playbackengine
-        playbackengine.PlayWithoutQueueSupport(resolved_url=stream_url, addon_id=addon_id, video_type='movie', title=mname,season='', episode='', year='',img=thumb,infolabels=infoL, watchedCallbackwithParams='',imdb_id='')
-        #wh = watchhistory.WatchHistory('plugin.video.HQZone')
-        #if selfAddon.getSetting("whistory") == "true":
-        #    wh.add_item(mname+' '+'[COLOR green]'+prettyName+'[/COLOR]', sys.argv[0]+sys.argv[2], infolabels='', img=thumb, fanart='', is_folder=False)
-        return ok
+        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
+        listitem.setInfo("Video", {"Title":name})
+        listitem.setProperty('mimetype', 'video/x-msvideo')
+        listitem.setProperty('IsPlayable', 'true')
+        playlist.add(stream_url,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist)
 
 def get_link(murl):
     if 'mp4' in murl:
@@ -276,7 +275,7 @@ print "Thumb: "+str(iconimage)
 
 if mode==None or url==None or len(url)<1:
     MAIN()    
-    #VIEWSB()        
+    VIEWSB()        
     
 elif mode==2:
     LISTMENU(url)
