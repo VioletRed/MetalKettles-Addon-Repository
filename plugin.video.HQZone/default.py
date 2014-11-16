@@ -1,21 +1,17 @@
-#-*- coding: utf-8 -*-
 import xbmc, xbmcgui, xbmcaddon, xbmcplugin, urllib, re, string, os, time
 from t0mm0.common.net import Net as net
 
 addon_id 	= 'plugin.video.HQZone'
 local 		= xbmcaddon.Addon(id=addon_id)
-hqzonepath 	= local.getAddonInfo('path')
-art 		= hqzonepath+'/images'
+art 		= xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 selfAddon 	= xbmcaddon.Addon(id=addon_id)
-prettyName	= 'HQZone'
 user 		= selfAddon.getSetting('hqusername')
 passw 		= selfAddon.getSetting('hqpassword')
 datapath 	= xbmc.translatePath(selfAddon.getAddonInfo('profile'))
 cookie_file = os.path.join(os.path.join(datapath,'Cookies'), 'hqzone.cookies')
 Dir 		= xbmc.translatePath(os.path.join('special://home/addons/plugin.video.HQZone', ''))
 fanartimage	= Dir+'fanart.jpg'
-mashpath 	= selfAddon.getAddonInfo('path')
-fav 		= False
+icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
 #set paths
 CachePath=os.path.join(datapath,'Cache')
@@ -88,18 +84,19 @@ def MAIN():
     response = net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    addDir('[COLOR green]View Schedule[/COLOR]','http://www.hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,art+'/hqzone.png')
+    addDir('[COLOR cyan]View Schedule[/COLOR]','http://www.hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon)
+    addLink('_________________________','',icon)
     match=re.findall('(?sim)<h4 class="panel_headin.+?">([^<]+?)</h4><ul>(.+?)</ul>',link)
     for name,links in match[0:3]:
         if 'Channels' == name:
             name='V.I.P Member Streams'
-        addDir(name,links,2,art+'/hqzone.png') #Main Channels
-#    addLink('[COLOR red]VOD[/COLOR]','','') #Video On Demand
+        addDir(name,links,2,icon) #Main Channels
+    addLink('_________________________','',icon)
     match=re.findall('(?sim)<h4 class="panel_headin.+?">([^<]+?)</h4><ul>(.+?)</ul>',link)
     for name,links in match[3:]:
         if 'Channels' == name:
             name='V.I.P Member Streams'
-        addDir(name,links,4,art+'/hqzone.png') #VIP
+        addDir(name,links,4,icon) #VIP
  
 def LISTMENU(murl):
     match=re.findall('(?sim)<li><a href="([^"]+?)" target="I1">([^<]+?)</a></li>',murl)
@@ -114,7 +111,7 @@ def LISTMENU2(murl):
     match=re.findall('(?sim)<li><a href="([^"]+?)" target="I1">([^<]+?)</a></li>',murl)
     for url,name in match:
         url = 'http://www.hqzone.tv/forums/'+url
-        addDir(name,url,3,art+'/hqzone.png') #default image for VOD section
+        addDir(name,url,3,icon) #default image for VOD section
  
 def LISTCONTENT(murl,thumb):
     setCookie(murl)
@@ -124,18 +121,11 @@ def LISTCONTENT(murl,thumb):
     match=re.findall('(?sim)sources: \[\{ file: "([^"]+?)" \}\],title: "([^"]+?)"',link)
     for url,name in match:
         addPlayL(name,url,5,'','','','','','')
-
-def Play(resolved_url, addon_id, video_type, title, season, episode, year, watch_percent=0.9, watchedCallback=None, watchedCallbackwithParams=None, imdb_id=None):
-    player = Player()    
-    common.addon.log('-' + HELPER + '- -' + resolved_url)
-    player.set(addon_id, video_type, title, season, episode, year, watch_percent, watchedCallback, watchedCallbackwithParams, imdb_id)
-    xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, xbmcgui.ListItem(path=resolved_url))
-    return player
 		
 def PLAYLINK(mname,murl,thumb):
         ok=True
         url = get_link(murl)     
-        liz=xbmcgui.ListItem(name, iconImage=thumb,thumbnailImage=thumb); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
         xbmc.Player ().play(url, liz, False)
         
@@ -187,7 +177,7 @@ def addDirX(name,url,mode,iconimage,plot='',fanart='',dur=0,genre='',year='',imd
             id=None,fav_t='',fav_addon_t='',fav_sub_t='',metaType='Movies',menuItemPos=None,menuItems=None,down=False,replaceItems=True,index=False):
     u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&plot="+urllib.quote_plus(plot)+"&fanart="+urllib.quote_plus(fanart)+"&genre="+urllib.quote_plus(genre)+"&index="+str(index)
     if not fanart: fanart=fanartimage
-    if not iconimage: iconimage=art+'/vidicon.png'
+    if not iconimage: iconimage=icon
     Commands = []
   
     
