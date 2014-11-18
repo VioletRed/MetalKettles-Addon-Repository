@@ -109,7 +109,7 @@ def GetLinks(url,thumb):
         addLink(name,url,5,icon,fanart)
 		
 def PlayStream(name,url,thumb):
-    notification('HQ Zone', 'Requesting stream from server', '3000',icon)
+    #notification('HQ Zone', 'Requesting stream from server', '3000',icon)
     try:
         ok=True
         url = get_link(url)     
