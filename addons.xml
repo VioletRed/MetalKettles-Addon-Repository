@@ -72,9 +72,9 @@
 </addon>
 
 <addon id="plugin.video.HQZone"
-       name="HQ Zone Live Streams"
-       version="1.0.5"
-       provider-name="HQ Zone - Live Streams - PPV - VOD">
+       name="HQ Zone"
+       version="1.0.6"
+       provider-name="MetalKettle / mFuk">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.t0mm0.common" version="1.1.0"/>
