@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.pythontut" name="The New Boston Python Tutorial" version="0.0.7" provider-name="MetalKettle">
+<addon id="plugin.video.pythontut" name="Python Tutorial Videos" version="1.0.0" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.urlresolver" version="2.0.9"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en"> </summary>
-    <description lang="en"> Learn Python using these easy to follow videos </description>
+    <description lang="en"> Learn Python using these easy to follow videos from http://buckysroom.org/ </description>
     <platform>all</platform>
   </extension>
 </addon>

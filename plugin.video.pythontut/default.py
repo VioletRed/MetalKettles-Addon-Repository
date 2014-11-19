@@ -1,8 +1,9 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon
- 
-SiteName='Thw New Boston Python Tutirial  [v0.0.3]  [Movies-TV]'
-BaseURL ='https://buckysroom.org/videos.php?cat=36'
-url2 = 'https://buckysroom.org'
+import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os
+
+addon_id        = 'plugin.video.pythontut'
+BaseURL         = 'https://buckysroom.org/videos.php?cat=36'
+url2            = 'https://buckysroom.org'
+icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
 def CATEGORIES():
         req = urllib2.Request(BaseURL)
@@ -10,10 +11,13 @@ def CATEGORIES():
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<dd><a href="(.+?)" class=.+?>(.+?)</a></dd>').findall(link)
+        match=re.compile('<a href="(.+?)" class=".+?">(.+?)</a>').findall(link)
+        cnt = 0
         for url,name in match:
+                cnt = cnt+1
                 url = url2+url
-                addDir(name,url,2,'http://www.python.org/images/python-logo.gif')   
+                if cnt > 1 and cnt < 45:
+                        addDir(name,url,2,icon)   
 
 def VIDEOLINKS(url,name):
         req = urllib2.Request(url)
@@ -21,13 +25,10 @@ def VIDEOLINKS(url,name):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        
         links=re.compile('src="//www.youtube.com/embed/(.+?)"').findall(link)
         for video_id in links:
                 playback_url = 'plugin://plugin.video.youtube/?action=play_video&videoid=%s' % video_id
-                print playback_url
-                xbmc.Player(xbmc.PLAYER_CORE_MPLAYER).play(playback_url)
-                exit()
+                xbmc.Player(xbmc.PLAYER_CORE_AUTO).play(playback_url)
 
 def get_params():
         param=[]
@@ -46,23 +47,14 @@ def get_params():
                                 param[splitparams[0]]=splitparams[1]
                                
         return param
-               
-def addLink(name,url,iconimage):
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        return ok
  
- 
-def addDir(name,url,mode,iconimage,isFolder=True):
+def addDir(name,url,mode,iconimage,isFolder=False):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder)
         return ok
- 
  
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
