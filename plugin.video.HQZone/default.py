@@ -69,13 +69,13 @@ def MainMenu():
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     addDir('[COLOR white][B]-- View Schedule --[/B][/COLOR]','http://www.hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
-    addLink('[COLOR blue]_________________________[/COLOR]','','',icon,fanart)
+    addLink('[COLOR blue][B]_________________________[/B][/COLOR]','','',icon,fanart)
     match=re.findall('(?sim)<h4 class="panel_headin.+?">([^<]+?)</h4><ul>(.+?)</ul>',link)
     for name,links in match[0:3]:
         if 'Channels' == name:
             name='[COLOR gold]VIP[/COLOR]'+' Member Streams'
         addDir(name,links,2,icon,fanart) #Main Channels
-    addLink('[COLOR blue]_________________________[/COLOR]','','',icon,fanart)
+    addLink('[COLOR blue][B]_________________________[/B][/COLOR]','','',icon,fanart)
     match=re.findall('(?sim)<h4 class="panel_headin.+?">([^<]+?)</h4><ul>(.+?)</ul>',link)
     for name,links in match[3:]:
         if 'Channels' == name:
@@ -109,17 +109,16 @@ def GetLinks(url,thumb):
         addLink(name,url,5,icon,fanart)
 		
 def PlayStream(name,url,thumb):
-    #notification('HQ Zone', 'Requesting stream from server', '3000',icon)
     try:
         ok=True
-        url = get_link(url)     
+        url = get_link(url)
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        liz.setProperty("IsPlayable","true")
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(url, liz, False)
-    except:
-        print 'FAIL'
-        pass
-        
+        #xbmc.Player ().play(url, liz, False)
+        xbmc.Player(xbmc.PLAYER_CORE_AUTO).play(url, liz)
+    except: pass
+
 def get_link(url):
     if 'mp4' in url:
         swf='http://www.hqzone.tv/forums/jwplayer/jwplayer.flash.swf'
@@ -147,12 +146,12 @@ def Schedule(url):
     response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    month=re.findall('(?sim)<h2 class="blockhead">([^<]+?)</h2>',link)
-    match=re.findall('(?sim)<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
+    month=re.findall('<h2 class="blockhead">([^<]+?)</h2>',link)
+    match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
+    addLink('[COLOR red][I]Times are E.S.T / GMT -5 | Follow us on Twitter for latest channel news, updates + more.[/I][/COLOR]','','',icon,fanart) 
     for day,num,data in match:
-		addLink('[COLOR yellow]Times are E.S.T / GMT -5 | Follow us on Twitter for latest channel news, updates + more.[/COLOR]','','',icon,fanart) 
-		addLink('[COLOR blue]'+day+' '+num+' '+month[0]+'[/COLOR]','','',icon,fanart)
-		match2=re.findall('(?sim)<span class="eventtime">([^<]+?)</span><a href=".+?" title=".+?">([^<]+?)</a>',data)
+		addLink('[COLOR blue][B]'+day+' '+num+' '+month[0]+'[/B][/COLOR]','','',icon,fanart)
+		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
 		for time,title in match2:
 			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'','',icon,fanart)
 			
