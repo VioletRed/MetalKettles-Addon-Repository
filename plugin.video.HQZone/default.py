@@ -1,4 +1,4 @@
-import xbmc, xbmcgui, xbmcaddon, xbmcplugin, urllib, re, string, os, time
+import xbmc, xbmcgui, xbmcaddon, xbmcplugin, urllib, re, string, os, time, urllib2
 from t0mm0.common.net import Net as net
 
 addon_id 	= 'plugin.video.HQZone'
@@ -81,6 +81,7 @@ def MainMenu():
         if 'Channels' == name:
             name='[COLOR gold][B}VIP[/B][/COLOR]'+' Member Streams'
         addDir(name,links,4,icon,fanart) #VIP
+    addDir('HQ Movies (Latest)','http://movieshd.co/watch-online/category/featured?filtre=date',100,icon,fanart) #VIP
     addLink('','','',icon,fanart)
     addLink('[COLOR red][I]** NOTE:  If a stream fails to play, the selected channel is likely offline **[/I][/COLOR]','','',icon,fanart)
    
@@ -155,6 +156,69 @@ def Schedule(url):
 		for time,title in match2:
 			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'','',icon,fanart)
 			
+
+def GetHQMovies(url,name):
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
+        for url,name in match:
+                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
+                if not 'razor' in name2:
+                        if not 'Rls' in name2:
+                                if not 'DCMA' in name2:
+                                        if not 'Privacy' in name2:
+                                                if not 'FAQ' in name2:
+                                                        if not 'Download' in name2:
+                                                                addLink(name2,url,101,icon,fanart)
+        match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
+        print match
+        if len(match)>0:
+                addDir('[COLOR gold]Next Page>>[/COLOR]',match[0],100,icon,fanart)
+                
+def PlayHQMovies(name,url):
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        try:
+                match=re.compile("'text/javascript'>ref='(.+?)?';width.*iframe").findall(link)
+                if (len(match) == 1):
+                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0]
+                        print videomega_url
+                if (len(match) < 1):
+                        match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
+                        videomega_url = match[0]
+                        print videomega_url
+        except:
+                match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
+                videomega_id_url = match[3]
+                print videomega_id_url
+                req = urllib2.Request(videomega_id_url)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+                match=re.compile('var ref="(.+?)";').findall(link)
+                vididresolved = match[0]
+                videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
+        req = urllib2.Request(videomega_url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
+        url = urllib.unquote(url)
+        stream_url = re.compile('file: "(.+?)"').findall(url)[0]
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        liz.setProperty("IsPlayable","true")
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player(xbmc.PLAYER_CORE_AUTO).play(stream_url, liz)
+
 def cleanHex(text):
     def fixup(m):
         text = m.group(0)
@@ -204,5 +268,7 @@ elif mode==3:GetLinks(url,iconimage)
 elif mode==4:VODMenu(url)          
 elif mode==5:PlayStream(name,url,iconimage)
 elif mode==6:Schedule(url)
+elif mode==100:GetHQMovies(url,name)
+elif mode==101:PlayHQMovies(name,url)
         
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
