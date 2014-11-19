@@ -91,6 +91,20 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.learningzone" name="Learning Zone" version="1.0.0" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"> </summary>
+    <description lang="en">Welcome to the worlds largest collection of computer and technology related tutorials on XBMC/KODI</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.movieshd" name="Movies HD" version="1.1.0" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
