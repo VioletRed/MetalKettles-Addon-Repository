@@ -22,12 +22,26 @@ try: os.makedirs(TempPath)
 except: pass
 
 def setCookie(srDomain):
-    import hashlib
-    m = hashlib.md5()
-    m.update(passw)
-    net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
-    net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
-
+    cookieExpired = False
+    if os.path.exists(cookie_file):
+        try:
+            cookie = open(cookie_file).read()
+            expire = re.search('expires="(.*?)"',cookie, re.I)
+            if expire:
+                expire = str(expire.group(1))
+                import time
+                if time.time() > time.mktime(time.strptime(expire, '%Y-%m-%d %H:%M:%SZ')):
+                   cookieExpired = True
+        except: cookieExpired = True 
+    if not os.path.exists(cookie_file) or cookieExpired:
+        import hashlib
+        m = hashlib.md5()
+        m.update(passw)
+        net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
+        net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
+        net().save_cookies(cookie_file)
+    else:
+        net().set_cookies(cookie_file) 
 
 if user == '' or passw == '':
     if os.path.exists(cookie_file):
