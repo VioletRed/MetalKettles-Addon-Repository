@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.HQZone"
-       name="HQ Zone"
-       version="1.0.9"
+       name="HQ Zone Live Streams"
+       version="1.0.10"
        provider-name="MetalKettle / mFuk">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
