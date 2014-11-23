@@ -12,6 +12,7 @@ icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'ico
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 
 def CATEGORIES():
+        addDir2('Featured','http://movieshd.co/watch-online/category/featured?filtre=date',1,artpath+'movies.png','',fanart)
         addDir2('Recently Added','http://movieshd.co/?filtre=date&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Most Viewed','http://movieshd.co/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
         addDir2('Highest Rated','http://movieshd.co/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
@@ -86,10 +87,12 @@ def PLAYLINK(name,url):
         try:
                 match=re.compile("'text/javascript'>ref='(.+?)?';width.*iframe").findall(link)
                 if (len(match) == 1):
-                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0] 
+                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0]
+                        print videomega_url
                 if (len(match) < 1):
                         match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                         videomega_url = match[0]
+                        print videomega_url
         except:
                 match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
                 videomega_id_url = match[3]
@@ -103,6 +106,7 @@ def PLAYLINK(name,url):
                 vididresolved = match[0]
                 print vididresolved
                 videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
+                print videomega_url
 
         req = urllib2.Request(videomega_url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
