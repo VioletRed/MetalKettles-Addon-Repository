@@ -1,25 +1,21 @@
 import xbmc, xbmcgui, xbmcaddon, xbmcplugin, urllib, re, string, os, time, urllib2
 from t0mm0.common.net import Net as net
+import cookielib
 
 addon_id 	= 'plugin.video.HQZone'
 art 		= xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 selfAddon 	= xbmcaddon.Addon(id=addon_id)
 user 		= selfAddon.getSetting('hqusername')
 passw 		= selfAddon.getSetting('hqpassword')
-datapath 	= xbmc.translatePath(selfAddon.getAddonInfo('profile'))
-cookie_file     = os.path.join(os.path.join(datapath,'Cookies'), 'hqzone.cookies')
+datapath 	= os.path.join(xbmc.translatePath('special://profile/addon_data/plugin.video.HQZone'), '')
+cookie_file     = os.path.join(os.path.join(datapath,'Cookies'), 'hqzone.lwp')
 fanart          = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
-CachePath=os.path.join(datapath,'Cache')
-try: os.makedirs(CachePath)
-except: pass
 CookiesPath=os.path.join(datapath,'Cookies')
 try: os.makedirs(CookiesPath)
 except: pass
-TempPath=os.path.join(datapath,'Temp')
-try: os.makedirs(TempPath)
-except: pass
+
 
 def setCookie(srDomain):
         import hashlib
@@ -28,14 +24,7 @@ def setCookie(srDomain):
         net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
         net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
         net().save_cookies(cookie_file)
-        net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
-        net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
-        net().save_cookies(cookie_file)
-        net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
-        net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
-        net().save_cookies(cookie_file)
-
-             
+                
 if user == '' or passw == '':
     if os.path.exists(cookie_file):
         try: os.remove(cookie_file)
@@ -77,6 +66,7 @@ def addLink(name,url,mode,iconimage,fanart,description=''):
 	
 def MainMenu():
     setCookie('http://www.hqzone.tv/forums/view.php?pg=live')
+    xbmc.sleep(2000)
     response = net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -112,7 +102,7 @@ def VODMenu(url):
         addDir(name,url,3,icon,fanart) #default image for VOD section
  
 def GetLinks(url,thumb):
-    setCookie('http://www.hqzone.tv/forums/view.php?pg=live')
+    setCookie(cookie_file)
     response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -121,11 +111,13 @@ def GetLinks(url,thumb):
         addLink(name,url,5,icon,fanart)
 		
 def PlayStream(name,url,thumb):
+    try:
         ok=True
         url = get_link(url)
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
         xbmc.Player ().play(url, liz, False)
+    except: pass
 
 def get_link(url):
     if 'mp4' in url:
@@ -133,7 +125,6 @@ def get_link(url):
         streamer=re.search('(rtmp://.+?/vod/)(.+?.mp4)',url)
         return streamer.group(1)+'mp4:'+streamer.group(2)+' swfUrl='+swf+' pageUrl=http://www.hqzone.tv/forums/view.php?pg=live# token=WY846p1E1g15W7s'
     setCookie(url)
-    setCookie('http://www.hqzone.tv/forums/view.php?pg=live')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -151,7 +142,7 @@ def get_link(url):
         return streamer.replace('redirect','live')+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
 
 def Schedule(url):
-    setCookie(url)
+    setCookie(cookie_file)
     response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
