@@ -110,14 +110,15 @@ def GetLinks(url,thumb):
     for url,name in match:
         addLink(name,url,5,icon,fanart)
 		
-def PlayStream(name,url,thumb):
-    try:
+def PlayStream(name,url,thumb):  
         ok=True
         url = get_link(url)
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(url, liz, False)
-    except: pass
+        try:
+            xbmc.Player ().play(url, liz, False)
+        except:
+            pass
 
 def get_link(url):
     if 'mp4' in url:
@@ -137,10 +138,16 @@ def get_link(url):
         swf='http://www.hqzone.tv/forums/jwplayer/player.swf'
         return flash.group(2)+' playpath='+flash.group(1)+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
     else:
-        swf='http://www.hqzone.tv/forums/jwplayer/jwplayer.flash.swf'
-        streamer=re.findall("file: '([^']+)',",link)[0]
-        return streamer.replace('redirect','live')+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
-
+        try:
+                swf='http://www.hqzone.tv/forums/jwplayer/jwplayer.flash.swf'
+                streamer=re.findall("file: '([^']+)',",link)[0]
+                return streamer.replace('redirect','live')+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
+        except:
+                swf='http://www.hqzone.tv/forums/flowplayer-3.2.18.swf'
+                streamer=re.compile("url: '(.+?)',").findall(link)[0]
+                sturl=re.compile("netConnectionUrl: '(.+?)'").findall(link)[0]
+                return sturl+'/'+streamer+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
+        
 def Schedule(url):
     setCookie(cookie_file)
     response = net().http_GET(url)
