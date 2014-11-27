@@ -24,6 +24,9 @@ def setCookie(srDomain):
         net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
         net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
         net().save_cookies(cookie_file)
+        net().set_cookies(cookie_file)
+        if mode == 7:
+                notification('HQZone', 'Cookies Refreshed', '4000',icon)
                 
 if user == '' or passw == '':
     if os.path.exists(cookie_file):
@@ -66,7 +69,7 @@ def addLink(name,url,mode,iconimage,fanart,description=''):
 	
 def MainMenu():
     setCookie('http://www.hqzone.tv/forums/view.php?pg=live')
-    xbmc.sleep(2000)
+    #xbmc.sleep(2000)
     response = net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -157,10 +160,15 @@ def Schedule(url):
     match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
     addLink('[COLOR red][I]Times are E.S.T / GMT -5 | Follow us on Twitter for latest channel news, updates + more.[/I][/COLOR]','','',icon,fanart) 
     for day,num,data in match:
+                day = day.encode('ascii', 'ignore').decode('ascii')
+                num = num.encode('ascii', 'ignore').decode('ascii')
+                data = data.encode('ascii', 'ignore').decode('ascii')
 		addLink('[COLOR blue][B]'+day+' '+num+' '+month[0]+'[/B][/COLOR]','','',icon,fanart)
 		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
 		for time,title in match2:
-			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'','',icon,fanart)
+                        time = time.encode('ascii', 'ignore').decode('ascii')
+                        title = title.encode('ascii', 'ignore').decode('ascii')
+			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','',icon,fanart)
 
 def HQMovies():
     addDir('HQ Movies Latest','http://movieshd.co/watch-online/category/featured?filtre=date',100,icon,fanart) #VIP
