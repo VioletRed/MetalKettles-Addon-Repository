@@ -23,19 +23,21 @@ if user == '' or passw == '':
         keyb.doModal()
         if (keyb.isConfirmed()):
             username = keyb.getText()
-            keyb = xbmc.Keyboard('', 'Enter Password:')
-            keyb.doModal()
-            if (keyb.isConfirmed()):
-                password = keyb.getText()
-                selfAddon.setSetting('piauser',username)
-                selfAddon.setSetting('piapass',password)
-                user = selfAddon.getSetting('piauser')
-                passw = selfAddon.getSetting('piapass')
+        keyb = xbmc.Keyboard('', 'Enter Password:')
+        keyb.doModal()   
+        if (keyb.isConfirmed()):
+            password = keyb.getText()
+            selfAddon.setSetting('piauser',username)
+            selfAddon.setSetting('piapass',password)
+            user = selfAddon.getSetting('piauser')
+            passw = selfAddon.getSetting('piapass')
+    else: quit()
                 
 def Index():
     if flag == '0':
         addDir('Setup Private Internet Access','url',1,icon,'',fanart)
     addDir('Remove Private Internet Access','url',2,icon,'',fanart)
+    addDir('Open OpenELEC Settings','url',4,icon,'',fanart)
     addDir('Check My IP Location','url',3,icon,'',fanart)
 
 def setup():
@@ -47,7 +49,7 @@ def setup():
     auth.write('\n')
     auth.write(passw)
     auth.close()
-    dialog=xbmcgui.Dialog(); dialog.ok('Setup PIA',"ALL DONE!", 'Please restart XBMC/KODI to take effect')
+    dialog=xbmcgui.Dialog(); dialog.ok('Setup PIA',"ALL DONE!", 'Configure fron the Connections area in OpenELEC Settings')
     quit()
 
 def remove():
@@ -57,7 +59,7 @@ def remove():
         os.remove(f)
     selfAddon.setSetting('piauser','')
     selfAddon.setSetting('piapass','')
-    dialog=xbmcgui.Dialog(); dialog.ok('Remove PIA',"ALL DONE!", 'Please restart XBMC/KODI to take effect')
+    dialog=xbmcgui.Dialog(); dialog.ok('Remove PIA',"ALL DONE!", '')
     xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
 
 def myip():
@@ -72,6 +74,10 @@ def myip():
     for ip, region, country, isp in match:
         if inc <2: dialog=xbmcgui.Dialog(); dialog.ok('External IP Checker',"[B][COLOR gold]Your IP Address is: [/COLOR][/B] %s" % ip, '[B][COLOR gold]Your IP is based in: [/COLOR][/B] %s' % country)
         inc=inc+1
+    quit()
+
+def oesettings():
+    xbmc.executebuiltin("RunAddon(service.openelec.settings)")
     quit()
     
 def get_params():
@@ -117,6 +123,7 @@ if mode==None or url==None or len(url)<1: Index()
 elif mode==1: setup()
 elif mode==2: remove()
 elif mode==3: myip()
+elif mode==4: oesettings()
 
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
