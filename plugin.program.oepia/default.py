@@ -2,7 +2,6 @@ import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os,shutil,glob
 from resources.libs.common_addon import Addon
 
 addon_id 	= 'plugin.program.oepia'
-art 		= xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 selfAddon 	= xbmcaddon.Addon(id=addon_id)
 user 		= selfAddon.getSetting('piauser')
 passw 		= selfAddon.getSetting('piapass')
@@ -10,14 +9,10 @@ fanart          = ''
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 destfol         = '/storage/.config/vpn-config'
 ovpnpath        = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/servers', ''))
-flag            = '0'
-
-if user <> '' or passw <> '':
-    flag = '1'
     
 if user == '' or passw == '':
     dialog = xbmcgui.Dialog() 
-    ret = dialog.yesno('PIA for OpenELEC', 'Please enter your Private Internet Access account details','','','Cancel','Login')
+    ret = dialog.yesno('PIA for OpenELEC', 'Please enter your Private Internet Access account details','[COLOR blue]Note these are the "generated" details[/COLOR]','[COLOR blue]in your profile on http://privateinternetaccess.com[/COLOR]','Cancel','Continue')
     if ret == 1:
         keyb = xbmc.Keyboard('', 'Username:')
         keyb.doModal()
@@ -34,13 +29,13 @@ if user == '' or passw == '':
     else: quit()
                 
 def Index():
-    if flag == '0':
-        addDir('Setup Private Internet Access','url',1,icon,'',fanart)
-    addDir('Remove Private Internet Access','url',2,icon,'',fanart)
-    addDir('Open OpenELEC Settings','url',4,icon,'',fanart)
-    addDir('Check My IP Location','url',3,icon,'',fanart)
+    addDir('[COLOR white]Setup Private Internet Access[/COLOR]','url',1,icon,'',fanart)
+    addDir('[COLOR white]Remove Private Internet Access[/COLOR]','url',2,icon,'',fanart)
+    addDir('[COLOR white]Open[/COLOR] [COLOR grey]open[/COLOR][COLOR blue]elec[/COLOR] [COLOR white]Settings[/COLOR]','url',4,icon,'',fanart)
+    addDir('[COLOR white]Check My IP Location[/COLOR]','url',3,icon,'',fanart)
 
 def setup():
+    remove()
     passpath = destfol + '/pass.txt'
     for filename in glob.glob(os.path.join(ovpnpath, '*.*')):
         shutil.copy(filename, destfol)
@@ -49,7 +44,7 @@ def setup():
     auth.write('\n')
     auth.write(passw)
     auth.close()
-    dialog=xbmcgui.Dialog(); dialog.ok('Setup PIA',"ALL DONE!", 'Configure fron the Connections area in OpenELEC Settings')
+    dialog=xbmcgui.Dialog(); dialog.ok('Setup PIA',"ALL DONE!", 'Configure from the Connections area in OpenELEC Settings')
     quit()
 
 def remove():
@@ -72,7 +67,7 @@ def myip():
     match = re.compile("<td width='80'>(.+?)</td><td>(.+?)</td><td>(.+?)</td><td>.+?</td><td>(.+?)</td>").findall(link)
     inc = 1
     for ip, region, country, isp in match:
-        if inc <2: dialog=xbmcgui.Dialog(); dialog.ok('External IP Checker',"[B][COLOR gold]Your IP Address is: [/COLOR][/B] %s" % ip, '[B][COLOR gold]Your IP is based in: [/COLOR][/B] %s' % country)
+        if inc <2: dialog=xbmcgui.Dialog(); dialog.ok('External IP Checker',"[B][COLOR blue]Your IP Address is: [/COLOR][/B] %s" % ip, '[B][COLOR blue]Your IP is based in: [/COLOR][/B] %s' % country)
         inc=inc+1
     quit()
 
@@ -94,8 +89,7 @@ def get_params():
                         splitparams={}
                         splitparams=pairsofparams[i].split('=')
                         if (len(splitparams))==2:
-                                param[splitparams[0]]=splitparams[1]
-                               
+                                param[splitparams[0]]=splitparams[1]              
         return param
                
 def addDir(name,url,mode,iconimage,description,fanart):
@@ -124,6 +118,5 @@ elif mode==1: setup()
 elif mode==2: remove()
 elif mode==3: myip()
 elif mode==4: oesettings()
-
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
