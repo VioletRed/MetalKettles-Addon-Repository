@@ -35,7 +35,10 @@ def Index():
     addDir('[COLOR white]Check My IP Location[/COLOR]','url',3,icon,'',fanart)
 
 def setup():
-    remove()
+    destfol2 = destfol + '/*.*'
+    files = glob.glob(destfol2)
+    for f in files:
+        os.remove(f)
     passpath = destfol + '/pass.txt'
     for filename in glob.glob(os.path.join(ovpnpath, '*.*')):
         shutil.copy(filename, destfol)
