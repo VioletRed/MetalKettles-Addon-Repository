@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.audio.boilerroom" name="Boiler Room" version="1.0.7" provider-name="MetalKettle">
+<addon id="plugin.audio.boilerroom" name="Boiler Room" version="1.0.8" provider-name="MetalKettle">
   <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.urlresolver" version="2.0.9"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>audio</provides>
@@ -43,12 +48,12 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.myip" name="My IP" version="1.0.2" provider-name="MetalKettle">
+<addon id="plugin.program.myip" name="My IP" version="1.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video image executable</provides>
+        <provides>executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en"></summary>
@@ -57,7 +62,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.oepia" name="PIA for [COLOR grey]open[/COLOR][COLOR blue]elec[/COLOR]" version="1.0.4" provider-name="MetalKettle">
+<addon id="plugin.program.oepia" name="PIA for [COLOR grey]open[/COLOR][COLOR blue]elec[/COLOR]" version="1.0.5" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -105,9 +110,15 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.learningzone" name="Learning Zone" version="1.0.0" provider-name="MetalKettle">
+<addon id="plugin.video.learningzone" name="Learning Zone" version="1.0.1" provider-name="MetalKettle">
   <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -153,10 +164,15 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.putlocker" name="MK Movies" version="1.1.3" provider-name="MetalKettle">
+<addon id="plugin.video.putlocker" name="MK Movies" version="1.1.4" provider-name="MetalKettle">
   <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.urlresolver" version="2.0.9"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -168,9 +184,15 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.pythontut" name="Python Tutorial Videos" version="1.0.0" provider-name="MetalKettle">
+<addon id="plugin.video.pythontut" name="Python Tutorial Videos" version="1.0.1" provider-name="MetalKettle">
   <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>

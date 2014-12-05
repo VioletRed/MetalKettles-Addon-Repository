@@ -13,7 +13,7 @@ ovpnpathvypr        = xbmc.translatePath(os.path.join('special://home/addons/' +
  
 def Index():
     addDir('[COLOR white]Setup Private Internet Access[/COLOR]','url',1,icon,'',fanart)
-    addDir('[COLOR white]Setup VyprVPN[/COLOR]','url',5,icon,'',fanart)
+    #addDir('[COLOR white]Setup VyprVPN[/COLOR]','url',5,icon,'',fanart)
     addDir('[COLOR white]Remove VPN[/COLOR]','url',2,icon,'',fanart)
     addDir('[COLOR white]Open[/COLOR] [COLOR grey]open[/COLOR][COLOR blue]elec[/COLOR] [COLOR white]Settings[/COLOR]','url',4,icon,'',fanart)
     addDir('[COLOR white]Check My IP Location[/COLOR]','url',3,icon,'',fanart)
