@@ -104,6 +104,7 @@ def PLAYLINK(name,url):
                print match
                if (len(match) > 0):
                         videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
+                        print videomega_url
                if (len(match) == 0):
                         match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                         videomega_url = match[0]
@@ -116,10 +117,15 @@ def PLAYLINK(name,url):
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
         url = urllib.unquote(url)
         stream_url = re.compile('file: "(.+?)"').findall(url)[0]
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(stream_url, liz, False)
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
+        listitem.setInfo("Video", {"Title":name})
+        listitem.setProperty('mimetype', 'video/x-msvideo')
+        listitem.setProperty('IsPlayable', 'true')
+        playlist.add(stream_url,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist)
 
 def get_params():
         param=[]
@@ -158,6 +164,7 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
             if len(simpleyear)>0:
                 simpleyear=simpleyear[0]
         meta = metaget.get_meta('movie', simplename ,simpleyear)
+        print meta
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage=meta['cover_url'], thumbnailImage=iconimage)
