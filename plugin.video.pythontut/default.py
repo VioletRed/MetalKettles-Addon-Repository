@@ -12,12 +12,11 @@ def CATEGORIES():
         link=response.read()
         response.close()
         match=re.compile('<a href="(.+?)" class=".+?">(.+?)</a>').findall(link)
-        cnt = 0
         for url,name in match:
-                cnt = cnt+1
                 url = url2+url
-                if cnt > 1 and cnt < 45:
-                        addDir(name,url,2,icon)   
+                num = name[0]
+                if num.isdigit():
+                        addDir(name,url,2,icon)    
 
 def VIDEOLINKS(url,name):
         req = urllib2.Request(url)

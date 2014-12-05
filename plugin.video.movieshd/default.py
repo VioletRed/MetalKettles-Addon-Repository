@@ -37,7 +37,6 @@ def GETMOVIES(url,name):
                                                         if not 'Download' in name2:
                                                                 addDir(name2,url,100,'',len(match),isFolder=False)
         match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
-        print match
         if len(match)>0:
                 addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match),isFolder=True)
         xbmc.executebuiltin('Container.SetViewMode(500)')
@@ -79,58 +78,48 @@ def SEARCH():
         GETMOVIES(url,name)
 
 def PLAYLINK(name,url):
-        req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
         try:
-                match=re.compile("'text/javascript'>ref='(.+?)?';width.*iframe").findall(link)
-                if (len(match) == 1):
-                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0]
-                        print videomega_url
-                if (len(match) < 1):
+               req = urllib2.Request(url)
+               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+               response = urllib2.urlopen(req)
+               link=response.read()
+               response.close()
+               match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
+               videomega_id_url = match[2]
+               req = urllib2.Request(videomega_id_url)
+               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+               response = urllib2.urlopen(req)
+               link=response.read()
+               response.close()
+               match=re.compile('var ref="(.+?)";').findall(link)
+               vididresolved = match[0]
+               videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
+        except:
+               req = urllib2.Request(url)
+               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+               response = urllib2.urlopen(req)
+               link=response.read()
+               response.close()
+               match=re.compile("ref=\'(.+?)'").findall(link)
+               print match
+               if (len(match) > 0):
+                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
+               if (len(match) == 0):
                         match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                         videomega_url = match[0]
-                        print videomega_url
-        except:
-                match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
-                videomega_id_url = match[3]
-                print videomega_id_url
-                req = urllib2.Request(videomega_id_url)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-                match=re.compile('var ref="(.+?)";').findall(link)
-                vididresolved = match[0]
-                print vididresolved
-                videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
-                print videomega_url
 
         req = urllib2.Request(videomega_url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-
-
-        
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
         url = urllib.unquote(url)
         stream_url = re.compile('file: "(.+?)"').findall(url)[0]
-       
-
-
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        playlist.add(stream_url,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player ().play(stream_url, liz, False)
 
 def get_params():
         param=[]
@@ -169,7 +158,6 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
             if len(simpleyear)>0:
                 simpleyear=simpleyear[0]
         meta = metaget.get_meta('movie', simplename ,simpleyear)
-        print meta
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
         ok=True
         liz=xbmcgui.ListItem(name, iconImage=meta['cover_url'], thumbnailImage=iconimage)
