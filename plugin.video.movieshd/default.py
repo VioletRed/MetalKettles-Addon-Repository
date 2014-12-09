@@ -11,6 +11,22 @@ fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , '
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 
+def showText(heading, text):
+    id = 10147
+    xbmc.executebuiltin('ActivateWindow(%d)' % id)
+    xbmc.sleep(100)
+    win = xbmcgui.Window(id)
+    retry = 50
+    while (retry > 0):
+        try:
+            xbmc.sleep(10)
+            retry -= 1
+            win.getControl(1).setLabel(heading)
+            win.getControl(5).setText(text)
+            return
+        except:
+            pass
+        
 def CATEGORIES():
         addDir2('Featured','http://movieshd.co/watch-online/category/featured?filtre=date',1,icon,'',fanart)
         addDir2('Recently Added','http://movieshd.co/?filtre=date&cat=0',1,icon,'',fanart)
@@ -20,20 +36,24 @@ def CATEGORIES():
         addDir2('Bollywood','http://movieshd.co/watch-online/category/bollywood',1,icon,'',fanart) 
         addDir2('Search','url',3,icon,'',fanart)
         addLink('','','',icon,fanart)
-        addLink('','','',icon,fanart)
-        addDir2('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,'',fanart)
-        
-def twitter():
+        addLink('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,fanart)
+
+                
+def TWITTER():
+        text=''
         twit = 'http://twitrss.me/twitter_user_to_rss/?user=movieshd_co'
         twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
         response = net().http_GET(twit)
         link = response.content
         match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
         for status, dte in match:
-            status = status.replace('\n','')
+            status = status.replace('\n',' ')
+            status = status.encode('ascii', 'ignore').decode('ascii').replace('&#x27;','\'').replace('&#xA0;','').replace('&#x2026;','')
             dte = '[COLOR red][B]'+dte+'[/B][/COLOR]'
             dte = dte.replace('+0000','').replace('2014','').replace('2015','')
-            addLink(dte+status,'','',icon,fanart)
+            text = text+dte+'\n'+status+'\n'+'\n'
+        showText('@movieshd_co', text)
+        quit()
 
 def GETMOVIES(url,name):
         req = urllib2.Request(url)
@@ -212,7 +232,7 @@ if mode==None or url==None or len(url)<1: CATEGORIES()
 elif mode==1: GETMOVIES(url,name)
 elif mode==2: GENRES(url)
 elif mode==3: SEARCH()
-elif mode==4: twitter()
+elif mode==4: TWITTER()
 elif mode==100: PLAYLINK(name,url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
