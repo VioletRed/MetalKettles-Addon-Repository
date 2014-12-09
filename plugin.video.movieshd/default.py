@@ -1,6 +1,6 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os
+import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,random
 from t0mm0.common.addon import Addon
-from t0mm0.common.net import Net
+from t0mm0.common.net import Net as net
 from metahandler import metahandlers
 
 addon_id = 'plugin.video.movieshd'
@@ -12,13 +12,28 @@ icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'ico
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 
 def CATEGORIES():
-        addDir2('Featured','http://movieshd.co/watch-online/category/featured?filtre=date',1,artpath+'movies.png','',fanart)
-        addDir2('Recently Added','http://movieshd.co/?filtre=date&cat=0',1,artpath+'movies.png','',fanart)
-        addDir2('Most Viewed','http://movieshd.co/?filtre=views&cat=0',1,artpath+'movies.png','',fanart)
-        addDir2('Highest Rated','http://movieshd.co/?filtre=rate&cat=0',1,artpath+'movies.png','',fanart)
-        addDir2('Genres','url',2,artpath+'genres.png','',fanart)
-        addDir2('Bollywood','http://movieshd.co/watch-online/category/bollywood',1,artpath+'movies.png','',fanart) 
-        addDir2('Search','url',3,artpath+'search.png','',fanart)
+        addDir2('Featured','http://movieshd.co/watch-online/category/featured?filtre=date',1,icon,'',fanart)
+        addDir2('Recently Added','http://movieshd.co/?filtre=date&cat=0',1,icon,'',fanart)
+        addDir2('Most Viewed','http://movieshd.co/?filtre=views&cat=0',1,icon,'',fanart)
+        addDir2('Highest Rated','http://movieshd.co/?filtre=rate&cat=0',1,icon,'',fanart)
+        addDir2('Genres','url',2,icon,'',fanart)
+        addDir2('Bollywood','http://movieshd.co/watch-online/category/bollywood',1,icon,'',fanart) 
+        addDir2('Search','url',3,icon,'',fanart)
+        addLink('','','',icon,fanart)
+        addLink('','','',icon,fanart)
+        addDir2('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,'',fanart)
+        
+def twitter():
+        twit = 'http://twitrss.me/twitter_user_to_rss/?user=movieshd_co'
+        twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
+        response = net().http_GET(twit)
+        link = response.content
+        match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
+        for status, dte in match:
+            status = status.replace('\n','')
+            dte = '[COLOR red][B]'+dte+'[/B][/COLOR]'
+            dte = dte.replace('+0000','').replace('2014','').replace('2015','')
+            addLink(dte+status,'','',icon,fanart)
 
 def GETMOVIES(url,name):
         req = urllib2.Request(url)
@@ -117,15 +132,9 @@ def PLAYLINK(name,url):
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
         url = urllib.unquote(url)
         stream_url = re.compile('file: "(.+?)"').findall(url)[0]
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        playlist.add(stream_url,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player ().play(stream_url, liz, False)
 
 def get_params():
         param=[]
@@ -177,6 +186,15 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
         return ok
 
+def addLink(name,url,mode,iconimage,fanart,description=''):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+        return ok
+
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
 except: pass
@@ -194,6 +212,7 @@ if mode==None or url==None or len(url)<1: CATEGORIES()
 elif mode==1: GETMOVIES(url,name)
 elif mode==2: GENRES(url)
 elif mode==3: SEARCH()
+elif mode==4: twitter()
 elif mode==100: PLAYLINK(name,url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
