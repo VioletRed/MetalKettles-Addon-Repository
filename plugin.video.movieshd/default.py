@@ -113,36 +113,41 @@ def SEARCH():
         GETMOVIES(url,name)
 
 def PLAYLINK(name,url):
-        try:
-               req = urllib2.Request(url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
-               videomega_id_url = match[2]
-               req = urllib2.Request(videomega_id_url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile('var ref="(.+?)";').findall(link)
-               vididresolved = match[0]
-               videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
-        except:
-               req = urllib2.Request(url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile("ref=\'(.+?)'").findall(link)
-               print match
-               if (len(match) > 0):
-                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
-                        print videomega_url
-               if (len(match) == 0):
-                        match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
-                        videomega_url = match[0]
+        #try:
+        req = urllib2.Request(url)
+        print 'here'
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
+        if len(match)==0:
+            match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
+        videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]
+        print match
+             
+        req = urllib2.Request(videomega_id_url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        match=re.compile('var ref="(.+?)";').findall(link)
+        vididresolved = match[0]
+        videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
+        #except:
+        #       req = urllib2.Request(url)
+        #       req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        #       response = urllib2.urlopen(req)
+        #       link=response.read()
+        #       response.close()
+        #       match=re.compile("ref=\'(.+?)'").findall(link)
+        #       print match
+        #       if (len(match) > 0):
+        #                videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
+        #                print videomega_url
+        #       if (len(match) == 0):
+        #                match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
+        #                videomega_url = match[0]
 
         req = urllib2.Request(videomega_url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
