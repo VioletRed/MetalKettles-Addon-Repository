@@ -1,33 +1,15 @@
-import xbmc, xbmcgui, xbmcaddon, xbmcplugin, urllib, re, string, os, time, urllib2
+import urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random
 from t0mm0.common.net import Net as net
-import cookielib
 
-addon_id 	= 'plugin.video.HQZone'
-art 		= xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
-selfAddon 	= xbmcaddon.Addon(id=addon_id)
-user 		= selfAddon.getSetting('hqusername')
-passw 		= selfAddon.getSetting('hqpassword')
-datapath 	= os.path.join(xbmc.translatePath('special://profile/addon_data/plugin.video.HQZone'), '')
-cookie_file     = os.path.join(os.path.join(datapath,'Cookies'), 'hqzone.lwp')
+addon_id        = 'plugin.video.HQZone'
+selfAddon       = xbmcaddon.Addon(id=addon_id)
+datapath        = xbmc.translatePath(selfAddon.getAddonInfo('profile'))
 fanart          = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
+cookie_file     = os.path.join(os.path.join(datapath,''), 'hqzone.lwp')
+user            = selfAddon.getSetting('hqusername')
+passw           = selfAddon.getSetting('hqpassword')
 
-CookiesPath=os.path.join(datapath,'Cookies')
-try: os.makedirs(CookiesPath)
-except: pass
-
-
-def setCookie(srDomain):
-        import hashlib
-        m = hashlib.md5()
-        m.update(passw)
-        net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
-        net().http_POST('http://www.hqzone.tv/forums/login.php?do=login',{'vb_login_username':user,'vb_login_password':passw,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
-        net().save_cookies(cookie_file)
-        net().set_cookies(cookie_file)
-        if mode == 7:
-                notification('HQZone', 'Cookies Refreshed', '4000',icon)
-                
 if user == '' or passw == '':
     if os.path.exists(cookie_file):
         try: os.remove(cookie_file)
@@ -35,20 +17,111 @@ if user == '' or passw == '':
     dialog = xbmcgui.Dialog()
     ret = dialog.yesno('HQZone', 'Please enter your HQZone account details','or register if you dont have an account','at www.HQZone.Tv','Cancel','Login')
     if ret == 1:
-        keyb = xbmc.Keyboard('', 'Enter Username or Email')
+        keyb = xbmc.Keyboard('', 'Enter Username')
         keyb.doModal()
         if (keyb.isConfirmed()):
-            username = keyb.getText()
+            search = keyb.getText()
+            username=search
             keyb = xbmc.Keyboard('', 'Enter Password:')
             keyb.doModal()
             if (keyb.isConfirmed()):
-                password = keyb.getText()
+                search = keyb.getText()
+                password=search
                 selfAddon.setSetting('hqusername',username)
                 selfAddon.setSetting('hqpassword',password)
 user = selfAddon.getSetting('hqusername')
 passw = selfAddon.getSetting('hqpassword')
 
+#############################################################################################################################
 
+def setCookie(srDomain):
+        html = net().http_GET(srDomain).content
+        r = re.findall(r'<input type="hidden" name="(.+?)" value="(.+?)" />', html, re.I)
+        post_data = {}
+        post_data['amember_login'] = user
+        post_data['amember_pass'] = passw
+        for name, value in r:
+            post_data[name] = value
+        net().http_GET('http://www.rarehost.net/amember/member')
+        net().http_POST('http://www.rarehost.net/amember/member',post_data)
+        net().save_cookies(cookie_file)
+        net().set_cookies(cookie_file)
+
+def MAINSA():
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET('http://www.rarehost.net/amember/member')
+    if not 'Edit Profile' in response.content:
+        dialog = xbmcgui.Dialog()
+        dialog.ok('HQZone', 'Invalid login','Please check your HQZone account details in Add-on settings','')
+        quit()
+    link = response.content
+    link = cleanHex(link)
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    notification('HQZone', 'Login Successful', '2000',icon)
+    xbmc.sleep(1000)
+    free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
+    addDir('Free Streams','http://www.rarehost.net/amember/free/free.php',2,icon,fanart)
+    vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
+    if len(vip)>0:
+        vip=vip[0]
+        addDir('[COLOR gold]VIP[/COLOR] Streams','http://www.rarehost.net/amember/vip/vip.php',2,icon,fanart)
+    addLink(' ','url','mode',icon,fanart)
+    addLink('[COLOR blue]Twitter[/COLOR] Feed','url',100,icon,fanart)
+    addDir('HQZone Account Status','url',200,icon,fanart)
+    addLink('HQ Zone Support','url',300,icon,fanart)
+
+def getchannels(url):
+    if 'vip' in url:baseurl = 'http://www.rarehost.net/amember/vip/'
+    else:baseurl = 'http://www.rarehost.net/amember/free/'
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET(url)
+    link = response.content
+    link = cleanHex(link)
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    match=re.compile('<a href="(.+?)"></br><font color= "\#fff" size="\+1"><b>(.+?)</b>').findall(link)
+    for url,channel in match:
+        url = baseurl+url
+        addLink(channel,url,3,icon,fanart)
+
+def getstreams(url,name):
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET(url)
+    link = response.content
+    link = cleanHex(link)
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    swf='http://p.jwpcdn.com/6/11/jwplayer.flash.swf'
+    strurl=re.compile("file: '(.+?)',").findall(link)[0]
+    playable = strurl+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
+    ok=True
+    liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+    try:
+        xbmc.Player ().play(playable, liz, False)
+    except:
+        pass
+   
+def account():
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET('http://www.rarehost.net/amember/member')
+    link = response.content
+    link = cleanHex(link)
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    stat = ''
+    user=re.compile('<div class="am-user-identity-block">(.+?)<').findall(link)[0]
+    user = user+'\n'+' '
+    accnt=re.compile('<li><strong>(.+?)</strong>(.+?)</li>').findall(link)
+    for one,two in accnt:
+        one = '[COLOR blue]'+one+'[/COLOR]'
+        stat = stat+' '+one+' '+two+'\n'
+    dialog = xbmcgui.Dialog()
+    dialog.ok('[COLOR blue]HQZone Account Status[/COLOR]', '',stat,'')
+    quit()
+
+def support():
+    dialog = xbmcgui.Dialog()
+    dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)','HQZone@hotmail.com (via Email)')
+    quit()
+       
 def addDir(name,url,mode,iconimage,fanart,description=''):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
@@ -66,193 +139,7 @@ def addLink(name,url,mode,iconimage,fanart,description=''):
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
-	
-def MainMenu():
-    setCookie('http://www.hqzone.tv/forums/view.php?pg=live')
-    #xbmc.sleep(2000)
-    response = net().http_GET('http://www.hqzone.tv/forums/view.php?pg=live')
-    link = response.content
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    addDir('[COLOR white][B]-- View Schedule --[/B][/COLOR]','http://www.hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
-    addLink('[COLOR blue][B]_________________________[/B][/COLOR]','','',icon,fanart)
-    match=re.findall('<h4 class="panel_headin.+?">([^<]+?)</h4><ul>(.+?)</ul>',link)
-    for name,links in match[0:3]:
-        if 'Channels' == name:
-            name='[COLOR gold]VIP[/COLOR]'+' Member Streams'
-        addDir(name,links,2,icon,fanart) #Main Channels
-    addLink('[COLOR blue][B]_________________________[/B][/COLOR]','','',icon,fanart)
-    match=re.findall('<h4 class="panel_headin.+?">([^<]+?)</h4><ul>(.+?)</ul>',link)
-    for name,links in match[3:]:
-        if 'Channels' == name:
-            name='[COLOR gold][B}VIP[/B][/COLOR]'+' Member Streams'
-        addDir(name,links,4,icon,fanart) #VIP
-    addDir('HQ Movies','url',99,icon,fanart)
-    addLink('','','',icon,fanart)
-    addLink('[COLOR red][I]** NOTE:  If a stream fails to play, the selected channel is likely offline **[/I][/COLOR]','',7,icon,fanart)
-
-def VIPMenu(url):
-    match=re.findall('<li><a href="([^"]+?)" target="I1">([^<]+?)</a></li>',url)
-    if not match:
-        match=re.findall('<a href="([^"]+?)" target="I1"><img src="([^"]+?)"',url)
-    for url,name in match:
-        url = 'http://www.hqzone.tv/forums/'+url
-        addLink(name,url,5,icon,fanart)
-
-def VODMenu(url):
-    match=re.findall('<li><a href="([^"]+?)" target="I1">([^<]+?)</a></li>',url)
-    for url,name in match:
-        url = 'http://www.hqzone.tv/forums/'+url
-        addDir(name,url,3,icon,fanart) #default image for VOD section
- 
-def GetLinks(url,thumb):
-    setCookie(cookie_file)
-    response = net().http_GET(url)
-    link = response.content
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    match=re.findall('sources: \[\{ file: "([^"]+?)" \}\],title: "([^"]+?)"',link)
-    for url,name in match:
-        addLink(name,url,5,icon,fanart)
-		
-def PlayStream(name,url,thumb):  
-        ok=True
-        url = get_link(url)
-        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        try:
-            xbmc.Player ().play(url, liz, False)
-        except:
-            pass
-
-def get_link(url):
-    if 'mp4' in url:
-        swf='http://www.hqzone.tv/forums/jwplayer/jwplayer.flash.swf'
-        streamer=re.search('(rtmp://.+?/vod/)(.+?.mp4)',url)
-        return streamer.group(1)+'mp4:'+streamer.group(2)+' swfUrl='+swf+' pageUrl=http://www.hqzone.tv/forums/view.php?pg=live# token=WY846p1E1g15W7s'
-    setCookie(url)
-    response = net().http_GET(url)
-    link = response.content
-    link = cleanHex(link)
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    m3u8=re.findall('<a href="([^"]+?.m3u8)">',link)
-    flash=re.search('file=(.+?)&streamer=(.+?)&dock',link)
-    if m3u8:
-        return m3u8[0]
-    elif flash:
-        swf='http://www.hqzone.tv/forums/jwplayer/player.swf'
-        return flash.group(2)+' playpath='+flash.group(1)+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
-    else:
-        try:
-                swf='http://www.hqzone.tv/forums/jwplayer/jwplayer.flash.swf'
-                streamer=re.findall("file: '([^']+)',",link)[0]
-                return streamer.replace('redirect','live')+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
-        except:
-                swf='http://www.hqzone.tv/forums/flowplayer-3.2.18.swf'
-                streamer=re.compile("url: '(.+?)',").findall(link)[0]
-                sturl=re.compile("netConnectionUrl: '(.+?)'").findall(link)[0]
-                return sturl+'/'+streamer+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
-        
-def Schedule(url):
-    setCookie(cookie_file)
-    response = net().http_GET(url)
-    link = response.content
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    month=re.findall('<h2 class="blockhead">([^<]+?)</h2>',link)
-    match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
-    addLink('[COLOR red][I]Times are E.S.T / GMT -5 | Follow us on Twitter for latest channel news, updates + more.[/I][/COLOR]','','',icon,fanart) 
-    for day,num,data in match:
-                day = day.encode('ascii', 'ignore').decode('ascii')
-                num = num.encode('ascii', 'ignore').decode('ascii')
-                data = data.encode('ascii', 'ignore').decode('ascii')
-		addLink('[COLOR blue][B]'+day+' '+num+' '+month[0]+'[/B][/COLOR]','','',icon,fanart)
-		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
-		for time,title in match2:
-                        time = time.encode('ascii', 'ignore').decode('ascii')
-                        title = title.encode('ascii', 'ignore').decode('ascii')
-			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','',icon,fanart)
-
-def HQMovies():
-    addDir('HQ Movies Latest','http://movieshd.co/watch-online/category/featured?filtre=date',100,icon,fanart) #VIP
-    addDir('HQ Movies Search','url',102,icon,fanart) #VIP
-
-def HQMoviesSearch():
-    search_entered =''
-    keyboard = xbmc.Keyboard(search_entered, 'Search for Movie')
-    keyboard.doModal()
-    if keyboard.isConfirmed():
-        search_entered = keyboard.getText().replace(' ','+')
-    if len(search_entered)>1:
-        url = 'http://movieshd.co/?s='+ search_entered
-        req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        GetHQMovies(url,name)
-
-def GetHQMovies(url,name):
-        req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
-        for url,name in match:
-                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
-                if not 'razor' in name2:
-                        if not 'Rls' in name2:
-                                if not 'DCMA' in name2:
-                                        if not 'Privacy' in name2:
-                                                if not 'FAQ' in name2:
-                                                        if not 'Download' in name2:
-                                                                addLink(name2,url,101,icon,fanart)
-        match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
-        if len(match)>0:
-                addDir('[COLOR gold]Next Page>>[/COLOR]',match[0],100,icon,fanart)
-                
-def PlayHQMovies(name,url):
-        try:
-               req = urllib2.Request(url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile("<script type=\'text/javascript\' src=\'(.+?)\'>").findall(link)
-               videomega_id_url = match[2]
-               req = urllib2.Request(videomega_id_url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile('var ref="(.+?)";').findall(link)
-               vididresolved = match[0]
-               videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
-        except:
-               req = urllib2.Request(url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile("ref=\'(.+?)'").findall(link)
-               print match
-               if (len(match) > 0):
-                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
-               if (len(match) == 0):
-                        match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
-                        videomega_url = match[0]
-
-        req = urllib2.Request(videomega_url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
-        url = urllib.unquote(url)
-        stream_url = re.compile('file: "(.+?)"').findall(url)[0]
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(stream_url, liz, False)
-
+    
 def cleanHex(text):
     def fixup(m):
         text = m.group(0)
@@ -263,50 +150,78 @@ def cleanHex(text):
 def notification(title, message, ms, nart):
     xbmc.executebuiltin("XBMC.notification(" + title + "," + message + "," + ms + "," + nart + ")")
 
+def showText(heading, text):
+    id = 10147
+    xbmc.executebuiltin('ActivateWindow(%d)' % id)
+    xbmc.sleep(100)
+    win = xbmcgui.Window(id)
+    retry = 50
+    while (retry > 0):
+        try:
+            xbmc.sleep(10)
+            retry -= 1
+            win.getControl(1).setLabel(heading)
+            win.getControl(5).setText(text)
+            return
+        except:
+            pass
+
+def twitter():
+        text=''
+        twit = 'http://twitrss.me/twitter_user_to_rss/?user=@HQZoneTv'
+        twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
+        response = net().http_GET(twit)
+        link = response.content
+        match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
+        for status, dte in match:
+            status = cleanHex(status)
+            dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
+            dte = dte.replace('+0000','').replace('2014','').replace('2015','')
+            text = text+dte+'\n'+status+'\n'+'\n'
+        showText('[COLOR blue][B]@HQZoneTv[/B][/COLOR]', text)
+        quit()
+
 def get_params():
-    param=[]
-    paramstring=sys.argv[2]
-    if len(paramstring)>=2:
-        params=sys.argv[2]
-        cleanedparams=params.replace('?','')
-        if (params[len(params)-1]=='/'):
-            params=params[0:len(params)-2]
-        pairsofparams=cleanedparams.split('&')
-        param={}
-        for i in range(len(pairsofparams)):
-            splitparams={}
-            splitparams=pairsofparams[i].split('=')
-            if (len(splitparams))==2:
-                param[splitparams[0]]=splitparams[1]
-    return param
+        param=[]
+        paramstring=sys.argv[2]
+        if len(paramstring)>=2:
+                params=sys.argv[2]
+                cleanedparams=params.replace('?','')
+                if (params[len(params)-1]=='/'):
+                        params=params[0:len(params)-2]
+                pairsofparams=cleanedparams.split('&')
+                param={}
+                for i in range(len(pairsofparams)):
+                        splitparams={}
+                        splitparams=pairsofparams[i].split('=')
+                        if (len(splitparams))==2:
+                                param[splitparams[0]]=splitparams[1]
+                                
+        return param
               
-params=get_params(); url=None; name=None; mode=None; path=None; iconimage=None
-try: name=urllib.unquote_plus(params["name"])
-except: pass
-try: url=urllib.unquote_plus(params["url"])
-except: pass
-try: mode=int(params["mode"])
-except: pass
+params=get_params(); url=None; name=None; mode=None; iconimage=None
+try:url=urllib.unquote_plus(params["url"])
+except:pass
+try:name=urllib.unquote_plus(params["name"])
+except:pass
+try:mode=int(params["mode"])
+except:pass
 try:iconimage=urllib.unquote_plus(params["iconimage"])
-except: pass
-try: plot=urllib.unquote_plus(params["plot"])
-except: pass
-try: title=urllib.unquote_plus(params["title"])
-except: pass
-try: path=urllib.unquote_plus(params["path"])
-except: pass
+except:pass
 
-if mode==None or url==None or len(url)<1:MainMenu()            
-elif mode==2:VIPMenu(url)      
-elif mode==3:GetLinks(url,iconimage)      
-elif mode==4:VODMenu(url)          
-elif mode==5:PlayStream(name,url,iconimage)
-elif mode==6:Schedule(url)
-elif mode==7:setCookie(srDomain)
+print "Mode: "+str(mode); print "Name: "+str(name); print "Thumb: "+str(iconimage)
 
-elif mode==99:HQMovies()
-elif mode==100:GetHQMovies(url,name)
-elif mode==101:PlayHQMovies(name,url)
-elif mode==102:HQMoviesSearch()
+if mode==None or url==None or len(url)<1:MAINSA()
 
+elif mode==2:getchannels(url)
+elif mode==3:getstreams(url,name)
+
+
+elif mode==100:twitter()
+elif mode==200:account()
+elif mode==300:support()
+
+
+        
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
+
