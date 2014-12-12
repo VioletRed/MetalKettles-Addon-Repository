@@ -96,7 +96,7 @@
        provider-name="MetalKettle / mFuk">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.t0mm0.common" version="1.1.0"/>
+	<import addon="script.module.t0mm0.common" version="1.1.1"/>
 	<import addon="script.module.beautifulsoup"/>
     </requires>
     <extension point="xbmc.python.pluginsource"
