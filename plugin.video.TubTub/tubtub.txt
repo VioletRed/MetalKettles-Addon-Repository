@@ -1,0 +1,156 @@
+<Toons><start>
+<Camp Cartoon Network><mms://cartoonclassics.tubtub.com/>
+<Popeye TV><mms://popeye.tubtub.com/>
+<Betty Boop Studio><mms://bettyboop.tubtub.com/>
+<Felix The Cat Studio><mms://toonstudios.tubtub.com/>
+<3 Stooges Toon TV><mms://crazytoonstv.tubtub.com/>
+<Classic Toons Zone><mms://classictoonsnetwork.tubtub.com/>
+<Gumby Television><mms://wackytoons.tubtub.com/>
+<Hoppity Hooper Channel><mms://funnytoons.tubtub.com/>
+<Toons Television Network><mms://toons.tubtub.com/>
+<Clutch Cargo Channel><mms://spaz.tubtub.com/>
+<Animated Films><mms://cartoonclassics.tubtub.com/>
+<Col Bleep TV><mms://sillytoons.tubtub.com/>
+<Aesops Fables TV><mms://toonvault.tubtub.com/>
+<Calvin And The Colonel TV><mms://toontvstudio.tubtub.com/>
+<<end>>
+<Family><start>
+<Family Classics Network><mms://familynetwork.networkwebcast.com/>
+<At Home Films><mms://doublefeaturefilms.tubtub.com/>
+<Roundup Family Westerns><mms://momschannel.networkwebcast.com/>
+<Roy Rogers Channel><mms://royrogers.tubtub.com/>
+<Singing Cowboys Studio><mms://cowboystv.tubtub.com/>
+<John Wayne Network><mms://johnwayne.tubtub.com/>
+<Trouble with Father Network><mms://tickletv.tubtub.com/>
+<Western TV Studios><mms://westerns.tubtub.com/>
+<Hign Noon Network><mms://wildwesttv.tubtub.com/>
+<<end>>
+<Movies><start>
+<Action Pictures><mms://boxoffice.tubtub.com/>
+<Adventure Films><mms://tvrama.networkwebcast.com/>
+<Blockbuster Stars Network><mms://blockbuster.tubtub.com/>
+<Classic Books in Films><mms://yesterday.networkwebcast.com/>
+<Classic Movies Channel><mms://classicmovies.tubtub.com/>
+"<Films of the 60s, 70s, 80s><mms://thebigshow.tubtub.com/>"
+<Comedy Movies Television><mms://comedy.tubtub.com/>
+<Drama Cinema TV><mms://films.tubtub.com/>
+<Family Flicks Zone><mms://ourgangstudio.networkwebcast.com/>
+<Movie Lovers Studio><mms://hollywood.tubtub.com/>
+<Westerns Cinema Network><mms://gunslingers.tubtub.com/>
+<Crime Scene Films><mms://crazyclassics.tubtub.com/>
+<Best Oldies Pictures><mms://oldtvnetwork.networkwebcast.com/>
+<History in Film Network><mms://ourhousetv.networkwebcast.com/>
+<Mystery Theater Productions><mms://rabbitears.networkwebcast.com/>
+<<end>>
+<TV Central><start>
+<Best Comedy Live><mms://tubtubsbestcomedy.networkwebcast.com/>
+<Best Action Television><mms://tubtubsbestaction.networkwebcast.com/>
+<TVcentral Live><mms://tvcentral.networkwebcast.com/>
+<Best Drama Network><mms://tubtubsbestdrama.networkwebcast.com/>
+<Best Family Channel><mms://tubtubsbestfamily.networkwebcast.com/>
+<Best Kids Zone><mms://tubtubsbestkids.networkwebcast.com/>
+<Best TV Entertainment><mms://tubtubsbesttvshows.networkwebcast.com/>
+<Best Movies TV><mms://tubtubsbestmovies.networkwebcast.com/>
+<Best Westerns Television><mms://tubtubsbestwesterns.networkwebcast.com/>
+<Best Classics Network><mms://tubtubsbestclassics.networkwebcast.com/>
+<<end>>
+<Kids><start>
+<Kids Zone Network><mms://kids.tubtub.com/>
+<Beverly Hillbillies Channel><mms://crackuptv.tubtub.com/>
+<Lucy Show TV><mms://lucy.tubtub.com/>
+<Andy Griffith's Mayberry TV><mms://dadsnetwork.networkwebcast.com/>
+<East Side Kids Live><mms://sandlottv.tubtub.com/>
+<Kids Movies Network ><mms://laughtrack.tubtub.com/>
+<Kit Carson's Wild TV><mms://playzone.tubtub.com/>
+<Petticoat Junction Live><mms://heeheetv.tubtub.com/>
+<Dusty and Rango TV><mms://funtimestudios.tubtub.com/>
+<Lone Ranger Channel><mms://rawhidenetwork.tubtub.com/>
+<Annie Oakley TV><mms://cattletrail.tubtub.com/>
+<Gabby Hayes Television><mms://tumbleweed.tubtub.com/>
+<Jim Bowie Adventures TV><mms://tvshowsstudio.networkwebcast.com/>
+<Gumby Television><mms://wackytoons.tubtub.com/>
+<Cisco Kid Network><mms://highnoon.tubtub.com/>
+<Mohawk TV><mms://myfam.networkwebcast.com/>
+<Pirates TV Live><mms://recessnetwork.tubtub.com/>
+<3 Stooges Channel><mms://wildtoons.tubtub.com/>
+<Christmas All Year TV><mms://lol.tubtub.com/>
+<Kids Westerns Network><mms://boogervision.tubtub.com/>
+<<end>>
+<Comedy><start>
+<Dick Van Dyke TV><mms://funnytv.tubtub.com/>
+<Romantic Wackos Television><mms://funzone.tubtub.com/>
+<Kids Comedy Network><mms://kidvision.tubtub.com/>
+<Betty White Live Channel><mms://smiletv.tubtub.com/>
+<B-Picture Laughs TV><mms://backlot.tubtub.com/>
+<Family Comedy Studio><mms://kneeslappertv.tubtub.com/>
+<Comedy TV Zone Network><mms://bestcomedy.networkwebcast.com/>
+<Dramedy Television><mms://chuckletv.tubtub.com/>
+<George Burns Live><mms://laughtracktvstudio.tubtub.com/>
+<Jack Benny TV><mms://bugs.tubtub.com/>
+<Comedy Movies Television><mms://comedy.tubtub.com/>
+<<end>>
+<Mystery & Crime><start>
+<Hitchcock Classic Films><mms://flicks.tubtub.com/>
+<Mr and Mrs North TV><mms://funtv.networkwebcast.com/>
+<Dick Tracy Channel><mms://goldenera.networkwebcast.com/>
+<Mystery Television Studios><mms://alltimeclassics.networkwebcast.com/>
+<Dragnet Television><mms://athomechannel.networkwebcast.com/>
+<Bulldog Drummond TV><mms://phleez.tubtub.com/>
+<Not So Mysterious Studio><mms://oldtime.networkwebcast.com/>
+<Racket Squad Network><mms://mytvnetwork.networkwebcast.com/>
+<<end>>
+<Drama><start>
+<Crime Drama Network><mms://backyardtv.tubtub.com/>
+<Musicals and More Channel><mms://pictureshow.tubtub.com/>
+<Best Drama Television><mms://remember.networkwebcast.com/>
+<<end>>
+<Westerns><start>
+<Bonanza TV><mms://bonanza.tubtub.com/>
+<Judge Roy Bean Channel><mms://judgeroybean.tubtub.com/>
+<Range Rider TV><mms://roundup.tubtub.com/>
+<Frontier Doctor Channel><mms://frontier.tubtub.com/>
+<Westerns of the 30s TV><mms://motionpictures.tubtub.com/>
+<Sheriff Of Cochise Channel><mms://playtv.tubtub.com/>
+<Western TV Drama><mms://remembertv.networkwebcast.com/>
+<Frontier Justice Channel><mms://vintage.networkwebcast.com/>
+<Shotgun Network><mms://frog.tubtub.com/>
+<Sergeant Preston Of The Yukon TV><mms://ourstreetnetwork.networkwebcast.com/>
+<Cowboy G-Men Studios><mms://dinnertimenetwork.networkwebcast.com/>
+<Buffalo Bill Jr TV><mms://tvvacation.networkwebcast.com/>
+<Western Crime Network><mms://smalltownchannel.networkwebcast.com/>
+<Western Stars Channel><mms://entertainmentpictures.tubtub.com/>
+<White Hat Westerns Network><mms://playground.tubtub.com/>
+<Badlands Western Television><mms://badlands.tubtub.com/>
+<Northwest Passage Television><mms://ourclan.networkwebcast.com/>
+<Early Days TV Westerns><mms://goodolddays.networkwebcast.com/>
+<John Wayne TV><mms://johnwayne.tubtub.com/>
+<<end>>
+<Action & Adventure><start>
+<Action & Adventure Channel><mms://tvmania.networkwebcast.com/>
+<SiFi TV Zone><mms://timewarptv.networkwebcast.com/>
+<Western Action Adventures TV><mms://bestfreetv.networkwebcast.com/>
+<Victory at Sea Network><mms://vintagetvnetwork.networkwebcast.com/>
+<Women's Adventure Channel><mms://tvtvtv.networkwebcast.com/>
+<Why We Fight Channel><mms://togethertv.networkwebcast.com/>
+<<end>>
+<Classics><start>
+<Drama Classic Pictures><mms://heartlandtv.networkwebcast.com/>
+<Sit-Coms TV Classics><mms://classiclaughs.tubtub.com/>
+<Classic TV Drama><mms://forgottenclassics.networkwebcast.com/>
+<Variety Shows Network ><mms://classicfavorites.networkwebcast.com/>
+<Kaleidoscope Classic Television><mms://classictvstudios.networkwebcast.com/>
+<Detectives Channel><mms://tvtime.networkwebcast.com/>
+<Law and Order Channel><mms://mainstreetstudio.networkwebcast.com/>
+<Movies of the 30s Network><mms://goldenage.networkwebcast.com/>
+<Films of the 40s Classics><mms://hitmovies.tubtub.com/>
+<Movies of the 50s Television><mms://cinemapictures.tubtub.com/>
+<Murder Mystery Channel><mms://starpictures.tubtub.com/>
+<Ozzie and Harriet Network><mms://ozzie.tubtub.com/>
+<Sherlock Holmes Television><mms://primetimestudios.networkwebcast.com/>
+<Classic Zone Network TV><mms://classics.networkwebcast.com/>
+<Mickey Rooney Live><mms://grintv.tubtub.com/>
+<Life Of Riley Channel><mms://tvlicious.networkwebcast.com/>
+<Johnny Carson Show Live><mms://giggletv.tubtub.com/>
+<Detectives Television Network><mms://blockpartychannel.networkwebcast.com/>
+<War Cinema Classics><mms://timemachinetv.networkwebcast.com/>
+<<end>>
