@@ -12,7 +12,6 @@ def Index():
     addDir('Help Videos','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',1,artpath+'HelpVideos.png',fanart)
     addDir('Twitter Feed','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',3,artpath+'TwitterFeed.png',fanart)
     addDir('FAQs','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',4,artpath+'FAQ.png',fanart)
-    addDir('Open Wizard','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',5,artpath+'Wizard.png',fanart)
     setView('movies', 'MAIN')
 
 def ytube():
@@ -68,10 +67,6 @@ def FAQ():
         query = '[COLOR blue][B]'+query+'[/B][/COLOR]'
         text = text+query+'\n'+result+'\n'+'\n'
     showText('[COLOR blue][B]FAQs[/B][/COLOR]', text)
-    quit()
-
-def OpenWizard():
-    xbmc.executebuiltin("RunAddon(plugin.video.aswizard)")
     quit()
 
 def cleanHex(text):
@@ -157,7 +152,6 @@ elif mode==1:ytube()
 elif mode==2:PlayStream(url,iconimage)
 elif mode==3:Twitter()
 elif mode==4:FAQ()
-elif mode==5:OpenWizard()
 
 
        
