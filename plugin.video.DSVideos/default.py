@@ -1,0 +1,164 @@
+import urllib,urllib2,sys,re,xbmcplugin,xbmcgui,xbmcaddon,xbmc,os,random
+
+AddonID ='plugin.video.DSVideos'
+artpath = xbmc.translatePath(os.path.join('special://home/addons/' + AddonID + '/resources/'))
+fanart = xbmc.translatePath(os.path.join('special://home/addons/' + AddonID , 'fanart.jpg'))
+icon = xbmc.translatePath(os.path.join('special://home/addons/' + AddonID, 'icon.png'))
+faq = 'https://raw.githubusercontent.com/metalkettle/MetalKettles-Addon-Repository/master/donotdelete/ASFAQ'
+ADDON=xbmcaddon.Addon(id='plugin.video.DSVideos')
+
+
+def Index():
+    addDir('Help Videos','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',1,artpath+'HelpVideos.png',fanart)
+    addDir('Twitter Feed','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',3,artpath+'TwitterFeed.png',fanart)
+    addDir('FAQs','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',4,artpath+'FAQ.png',fanart)
+    addDir('Open Wizard','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',5,artpath+'Wizard.png',fanart)
+    setView('movies', 'MAIN')
+
+def ytube():
+    req = urllib2.Request(url)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+    response = urllib2.urlopen(req)
+    link=response.read()
+    response.close()
+    match = re.compile("<media:title type='plain'>(.+?)</media:title>.+?<guid isPermaLink='false'>http://gdata.youtube.com/feeds/api/videos/(.+?)</guid>",re.DOTALL).findall(link)
+    for title, ytid in match:
+        img = 'https://i.ytimg.com/vi/'+ytid+'/mqdefault.jpg'
+        addLink(title,ytid,2,img,fanart,'')
+    match = re.compile("http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads\?start-index=(.+?)\&alt=rss").findall(url)[0]
+    page = int(match)+25
+    npimg = xbmc.translatePath(os.path.join('special://home/addons/'+AddonID+'/resources', 'np.jpg'))
+    newurl = 'http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index='+str(page)+'&alt=rss'
+    addDir('Next Page',newurl,1,npimg,fanart,'')
+    setView('movies', 'MAIN')
+
+def PlayStream(url,iconimage):
+    playback_url = 'plugin://plugin.video.youtube/?action=play_video&videoid=%s' % url
+    ok=True
+    xbmc.Player ().play(playback_url)
+    
+def Twitter():
+    text=''
+    twit = 'http://twitrss.me/twitter_user_to_rss/?user=@Droidsticks'
+    twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
+    req = urllib2.Request(twit)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+    response = urllib2.urlopen(req)
+    link=response.read()
+    response.close()
+    match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
+    for status, dte in match:
+        status = cleanHex(status)
+        dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
+        dte = dte.replace('+0000','').replace('2014','').replace('2015','')
+        text = text+dte+'\n'+status+'\n'+'\n'
+    showText('[COLOR blue][B]@Droidsticks[/B][/COLOR]', text)
+    quit()
+    
+def FAQ():
+    req = urllib2.Request(faq)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+    response = urllib2.urlopen(req)
+    link=response.read()
+    response.close()
+    print link
+    match=re.compile("<query>(.+?)<query>.+?<result>(.+?)<result>",re.DOTALL).findall(link)
+    text=''
+    for query, result in match:
+        query = '[COLOR blue][B]'+query+'[/B][/COLOR]'
+        text = text+query+'\n'+result+'\n'+'\n'
+    showText('[COLOR blue][B]FAQs[/B][/COLOR]', text)
+    quit()
+
+def OpenWizard():
+    xbmc.executebuiltin("RunAddon(plugin.video.aswizard)")
+    quit()
+
+def cleanHex(text):
+    def fixup(m):
+        text = m.group(0)
+        if text[:3] == "&#x": return unichr(int(text[3:-1], 16)).encode('utf-8')
+        else: return unichr(int(text[2:-1])).encode('utf-8')
+    return re.sub("(?i)&#\w+;", fixup, text.decode('ISO-8859-1').encode('utf-8'))
+
+def showText(heading, text):
+    id = 10147
+    xbmc.executebuiltin('ActivateWindow(%d)' % id)
+    xbmc.sleep(100)
+    win = xbmcgui.Window(id)
+    retry = 50
+    while (retry > 0):
+        try:
+            xbmc.sleep(10)
+            retry -= 1
+            win.getControl(1).setLabel(heading)
+            win.getControl(5).setText(text)
+            return
+        except:
+            pass
+        
+def setView(content, viewType):
+    if content:
+        xbmcplugin.setContent(int(sys.argv[1]), content)
+    if ADDON.getSetting('auto-view')=='true':
+        xbmc.executebuiltin("Container.SetViewMode(%s)" % ADDON.getSetting(viewType) )
+
+def get_params():
+        param=[]
+        paramstring=sys.argv[2]
+        if len(paramstring)>=2:
+                params=sys.argv[2]
+                cleanedparams=params.replace('?','')
+                if (params[len(params)-1]=='/'):
+                        params=params[0:len(params)-2]
+                pairsofparams=cleanedparams.split('&')
+                param={}
+                for i in range(len(pairsofparams)):
+                        splitparams={}
+                        splitparams=pairsofparams[i].split('=')
+                        if (len(splitparams))==2:
+                                param[splitparams[0]]=splitparams[1]
+        return param
+
+def addLink(name,url,mode,iconimage,fanart,description=''):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&fanart="+urllib.quote_plus(fanart)+"&description="+urllib.quote_plus(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, "Plot": description } )
+        liz.setProperty( "Fanart_Image", fanart )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+        return ok
+    
+def addDir(name,url,mode,iconimage,fanart,description=''):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+        return ok
+
+params=get_params();url=None;name=None;mode=None;iconimage=None;description=None
+try:url=urllib.unquote_plus(params["url"])
+except:pass
+try:name=urllib.unquote_plus(params["name"])
+except:pass
+try:iconimage=urllib.unquote_plus(params["iconimage"])
+except:pass
+try:mode=int(params["mode"])
+except:pass
+try:description=urllib.unquote_plus(params["description"])
+except:pass
+
+print "Mode: "+str(mode);print "URL: "+str(url);print "Name: "+str(name);print "IconImage: "+str(iconimage)
+   
+if mode==None or url==None or len(url)<1:Index()
+elif mode==1:ytube()
+elif mode==2:PlayStream(url,iconimage)
+elif mode==3:Twitter()
+elif mode==4:FAQ()
+elif mode==5:OpenWizard()
+
+
+       
+xbmcplugin.endOfDirectory(int(sys.argv[1]))
