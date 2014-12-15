@@ -1,0 +1,58 @@
+<query>Im using Virgin Media ISP and Im having problems viewing content.<query>
+<result>Virgin internet virus safe - If you have Virgin internet you will need to disable your virus Safe from your My Virgin Account or you will be limited to what you can view <result>
+
+<query>Im using BT ISP and Im having problems viewing content.<query>
+<result>BT parental control - If you are going to use this device over Wi-Fi then you need to disable your BT parental control or youre going to be limited as to what you can view.<result>
+
+<query>MyÿDroidsticks Streaming Box doesnt turn on?<query>
+<result>Make sure the power plug is pushed into the device all the way and the other end is plugged into a wall unit that has power.<result>
+
+<query>Droidsticks Streaming Box is turned on but I cant see anything on my TV?<query>
+<result>Make sure that the HDMI cable is plugged in all the way for both the device and your TV. Make sure your TV is on the correct source for the HDMI input that the Device is plugged into.<result>
+
+<query>The display on my screen is too big or too small.<query>
+<result>Click settings > Click Display > Click Display size. Adjust until the screen fits your TV and then click back.<result>
+
+<query>My wifi isnt working.<query>
+<result>Click settings > Click Network Connections > Click Wifi > Click on your Wifi network. Enter Password (Make sure the password is correct, Click symbols to add any symbols that may be in your password) If you have an MX2 then there is a fix if your wifi will not turn on in our video section<result>
+
+<query>My videos buffer a lot.<query>
+<result>Check your internet speed with www.speedtest.net. We recommend a stable internet speed of 10 MBPS or more for the best internet experience. The faster internet connection you have the faster your TV Show, Live Sports and HD Movies will load. If you have under 10Mbps you should consider upgrading your internet speed. Remember, each Add-ons is separately managed by a Third Party that is not affiliated with Droidsticks.co.uk. There will be times when these Add-Ons do not operate as they should and you may experience down time or slow rates which could cause buffering. When this does happen, we suggest looking at a new source or Add-On to correct the problem. Please note we have the best setup for your device so i advise you not to change any .xml files.<result>
+
+<query>How to do I hook up my USB wireless keyboard and or mouse to my DroidSticks box?<query>
+<result>Simply plug in the USB dongle that comes with your wireless USB keyboard or mouse (look in the back of the keyboard) into one of the USB ports on the Droidsticks box. You do not need to reboot your Box; your USB device should begin working once you have plugged in your USB device.<result>
+
+<query>My Device is running slow, how can I fix this?<query>
+<result>Sometimes the Cache in XBMC gets full. This can slow the performance of XBMC and cause buffering issues. You can fix this by following the instructions listed below. Click settings under Apps > Click Apps > Find XBMC and click on it > click Clear cache, wait for your cache to go get to 0. Restart XBMC and let it complete its first run. Remember, each Add-Ons is separately managed by a Third Party that is not affiliated with Droidsticks.co.uk.  There will be times when these Add-Ons do not operate as they should and you may experience down time or slow rates which could cause buffering.  When this does happen, we will start looking at updating the DroidSticks wizard with a new sources or Add-On to correct the problem.<result>
+
+<query>I clicked on a stream source to watch a movie or TV show and I got a pop up that says File not found or Source is unavailable<query>
+<result>Some stream sources are listed but do not work. This is not typical but it does happen in XBMC sometimes. Simply try another stream source and most likely it will work. If not simply try stream sources until one works. Remember, each Add-Ons is separately managed by a Third Party that is not affiliated with Droidsticks.co.uk. There will be times when these Add-Ons do not operate as they should and you may experience down time or slow rates which could cause buffering.  When this does happen, we suggest looking at a new source or Add-On to correct the problem.<result>
+
+<query>When I try to find a TV Show, HD Movie or live sports stream I get an error that says Network not available or Script Error<query>
+<result>While most of the XBMC Add-ons ÿare extremely stable and consistent in deliver streaming media to your DroidSticks TV Box, sometimes things happen and certain XBMC add-ons have issues. Sometimes certain XBMC add-ons are effected by server issues, internet issues or user overload. This is completely out of our control and we can only fix the add-ons if there is a fix online. If your getting script error on everything you try then your device could not be connect to the internet.<result>
+
+<query>Im having a hard time using the controller that came with my MediaPlayer Is there anything else I can use to make navigating the Droidsticks Streaming Boxÿand XBMC easier?<query>
+<result>The controller that comes with your Droidsticks Streaming Box is designed to perform the basic features, but it is not ideal for navigating the operating system or fully utilizing XBMC. We recommend using a USB keyboard with a Touch pad built in. The main model that we recommend using is the i8 wireless keyboard or the RC12. our latest remotes are the S77 pro and the F10 pro these are the best for all devices This USB keyboards can be bought with all our devices, this is definitely not the only USB device that can used to navigate and use your Droidsticks Streaming Box with XBMC. There are many options in USB controllers and almost all USB devices will work with the Droidsticks Streaming Box.<result>
+
+<query>How do I add more favourites to XBMC and access my favourites while using XBMC?<query>
+<result>When you find a TV series or HD movie that you want to save as a favourite you need to click C on your USB wireless keyboard of Menu button on your stock controller. This will bring up the menu and you will be able to click on Save as a Favourite. To access your favourites you will need to click on the star icon at the bottom left side of the XBMC home screen. Simply click on the star icon and a menu will slide out from the right side of the screen. Scroll over to that menu and choose the favourite you wish to view.<result>
+
+<query>Adjusting Display size for your TV.<query>
+<result>Click settings > click display > click display position > press LEFT/UP/RIGHT/DOWN buttons to adjust the display to your TV > click back and then yes.<result>
+
+<query>Adjusting Date & Time.<query>
+<result>Click settings > click date & time > click automatic date & time, now select your time zone. Your device is set to Europe/London and your clock will set the correct time if you connect your internet.<result>
+
+<query>Customizing your XBMC Homepage (Shortcuts).<query>
+<result>In XBMC scroll over to system on the right > click settings > click appearance > on the skin tab click settings to the right > click on add on short cuts. There will be different areas to add different types of shortcuts (Video, Music, Programs). Click on 1-7 and choose the add-ons you wish to have as a short cut on your XBMC homepage.<result>
+
+<query>Adding Favorites in XBMC (For shows, seasons or movies that you want to be able to access quickly without searching for.)<query>
+<result>Open the Add on you are using to view the media, search for the media, click C on a keyboard or Menu on the controller, highlight Add to Favourites > click Left mouse button on keyboard or OK on controller. (If you add the main folder of a show as a favourite it will bring you back to that folder when you select the favourite later. If you choose a season as a favourite it will bring you back to that season when you click on the favourite later. Please note that some add-ons only save favourites in that particular Add on and not on the XBMC homepage.)<result>
+
+<query>Accessing Favourites on the XBMC homepage<query>
+<result>In XBMC you will see a star in the lower left hand corner of the screen > click on the star.  Your favourites will pop up on the right side of the screen > click on the favourite you wish to view.<result>
+
+<query>Resetting XBMC<query>
+<result>If for any reason XBMC is not working properly, Freezing or you are getting Script Errors please follow these steps. On the home screen click settings > click apps, Scroll down and click on XBMC > Click Clear data. You can do a factory reset on your device to bring your device back to the same way you first got your unit (this should only be carried out if you a pulsating blue X on the start up screen as this indicates the software on your device is recoverable). Please go to Settings backup and restore- factory wipe data- now confirm you want to do a complete wipe. Your device will now reboot, it can take up to 10 minuets to get all your apps back after a reset. Leave your device on and all apps will appear.<result>
+
+
