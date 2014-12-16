@@ -47,7 +47,7 @@ def setCookie(srDomain):
         net().save_cookies(cookie_file)
         net().set_cookies(cookie_file)
 
-def MAINSA():
+def Index():
     setCookie('https://www.rarehost.net/amember/member')
     response = net().http_GET('https://www.rarehost.net/amember/member')
     if not 'Edit Profile' in response.content:
@@ -60,11 +60,12 @@ def MAINSA():
     notification('HQZone', 'Login Successful', '2000',icon)
     xbmc.sleep(1000)
     free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
-    addDir('Free Streams','https://www.rarehost.net/amember/free/free.php',2,icon,fanart)
+    addDir('[COLOR greenyellow]Free[/COLOR] Streams','https://www.rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
         addDir('[COLOR gold]VIP[/COLOR] Streams','https://www.rarehost.net/amember/vip/vip.php',2,icon,fanart)
+        addDir('[COLOR gold]VIP[/COLOR] VOD','url',4,icon,fanart)
     addLink(' ','url','mode',icon,fanart)
     addLink('[COLOR blue]Twitter[/COLOR] Feed','url',100,icon,fanart)
     addDir('HQZone Account Status','url',200,icon,fanart)
@@ -122,6 +123,86 @@ def support():
     dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)','HQZone@hotmail.com (via Email)')
     quit()
        
+def vod():
+    setCookie('https://www.rarehost.net/amember/member')
+    response = net().http_GET('https://rarehost.net/amember/vip/vod.php')
+    link = response.content
+    link = cleanHex(link)
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    print link
+    match=re.compile('<a href="(.+?)"></br><font color= "\#fff" size="\+1"><b>(.+?)</b>').findall(link)
+    addDir('HQ Movies','http://movieshd.co/search/2014',50,icon,fanart)
+    for url,channel in match:
+        channel = channel+'[COLOR red][I] - Coming Soon[/I][/COLOR]'
+        url = 'https://rarehost.net'+url
+        if not 'Movies' in channel:
+            if not 'TV' in channel:
+                addLink(channel,'url','1000',icon,fanart)
+    
+def getmovies(url):
+        req = urllib2.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
+        for url,name in match:
+                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
+                if not 'razor' in name2:
+                        if not 'Rls' in name2:
+                                if not 'DCMA' in name2:
+                                        if not 'Privacy' in name2:
+                                                if not 'FAQ' in name2:
+                                                        if not 'Download' in name2:
+                                                                addLink(name2,url,51,icon,fanart)
+        match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
+        if len(match)>0:
+                addDir('Next Page>>',match[0],50,icon,fanart)
+
+def playmovies(name,url):
+        try:
+            req = urllib2.Request(url)
+            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+            response = urllib2.urlopen(req)
+            link=response.read()
+            response.close()
+            match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
+            if len(match)==0:
+                match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
+            videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]  
+            req = urllib2.Request(videomega_id_url)
+            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+            response = urllib2.urlopen(req)
+            link=response.read()
+            response.close()
+            match=re.compile('var ref="(.+?)";').findall(link)
+            vididresolved = match[0]
+            videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
+        except:
+               req = urllib2.Request(url)
+               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+               response = urllib2.urlopen(req)
+               link=response.read()
+               response.close()
+               match=re.compile("ref=\'(.+?)'").findall(link)
+               if (len(match) > 0):
+                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
+                        print videomega_url
+               if (len(match) == 0):
+                        match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
+                        videomega_url = match[0]
+        req = urllib2.Request(videomega_url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
+        url = urllib.unquote(url)
+        stream_url = re.compile('file: "(.+?)"').findall(url)[0]
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player ().play(stream_url, liz, False)
+
 def addDir(name,url,mode,iconimage,fanart,description=''):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
@@ -211,11 +292,14 @@ except:pass
 
 print "Mode: "+str(mode); print "Name: "+str(name); print "Thumb: "+str(iconimage)
 
-if mode==None or url==None or len(url)<1:MAINSA()
+if mode==None or url==None or len(url)<1:Index()
 
 elif mode==2:getchannels(url)
 elif mode==3:getstreams(url,name)
+elif mode==4:vod()
 
+elif mode==50:getmovies(url)
+elif mode==51:playmovies(name,url)
 
 elif mode==100:twitter()
 elif mode==200:account()
