@@ -19,8 +19,11 @@ def CATEGORIES():
         response.close()
         addDir2('[COLOR gold]New Videos[/COLOR]',base,1,icon,'',fanart)
         match=re.compile('<li class=""><a href="(.+?)" class="">(.+?)</a></li>').findall(link)
+        mk = 1
         for url, cat in match:
-                addDir2(cat,url,2,icon,'',fanart)
+                if mk < 19:
+                        addDir2(cat,url,2,icon,'',fanart)
+                mk=mk+1
      
 def GETMOVIES(url,name):
         req = urllib2.Request(url)
