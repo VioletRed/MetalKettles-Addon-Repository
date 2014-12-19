@@ -10,8 +10,9 @@ ADDON=xbmcaddon.Addon(id='plugin.video.DSVideos')
 
 def Index():
     addDir('Help Videos','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',1,artpath+'HelpVideos.png',fanart)
-    addLink('Twitter Feed','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',3,artpath+'TwitterFeed.png',fanart)
-    addLink('FAQs','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',4,artpath+'FAQ.png',fanart)
+    addLink('News','http://www.droidsticks.co.uk/feed/',5,artpath+'News.png',fanart)
+    addLink('Twitter Feed','url',3,artpath+'TwitterFeed.png',fanart)
+    addLink('FAQs','url',4,artpath+'FAQ.png',fanart)
     setView('movies', 'MAIN')
 
 def ytube():
@@ -59,13 +60,26 @@ def FAQ():
     response = urllib2.urlopen(req)
     link=response.read()
     response.close()
-    print link
     match=re.compile("<query>(.+?)<query>.+?<result>(.+?)<result>",re.DOTALL).findall(link)
     text=''
     for query, result in match:
         query = '[COLOR blue][B]'+query+'[/B][/COLOR]'
         text = text+query+'\n'+result+'\n'+'\n'
     showText('[COLOR blue][B]FAQs[/B][/COLOR]', text)
+
+def News(url):
+    req = urllib2.Request(url)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+    response = urllib2.urlopen(req)
+    link=response.read()
+    response.close()
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    match=re.compile("<item><title>(.+?)</title><link>.+?><pubDate>(.+?) \+0000</pubDate>",re.DOTALL).findall(link)
+    text=''
+    for news, newsdate in match:
+        query = '[COLOR blue][B]'+newsdate+'[/B][/COLOR]'
+        text = text+query+'\n'+news+'\n'+'\n'
+    showText('[COLOR blue][B]News[/B][/COLOR]', text)
 
 def cleanHex(text):
     def fixup(m):
@@ -150,6 +164,7 @@ elif mode==1:ytube()
 elif mode==2:PlayStream(url,iconimage)
 elif mode==3:Twitter()
 elif mode==4:FAQ()
+elif mode==5:News(url)
 
 
        
