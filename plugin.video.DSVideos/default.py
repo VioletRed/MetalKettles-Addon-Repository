@@ -10,8 +10,8 @@ ADDON=xbmcaddon.Addon(id='plugin.video.DSVideos')
 
 def Index():
     addDir('Help Videos','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',1,artpath+'HelpVideos.png',fanart)
-    addDir('Twitter Feed','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',3,artpath+'TwitterFeed.png',fanart)
-    addDir('FAQs','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',4,artpath+'FAQ.png',fanart)
+    addLink('Twitter Feed','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',3,artpath+'TwitterFeed.png',fanart)
+    addLink('FAQs','http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads?start-index=1&alt=rss',4,artpath+'FAQ.png',fanart)
     setView('movies', 'MAIN')
 
 def ytube():
@@ -52,7 +52,6 @@ def Twitter():
         dte = dte.replace('+0000','').replace('2014','').replace('2015','')
         text = text+dte+'\n'+status+'\n'+'\n'
     showText('[COLOR blue][B]@Droidsticks[/B][/COLOR]', text)
-    quit()
     
 def FAQ():
     req = urllib2.Request(faq)
@@ -67,7 +66,6 @@ def FAQ():
         query = '[COLOR blue][B]'+query+'[/B][/COLOR]'
         text = text+query+'\n'+result+'\n'+'\n'
     showText('[COLOR blue][B]FAQs[/B][/COLOR]', text)
-    quit()
 
 def cleanHex(text):
     def fixup(m):
@@ -79,12 +77,12 @@ def cleanHex(text):
 def showText(heading, text):
     id = 10147
     xbmc.executebuiltin('ActivateWindow(%d)' % id)
-    xbmc.sleep(100)
+    xbmc.sleep(500)
     win = xbmcgui.Window(id)
     retry = 50
     while (retry > 0):
         try:
-            xbmc.sleep(10)
+            xbmc.sleep(500)
             retry -= 1
             win.getControl(1).setLabel(heading)
             win.getControl(5).setText(text)
