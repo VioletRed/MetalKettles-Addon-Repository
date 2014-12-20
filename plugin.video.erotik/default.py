@@ -45,8 +45,10 @@ def GETMOVIESCATS(url,name):
         match=re.compile('<a href="(.+?)" class=".+?"><span class=".+?"><img src="(.+?)" alt="(.+?)" width=".+?"><span class=".+?"></span></span></a>').findall(link)
         for url,img,name in match:
                 addLink(name,url,100,img,fanart,'')
-        match=re.compile('<a href="(.+?)">&raquo;</a>').findall(link)[0]
-        addDir2('Next Page >>',match,2,icon,'',fanart)
+        try:
+                match=re.compile('<a href="(.+?)">&raquo;</a>').findall(link)[0]
+                addDir2('Next Page >>',match,2,icon,'',fanart)
+        except:pass
         xbmc.executebuiltin('Container.SetViewMode(500)')
 
 def PLAYLINK(name,url):
