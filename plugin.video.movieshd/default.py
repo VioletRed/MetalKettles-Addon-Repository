@@ -10,30 +10,16 @@ addon = Addon(addon_id, sys.argv)
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
+metaset = selfAddon.getSetting('enable_meta')
 
-def showText(heading, text):
-    id = 10147
-    xbmc.executebuiltin('ActivateWindow(%d)' % id)
-    xbmc.sleep(100)
-    win = xbmcgui.Window(id)
-    retry = 50
-    while (retry > 0):
-        try:
-            xbmc.sleep(10)
-            retry -= 1
-            win.getControl(1).setLabel(heading)
-            win.getControl(5).setText(text)
-            return
-        except:
-            pass
-        
 def CATEGORIES():
         addDir2('Featured','http://movieshd.co/watch-online/category/featured?filtre=date',1,icon,'',fanart)
         addDir2('Recently Added','http://movieshd.co/?filtre=date&cat=0',1,icon,'',fanart)
         addDir2('Most Viewed','http://movieshd.co/?filtre=views&cat=0',1,icon,'',fanart)
         addDir2('Highest Rated','http://movieshd.co/?filtre=rate&cat=0',1,icon,'',fanart)
-        addDir2('Genres','url',2,icon,'',fanart)
         addDir2('Bollywood','http://movieshd.co/watch-online/category/bollywood',1,icon,'',fanart) 
+        addDir2('Disneys Magic','http://movieshd.co/watch-online/category/disneys?display=tube&filtre=date',1,icon,'',fanart) 
+        addDir2('Genres','url',2,icon,'',fanart)
         addDir2('Search','url',3,icon,'',fanart)
         addLink('','','',icon,fanart)
         addLink('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,fanart)
@@ -71,11 +57,17 @@ def GETMOVIES(url,name):
                                                 if not 'FAQ' in name2:
                                                         if not 'Download' in name2:
                                                                 addDir(name2,url,100,'',len(match),isFolder=False)
-        match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
-        if len(match)>0:
-                addDir('Next Page>>',match[0],1,artpath+'nextpage.png',len(match),isFolder=True)
-        xbmc.executebuiltin('Container.SetViewMode(500)')
-
+        #match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
+        try:
+                match=re.compile('"nextLink":"(.+?)"').findall(link)
+                url= match[0]
+                url = url.replace('\/','/')
+                addDir('Next Page>>',url,1,artpath+'nextpage.png',len(match),isFolder=True)
+        except: pass
+        if metaset=='true':
+                xbmc.executebuiltin('Container.SetViewMode(500)')
+        else: xbmc.executebuiltin('Container.SetViewMode(50)')
+        
 def GENRES(url):
         addDir2('Action','http://movieshd.co/watch-online/category/action/',1,artpath+'action.png','',fanart)
         addDir2('Adventure','http://movieshd.co/watch-online/category/adventure/',1,artpath+'adventure.png','',fanart)
@@ -115,7 +107,6 @@ def SEARCH():
 def PLAYLINK(name,url):
         try:
             req = urllib2.Request(url)
-            print 'here'
             req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
             response = urllib2.urlopen(req)
             link=response.read()
@@ -123,9 +114,7 @@ def PLAYLINK(name,url):
             match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
             if len(match)==0:
                 match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
-            videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]
-            print match
-             
+            videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
             req = urllib2.Request(videomega_id_url)
             req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
             response = urllib2.urlopen(req)
@@ -141,14 +130,11 @@ def PLAYLINK(name,url):
                link=response.read()
                response.close()
                match=re.compile("ref=\'(.+?)'").findall(link)
-               print match
                if (len(match) > 0):
                         videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
-                        print videomega_url
                if (len(match) == 0):
                         match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
                         videomega_url = match[0]
-
         req = urllib2.Request(videomega_url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
@@ -188,28 +174,37 @@ def addDir2(name,url,mode,iconimage,description,fanart):
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
         return ok
 
-def addDir(name,url,mode,iconimage,itemcount,isFolder=True):
-        splitName=name.partition('(')
-        simplename=""
-        simpleyear=""
-        if len(splitName)>0:
-            simplename=splitName[0]
-            simpleyear=splitName[2].partition(')')
+def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
+        if metaset=='true':
+            splitName=name.partition('(')
+            simplename=""
+            simpleyear=""
+            if len(splitName)>0:
+                simplename=splitName[0]
+                simpleyear=splitName[2].partition(')')
             if len(simpleyear)>0:
                 simpleyear=simpleyear[0]
-        meta = metaget.get_meta('movie', simplename ,simpleyear)
-        print meta
-        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage=meta['cover_url'], thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels= meta )
-        contextMenuItems = []
-        contextMenuItems.append(('Movie Information', 'XBMC.Action(Info)'))
-        liz.addContextMenuItems(contextMenuItems, replaceItems=True)
-        if not meta['backdrop_url'] == '': liz.setProperty('fanart_image', meta['backdrop_url'])
-        else: liz.setProperty('fanart_image', fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
-        return ok
+            meta = metaget.get_meta('movie', simplename ,simpleyear)
+            u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
+            ok=True
+            liz=xbmcgui.ListItem(name, iconImage=meta['cover_url'], thumbnailImage=iconimage)
+            liz.setInfo( type="Video", infoLabels= meta )
+            contextMenuItems = []
+            contextMenuItems.append(('Movie Information', 'XBMC.Action(Info)'))
+            liz.addContextMenuItems(contextMenuItems, replaceItems=True)
+            if not meta['backdrop_url'] == '': liz.setProperty('fanart_image', meta['backdrop_url'])
+            else: liz.setProperty('fanart_image', fanart)
+            ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
+            return ok
+        else:
+            u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
+            ok=True
+            liz=xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+            liz.setInfo( type="Video", infoLabels={ "Title": name } )
+            liz.setProperty('fanart_image', fanart)
+            ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder)
+            return ok
+            
 
 def addLink(name,url,mode,iconimage,fanart,description=''):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
@@ -219,6 +214,22 @@ def addLink(name,url,mode,iconimage,fanart,description=''):
         liz.setProperty('fanart_image', fanart)
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
+    
+def showText(heading, text):
+    id = 10147
+    xbmc.executebuiltin('ActivateWindow(%d)' % id)
+    xbmc.sleep(100)
+    win = xbmcgui.Window(id)
+    retry = 50
+    while (retry > 0):
+        try:
+            xbmc.sleep(10)
+            retry -= 1
+            win.getControl(1).setLabel(heading)
+            win.getControl(5).setText(text)
+            return
+        except:
+            pass
 
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])

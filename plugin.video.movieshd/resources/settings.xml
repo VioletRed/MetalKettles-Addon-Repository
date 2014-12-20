@@ -1,10 +1,8 @@
 <settings>
 
-<category label="Auto-View">
+<category label="Settings">
 
-<setting id="auto-view" type="bool" label="[COLOR red]Enable Autoview[/COLOR]" default="false"/>
-
-<setting id="movies-view" type="number" label="Global View" default="500" enable="!eq(-1,false)"/>
+<setting id="enable_meta" type="bool" label="Enable Metadata" default="true" />
 
 </category>
 
