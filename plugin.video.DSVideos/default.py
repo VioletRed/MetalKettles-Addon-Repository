@@ -75,11 +75,12 @@ def News(url):
     response.close()
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     match=re.compile("<item><title>(.+?)</title><link>.+?><pubDate>(.+?) \+0000</pubDate>",re.DOTALL).findall(link)
-    text=''
+    disc = '[COLOR red][B]For full details of any of these news articles please visit http://www.droidsticks.co.uk/news/[/B][/COLOR]'
+    text=disc+'\n'+'\n'
     for news, newsdate in match:
         query = '[COLOR blue][B]'+newsdate+'[/B][/COLOR]'
         text = text+query+'\n'+news+'\n'+'\n'
-    showText('[COLOR blue][B]News[/B][/COLOR]', text)
+    showText('[COLOR blue][B]DroidSticks News[/B][/COLOR]', text)
 
 def cleanHex(text):
     def fixup(m):
