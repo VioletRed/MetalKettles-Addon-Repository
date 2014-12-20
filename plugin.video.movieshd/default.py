@@ -7,6 +7,7 @@ addon_id = 'plugin.video.movieshd'
 selfAddon = xbmcaddon.Addon(id=addon_id)
 metaget = metahandlers.MetaData(preparezip=False)
 addon = Addon(addon_id, sys.argv)
+ADDON2=xbmcaddon.Addon(id='plugin.video.movieshd')
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
@@ -23,6 +24,7 @@ def CATEGORIES():
         addDir2('Search','url',3,icon,'',fanart)
         addLink('','','',icon,fanart)
         addLink('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,fanart)
+        xbmc.executebuiltin('Container.SetViewMode(50)')
 
                 
 def TWITTER():
@@ -65,7 +67,7 @@ def GETMOVIES(url,name):
                 addDir('Next Page>>',url,1,artpath+'nextpage.png',len(match),isFolder=True)
         except: pass
         if metaset=='true':
-                xbmc.executebuiltin('Container.SetViewMode(500)')
+                setView('movies', 'MAIN')
         else: xbmc.executebuiltin('Container.SetViewMode(50)')
         
 def GENRES(url):
@@ -88,6 +90,7 @@ def GENRES(url):
         addDir2('Thriller','http://movieshd.co/watch-online/category/thriller/',1,artpath+'thriller.png','',fanart)
         addDir2('War','http://movieshd.co/watch-online/category/war/',1,artpath+'war.png','',fanart)
         addDir2('Western','http://movieshd.co/watch-online/category/western/',1,artpath+'western.png','',fanart)
+        setView('movies', 'MAIN')
 
 def SEARCH():
     search_entered =''
@@ -230,6 +233,12 @@ def showText(heading, text):
             return
         except:
             pass
+
+def setView(content, viewType):
+    if content:
+        xbmcplugin.setContent(int(sys.argv[1]), content)
+    if ADDON2.getSetting('auto-view')=='true':
+        xbmc.executebuiltin("Container.SetViewMode(%s)" % ADDON2.getSetting(viewType) )
 
 params=get_params(); url=None; name=None; mode=None; site=None
 try: site=urllib.unquote_plus(params["site"])
