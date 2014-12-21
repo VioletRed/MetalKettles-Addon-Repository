@@ -25,14 +25,12 @@ def CATEGORIES():
         addLink('','','',icon,fanart)
         addLink('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
-
-                
+               
 def TWITTER():
         text=''
         twit = 'http://twitrss.me/twitter_user_to_rss/?user=movieshd_co'
         twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
-        response = net().http_GET(twit)
-        link = response.content
+        link = open_url(twit)
         match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
         for status, dte in match:
             status = status.replace('\n',' ')
@@ -41,25 +39,14 @@ def TWITTER():
             dte = dte.replace('+0000','').replace('2014','').replace('2015','')
             text = text+dte+'\n'+status+'\n'+'\n'
         showText('@movieshd_co', text)
-        quit()
 
 def GETMOVIES(url,name):
-        req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
+        link = open_url(url)
         match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
+        print match
         for url,name in match:
-                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
-                if not 'razor' in name2:
-                        if not 'Rls' in name2:
-                                if not 'DCMA' in name2:
-                                        if not 'Privacy' in name2:
-                                                if not 'FAQ' in name2:
-                                                        if not 'Download' in name2:
-                                                                addDir(name2,url,100,'',len(match),isFolder=False)
-        #match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
+                name2 = cleanHex(name)
+                addDir(name2,url,100,'',len(match),isFolder=False)
         try:
                 match=re.compile('"nextLink":"(.+?)"').findall(link)
                 url= match[0]
@@ -100,52 +87,33 @@ def SEARCH():
         search_entered = keyboard.getText().replace(' ','+')
     if len(search_entered)>1:
         url = 'http://movieshd.co/?s='+ search_entered
-        req = urllib2.Request(url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
+        link = open_url(url)
         GETMOVIES(url,name)
 
-def PLAYLINK(name,url):
+def PLAYLINK(name,url,iconimage):
         try:
-            req = urllib2.Request(url)
-            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-            response = urllib2.urlopen(req)
-            link=response.read()
-            response.close()
+            link = open_url(url)
             match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
             if len(match)==0:
                 match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
             videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
-            req = urllib2.Request(videomega_id_url)
-            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-            response = urllib2.urlopen(req)
-            link=response.read()
-            response.close()
+            link = open_url(videomega_id_url)
             match=re.compile('var ref="(.+?)";').findall(link)
             vididresolved = match[0]
             videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
         except:
-               req = urllib2.Request(url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile("ref=\'(.+?)'").findall(link)
-               if (len(match) > 0):
-                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
-               if (len(match) == 0):
-                        match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
-                        videomega_url = match[0]
-        req = urllib2.Request(videomega_url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
+            link = open_url(url)
+            match=re.compile("<script type=\'text/javascript\'>ref=\'(.+?)\'").findall(link)
+            if (len(match) > 0):
+                videomega_url = "http://videomega.tv/iframe.php?ref=" + match[0]
+            if (len(match) == 0):
+                match=re.compile("frameborder='.+?' src='(.+?)\?").findall(link)
+                videomega_url = match[0]
+        link = open_url(videomega_url)
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
         url = urllib.unquote(url)
         stream_url = re.compile('file: "(.+?)"').findall(url)[0]
+        stream_url = urllib.unquote_plus(stream_url)
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
         xbmc.Player ().play(stream_url, liz, False)
@@ -233,6 +201,21 @@ def showText(heading, text):
             return
         except:
             pass
+        
+def open_url(url):
+    req = urllib2.Request(url)
+    req.add_header('User-Agent','Mozilla/5.0 (Linux; <Android Version>; <Build Tag etc.>) AppleWebKit/<WebKit Rev>(KHTML, like Gecko) Chrome/<Chrome Rev> Safari/<WebKit Rev>')
+    response = urllib2.urlopen(req)
+    link=response.read()
+    response.close()
+    return link
+                
+def cleanHex(text):
+    def fixup(m):
+        text = m.group(0)
+        if text[:3] == "&#x": return unichr(int(text[3:-1], 16)).encode('utf-8')
+        else: return unichr(int(text[2:-1])).encode('utf-8')
+    return re.sub("(?i)&#\w+;", fixup, text.decode('ISO-8859-1').encode('utf-8'))
 
 def setView(content, viewType):
     if content:
@@ -240,7 +223,7 @@ def setView(content, viewType):
     if ADDON2.getSetting('auto-view')=='true':
         xbmc.executebuiltin("Container.SetViewMode(%s)" % ADDON2.getSetting(viewType) )
 
-params=get_params(); url=None; name=None; mode=None; site=None
+params=get_params(); url=None; name=None; mode=None; site=None; iconimage=None
 try: site=urllib.unquote_plus(params["site"])
 except: pass
 try: url=urllib.unquote_plus(params["url"])
@@ -248,6 +231,8 @@ except: pass
 try: name=urllib.unquote_plus(params["name"])
 except: pass
 try: mode=int(params["mode"])
+except: pass
+try: iconimage=urllib.unquote_plus(params["iconimage"])
 except: pass
 
 print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); print "Name: "+str(name)
@@ -258,7 +243,7 @@ elif mode==1: GETMOVIES(url,name)
 elif mode==2: GENRES(url)
 elif mode==3: SEARCH()
 elif mode==4: TWITTER()
-elif mode==100: PLAYLINK(name,url)
+elif mode==100: PLAYLINK(name,url,iconimage)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
