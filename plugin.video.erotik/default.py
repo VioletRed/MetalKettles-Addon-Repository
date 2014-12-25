@@ -1,7 +1,6 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,random
+import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os,random
 from t0mm0.common.addon import Addon
 from t0mm0.common.net import Net as net
-from metahandler import metahandlers
 
 addon_id = 'plugin.video.erotik'
 selfAddon = xbmcaddon.Addon(id=addon_id)
