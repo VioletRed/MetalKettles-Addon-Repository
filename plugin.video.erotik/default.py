@@ -4,7 +4,6 @@ from t0mm0.common.net import Net as net
 
 addon_id = 'plugin.video.erotik'
 selfAddon = xbmcaddon.Addon(id=addon_id)
-metaget = metahandlers.MetaData(preparezip=False)
 addon = Addon(addon_id, sys.argv)
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
