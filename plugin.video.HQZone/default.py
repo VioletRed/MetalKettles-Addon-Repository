@@ -34,22 +34,9 @@ passw = selfAddon.getSetting('hqpassword')
 
 #############################################################################################################################
 
-def setCookie(srDomain):
-        html = net().http_GET(srDomain).content
-        r = re.findall(r'<input type="hidden" name="(.+?)" value="(.+?)" />', html, re.I)
-        post_data = {}
-        post_data['amember_login'] = user
-        post_data['amember_pass'] = passw
-        for name, value in r:
-            post_data[name] = value
-        net().http_GET('https://www.rarehost.net/amember/member')
-        net().http_POST('https://www.rarehost.net/amember/member',post_data)
-        net().save_cookies(cookie_file)
-        net().set_cookies(cookie_file)
-
 def Index():
-    setCookie('https://www.rarehost.net/amember/member')
-    response = net().http_GET('https://www.rarehost.net/amember/member')
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET('http://www.rarehost.net/amember/member')
     if not 'Edit Profile' in response.content:
         dialog = xbmcgui.Dialog()
         dialog.ok('HQZone', 'Invalid login','Please check your HQZone account details in Add-on settings','')
@@ -60,21 +47,21 @@ def Index():
     notification('HQZone', 'Login Successful', '2000',icon)
     xbmc.sleep(1000)
     free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
-    addDir('[COLOR greenyellow]Free[/COLOR] Streams','https://www.rarehost.net/amember/free/free.php',2,icon,fanart)
+    addDir('[COLOR greenyellow]Free[/COLOR] Streams','http://www.rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
-        addDir('[COLOR gold]VIP[/COLOR] Streams','https://www.rarehost.net/amember/vip/vip.php',2,icon,fanart)
+        addDir('[COLOR gold]VIP[/COLOR] Streams','http://www.rarehost.net/amember/vip/vip.php',2,icon,fanart)
         addDir('[COLOR gold]VIP[/COLOR] VOD','url',4,icon,fanart)
-    addLink(' ','url','mode',icon,fanart)
+    addLink(' ','url',5,icon,fanart)
     addLink('[COLOR blue]Twitter[/COLOR] Feed','url',100,icon,fanart)
     addDir('HQZone Account Status','url',200,icon,fanart)
-    addLink('HQ Zone Support','url',300,icon,fanart)
+    addDir('HQ Zone Support','url',300,icon,fanart)
 
 def getchannels(url):
-    if 'vip' in url:baseurl = 'https://www.rarehost.net/amember/vip/'
-    else:baseurl = 'https://www.rarehost.net/amember/free/'
-    setCookie('https://www.rarehost.net/amember/member')
+    if 'vip' in url:baseurl = 'http://www.rarehost.net/amember/vip/'
+    else:baseurl = 'http://www.rarehost.net/amember/free/'
+    setCookie('http://www.rarehost.net/amember/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -85,7 +72,7 @@ def getchannels(url):
         addLink(channel,url,3,icon,fanart)
 
 def getstreams(url,name):
-    setCookie('https://www.rarehost.net/amember/member')
+    setCookie('http://www.rarehost.net/amember/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -100,10 +87,23 @@ def getstreams(url,name):
         xbmc.Player ().play(playable, liz, False)
     except:
         pass
+
+def setCookie(srDomain):
+        html = net().http_GET(srDomain).content
+        r = re.findall(r'<input type="hidden" name="(.+?)" value="(.+?)" />', html, re.I)
+        post_data = {}
+        post_data['amember_login'] = user
+        post_data['amember_pass'] = passw
+        for name, value in r:
+            post_data[name] = value
+        net().http_GET('http://www.rarehost.net/amember/member')
+        net().http_POST('http://www.rarehost.net/amember/member',post_data)
+        net().save_cookies(cookie_file)
+        net().set_cookies(cookie_file)
    
 def account():
-    setCookie('https://www.rarehost.net/amember/member')
-    response = net().http_GET('https://www.rarehost.net/amember/member')
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET('http://www.rarehost.net/amember/member')
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -119,13 +119,17 @@ def account():
     quit()
 
 def support():
+    addLink('Clear Cache','url',5,icon,fanart)
+    addLink('Contact Us','url',301,icon,fanart)
+    
+def supportpop():
     dialog = xbmcgui.Dialog()
     dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)','HQZone@hotmail.com (via Email)')
     quit()
        
 def vod():
-    setCookie('https://www.rarehost.net/amember/member')
-    response = net().http_GET('https://rarehost.net/amember/vip/vod.php')
+    setCookie('http://www.rarehost.net/amember/member')
+    response = net().http_GET('http://rarehost.net/amember/vip/vod.php')
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -134,7 +138,7 @@ def vod():
     addDir('HQ Movies','http://movieshd.co/search/2014',50,icon,fanart)
     for url,channel in match:
         channel = channel+'[COLOR red][I] - Coming Soon[/I][/COLOR]'
-        url = 'https://rarehost.net'+url
+        url = 'http://rarehost.net'+url
         if not 'Movies' in channel:
             if not 'TV' in channel:
                 addLink(channel,'url','1000',icon,fanart)
@@ -148,17 +152,14 @@ def getmovies(url):
         match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
         for url,name in match:
                 name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
-                if not 'razor' in name2:
-                        if not 'Rls' in name2:
-                                if not 'DCMA' in name2:
-                                        if not 'Privacy' in name2:
-                                                if not 'FAQ' in name2:
-                                                        if not 'Download' in name2:
-                                                                addLink(name2,url,51,icon,fanart)
-        match=re.compile('<a class="next page-numbers" href="(.+?)">Next videos &raquo;</a>').findall(link)
-        if len(match)>0:
-                addDir('Next Page>>',match[0],50,icon,fanart)
+                addLink(name2,url,51,icon,fanart)
+        try:
+            match=re.compile('rel="next" href="(.+?)"/>').findall(link)[0]
+            addDir('Next Page>>',match,50,icon,fanart)
+        except: pass
 
+
+        
 def playmovies(name,url):
         try:
             req = urllib2.Request(url)
@@ -262,6 +263,76 @@ def twitter():
         showText('[COLOR blue][B]@HQZoneTv[/B][/COLOR]', text)
         quit()
 
+def deletecachefiles():
+    xbmc_cache_path = os.path.join(xbmc.translatePath('special://home'), 'cache')
+    if os.path.exists(xbmc_cache_path)==True:    
+        for root, dirs, files in os.walk(xbmc_cache_path):
+            file_count = 0
+            file_count += len(files)
+        # Count files and give option to delete
+            if file_count > 0:
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("[COLOR blue]Delete XBMC Cache Files[/COLOR]", str(file_count) + " files found", "Do you want to delete them?"):
+                    for f in files:
+                        try:
+                            os.unlink(os.path.join(root, f))
+                        except:
+                            pass
+                    for d in dirs:
+                        try:
+                            shutil.rmtree(os.path.join(root, d))
+                        except:
+                            pass
+            else:
+                pass
+    if xbmc.getCondVisibility('system.platform.ATV2'):
+        atv2_cache_a = os.path.join('/private/var/mobile/Library/Caches/AppleTV/Video/', 'Other')
+        for root, dirs, files in os.walk(atv2_cache_a):
+            file_count = 0
+            file_count += len(files)
+            if file_count > 0:
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("[COLOR blue]Delete ATV2 Cache Files[/COLOR]", str(file_count) + " files found in 'Other'", "Do you want to delete them?"):
+                
+                    for f in files:
+                        os.unlink(os.path.join(root, f))
+                    for d in dirs:
+                        shutil.rmtree(os.path.join(root, d))
+            else:
+                pass
+        atv2_cache_b = os.path.join('/private/var/mobile/Library/Caches/AppleTV/Video/', 'LocalAndRental')
+        for root, dirs, files in os.walk(atv2_cache_b):
+            file_count = 0
+            file_count += len(files)
+            if file_count > 0:
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("[COLOR blue]Delete ATV2 Cache Files[/COLOR]", str(file_count) + " files found in 'LocalAndRental'", "Do you want to delete them?"):
+                    for f in files:
+                        os.unlink(os.path.join(root, f))
+                    for d in dirs:
+                        shutil.rmtree(os.path.join(root, d))
+            else:
+                pass
+    clear_cache()
+    dialog = xbmcgui.Dialog()
+    dialog.ok("[COLOR blue]Delete Cache[/COLOR]", "All Done", "")
+    quit()
+
+def clear_cache():
+   
+        sql_delete = 'DELETE FROM netcache'
+        success = False
+        try:
+            common.addon.log('-' + HELPER + '- -' + sql_delete, 2)
+            self.dbcur.execute( sql_delete )
+            self.dbcon.commit()
+            success = True
+        except Exception, e:
+            common.addon.log('-' + HELPER + '- - failure: %s' % e )
+            pass         
+        finally:
+            return success
+
 def get_params():
         param=[]
         paramstring=sys.argv[2]
@@ -297,6 +368,7 @@ if mode==None or url==None or len(url)<1:Index()
 elif mode==2:getchannels(url)
 elif mode==3:getstreams(url,name)
 elif mode==4:vod()
+elif mode==5:deletecachefiles()
 
 elif mode==50:getmovies(url)
 elif mode==51:playmovies(name,url)
@@ -304,6 +376,7 @@ elif mode==51:playmovies(name,url)
 elif mode==100:twitter()
 elif mode==200:account()
 elif mode==300:support()
+elif mode==301:supportpop()
 
 
         
