@@ -35,8 +35,8 @@ passw = selfAddon.getSetting('hqpassword')
 #############################################################################################################################
 
 def Index():
-    setCookie('http://www.rarehost.net/amember/member')
-    response = net().http_GET('http://www.rarehost.net/amember/member')
+    setCookie('http://rarehost.net/amember/member')
+    response = net().http_GET('http://rarehost.net/amember/member')
     if not 'Edit Profile' in response.content:
         dialog = xbmcgui.Dialog()
         dialog.ok('HQZone', 'Invalid login','Please check your HQZone account details in Add-on settings','')
@@ -47,11 +47,11 @@ def Index():
     notification('HQZone', 'Login Successful', '2000',icon)
     xbmc.sleep(1000)
     free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
-    addDir('[COLOR greenyellow]Free[/COLOR] Streams','http://www.rarehost.net/amember/free/free.php',2,icon,fanart)
+    addDir('[COLOR greenyellow]Free[/COLOR] Streams','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
-        addDir('[COLOR gold]VIP[/COLOR] Streams','http://www.rarehost.net/amember/vip/vip.php',2,icon,fanart)
+        addDir('[COLOR gold]VIP[/COLOR] Streams','http://rarehost.net/amember/vip/vip.php',2,icon,fanart)
         addDir('[COLOR gold]VIP[/COLOR] VOD','url',4,icon,fanart)
     addLink(' ','url',5,icon,fanart)
     addLink('[COLOR blue]Twitter[/COLOR] Feed','url',100,icon,fanart)
@@ -59,9 +59,9 @@ def Index():
     addDir('HQ Zone Support','url',300,icon,fanart)
 
 def getchannels(url):
-    if 'vip' in url:baseurl = 'http://www.rarehost.net/amember/vip/'
-    else:baseurl = 'http://www.rarehost.net/amember/free/'
-    setCookie('http://www.rarehost.net/amember/member')
+    if 'vip' in url:baseurl = 'http://rarehost.net/amember/vip/'
+    else:baseurl = 'http://rarehost.net/amember/free/'
+    setCookie('http://rarehost.net/amember/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -72,7 +72,7 @@ def getchannels(url):
         addLink(channel,url,3,icon,fanart)
 
 def getstreams(url,name):
-    setCookie('http://www.rarehost.net/amember/member')
+    setCookie('http://rarehost.net/amember/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -96,14 +96,14 @@ def setCookie(srDomain):
         post_data['amember_pass'] = passw
         for name, value in r:
             post_data[name] = value
-        net().http_GET('http://www.rarehost.net/amember/member')
-        net().http_POST('http://www.rarehost.net/amember/member',post_data)
+        net().http_GET('http://rarehost.net/amember/member')
+        net().http_POST('http://rarehost.net/amember/member',post_data)
         net().save_cookies(cookie_file)
         net().set_cookies(cookie_file)
    
 def account():
-    setCookie('http://www.rarehost.net/amember/member')
-    response = net().http_GET('http://www.rarehost.net/amember/member')
+    setCookie('http://rarehost.net/amember/member')
+    response = net().http_GET('http://rarehost.net/amember/member')
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -128,7 +128,7 @@ def supportpop():
     quit()
        
 def vod():
-    setCookie('http://www.rarehost.net/amember/member')
+    setCookie('http://rarehost.net/amember/member')
     response = net().http_GET('http://rarehost.net/amember/vip/vod.php')
     link = response.content
     link = cleanHex(link)
