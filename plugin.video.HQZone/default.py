@@ -51,17 +51,23 @@ def Index():
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqinfo.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqinfo.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
-    addDir('[COLOR greenyellow]Free[/COLOR] Streams','http://rarehost.net/amember/free/free.php',2,icon,fanart)
+    addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
-        addDir('[COLOR gold]VIP[/COLOR] Streams','http://rarehost.net/amember/vip/vip.php',2,icon,fanart)
-        addDir('[COLOR gold]VIP[/COLOR] VOD','url',4,icon,fanart)
+        addDir('[COLOR gold]VIP[/COLOR] HQ Streaming Channels','http://rarehost.net/amember/vip/vip.php',2,icon,fanart)
+        addDir('[COLOR gold]VIP[/COLOR] HQ Video on Demand','url',4,icon,fanart)
     addLink(' ','url',5,icon,fanart)
+    addLink('Request Zone','url',302,icon,fanart)
     addLink('[COLOR blue]Twitter[/COLOR] Feed','url',100,icon,fanart)
-    addDir('HQZone Account Status','url',200,icon,fanart)
+    addLink('HQZone Account Status','url',200,icon,fanart)
     addDir('HQ Zone Support','url',300,icon,fanart)
+    addLink('[COLOR red][I]Visit http://HQInfo.tv and sign up for free for PPV sporting events information and HQ XBMC boxes for sale, also remember to like us on Facebook   [/I][/COLOR]','url','mode',icon,fanart)
 
+def reqpop():
+    dialog = xbmcgui.Dialog()
+    dialog.ok('[COLOR blue]Requuest Zone[/COLOR]', 'Email: hqzone@hotmail.com or support@hqzone.tv','to request upcoming events','')    
+    
 def getchannels(url):
     if 'vip' in url:baseurl = 'http://rarehost.net/amember/vip/'
     else:baseurl = 'http://rarehost.net/amember/free/'
@@ -157,7 +163,6 @@ def account():
         stat = stat+' '+one+' '+two+'\n'
     dialog = xbmcgui.Dialog()
     dialog.ok('[COLOR blue]HQZone Account Status[/COLOR]', '',stat,'')
-    quit()
 
 def support():
     addLink('Clear Cache','url',5,icon,fanart)
@@ -165,8 +170,7 @@ def support():
     
 def supportpop():
     dialog = xbmcgui.Dialog()
-    dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)','HQZone@hotmail.com (via Email)')
-    quit()
+    dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)',' support@hqzone.tv / hqzone@hotmail.com (via Email)')
        
 def vod():
     setCookie('http://rarehost.net/amember/member')
@@ -176,14 +180,15 @@ def vod():
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     print link
     match=re.compile('<a href="(.+?)"></br><font color= "\#fff" size="\+1"><b>(.+?)</b>').findall(link)
-    addDir('HQ Movies','http://movieshd.co/search/2014',50,icon,fanart)
     for url,channel in match:
         channel = channel+'[COLOR red][I] - Coming Soon[/I][/COLOR]'
         url = 'http://rarehost.net'+url
-        if not 'Movies' in channel:
-            if not 'TV' in channel:
-                addLink(channel,'url','1000',icon,fanart)
-    
+        if not 'TV' in channel:
+            if 'Movies' in channel:
+                channel = 'Classic Movies'+'[COLOR red][I] - Coming Soon[/I][/COLOR]'
+            addLink(channel,'url','1000',icon,fanart)
+    addDir('HQ 2014/15 Movies','http://movieshd.co/search/2014',50,icon,fanart)
+   
 def getmovies(url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -198,9 +203,7 @@ def getmovies(url):
             match=re.compile('rel="next" href="(.+?)"/>').findall(link)[0]
             addDir('Next Page>>',match,50,icon,fanart)
         except: pass
-
-
-        
+       
 def playmovies(name,url):
         try:
             req = urllib2.Request(url)
@@ -360,7 +363,6 @@ def deletecachefiles():
     quit()
 
 def clear_cache():
-   
         sql_delete = 'DELETE FROM netcache'
         success = False
         try:
@@ -419,8 +421,10 @@ elif mode==51:playmovies(name,url)
 
 elif mode==100:twitter()
 elif mode==200:account()
+
 elif mode==300:support()
 elif mode==301:supportpop()
+elif mode==302:reqpop()
 
 
         
