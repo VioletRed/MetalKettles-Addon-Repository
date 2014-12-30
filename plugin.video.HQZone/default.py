@@ -1,4 +1,4 @@
-import urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random
+import urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime
 from t0mm0.common.net import Net as net
 
 addon_id        = 'plugin.video.HQZone'
@@ -7,6 +7,7 @@ datapath        = xbmc.translatePath(selfAddon.getAddonInfo('profile'))
 fanart          = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 cookie_file     = os.path.join(os.path.join(datapath,''), 'hqzone.lwp')
+cookie_file2    = os.path.join(os.path.join(datapath,''), 'hqinfo.lwp')
 user            = selfAddon.getSetting('hqusername')
 passw           = selfAddon.getSetting('hqpassword')
 
@@ -47,6 +48,9 @@ def Index():
     notification('HQZone', 'Login Successful', '2000',icon)
     xbmc.sleep(1000)
     free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
+    addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqinfo.tv/forums/forum.php',7,icon,fanart)
+    addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqinfo.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
+    addLink(' ','url',5,icon,fanart)
     addDir('[COLOR greenyellow]Free[/COLOR] Streams','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
@@ -89,18 +93,55 @@ def getstreams(url,name):
         pass
 
 def setCookie(srDomain):
-        html = net().http_GET(srDomain).content
-        r = re.findall(r'<input type="hidden" name="(.+?)" value="(.+?)" />', html, re.I)
-        post_data = {}
-        post_data['amember_login'] = user
-        post_data['amember_pass'] = passw
-        for name, value in r:
-            post_data[name] = value
-        net().http_GET('http://rarehost.net/amember/member')
-        net().http_POST('http://rarehost.net/amember/member',post_data)
-        net().save_cookies(cookie_file)
-        net().set_cookies(cookie_file)
+    html = net().http_GET(srDomain).content
+    r = re.findall(r'<input type="hidden" name="(.+?)" value="(.+?)" />', html, re.I)
+    post_data = {}
+    post_data['amember_login'] = user
+    post_data['amember_pass'] = passw
+    for name, value in r:
+        post_data[name] = value
+    net().http_GET('http://rarehost.net/amember/member')
+    net().http_POST('http://rarehost.net/amember/member',post_data)
+    net().save_cookies(cookie_file)
+    net().set_cookies(cookie_file)
+
+def setCookie2(srDomain):
+    schedule='schedule'
+    calendar='calendar'
+    import hashlib
+    m = hashlib.md5()
+    m.update(calendar)
+    net().http_GET('http://hqinfo.tv/forums/calendar.php?c=1&do=displayweek')
+    net().http_POST('http://hqinfo.tv/forums/login.php?do=login',{'vb_login_username':schedule,'vb_login_password':calendar,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
+    net().save_cookies(cookie_file2)
+    net().set_cookies(cookie_file2)
+
+def schedule(url):
+    setCookie2(url)
+    response = net().http_GET(url)
+    link = response.content
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    month=re.findall('<h2 class="blockhead">([^<]+?)</h2>',link)
+    match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
+    for day,num,data in match:
+		addLink('[COLOR blue][B]'+day+' '+num+'[/B][/COLOR]','','',icon,fanart)
+		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
+		for time,title in match2:
+                        title = title.replace('amp;','')
+			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'','',icon,fanart)
    
+def todayschedule(url):
+    setCookie2(url)
+    response = net().http_GET(url)
+    link = response.content
+    match=re.compile('<li><a href=".+?">(.+?)</a>.+?</li>').findall(link)
+    now = str(datetime.datetime.now().date())
+    print now
+    addLink('[COLOR blue][B]'+now+' '+'[/B][/COLOR]','','',icon,fanart)
+    for event in match:
+        event = cleanHex(event)
+        addLink(event,'','',icon,fanart)
+
 def account():
     setCookie('http://rarehost.net/amember/member')
     response = net().http_GET('http://rarehost.net/amember/member')
@@ -369,6 +410,9 @@ elif mode==2:getchannels(url)
 elif mode==3:getstreams(url,name)
 elif mode==4:vod()
 elif mode==5:deletecachefiles()
+elif mode==6:schedule(url)
+elif mode==7:todayschedule(url)
+
 
 elif mode==50:getmovies(url)
 elif mode==51:playmovies(name,url)
