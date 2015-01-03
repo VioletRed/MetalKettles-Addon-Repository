@@ -27,7 +27,7 @@ def CATEGORIES():
 def GETMOVIES(url,name):
         metaset = selfAddon.getSetting('enable_meta')
         link = open_url(url)
-        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
+        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)[:-12]
         if 'serials' in url:
                 match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)[:-12]
                 metaset='false'
