@@ -18,26 +18,39 @@ def CATEGORIES():
         addDir2('Most Viewed','http://onlinemovies.pro/category/genre/?filtre=views',1,icon,'',fanart)
         addDir2('Highest Rated','http://onlinemovies.pro/category/genre/?filtre=rate',1,icon,'',fanart)
         addDir2('HD Movies','http://onlinemovies.pro/category/hd-movies/?filtre=random',1,icon,'',fanart) 
-        addDir2('Christmas Movies','http://onlinemovies.pro/category/christmas-movies/',1,icon,'',fanart) 
+        addDir2('Christmas Movies','http://onlinemovies.pro/category/christmas-movies/',1,icon,'',fanart)
+        addDir2('Disney','http://onlinemovies.pro/category/disneys/',1,icon,'',fanart)
+        addDir2('Latest TV Episodes','http://onlinemovies.pro/category/serials/',1,icon,'',fanart) 
         addDir2('Search','url',3,icon,'',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
                
 def GETMOVIES(url,name):
+        metaset = selfAddon.getSetting('enable_meta')
         link = open_url(url)
         match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
-        print match
+        if 'serials' in url:
+                match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)[:-12]
+                metaset='false'
         for url,name in match:
-                name2 = cleanHex(name)
-                addDir(name2,url,100,'',len(match),isFolder=False)
+                name=cleanHex(name)
+                addDir(name,url,100,icon,len(match),isFolder=False)
         try:
                 match=re.compile('"nextLink":"(.+?)"').findall(link)
                 url= match[0]
                 url = url.replace('\/','/')
-                addDir('Next Page>>',url,1,artpath+'nextpage.png',len(match),isFolder=True)
+                addDir('Next Page>>',url,1,icon,len(match),isFolder=True)
         except: pass
         if metaset=='true':
                 setView('movies', 'MAIN')
         else: xbmc.executebuiltin('Container.SetViewMode(50)')
+        
+def cleanHex(text):
+    def fixup(m):
+        text = m.group(0)
+        if text[:3] == "&#x": return unichr(int(text[3:-1], 16)).encode('utf-8')
+        else: return unichr(int(text[2:-1])).encode('utf-8')
+    return re.sub("(?i)&#\w+;", fixup, text.decode('ISO-8859-1').encode('utf-8'))
+
 
 def SEARCH():
     search_entered =''
@@ -51,22 +64,16 @@ def SEARCH():
         GETMOVIES(url,name)
 
 def PLAYLINK(name,url,iconimage):
+    link = open_url(url)
     try:
-        link = open_url(url)
+        match=re.compile('php\?ref=(.+?)\&width').findall(link)[0]
+        videomega_url = 'http://videomega.tv/iframe.php?ref='+match
+    except:
         match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
-        if len(match)==0:
-            match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
         videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
         link = open_url(videomega_id_url)
-        match=re.compile('var ref="(.+?)";').findall(link)
-        vididresolved = match[0]
-        videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
-    except:
-        link = open_url(url)
-        match=re.compile('ref=(.+?)\&width').findall(link)[0]
-        print match
+        match=re.compile('var ref="(.+?)";').findall(link)[0]
         videomega_url = 'http://videomega.tv/iframe.php?ref='+match
-        print videomega_url
     link = open_url(videomega_url)
     url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
     url = urllib.unquote(url)
@@ -133,31 +140,14 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
             liz.setProperty('fanart_image', fanart)
             ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder)
             return ok
-            
-
-def addLink(name,url,mode,iconimage,fanart,description=''):
-        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
-        liz.setProperty('fanart_image', fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
-        return ok
         
 def open_url(url):
     req = urllib2.Request(url)
-    req.add_header('User-Agent','Mozilla/5.0 (Linux; <Android Version>; <Build Tag etc.>) AppleWebKit/<WebKit Rev>(KHTML, like Gecko) Chrome/<Chrome Rev> Safari/<WebKit Rev>')
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
     response = urllib2.urlopen(req)
     link=response.read()
     response.close()
     return link
-                
-def cleanHex(text):
-    def fixup(m):
-        text = m.group(0)
-        if text[:3] == "&#x": return unichr(int(text[3:-1], 16)).encode('utf-8')
-        else: return unichr(int(text[2:-1])).encode('utf-8')
-    return re.sub("(?i)&#\w+;", fixup, text.decode('ISO-8859-1').encode('utf-8'))
 
 def setView(content, viewType):
     if content:
@@ -182,6 +172,8 @@ print params
 
 if mode==None or url==None or len(url)<1: CATEGORIES()
 elif mode==1: GETMOVIES(url,name)
+elif mode==2: GETTV(url,name)
+
 elif mode==3: SEARCH()
 elif mode==100: PLAYLINK(name,url,iconimage)
 
