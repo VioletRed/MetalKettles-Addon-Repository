@@ -33,7 +33,9 @@ def GETMOVIES(url,name):
                 metaset='false'
         for url,name in match:
                 name=cleanHex(name)
-                addDir(name,url,100,icon,len(match),isFolder=False)
+                if metaset=='false':
+                        addDir(name,url,100,icon,len(match),isFolder=False)
+                else: addDir(name,url,100,'',len(match),isFolder=False)
         try:
                 match=re.compile('"nextLink":"(.+?)"').findall(link)
                 url= match[0]
