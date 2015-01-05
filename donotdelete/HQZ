@@ -1,0 +1,13 @@
+﻿<messagesize>small</messagesize> (large or small)
+
+<small>
+<title></title>
+<line1></line1>
+<line2></line2>
+<line3></line3>
+</small>
+
+<large>
+<title></title>
+<content></content>
+</large>
