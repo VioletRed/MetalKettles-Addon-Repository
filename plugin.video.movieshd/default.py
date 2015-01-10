@@ -23,13 +23,13 @@ def CATEGORIES():
         addDir2('Genres','url',2,icon,'',fanart)
         addDir2('Search','url',3,icon,'',fanart)
         addLink('','','',icon,fanart)
-        addLink('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,fanart)
+        #addLink('[COLOR blue]Twitter[/COLOR] Feed','url',4,icon,fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
                
 def TWITTER():
         text=''
         twit = 'http://twitrss.me/twitter_user_to_rss/?user=movieshd_co'
-        twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
+        twit += '?%d' % (random.randint(1, 999999999999))
         link = open_url(twit)
         match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
         for status, dte in match:
@@ -42,7 +42,7 @@ def TWITTER():
 
 def GETMOVIES(url,name):
         link = open_url(url)
-        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
+        match=re.compile('href="(.+?)" title="(.+?)">').findall(link)
         print match
         for url,name in match:
                 name2 = cleanHex(name)
