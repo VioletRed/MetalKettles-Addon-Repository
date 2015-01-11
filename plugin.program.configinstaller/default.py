@@ -1,16 +1,12 @@
 import xbmc, xbmcaddon, xbmcgui, xbmcplugin,os,shutil,urllib2,urllib,re,time,downloader,glob
 
 addon_id        = 'plugin.program.configinstaller'
-ADDON           = xbmcaddon.Addon(id=addon_id)
-selfAddon       = xbmcaddon.Addon(id=addon_id)
 fanart          = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
-icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
+icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
 def ConfigList():
     link = GetUrl('http://prozone.getxbmc.com/ProConfigs/')
-    print link
     match = re.compile('<li><a href="(.+?)"> (.+?)/</a></li>').findall(link)
-    print match
     for url,name in match:
         if not 'Tutorials' in name:
             url = 'http://prozone.getxbmc.com/ProConfigs/'+url
@@ -18,7 +14,6 @@ def ConfigList():
 
 def GetFile(url):
     link = GetUrl(url)
-    print link
     match = re.compile('<li><a href="(.+?)"> (.+?)</a></li>').findall(link)
     for purl,name in match:
         if not 'Parent' in name:
@@ -45,24 +40,6 @@ def GetUrl(url):
     link=response.read()
     response.close()
     return link
-        
-def InstallConfig2(name,url):
-    path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
-    dp = xbmcgui.DialogProgress()
-    dp.create("DroidSticks Wizard","Downloading configuration files",'', 'Please Wait')
-    lib=os.path.join(path, name+'.zip')
-    try:
-       os.remove(lib)
-    except:
-       pass
-    downloader.download(url, lib, dp)
-    addonfolder = xbmc.translatePath(os.path.join('special://','home'))
-    time.sleep(2)
-    dp.update(0,"", "Just a little while longer :)")
-    extract.all(lib,addonfolder,dp)
-    dialog = xbmcgui.Dialog()
-    dialog.ok("DroidSticks Wizard", "All Done", "Enjoy!")
-    xbmc.executebuiltin('UpdateLocalAddons')
 
 def addDir(name,url,mode,iconimage,fanart,description=''):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
@@ -115,5 +92,6 @@ except:pass
 if mode==None or url==None or len(url)<1:ConfigList()
 elif mode==1:GetFile(url)
 elif mode==2:InstallConfig(name,url)
+
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
