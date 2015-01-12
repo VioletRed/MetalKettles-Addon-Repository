@@ -1,4 +1,4 @@
-import urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime
+import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime
 from t0mm0.common.net import Net as net
 
 addon_id        = 'plugin.video.HQZone'
@@ -33,6 +33,8 @@ if user == '' or passw == '':
 user = selfAddon.getSetting('hqusername')
 passw = selfAddon.getSetting('hqpassword')
 
+
+
 #############################################################################################################################
 def announce():
     try:
@@ -51,8 +53,6 @@ def Index():
     announce()
     setCookie('http://rarehost.net/amember/member')
     response = net().http_GET('http://rarehost.net/amember/member')
-    setCookie('http://rarehost.net/amember/member')
-    response = net().http_GET('http://rarehost.net/amember/member')
     if not 'Logged in as' in response.content:
         dialog = xbmcgui.Dialog()
         dialog.ok('HQZone', 'Login Error','An error ocurred logging in. Please check your details','Ensure your account is active on http://hqzone.tv')
@@ -61,8 +61,8 @@ def Index():
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
-    addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqinfo.tv/forums/forum.php',7,icon,fanart)
-    addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqinfo.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
+    addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
+    addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
     addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
@@ -158,42 +158,28 @@ def setCookie(srDomain):
     net().save_cookies(cookie_file)
     net().set_cookies(cookie_file)
 
-def setCookie2(srDomain):
-    schedule='schedule'
-    calendar='calendar'
-    import hashlib
-    m = hashlib.md5()
-    m.update(calendar)
-    net().http_GET('http://hqinfo.tv/forums/calendar.php?c=1&do=displayweek')
-    net().http_POST('http://hqinfo.tv/forums/login.php?do=login',{'vb_login_username':schedule,'vb_login_password':calendar,'vb_login_md5password':m.hexdigest(),'vb_login_md5password_utf':m.hexdigest(),'do':'login','securitytoken':'guest','url':'http://www.hqzone.tv/forums/view.php?pg=live','s':''})
-    net().save_cookies(cookie_file2)
-    net().set_cookies(cookie_file2)
-
 def schedule(url):
-    setCookie2(url)
     response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     month=re.findall('<h2 class="blockhead">([^<]+?)</h2>',link)
     match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
     for day,num,data in match:
-		addLink('[COLOR blue][B]'+day+' '+num+'[/B][/COLOR]','','',icon,fanart)
+		addLink('[COLOR blue][B]'+day+' '+num+'[/B][/COLOR]','url','mode',icon,fanart)
 		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
 		for time,title in match2:
                         title = title.replace('amp;','')
-			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'','',icon,fanart)
+			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
    
 def todayschedule(url):
-    setCookie2(url)
     response = net().http_GET(url)
     link = response.content
     match=re.compile('<li><a href=".+?">(.+?)</a>.+?</li>').findall(link)
     now = str(datetime.datetime.now().date())
-    print now
-    addLink('[COLOR blue][B]'+now+' '+'[/B][/COLOR]','','',icon,fanart)
+    addLink('[COLOR blue][B]'+now+' '+'[/B][/COLOR]','url','mode',icon,fanart)
     for event in match:
         event = cleanHex(event)
-        addLink(event,'','',icon,fanart)
+        addLink(event,'url','mode',icon,fanart)
 
 def account():
     setCookie('http://rarehost.net/amember/member')
@@ -443,7 +429,6 @@ try:iconimage=urllib.unquote_plus(params["iconimage"])
 except:pass
 
 print "Mode: "+str(mode); print "Name: "+str(name); print "Thumb: "+str(iconimage)
-
 if mode==None or url==None or len(url)<1:Index()
 
 elif mode==2:getchannels(url)
