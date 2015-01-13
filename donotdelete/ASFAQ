@@ -4,8 +4,14 @@
 <query>Im using BT ISP and Im having problems viewing content.<query>
 <result>BT parental control - If you are going to use this device over Wi-Fi then you need to disable your BT parental control or youre going to be limited as to what you can view.<result>
 
+<query>Im using SKY ISP and Im having problems viewing content.<query>
+<result>If you have Sky you will need to disable your Sky Shield - http://help.sky.com/articles/sky-broadband-shield-explained.<result>
+
 <query>MyÿDroidsticks Streaming Box doesnt turn on?<query>
 <result>Make sure the power plug is pushed into the device all the way and the other end is plugged into a wall unit that has power.<result>
+
+<query>Jigsaw images after updating?<query>
+<result>Locate File Manager Hd you can download from our support page. You need to locate the textures.db file and delete it, you can find this in Android/data/org.xbmc.xbmc/Files/xbmc/userdata/database/ now locate and Delete textures db file. now restart your device.<result>
 
 <query>Droidsticks Streaming Box is turned on but I cant see anything on my TV?<query>
 <result>Make sure that the HDMI cable is plugged in all the way for both the device and your TV. Make sure your TV is on the correct source for the HDMI input that the Device is plugged into.<result>
@@ -16,8 +22,11 @@
 <query>My wifi isnt working.<query>
 <result>Click settings > Click Network Connections > Click Wifi > Click on your Wifi network. Enter Password (Make sure the password is correct, Click symbols to add any symbols that may be in your password) If you have an MX2 then there is a fix if your wifi will not turn on in our video section<result>
 
+<query>I am completely unfamiliar with the Android Operating system. Can you help?<query>
+<result>If you are completely unfamiliar with how to use the Operating system or how to use a certain feature please watch this video  http://tinyurl.com/pbtd6zx.<result>
+
 <query>My videos buffer a lot.<query>
-<result>Check your internet speed with www.speedtest.net. We recommend a stable internet speed of 10 MBPS or more for the best internet experience. The faster internet connection you have the faster your TV Show, Live Sports and HD Movies will load. If you have under 10Mbps you should consider upgrading your internet speed. Remember, each Add-ons is separately managed by a Third Party that is not affiliated with Droidsticks.co.uk. There will be times when these Add-Ons do not operate as they should and you may experience down time or slow rates which could cause buffering. When this does happen, we suggest looking at a new source or Add-On to correct the problem. Please note we have the best setup for your device so i advise you not to change any .xml files.<result>
+<result>Check your internet speed with www.speedtest.net. We recommend a stable internet speed of 10 MBPS or more for the best internet experience. The faster internet connection you have the faster your TV Show, Live Sports and HD Movies will load. If you have under 10Mbps you should consider upgrading your internet speed. Remember, each Add-ons is separately managed by a Third Party that is not affiliated with Droidsticks.co.uk. There will be times when these Add-Ons do not operate as they should and you may experience down time or slow rates which could cause buffering.  When this does happen, we suggest looking at a new source or Add-On to correct the problem. This video will show you a bit more on buffering, Please note we have the best setup for your device so i advise you not to change any .xml files.<result>
 
 <query>How to do I hook up my USB wireless keyboard and or mouse to my DroidSticks box?<query>
 <result>Simply plug in the USB dongle that comes with your wireless USB keyboard or mouse (look in the back of the keyboard) into one of the USB ports on the Droidsticks box. You do not need to reboot your Box; your USB device should begin working once you have plugged in your USB device.<result>
