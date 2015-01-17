@@ -1,7 +1,7 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os,random
+import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os,random,net
 from t0mm0.common.addon import Addon
-from t0mm0.common.net import Net as net
 
+net=net.Net()
 addon_id = 'plugin.video.erotik'
 selfAddon = xbmcaddon.Addon(id=addon_id)
 addon = Addon(addon_id, sys.argv)
@@ -65,18 +65,24 @@ def PLAYLINK(name,url):
         response.close()
         match=re.compile('var ref="(.+?)";').findall(link)
         vididresolved = match[0]
-        videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
-        req = urllib2.Request(videomega_url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
-        url = urllib.unquote(url)
-        stream_url = re.compile('file: "(.+?)"').findall(url)[0]
+        videomega_url = 'http://videomega.tv/?ref='+vididresolved
+        UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
+        ref=videomega_url.split('ref=')[1]
+        data={'ref':ref}
+        url2='http://videomega.tv/cdn.php?ref='+ref
+        headers={'User-Agent':UA,'Referer':videomega_url}
+        html= net.http_POST(url2, data, headers).content
+        link=re.compile('unescape.+?"(.+?)"').findall(html)[0]
+        if link:
+                r = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
+                if r:
+                    stream_url = r
+                    stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
+
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
         xbmc.Player ().play(stream_url, liz, False)
+        
 
 def get_params():
         param=[]
