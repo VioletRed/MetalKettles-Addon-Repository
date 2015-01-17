@@ -62,12 +62,13 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.configinstaller" name="ProZone Config Installer" version="1.0.1" provider-name="MetalKettle">
+<addon id="plugin.program.configinstaller" name="ProZone" version="1.0.2" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
+        <provides>executable video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en"></summary>
