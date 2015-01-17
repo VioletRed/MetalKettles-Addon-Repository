@@ -1,51 +1,4 @@
-<html> 
-<head>
-<!--Windows Block Code Start-->
-<script type="text/javascript">
-if((navigator.userAgent.match(/MSIE/i)) || (navigator.userAgent.match(/Windows/i)) || (navigator.userAgent.match(/Macintosh/i)))
-{
-location.replace("http://www.fontsbay.com");
-}
-</script>
-<!--Windows Block Code End-->
-
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
-<meta NAME="keywords" CONTENT="watch tv online, video feeds, live feed, live feeds, video clips, tvtuner, atdhe, live tv, internet tv, watch live tv, live tv on internet, watch tv, live tv channels,live tv online, live internet tv, tv broadcast, live tv broadcasts, television, tv, livetv, vod, video on demand, free, player, media player, media speler, media, vdo, broadband tv, webtv,internet television, internet tv, internet streaming, internet video, webcasting, web streaming, streaming televisie, streaming tv, streaming video, streaming, internet broadcast, internet broadcasting, televisie network, stream tv ,ip tv, iptv, broadband streams, broadband video, live cnn, live msnbc , maged tv, magedtv, MagedTv, maged, magd, watch tv online, english premium league, EPL, matches, video clips, tv tuner, live tv, internet tv, watch live tv, live tv on internet, watch online tv, live tv channels, live tv online, live internet tv, online broadcast, television, livetv, video on demand, broadband tv, webtv, streaming, webcasting, web streaming, streaming tv, streaming video, internet broadcast , uefa champions league, football, premier league, serie a, la liga, streaming, uefa europa league, watch irb7s, irb7s live, currie cup ,watch free live sports,cj-team, cjteam, cj,www.cj-team.net,epl,p2p,free,live,sports,tv,football,NBA,NHL,MLB,NFL,golf,tennis,cricket,rugby,stream,streaming,video,ma&#231; &#246;zetleri,ligtv,turkish super league,dsmart,futbolsmart, insurance, finance, live streaming,live streaming video, live web streaming, hard drive recovery, mortgage life insurance, term life, auto insurance, student loan consolidation, student loans, credit card, Foreign exchange , free football , liga, calcio, french leagye , tennis live , vipcanals sports, vipsports, goalsports, watch tv online, english premium league, nba, basketball, nfl, football, matches, video clips, tv tuner, live tv, internet tv, watch live tv, live tv on internet, watch online tv, live tv channels, live tv online, live internet tv, online broadcast, television, livetv, video on demand, broadband tv, webtv, streaming, webcasting, web streaming, streaming tv, streaming video, internet broadcast , lig tv izle, bedava lig tv izle, canli lig tv izle, beles lig tv izle, maç izle, bedava maç izle, freedocast, bedava spormax izle, bedava d-spor izle, dspor izle, bank asya ligi, spor toto süper lig">
-<style type="text/css">
-.channelsoffline {
-	font-size: 36px;
-	color: #F00;
-	font-family: "Comic Sans MS", cursive;
-}
-</style>
-
-<script src='http://my.mobfox.com/ad.js'></script> <!--MobFox Code-->
-</head> 
-
-<body style="background:#000000; color: #FFF; font-weight: bold;">
-<table width="723" border="0">
-  <tr>
-    <td height="174" valign="top"><h2>You Need to Download <a href="market://details?id=com.oxy.player">OXY Player</a> &amp; <a href="market://details?id=com.mxtech.videoplayer.ad">Mx Player</a> from PlayStore First to Watch  Channels in it 
-    </h2>
-      <h3>We Released Schedule Page for you guys all, Its still in Beta since there are lots of things left to do</h3>
-      <h3><a href="http://allschedule.co/">Schedule Page</a></h3>
-      <p>We get lots of emails about S/w Decoder problem in MX, let me clear things up</p>
-<p>If the S/W Decoder Error comes then there are few possibilities </p>
-      <p>1) Stream is Down/offline</p>
-      <p>2) The Server is Full, (We have allowed only 450slots as of now, so first come first) will fix this soon and will increase more so all people can watch, we had to do this because some settings we are doing in our servers !!</p>
-      <p>3) You dont have to do anything, ITS in our end, its better u come before the match and block ur slot :)</p>
-      <p>4) Dont worry we will solve this problem Very Soon and there will be no restrictions</p>
-      <p>5) HAPPY NEW YEAR TO ALL !! :D THANKS FOR BEING WITH US LAST YEAR 2014</p>
-<p>- 03/01/2015 (Need Help? contact sports@fontsbay.com)</p></td>
-  </tr>
-</table>
-<p><a href="./test.html">Test highlights</a></p>
-
-<table width="840" border="2">
-  <tr>
-    <td height="54" colspan="4" align="center" valign="middle"><h1><strong>WSS Server (Beta) - Mx Player </strong>(Give feedback)</h1></td>
-  </tr>
-  <tr>
+﻿
     <td align="center" valign="middle"><a href="./wssskysports1/wssskysports1.html"><img src="./images/ss1.png" alt="" width="203" height="28"></a></td>
     <td align="center" valign="middle"><a href="./wssskysport1hdgerman/wssskysport1hdgerman.html"><img src="./images/skysport1hdgerman.png" alt="" width="198" height="39"></a></td>
     <td align="center" valign="middle"><a href="./wssbtsport1/wssbtsport1.html"><img src="./images/btsport1.png" alt="" width="137" height="60"></a></td>
@@ -60,62 +13,44 @@ location.replace("http://www.fontsbay.com");
   <tr>
     <td align="center" valign="middle"><a href="./wssskysports3/wssskysports3.html"><img src="./images/ss3.png" alt="" width="203" height="28"></a></td>
     <td align="center" valign="middle"><a href="./wssskybundesligahd1/wssskybundesligahd1.html"><img src="./images/skybundesligahd1.png" alt="" width="191" height="22"></a></td>
-    <td align="center" valign="middle"><a href="./wssfoxsports1/wssfoxsports1.html"><img src="./images/foxsports1.png" alt="" width="99" height="71"></a></td>
-    <td align="center" valign="middle"><a href="./wssespnuk/wssespnuk.html"><img src="./images/ESPN-UK.png" alt="" width="120" height="50"></a></td>
+    <td align="center" valign="middle"><a href="./wssarenasport1/wssarenasport1.html"><img src="./images/arenasport1.gif" width="150" height="26"></a></td>
+    <td align="center" valign="middle"><a href="./wssotesport1/wssotesport1.html"><img src="./images/otesport1.png" alt="" width="218" height="46"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wssskysports4/wssskysports4.html"><img src="./images/ss4.png" alt="" width="203" height="28"></a></td>
     <td align="center" valign="middle"><a href="./wssskybundesligahd2/wssskybundesligahd2.html"><img src="./images/skybundesligahd2.png" alt="" width="191" height="22"></a></td>
-    <td align="center" valign="middle"><a href="./wssfoxsports2/wssfoxsports2.html"><img src="./images/foxsports2.png" alt="" width="99" height="71"></a></td>
-    <td align="center" valign="middle"><a href="./wssespnusa/wssespnusa.html"><img src="./images/ESPN-USA.png" alt="" width="120" height="50"></a></td>
+    <td align="center" valign="middle"><a href="./wssarenasport2/wssarenasport2.html"><img src="./images/arenasport2.gif" width="150" height="26"></a></td>
+    <td align="center" valign="middle"><a href="./wssotesport2/wssotesport2.html"><img src="./images/otesport2.png" alt="" width="218" height="46"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wssskysports5/wssskysports5.html"><img src="./images/ss5.png" alt="" width="203" height="28"></a></td>
     <td align="center" valign="middle"><a href="./wssskybundesligahd3/wssskybundesligahd3.html"><img src="./images/skybundesligahd3.png" alt="" width="191" height="22"></a></td>
-    <td align="center" valign="middle"><a href="./wssarenasport1/wssarenasport1.html"><img src="./images/arenasport1.gif" width="150" height="26"></a></td>
-    <td align="center" valign="middle"><a href="./wssespn2/wssespn2.html"><img src="./images/espn2.png" alt="" width="120" height="50"></a></td>
+    <td align="center" valign="middle"><a href="./wssarenasport3/wssarenasport3.html"><img src="./images/arenasport3.gif" width="150" height="26"></a></td>
+    <td align="center" valign="middle"><a href="./wssotesport3/wssotesport3.html"><img src="./images/otesport3.png" alt="" width="218" height="46"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wssskysportsf1/wssskysportsf1.html"><img src="./images/ssf1.png" alt="" width="203" height="28"></a></td>
     <td align="center" valign="middle"><a href="./wssskybundesligahd4/wssskybundesligahd4.html"><img src="./images/skybundesligahd4.png" alt="" width="191" height="22"></a></td>
-    <td align="center" valign="middle"><a href="./wssarenasport2/wssarenasport2.html"><img src="./images/arenasport2.gif" width="150" height="26"></a></td>
-    <td align="center" valign="middle"><a href="./wsstsn1/wsstsn1.html"><img src="./images/tsn1.png" alt="" width="196" height="40"></a></td>
+    <td align="center" valign="middle"><a href="./wssarenasport4/wssarenasport4.html"><img src="./images/arenasport4.gif" width="150" height="26"></a></td>
+    <td align="center" valign="middle"><a href="./wssotesport4/wssotesport4.html"><img src="./images/otesport4.png" alt="" width="218" height="46"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wssskynews/wssskynews.html"><img src="./images/sky-news-logo.png" alt="" width="203" height="28"></a></td>
     <td align="center" valign="middle"><a href="./wssskybundesligahd5/wssskybundesligahd5.html"><img src="./images/skybundesligahd5.png" alt="" width="191" height="22"></a></td>
-    <td align="center" valign="middle"><a href="./wssarenasport3/wssarenasport3.html"><img src="./images/arenasport3.gif" width="150" height="26"></a></td>
-    <td align="center" valign="middle"><a href="./wsstsn2/wsstsn2.html"><img src="./images/tsn2.png" alt="" width="196" height="40"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./wssnbcsn/wssnbcsn.html"><img src="./images/nbcsn.png" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./wsssportsnetworld/wsssportsnetworld.html"><img src="./images/sportsnetworld.jpg" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./wssarenasport4/wssarenasport4.html"><img src="./images/arenasport4.gif" width="150" height="26"></a></td>
-    <td align="center" valign="middle"><a href="./wsstsn3/wsstsn3.html"><img src="./images/tsn3.png" alt="" width="196" height="40"></a></td>
+    <td align="center" valign="middle"><a href="./wssespnuk/wssespnuk.html"><img src="./images/ESPN-UK.png" alt="" width="120" height="50"></a></td>
+    <td align="center" valign="middle"><a href="./wssotesport5/wssotesport5.html"><img src="./images/otesport5.png" alt="" width="218" height="46"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wsssportklub1/wsssportklub1.html"><img src="./images/sportklub1.png" width="114" height="63"></a></td>
-    <td align="center" valign="middle"><a href="./wsssportsnetontario/wsssportsnetontario.html"><img src="./images/sportsnetontario.jpg" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./wssnflnetwork/wssnflnetwork.html"><img src="./images/nfltv.png" width="100" height="66"></a></td>
-    <td align="center" valign="middle"><a href="./wsstsn4/wsstsn4.html"><img src="./images/tsn4.png" alt="" width="196" height="40"></a></td>
-  </tr>
-  <tr>
     <td align="center" valign="middle"><a href="./wsssportklub2/wsssportklub2.html"><img src="./images/sportklub2.png" width="114" height="63"></a></td>
-    <td align="center" valign="middle"><a href="./wsssportsnetone/wsssportsnetone.html"><img src="./images/sportsnetone.jpg" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./wsspremiersports/wsspremiersports.html"><img src="./images/premiersports.png" width="150" height="54"></a></td>
-    <td align="center" valign="middle"><a href="./wsstsn5/wsstsn5.html"><img src="./images/tsn5.png" alt="" width="196" height="40"></a></td>
-  </tr>
-  <tr>
     <td align="center" valign="middle"><a href="./wsssportklub3/wsssportklub3.html"><img src="./images/sportklub3.png" width="114" height="63"></a></td>
-    <td align="center" valign="middle"><a href="./wssboxnation/wssboxnation.html"><img src="./images/boxnation.png" width="121" height="85"></a></td>
-    <td align="center" valign="middle"><a href="./wsspac12/wsspac12.html"><img src="./images/pac12.png" width="77" height="97"></a></td>
-    <td align="center" valign="middle"><a href="./wsssetantaireland/wsssetantaireland.html"><img src="./images/setantaireland.png" alt="" width="144" height="49"></a></td>
+    <td align="center" valign="middle"><a href="./wssotesport6/wssotesport6.html"><img src="./images/otesport6.png" alt="" width="218" height="46"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wssbeinfr1/wssbeinfr1.html"><img src="./images/beinfr1.jpg" width="141" height="55"></a></td>
     <td align="center" valign="middle"><a href="./wssbeinfr2/wssbeinfr2.html"><img src="./images/beinfr2.jpg" width="141" height="55"></a></td>
     <td align="center" valign="middle"><a href="./wssbeinfr3/wssbeinfr3.html"><img src="./images/beinfr3.jpg" width="141" height="55"></a></td>
-    <td align="center" valign="middle"><a href="./wsswillowtv/wsswillowtv.html"><img src="./images/crickethd.jpg" width="90" height="85"></a></td>
+    <td align="center" valign="middle"><a href="./wsspremiersports/wsspremiersports.html"><img src="./images/premiersports.png" width="150" height="54"></a></td>
   </tr>
   <tr>
     <td align="center" valign="middle"><a href="./wssbeinsports1/wssbeinsports1.html"><img src="./images/bs1hd.png" width="110" height="48"></a></td>
@@ -136,179 +71,7 @@ location.replace("http://www.fontsbay.com");
     <td align="center" valign="middle"><a href="./wssbeinsports12/wssbeinsports12.html"><img src="./images/bs12hd.png" width="110" height="48"></a></td>
   </tr>
   <tr>
-    <td colspan="4" align="center" valign="middle"><h1><strong>WSS Entertainment Channels (beta)</strong></h1></td>
-  </tr>
-  <tr>
-    <td height="59" align="center" valign="middle"><a href="./wssskymoviesmoderngreats/wssskymoviesmoderngreats.html"><img src="./images/skymoviesmoderngreats.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssskymoviesactionnadventure/wssskymoviesactionnadventure.html"><img src="./images/skymoviesactionnadventure.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssskymoviespremiere/wssskymoviespremiere.html"><img src="./images/skymoviespremiere.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssskymoviesscifinhorror/wssskymoviesscifinhorror.html"><img src="./images/skymoviesscifinhorror.jpg" width="132" height="40"></a></td>
-  </tr>
-  <tr>
-    <td height="61" align="center" valign="middle"><a href="./wssskymoviescrimenthriller/wssskymoviescrimenthriller.html"><img src="./images/skymoviescrimenthriller.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssskymoviescomedy/wssskymoviescomedy.html"><img src="./images/skymoviescomedy.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssskymoviesdramanromance/wssskymoviesdramanromance.html"><img src="./images/skymoviesdramanromance.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssskymoviesfamily/wssskymoviesfamily.html"><img src="./images/skymoviesfamily.jpg" width="132" height="40"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./wssskymoviesselect/wssskymoviesselect.html"><img src="./images/skymoviesselect.jpg" width="132" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./wssitv1/wssitv1.html"><img src="./images/itv1.png" width="133" height="44"></a></td>
-    <td align="center" valign="middle"><a href="./wssitv2/wssitv2.html"><img src="./images/itv2.png" width="133" height="44"></a></td>
-    <td align="center" valign="middle"><a href="./wssitv3/wssitv3.html"><img src="./images/itv3.png" width="133" height="44"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./wssitv4/wssitv4.html"><img src="./images/itv4.png" width="133" height="44"></a></td>
-    <td align="center" valign="middle"><a href="./wssbbc1/wssbbc1.html"><img src="./images/bbc1.jpg" width="96" height="70"></a></td>
-    <td align="center" valign="middle"><a href="./wssbbc2/wssbbc2.html"><img src="./images/bbc2.jpg" width="96" height="70"></a></td>
-    <td align="center" valign="middle"><a href="http://www.mobileworldprice.com/mainfinal.php"><img src="./images/indiantvserials.png" width="134" height="98"></a></td>
-  </tr>
-</table>
-<p></p>
-<p><script type="text/javascript" src="http://ad.leadboltads.net/show_app_ad.js?section_id=175751797"></script></p>
-<table width="200" border="2">
-  <tr>
-    <td height="54" colspan="4" align="center" valign="middle"><h1><strong>All Servers</strong></h1></td>
-  </tr>
-  <tr>
-    <td height="67" align="center" valign="middle"><a href="./beinall/beinall.html"><img src="./images/bein1to15.png" width="110" height="88"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports4/beinsports4.html"><img src="./images/bs4hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports8/beinsports8.html"><img src="./images/bs8hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports12/beinsports12.html"><img src="./images/bs12hd.png" width="110" height="48"></a></td>
-  </tr>
-  <tr>
-    <td height="67" align="center" valign="middle"><a href="./beinsports1/beinsports1.html"><img src="./images/bs1hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports5/beinsports5.html"><img src="./images/bs5hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports9/beinsports9.html"><img src="./images/bs9hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports13/beinsports13.html"><img src="./images/bs13hd.png" width="110" height="48"></a></td>
-  </tr>
-  <tr>
-    <td height="63" align="center" valign="middle"><a href="./beinsports2/beinsports2.html"><img src="./images/bs2hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports6/beinsports6.html"><img src="./images/bs6hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports10/beinsports10.html"><img src="./images/bs10hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports14/beinsports14.html"><img src="./images/bs14hd.png" width="110" height="48"></a></td>
-  </tr>
-  <tr>
-    <td height="65" align="center" valign="middle"><a href="./beinsports3/beinsports3.html"><img src="./images/bs3hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports7/beinsports7.html"><img src="./images/bs7hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports11/beinsports11.html"><img src="./images/bs11hd.png" width="110" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./beinsports15/beinsports15.html"><img src="./images/bs15hd.png" width="110" height="48"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skysports1/skysports1.html"><img src="./images/ss1.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./sportsnetontario/sportsnetontario.html"><img src="./images/sportsnetontario.jpg" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./foxsports1/foxsports1.html"><img src="./images/foxsports1.png" alt="" width="99" height="71"></a></td>
-    <td align="center" valign="middle"><a href="./btsport1/btsport1.html"><img src="./images/btsport1.png" alt="" width="137" height="60"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skysports2/skysports2.html"><img src="./images/ss2.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./sportsnetworld/sportsnetworld.html"><img src="./images/sportsnetworld.jpg" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./foxsports2/foxsports2.html"><img src="./images/foxsports2.png" alt="" width="99" height="71"></a></td>
-    <td align="center" valign="middle"><a href="./btsport2/btsport2.html"><img src="./images/btsport2.png" alt="" width="131" height="56"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skysports3/skysports3.html"><img src="./images/ss3.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./sportsnetone/sportsnetone.html"><img src="./images/sportsnetone.jpg" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./sporttv1/sporttv1.html"><img src="./images/sporttv1.png" width="142" height="42"></a></td>
-    <td align="center" valign="middle"><a href="./beurosport1/beurosport1.html"><img src="./images/beurosport1.png" alt="" width="99" height="71"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skysports4/skysports4.html"><img src="./images/ss4.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./digisport1/digisport1.html"><img src="./images/digisport1.png" alt="" width="219" height="47"></a></td>
-    <td align="center" valign="middle"><a href="./sporttv2/sporttv2.html"><img src="./images/sporttv2.png" width="142" height="42"></a></td>
-    <td align="center" valign="middle"><a href="./beurosport2/beurosport2.html"><img src="./images/beurosport2.png" alt="" width="99" height="71"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skysports5/skysports5.html"><img src="./images/ss5.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./digisport2/digisport2.html"><img src="./images/digisport2.png" alt="" width="219" height="47"></a></td>
-    <td align="center" valign="middle"><a href="./sporttv3/sporttv3.html"><img src="./images/sporttv3.png" width="142" height="42"></a></td>
-    <td align="center" valign="middle"><a href="./espnusa/espnusa.html"><img src="./images/ESPN-USA.png" alt="" width="120" height="50"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skysportsf1/skysportsf1.html"><img src="./images/ssf1.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./digisport3/digisport3.html"><img src="./images/digisport3.png" alt="" width="219" height="47"></a></td>
-    <td align="center" valign="middle"><a href="./sporttvlive/sporttvlive.html"><img src="./images/sporttvlive.png" width="142" height="42"></a></td>
-    <td align="center" valign="middle"><a href="./espnuk/espnuk.html"><img src="./images/ESPN-UK.png" alt="" width="120" height="50"></a></td>
-  </tr>
-  <tr>
-    <td height="67" align="center" valign="middle"><a href="./skynews/skynews.html"><img src="./images/sky-news-logo.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./tsn1/tsn1.html"><img src="./images/tsn1.png" alt="" width="196" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./tsn2/tsn2.html"><img src="./images/tsn2.png" alt="" width="196" height="40"></a></td>
-    <td align="center" valign="middle"><a href="./espn2/espn2.html"><img src="./images/espn2.png" alt="" width="120" height="50"></a></td>
-  </tr>
-  <tr>
-    <td height="67" align="center" valign="middle"><a href="./dolcesport1/dolcesport1.html"><img src="./images/dolcesport1.png" width="195" height="67"></a></td>
-    <td align="center" valign="middle"><a href="./dolcesport2/dolcesport2.html"><img src="./images/dolcesport2.png" width="195" height="67"></a></td>
-    <td align="center" valign="middle"><a href="./wwe/wwe.html"><img src="./images/wwe.png" width="121" height="85"></a></td>
-    <td align="center" valign="middle"><a href="./boxnation/boxnation.html"><img src="./images/boxnation.png" width="121" height="85"></a></td>
-  </tr>
-  <tr>
-    <td height="67" align="center" valign="middle"><a href="./golftv/golftv.html"><img src="./images/golftv.png" width="118" height="74"></a></td>
-    <td align="center" valign="middle"><a href="./tensports/tensports.html"><img src="./images/Ten-Sports.png" alt="" width="184" height="39"></a></td>
-    <td align="center" valign="middle"><a href="./nflnetwork/nflnetwork.html"><img src="./images/nfltv.png" width="100" height="66"></a></td>
-    <td align="center" valign="middle"><a href="./ptv/ptv.html"><img src="./images/PTV-SPORTS.png" alt="" width="120" height="50"></a></td>
-  </tr>
-  <tr>
-    <td height="67" align="center" valign="middle"><a href="./setantaireland/setantaireland.html"><img src="./images/setantaireland.png" alt="" width="144" height="49"></a></td>
+    <td align="center" valign="middle"><a href="./wssch1to30/wssch1to30.html"><img src="./images/ch1to30.png" width="134" height="98"></a></td>
+    <td align="center" valign="middle"><a href="./wssboxnation/wssboxnation.html"><img src="./images/boxnation.png" width="121" height="85"></a></td>
+    <td align="center" valign="middle"><a href="./wsssetantaireland/wsssetantaireland.html"><img src="./images/setantaireland.png" alt="" width="144" height="49"></a></td>
     <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-  </tr>
-</table>
-<p><script type="text/javascript" src="http://ad.leadboltads.net/show_app_ad.js?section_id=175751797"></script></p>
-
-<table width="637" height="265" border="2">
-  <tr>
-    <td height="42" colspan="4" align="center" valign="middle"><h1><strong>3rd Party Server </strong>  - Lots of ads Beaware (Mx Player)</h1></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./skyall/skyall.html"><img src="./images/ssall.png" alt="" width="203" height="60"></a></td>
-    <td align="center" valign="middle"><a href="./btall/btall.html"><img src="./images/bt12.jpg" alt="" width="137" height="60"></a></td>
-    <td align="center" valign="middle"><a href="./beinall/beinall.html"><img src="./images/bein1to15.png" width="110" height="88"></a><a href="./espnukusaall/espnukusaall.html"></a></td>
-    <td align="center" valign="middle"><a href="./espnukusaall/espnukusaall.html"><img src="./images/ESPN (uk,usa).png" alt="" width="129" height="59"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./nbcsnall/nbcsnall.html"><img src="./images/nbcsn.png" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./ptvall/ptvall.html"><img src="./images/PTV-SPORTS.png" alt="" width="120" height="50"></a></td>
-    <td align="center" valign="middle"><a href="./skyitaliaall/skyitaliaall.html"><img src="./images/skysportitalia.png" alt="" width="120" height="50"></a></td>
-    <td align="center" valign="middle"><a href="./nbatvall/nbatvall.html"><img src="./images/nbatv.png" width="115" height="66"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./mutvall/mutvall.html"><img src="./images/mutv.jpg" alt="" width="175" height="41"></a><a href="./mutvall/mutvall.html"></a></td>
-    <td align="center" valign="middle"><a href="./foxsports1n2all/foxsports1n2all.html"><img src="./images/foxsports1n2.jpg" width="90" height="85"></a></td>
-    <td align="center" valign="middle"><a href="./starsports3all/starsports3all.html"><img src="./images/starsports3.png" alt="" width="124" height="85"></a></td>
-    <td align="center" valign="middle"><a href="./nflnetworkall/nflnetworkall.html"><img src="./images/nfltv.png" width="100" height="66"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./sportsnetworldall/sportsnetworldall.html"><img src="./images/sportsnetworld.png" alt="" width="203" height="48"></a></td>
-    <td align="center" valign="middle"><a href="./wweall/wweall.html"><img src="./images/wwe.png" width="121" height="85"></a></td>
-    <td align="center" valign="middle"><a href="./sonysixall/sonysixall.html"><img src="./images/sonysix.png" width="90" height="85"></a></td>
-    <td align="center" valign="middle"><a href="./willowtvall/willowtvall.html"><img src="./images/crickethd.jpg" width="90" height="85"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./lfctvall/lfctvall.html"><img src="./images/lfctv.jpg" alt="" width="175" height="41"></a></td>
-    <td align="center" valign="middle"><a href="./euroall/euroall.html"><img src="./images/eurosport1n2.png" alt="" width="102" height="60"></a><a href="./beinall/beinall.html"></a></td>
-    <td align="center" valign="middle"><a href="./tsn1n2all/tsn1n2all.html"><img src="./images/tsn1n2.jpg" width="100" height="66"></a></td>
-    <td align="center" valign="middle"><a href="./boxnationall/boxnationall.html"><img src="./images/boxnation.png" width="110" height="76"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./attheracesall/attheracesall.html"><img src="./images/attheraces.png" alt="" width="203" height="28"></a></td>
-    <td align="center" valign="middle"><a href="./racingukall/racingukall.html"><img src="./images/racinguk.jpg" alt="" width="184" height="39"></a></td>
-    <td align="center" valign="middle"><a href="./tensportsall/tensportsall.html"><img src="./images/Ten-Sports.png" alt="" width="184" height="39"></a></td>
-    <td align="center" valign="middle"><a href="./chelseatvall/chelseatvall.html"><img src="./images/chelseatv.png" alt="" width="137" height="73"></a></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle"><a href="./golftvall/golftvall.html"><img src="./images/golftv.png" width="118" height="74"></a></td>
-    <td align="center" valign="middle"><a href="./premiersportsall/premiersportsall.html"><img src="./images/premiersports.png" width="150" height="54"></a></td>
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-  </tr>
-</table>
-<p><script type="text/javascript" src="http://ad.leadboltads.net/show_app_ad.js?section_id=175751797"></script></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-
-
-</body> 
-</html>
