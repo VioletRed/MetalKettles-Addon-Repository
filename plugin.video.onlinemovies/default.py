@@ -1,8 +1,8 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os
+import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,net
 from t0mm0.common.addon import Addon
-from t0mm0.common.net import Net as net
 from metahandler import metahandlers
 
+net=net.Net()
 addon_id = 'plugin.video.onlinemovies'
 selfAddon = xbmcaddon.Addon(id=addon_id)
 metaget = metahandlers.MetaData(preparezip=False)
@@ -67,6 +67,7 @@ def SEARCH():
 
 def PLAYLINK(name,url,iconimage):
     link = open_url(url)
+
     try:
         match=re.compile('php\?ref=(.+?)\&width').findall(link)[0]
         videomega_url = 'http://videomega.tv/iframe.php?ref='+match
@@ -75,15 +76,23 @@ def PLAYLINK(name,url,iconimage):
         videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
         link = open_url(videomega_id_url)
         match=re.compile('var ref="(.+?)";').findall(link)[0]
-        videomega_url = 'http://videomega.tv/iframe.php?ref='+match
-    link = open_url(videomega_url)
-    url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
-    url = urllib.unquote(url)
-    stream_url = re.compile('file: "(.+?)"').findall(url)[0]
-    stream_url = urllib.unquote_plus(stream_url)
-    liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-    xbmc.Player ().play(stream_url, liz, False)
+        videomega_url = 'http://videomega.tv/?ref='+match
+        UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
+        ref=videomega_url.split('ref=')[1]
+        data={'ref':ref}
+        url2='http://videomega.tv/cdn.php?ref='+ref
+        headers={'User-Agent':UA,'Referer':videomega_url}
+        html= net.http_POST(url2, data, headers).content
+        link=re.compile('unescape.+?"(.+?)"').findall(html)[0]
+        if link:
+                r = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
+                if r:
+                    stream_url = r
+                    stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
+
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player ().play(stream_url, liz, False)
 
 def get_params():
         param=[]
