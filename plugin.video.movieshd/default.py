@@ -93,17 +93,18 @@ def SEARCH():
 def PLAYLINK(name,url,iconimage):
         try:
             link = open_url(url)
-            match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
+            print link
+            match=re.compile('hashkey=(.+?)">').findall(link)
             if len(match)==0:
-                match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
+                match=re.compile("hashkey=(.+?)\'>").findall(link)
             videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
             link = open_url(videomega_id_url)
-            match=re.compile('var ref="(.+?)";').findall(link)
+            match=re.compile('var ref="(.+?)"').findall(link)
             vididresolved = match[0]
             videomega_url = 'http://videomega.tv/?ref='+vididresolved
         except:
             link = open_url(url)
-            match=re.compile("<script type=\'text/javascript\'>ref=\'(.+?)\'").findall(link)
+            match=re.compile("javascript'\>ref='(.+?)'").findall(link)
             if (len(match) > 0):
                 videomega_url = "http://videomega.tv/?ref=" + match[0]
             if (len(match) == 0):
@@ -121,10 +122,11 @@ def PLAYLINK(name,url,iconimage):
                 if r:
                     stream_url = r
                     stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
-
+        ok=True
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
         xbmc.Player ().play(stream_url, liz, False)
+        return ok
 
 def get_params():
         param=[]
