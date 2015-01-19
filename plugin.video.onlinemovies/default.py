@@ -67,32 +67,37 @@ def SEARCH():
 
 def PLAYLINK(name,url,iconimage):
     link = open_url(url)
-    try:
-        match=re.compile('php\?ref=(.+?)\&width').findall(link)[0]
-        videomega_url = 'http://videomega.tv/?ref='+match
-    except:
+    match=re.compile('php\?ref=(.+?)\&width').findall(link)
+    if len(match) > 0:
+        videomega_url = 'http://videomega.tv/?ref='+match[0]
+    else:
         match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
         videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
         link = open_url(videomega_id_url)
         match=re.compile('var ref="(.+?)";').findall(link)[0]
         videomega_url = 'http://videomega.tv/?ref='+match
-    UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
-    ref=videomega_url.split('ref=')[1]
-    data={'ref':ref}
-    url2='http://videomega.tv/cdn.php?ref='+ref
-    headers={'User-Agent':UA,'Referer':videomega_url}
-    html= net.http_POST(url2, data, headers).content
-    link=re.compile('unescape.+?"(.+?)"').findall(html)[0]
-    if link:
-            r = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
-            if r:
-                stream_url = r
-                stream_url = stream_url.replace(" ","%20")+'|Referer='+url2                        
-    ok=True
-    liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-    xbmc.Player ().play(stream_url, liz, False)
-    return ok
+        
+##RESOLVE##
+        UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
+        ref=videomega_url.split('ref=')[1]
+        data={'ref':ref}
+        url2='http://videomega.tv/cdn.php?ref='+ref
+        headers={'User-Agent':UA,'Referer':videomega_url}
+        html= net.http_POST(url2, data, headers).content
+        link=re.compile('unescape.+?"(.+?)"').findall(html)[0]
+        stream_url = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
+        stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
+##RESOLVE##
+        
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+        listitem.setInfo("Video", {"Title":name})
+        listitem.setProperty('mimetype', 'video/x-msvideo')
+        listitem.setProperty('IsPlayable', 'true')
+        playlist.add(stream_url,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist)
 
 def get_params():
         param=[]
