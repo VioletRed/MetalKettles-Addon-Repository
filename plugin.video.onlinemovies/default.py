@@ -66,17 +66,21 @@ def SEARCH():
         GETMOVIES(url,name)
 
 def PLAYLINK(name,url,iconimage):
-    link = open_url(url)
-    match=re.compile('php\?ref=(.+?)\&width').findall(link)
-    if len(match) > 0:
-        videomega_url = 'http://videomega.tv/?ref='+match[0]
-    else:
-        match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
-        videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
-        link = open_url(videomega_id_url)
-        match=re.compile('var ref="(.+?)";').findall(link)[0]
-        videomega_url = 'http://videomega.tv/?ref='+match
-        
+        link = open_url(url)
+        try:
+            match=re.compile('php\?ref=(.+?)\&width').findall(link)
+            if len(match) > 0:
+                videomega_url = 'http://videomega.tv/?ref='+match[0]
+            else:
+                match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
+                videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
+                link = open_url(videomega_id_url)
+                match=re.compile('var ref="(.+?)";').findall(link)[0]
+                videomega_url = 'http://videomega.tv/?ref='+match
+        except:
+                match=re.compile('src="http://videomega.tv/cdn.php?ref=(.+?)&').findall(link)
+                videomega_url = 'http://videomega.tv/?ref='+match[0]
+                
 ##RESOLVE##
         UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
         ref=videomega_url.split('ref=')[1]
