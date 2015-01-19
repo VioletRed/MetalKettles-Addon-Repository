@@ -51,7 +51,6 @@ def GETMOVIESCATS(url,name):
 
 def PLAYLINK(name,url):
         req = urllib2.Request(url)
-        print 'here'
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
@@ -66,6 +65,8 @@ def PLAYLINK(name,url):
         match=re.compile('var ref="(.+?)";').findall(link)
         vididresolved = match[0]
         videomega_url = 'http://videomega.tv/?ref='+vididresolved
+        
+##RESOLVE##
         UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
         ref=videomega_url.split('ref=')[1]
         data={'ref':ref}
@@ -73,18 +74,19 @@ def PLAYLINK(name,url):
         headers={'User-Agent':UA,'Referer':videomega_url}
         html= net.http_POST(url2, data, headers).content
         link=re.compile('unescape.+?"(.+?)"').findall(html)[0]
-        if link:
-                r = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
-                if r:
-                    stream_url = r
-                    stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
+        stream_url = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
+        stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
+##RESOLVE##
 
-        ok=True
-        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(stream_url, liz, False)
-        return ok
-        
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+        listitem.setInfo("Video", {"Title":name})
+        listitem.setProperty('mimetype', 'video/x-msvideo')
+        listitem.setProperty('IsPlayable', 'true')
+        playlist.add(stream_url,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist)
 
 def get_params():
         param=[]
