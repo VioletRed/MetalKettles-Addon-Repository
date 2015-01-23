@@ -9,7 +9,7 @@ metaget = metahandlers.MetaData(preparezip=False)
 addon = Addon(addon_id, sys.argv)
 ADDON2=xbmcaddon.Addon(id='plugin.video.movieshd')
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
-icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
+icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
 metaset = selfAddon.getSetting('enable_meta')
 
