@@ -1,10 +1,10 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,random,net
+import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,random,urlparse
 from t0mm0.common.addon import Addon
 from metahandler import metahandlers
 
-net=net.Net()
 addon_id = 'plugin.video.movieshd'
 selfAddon = xbmcaddon.Addon(id=addon_id)
+datapath= xbmc.translatePath(selfAddon.getAddonInfo('profile'))
 metaget = metahandlers.MetaData(preparezip=False)
 addon = Addon(addon_id, sys.argv)
 ADDON2=xbmcaddon.Addon(id='plugin.video.movieshd')
@@ -102,20 +102,21 @@ def PLAYLINK(name,url,iconimage):
         else:
                 match=re.compile("javascript'\>ref='(.+?)'").findall(link)
                 videomega_url = "http://videomega.tv/?ref=" + match[0]
-
 ##RESOLVE##
-        UA='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
-        ref=videomega_url.split('ref=')[1]
-        data={'ref':ref}
-        url2='http://videomega.tv/cdn.php?ref='+ref
-        headers={'User-Agent':UA,'Referer':videomega_url}
-        html= net.http_POST(url2, data, headers).content
-        link=re.compile('unescape.+?"(.+?)"').findall(html)[0]
-        stream_url = re.compile('file: "(.+?)"').findall(urllib.unquote(link))[0]
-        stream_url = stream_url.replace(" ","%20")+'|Referer='+url2
-##RESOLVE##
-
-        
+        url = urlparse.urlparse(videomega_url).query
+        url = urlparse.parse_qs(url)['ref'][0]
+        url = 'http://videomega.tv/iframe.php?ref=%s' % url
+        referer = videomega_url
+        req = urllib2.Request(url,None)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+        req.add_header('Referer', referer)
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
+        url = urllib.unquote_plus(url)
+        stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
+##RESOLVE##      
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
