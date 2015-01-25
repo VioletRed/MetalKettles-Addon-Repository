@@ -7,7 +7,6 @@ selfAddon = xbmcaddon.Addon(id=addon_id)
 datapath= xbmc.translatePath(selfAddon.getAddonInfo('profile'))
 metaget = metahandlers.MetaData(preparezip=False)
 addon = Addon(addon_id, sys.argv)
-ADDON2=xbmcaddon.Addon(id='plugin.video.movieshd')
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 artpath = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id + '/resources/art/'))
@@ -93,15 +92,15 @@ def SEARCH():
 def PLAYLINK(name,url,iconimage):
         link = open_url(url)
         match=re.compile('hashkey=(.+?)">').findall(link)
+        if len(match) == 0:
+                match=re.compile("hashkey=(.+?)'>").findall(link)
         if (len(match) > 0):
-                videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
-                link = open_url(videomega_id_url)
-                match=re.compile('var ref="(.+?)"').findall(link)
-                vididresolved = match[0]
-                videomega_url = 'http://videomega.tv/?ref='+vididresolved
+                link = open_url("http://videomega.tv/validatehash.php?hashkey="+ match[0])
+                match=re.compile('var ref="(.+?)"').findall(link)[0]
+                videomega_url = 'http://videomega.tv/?ref='+match 
         else:
-                match=re.compile("javascript'\>ref='(.+?)'").findall(link)
-                videomega_url = "http://videomega.tv/?ref=" + match[0]
+                match=re.compile("javascript'\>ref='(.+?)'").findall(link)[0]
+                videomega_url = "http://videomega.tv/?ref=" + match
 ##RESOLVE##
         url = urlparse.urlparse(videomega_url).query
         url = urlparse.parse_qs(url)['ref'][0]
@@ -229,8 +228,8 @@ def cleanHex(text):
 def setView(content, viewType):
     if content:
         xbmcplugin.setContent(int(sys.argv[1]), content)
-    if ADDON2.getSetting('auto-view')=='true':
-        xbmc.executebuiltin("Container.SetViewMode(%s)" % ADDON2.getSetting(viewType) )
+    if selfAddon.getSetting('auto-view')=='true':
+        xbmc.executebuiltin("Container.SetViewMode(%s)" % selfAddon.getSetting(viewType) )
 
 params=get_params(); url=None; name=None; mode=None; site=None; iconimage=None
 try: site=urllib.unquote_plus(params["site"])
