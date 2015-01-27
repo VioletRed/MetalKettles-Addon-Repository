@@ -150,6 +150,28 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.Halow"
+       name="HALOW LIVE"
+       version="4.1"
+       provider-name="Halow">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+      <summary>Halow TV</summary>
+    <description>[COLOR red]Free Halow TV Live is free for all containing different live channels from different countries free for the whole world.[/COLOR]</description>
+    <platform>all</platform>
+  <license> Halow TV Public License. Version 3, 1 juni 2015</license>
+    <website>https://github.com/HalowTVy</website>
+    <source>https://github.com/HalowTV</source>
+    <forum>http://forum.kodi.tv/showthread.php?tid=215845</forum>
+  </extension>
+</addon>
+
 <addon id="plugin.video.highlights" name="Football Highlights" version="1.0.0" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
