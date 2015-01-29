@@ -1,4 +1,4 @@
-import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime
+import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime,urlparse
 from t0mm0.common.net import Net as net
 
 addon_id        = 'plugin.video.HQZone'
@@ -64,7 +64,7 @@ def Index():
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
-    addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels','http://rarehost.net/amember/free/free.php',2,icon,fanart)
+    addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels[COLOR red][I] (Register at hqzone.tv for more)  [/I][/COLOR]','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
@@ -81,7 +81,6 @@ def Index():
     ticker=re.compile('<ticker>(.+?)</ticker>').findall(link)[0]
     addLink('[COLOR red][I]'+ ticker +'[/I][/COLOR]','url','mode',icon,fanart)
 
-
 def luckydip(url):
     response = net().http_GET(url)
     link = response.content
@@ -91,14 +90,27 @@ def luckydip(url):
         addLink(channel,url,53,icon,fanart)
 
 def playluckydip(name,url):
-    ok=True
-    liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
     try:
-        xbmc.Player().play(url, liz, False)
-        return ok
+        swf='http://p.jwpcdn.com/6/11/jwplayer.flash.swf'
+        strurl=re.compile("file: '(.+?)',").findall(link)[0]
+        playable = strurl+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        try:
+            xbmc.Player ().play(playable, liz, False)
+            return ok
+        except:
+            pass
     except:
-        pass
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        try:
+            xbmc.Player().play(url, liz, False)
+            return ok
+        except:
+            pass
          
 def reqpop():
     dialog = xbmcgui.Dialog()
@@ -119,9 +131,6 @@ def getchannels(url):
     for url,channel in match:
         url = baseurl+url
         addLink(channel,url,3,icon,fanart)
-    if vip == 1:
-        addDir('HQ Sky Backup Channels   :','http://pastebin.com/raw.php?i=Jp76gEmp',52,icon,fanart)
-    
 
 def getstreams(url,name):
     setCookie('http://rarehost.net/amember/member')
@@ -167,6 +176,8 @@ def schedule(url):
 		for time,title in match2:
                         title = title.replace('amp;','')
 			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
+    xbmc.executebuiltin('Container.SetViewMode(51)')
+
    
 def todayschedule(url):
     response = net().http_GET(url)
@@ -177,6 +188,8 @@ def todayschedule(url):
     for event in match:
         event = cleanHex(event)
         addLink(event,'url','mode',icon,fanart)
+    xbmc.executebuiltin('Container.SetViewMode(51)')
+
 
 def account():
     setCookie('http://rarehost.net/amember/member')
@@ -218,7 +231,7 @@ def vod():
             if 'Movies' in channel2:
                 channel2 = 'Classic Movies'
             addDir(channel2,url,8,icon,fanart)
-    #addDir('HQ 2014/15 Movies','http://movieshd.co/search/2014',50,icon,fanart)
+    addDir('HQ Movies','http://movieshd.co/watch-online/category/featured?filtre=date',50,icon,fanart)
     
 def vodlisting(name,url):
     setCookie('http://rarehost.net/amember/member')
@@ -233,11 +246,11 @@ def vodlisting(name,url):
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace
     match=re.compile('<item><title>(.+?)</title><description>.+?</description><jwplayer\:source file="(.+?)" /></item>').findall(link)
     for name,url in match:
         addLink(name,url,53,icon,fanart)
-
+    
 def getmovies(url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -249,54 +262,56 @@ def getmovies(url):
                 name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
                 addLink(name2,url,51,icon,fanart)
         try:
-            match=re.compile('rel="next" href="(.+?)"/>').findall(link)[0]
-            addDir('Next Page>>',match,50,icon,fanart)
+                match=re.compile('"nextLink":"(.+?)"').findall(link)
+                url= match[0]
+                url = url.replace('\/','/')
+                addDir('Next Page>>',url,50,icon,fanart)
         except: pass
        
 def playmovies(name,url):
-        try:
-            req = urllib2.Request(url)
-            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-            response = urllib2.urlopen(req)
-            link=response.read()
-            response.close()
-            match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
-            if len(match)==0:
-                match=re.compile("src=\'http://videomega.tv/validatehash.php\?hashkey=(.+?)\'>").findall(link)
-            videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]  
-            req = urllib2.Request(videomega_id_url)
-            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-            response = urllib2.urlopen(req)
-            link=response.read()
-            response.close()
-            match=re.compile('var ref="(.+?)";').findall(link)
-            vididresolved = match[0]
-            videomega_url = 'http://videomega.tv/iframe.php?ref='+vididresolved
-        except:
-               req = urllib2.Request(url)
-               req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-               response = urllib2.urlopen(req)
-               link=response.read()
-               response.close()
-               match=re.compile("ref=\'(.+?)'").findall(link)
-               if (len(match) > 0):
-                        videomega_url = "http://videomega.tv/iframe.php?ref=" + match[2]
-                        print videomega_url
-               if (len(match) == 0):
-                        match=re.compile("frameborder='.+?' src='(.+?)?").findall(link)
-                        videomega_url = match[0]
-        req = urllib2.Request(videomega_url)
+        req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        url = re.compile('document.write.unescape."(.+?)"').findall(link)[0]
-        url = urllib.unquote(url)
-        stream_url = re.compile('file: "(.+?)"').findall(url)[0]
-        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(stream_url, liz, False)
-        return ok
+        match=re.compile('hashkey=(.+?)">').findall(link)
+        if len(match) == 0:
+                match=re.compile("hashkey=(.+?)'>").findall(link)
+        if (len(match) > 0):
+                req = urllib2.Request("http://videomega.tv/validatehash.php?hashkey="+ match[0])
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+                match=re.compile('var ref="(.+?)"').findall(link)[0]
+                videomega_url = 'http://videomega.tv/?ref='+match 
+        else:
+                match=re.compile("javascript'\>ref='(.+?)'").findall(link)[0]
+                videomega_url = "http://videomega.tv/?ref=" + match
+##RESOLVE##
+        url = urlparse.urlparse(videomega_url).query
+        url = urlparse.parse_qs(url)['ref'][0]
+        url = 'http://videomega.tv/iframe.php?ref=%s' % url
+        referer = videomega_url
+        req = urllib2.Request(url,None)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+        req.add_header('Referer', referer)
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
+        url = urllib.unquote_plus(url)
+        stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
+##RESOLVE##      
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+        listitem.setInfo("Video", {"Title":name})
+        listitem.setProperty('mimetype', 'video/x-msvideo')
+        listitem.setProperty('IsPlayable', 'true')
+        playlist.add(stream_url,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist)
 
 def addDir(name,url,mode,iconimage,fanart,description=''):
         u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
@@ -343,16 +358,16 @@ def showText(heading, text):
             pass
 
 def twitter():
-        text=''
-        twit = 'http://twitrss.me/twitter_user_to_rss/?user=@HQZoneTv'
-        twit += '?%d' % (random.randint(1, 999999999999999999))
+        text = ''
+        twit = 'https://script.google.com/macros/s/AKfycbyBcUa5TlEQudk6Y_0o0ZubnmhGL_-b7Up8kQt11xgVwz3ErTo/exec?560773938943627264'
         response = net().http_GET(twit)
         link = response.content
-        match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
+        link = link.replace('/n','')
+        link = link.encode('ascii', 'ignore').decode('ascii').decode('ascii').replace('&#39;','\'').replace('&#xA0;','').replace('&#x2026;','')
+        match=re.compile("<title>(.+?)</title>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)[1:]
         for status, dte in match:
-            status = cleanHex(status)
+            dte = dte[:-15]
             dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
-            dte = dte.replace('+0000','').replace('2014','').replace('2015','')
             text = text+dte+'\n'+status+'\n'+'\n'
         showText('[COLOR blue][B]@HQZoneTv[/B][/COLOR]', text)
         quit()
@@ -452,4 +467,3 @@ elif mode==302:reqpop()
 
         
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
-
