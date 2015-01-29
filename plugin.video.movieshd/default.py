@@ -26,16 +26,15 @@ def CATEGORIES():
         xbmc.executebuiltin('Container.SetViewMode(50)')
                
 def TWITTER():
-        text=''
-        twit = 'http://twitrss.me/twitter_user_to_rss/?user=movieshd_co'
-        twit += '?%d' % (random.randint(1, 999999999999))
+        text = ''
+        twit = 'https://script.google.com/macros/s/AKfycbyBcUa5TlEQudk6Y_0o0ZubnmhGL_-b7Up8kQt11xgVwz3ErTo/exec?560774256146272257'
         link = open_url(twit)
-        match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
+        link = link.replace('/n','')
+        link = link.decode('utf-8').encode('utf-8').replace('&#39;','\'').replace('&#10;',' - ').replace('&#x2026;','')
+        match=re.compile("<title>(.+?)</title>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)[1:]
         for status, dte in match:
-            status = status.replace('\n',' ')
-            status = status.encode('ascii', 'ignore').decode('ascii').replace('&#x27;','\'').replace('&#xA0;','').replace('&#x2026;','')
-            dte = '[COLOR red][B]'+dte+'[/B][/COLOR]'
-            dte = dte.replace('+0000','').replace('2014','').replace('2015','')
+            dte = dte[:-15]
+            dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
             text = text+dte+'\n'+status+'\n'+'\n'
         showText('@movieshd_co', text)
 
