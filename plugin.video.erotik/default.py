@@ -54,15 +54,19 @@ def PLAYLINK(name,url):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)"').findall(link)[0]
-        videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match
-        req = urllib2.Request(videomega_id_url)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        match=re.compile('var ref="(.+?)";').findall(link)
-        vididresolved = match[0]
+        try:
+                match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)"').findall(link)[0]
+                videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match
+                req = urllib2.Request(videomega_id_url,None)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+                req.add_header('Referer', url)
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+                match=re.compile('var ref="(.+?)";').findall(link)
+                vididresolved = match[0]
+        except:
+                vididresolved=re.compile('<script type="text/javascript">ref="(.+?)"').findall(link)[0]
         videomega_url = 'http://videomega.tv/?ref='+vididresolved
 ##RESOLVE##
         url = urlparse.urlparse(videomega_url).query
