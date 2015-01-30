@@ -72,8 +72,13 @@ def PLAYLINK(name,url,iconimage):
                 videomega_url = 'http://videomega.tv/?ref='+match[0]
             else:
                 match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)">').findall(link)
-                videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]           
-                link = open_url(videomega_id_url)
+                videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match[0]
+                req = urllib2.Request(videomega_id_url,None)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+                req.add_header('Referer', url)
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
                 match=re.compile('var ref="(.+?)";').findall(link)[0]
                 videomega_url = 'http://videomega.tv/?ref='+match
         except:
