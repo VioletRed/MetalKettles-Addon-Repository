@@ -33,8 +33,6 @@ if user == '' or passw == '':
 user = selfAddon.getSetting('hqusername')
 passw = selfAddon.getSetting('hqpassword')
 
-
-
 #############################################################################################################################
 def announce():
     try:
@@ -174,11 +172,11 @@ def schedule(url):
 		addLink('[COLOR blue][B]'+day+' '+num+'[/B][/COLOR]','url','mode',icon,fanart)
 		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
 		for time,title in match2:
+                        title = title.encode('ascii', 'ignore')
                         title = title.replace('amp;','')
 			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(51)')
-
-   
+  
 def todayschedule(url):
     response = net().http_GET(url)
     link = response.content
@@ -187,6 +185,7 @@ def todayschedule(url):
     addLink('[COLOR blue][B]'+now+' '+'[/B][/COLOR]','url','mode',icon,fanart)
     for event in match:
         event = cleanHex(event)
+        event = event.encode('ascii', 'ignore')
         addLink(event,'url','mode',icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(51)')
 
@@ -278,8 +277,10 @@ def playmovies(name,url):
         if len(match) == 0:
                 match=re.compile("hashkey=(.+?)'>").findall(link)
         if (len(match) > 0):
-                req = urllib2.Request("http://videomega.tv/validatehash.php?hashkey="+ match[0])
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                hashurl="http://videomega.tv/validatehash.php?hashkey="+ match[0]
+                req = urllib2.Request(hashurl,None)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+                req.add_header('Referer', url)
                 response = urllib2.urlopen(req)
                 link=response.read()
                 response.close()
