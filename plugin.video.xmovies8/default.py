@@ -47,9 +47,15 @@ def GETMOVIES(url,name):
 
 def PLAYLINK(name,url,iconimage):
         link = open_url(url)
-        if 'videomega' in link:
-                match=re.compile('src="http://videomega.tv/cdn.php\?ref=(.+?)\&width=700\&height=430"').findall(link)[0]
-                videomega_url = "http://videomega.tv/?ref=" + match
+        match=re.compile('<a target="_blank" rel="nofollow" href="(.+?)">.+?.mp4</a>').findall(link)
+        if len(match)>0:
+                match = match[-1]
+        else:
+                match=re.compile('src="http://videomega.tv/cdn.php\?ref=(.+?)\&width=700\&height=430"').findall(link)
+                if len(match)<1:
+                        match=re.compile('src="http://videomega.tv/iframe.php\?ref=(.+?)"').findall(link)
+
+                videomega_url = "http://videomega.tv/?ref=" + match[0]
                 url = urlparse.urlparse(videomega_url).query
                 url = urlparse.parse_qs(url)['ref'][0]
                 url = 'http://videomega.tv/iframe.php?ref=%s' % url
@@ -63,7 +69,6 @@ def PLAYLINK(name,url,iconimage):
                 url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
                 url = urllib.unquote_plus(url)
                 match = re.compile('file *: *"(.+?)"').findall(url)[0]
-        else:match=re.compile('<a target="_blank" rel="nofollow" href="(.+?)">.+?.mp4</a>').findall(link)[-1]
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
