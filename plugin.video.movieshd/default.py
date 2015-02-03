@@ -119,6 +119,7 @@ def PLAYLINK(name,url,iconimage):
         response.close()
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
         url = urllib.unquote_plus(url)
+        print url
         stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
 ##RESOLVE##      
         playlist = xbmc.PlayList(1)
@@ -217,7 +218,7 @@ def showText(heading, text):
         
 def open_url(url):
     req = urllib2.Request(url)
-    req.add_header('User-Agent','Mozilla/5.0 (Linux; <Android Version>; <Build Tag etc.>) AppleWebKit/<WebKit Rev>(KHTML, like Gecko) Chrome/<Chrome Rev> Safari/<WebKit Rev>')
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
     response = urllib2.urlopen(req)
     link=response.read()
     response.close()
