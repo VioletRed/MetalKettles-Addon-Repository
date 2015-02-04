@@ -87,18 +87,20 @@ def PLAYLINK(name,url,iconimage):
 ##RESOLVE##
         url = urlparse.urlparse(videomega_url).query
         url = urlparse.parse_qs(url)['ref'][0]
-        url = 'http://videomega.tv/iframe.php?ref=%s' % url
+        url = 'http://videomega.tv/cdn.php?ref=%s' % url
         referer = videomega_url
         req = urllib2.Request(url,None)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         req.add_header('Referer', referer)
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
         url = urllib.unquote_plus(url)
+        print url
         stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
 ##RESOLVE##
+        
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
