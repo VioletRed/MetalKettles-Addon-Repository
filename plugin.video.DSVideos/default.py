@@ -20,9 +20,11 @@ def ytube():
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
     response = urllib2.urlopen(req)
     link=response.read()
+    link = link.replace('\n','').replace('  ','')
+    print link
     response.close()
-    match = re.compile("<media:title type='plain'>(.+?)</media:title>.+?<guid isPermaLink='false'>http://gdata.youtube.com/feeds/api/videos/(.+?)</guid>",re.DOTALL).findall(link)
-    for title, ytid in match:
+    match = re.compile("<media\:player url='http\://www.youtube.com/watch\?v=(.+?)&amp;feature=youtube_gdata_player'/>.+?<media\:title type='plain'>(.+?)</media\:title>",re.DOTALL).findall(link)
+    for ytid,title in match:
         img = 'https://i.ytimg.com/vi/'+ytid+'/mqdefault.jpg'
         addLink(title,ytid,2,img,fanart,'')
     match = re.compile("http://gdata.youtube.com/feeds/api/users/CrazyH2008/uploads\?start-index=(.+?)\&alt=rss").findall(url)[0]
@@ -38,21 +40,21 @@ def PlayStream(url,iconimage):
     xbmc.Player ().play(playback_url)
     
 def Twitter():
-    text=''
-    twit = 'http://twitrss.me/twitter_user_to_rss/?user=@Droidsticks'
-    twit += '?%d' % (random.randint(1, 1000000000000000000000000000000000000000))
-    req = urllib2.Request(twit)
-    req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-    response = urllib2.urlopen(req)
-    link=response.read()
-    response.close()
-    match=re.compile("<description><!\[CDATA\[(.+?)\]\]></description>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)
-    for status, dte in match:
-        status = cleanHex(status)
-        dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
-        dte = dte.replace('+0000','').replace('2014','').replace('2015','')
-        text = text+dte+'\n'+status+'\n'+'\n'
-    showText('[COLOR blue][B]@Droidsticks[/B][/COLOR]', text)
+        text = ''
+        twit = 'https://script.google.com/macros/s/AKfycbyBcUa5TlEQudk6Y_0o0ZubnmhGL_-b7Up8kQt11xgVwz3ErTo/exec?563513261841076224'
+        req = urllib2.Request(twit)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        link = link.replace('/n','')
+        link = link.decode('utf-8').encode('utf-8').replace('&#39;','\'').replace('&#10;',' - ').replace('&#x2026;','')
+        match=re.compile("<title>(.+?)</title>.+?<pubDate>(.+?)</pubDate>",re.DOTALL).findall(link)[1:]
+        for status, dte in match:
+            dte = dte[:-15]
+            dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
+            text = text+dte+'\n'+status+'\n'+'\n'
+        showText('@Droidsticks', text)
     
 def FAQ():
     req = urllib2.Request(faq)
