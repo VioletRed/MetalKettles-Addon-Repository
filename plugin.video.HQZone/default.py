@@ -11,7 +11,7 @@ passw           = selfAddon.getSetting('hqpassword')
 cookie_file     = os.path.join(os.path.join(datapath,''), 'hqzone.lwp')
 cookie_file2    = os.path.join(os.path.join(datapath,''), 'hqinfo.lwp')
 
-if user == '' or passw == '':
+if user == '' or passw == '' or user == 'Droidsticks':
     if os.path.exists(cookie_file):
         try: os.remove(cookie_file)
         except: pass
@@ -62,7 +62,7 @@ def Index():
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
-    addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels[COLOR red][I] (Register at hqzone.tv for more)  [/I][/COLOR]','http://rarehost.net/amember/free/free.php',2,icon,fanart)
+    addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels[COLOR red][I] (Purchase VIP at hqzone.tv and watch VIP streams in HD)  [/I][/COLOR]','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
@@ -166,12 +166,13 @@ def schedule(url):
     response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    month=re.findall('<h2 class="blockhead">([^<]+?)</h2>',link)
-    match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
+    match=re.findall('<h3><span class=".+?">(.+?)</span><span class="daynum" style=".+?" onclick=".+?">(.+?)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
     for day,num,data in match:
 		addLink('[COLOR blue][B]'+day+' '+num+'[/B][/COLOR]','url','mode',icon,fanart)
 		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
 		for time,title in match2:
+                        timeuk = time.split(' - ')
+                        print timeuk
                         title = title.encode('ascii', 'ignore')
                         title = title.replace('amp;','')
 			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
@@ -215,21 +216,10 @@ def supportpop():
     dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)',' support@hqzone.tv / hqzone@hotmail.com (via Email)')
        
 def vod():
-    setCookie('http://rarehost.net/amember/member')
-    response = net().http_GET('http://rarehost.net/amember/vip/vod.php')
-    link = response.content
-    link = cleanHex(link)
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    print link
-    match=re.compile('<a href="(.+?)"></br><font color= "\#fff" size="\+1"><b>(.+?)</b>').findall(link)
-    for url,channel in match:
-        if 'Weeklies' in channel:url = 'http://rarehost.net'+url
-        else:url = 'http://rarehost.net/amember/vip/'+url
-        channel2 = channel
-        if not 'TV' in channel2:
-            if 'Movies' in channel2:
-                channel2 = 'Classic Movies'
-            addDir(channel2,url,8,icon,fanart)
+    addDir('Wrestling Weeklies','http://rarehost.net/amember/free/wrestlingplayer.php',8,icon,fanart)
+    addDir('Wrestling PPVs','http://rarehost.net/amember/vip/wrestlingppvsplayer.php',8,icon,fanart)
+    addDir('MMA PPVs','http://rarehost.net/amember/vip/mmappvsplayer.php',8,icon,fanart)
+    addDir('Boxing PPVs','http://rarehost.net/amember/vip/boxingppvsplayer.php',8,icon,fanart)
     addDir('HQ Movies','http://movieshd.co/watch-online/category/featured?filtre=date',50,icon,fanart)
     
 def vodlisting(name,url):
@@ -237,7 +227,6 @@ def vodlisting(name,url):
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     match=re.compile("playlist: '(.+?)'").findall(link)[0]
     if 'Weeklies' in name:url='http://rarehost.net/amember/free/'+match
     else:url = 'http://rarehost.net/amember/vip/'+match
@@ -245,8 +234,8 @@ def vodlisting(name,url):
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
-    link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace
-    match=re.compile('<item><title>(.+?)</title><description>.+?</description><jwplayer\:source file="(.+?)" /></item>').findall(link)
+    match=re.compile('<title>(.+?)</title>.+?source file="(.+?)"',re.DOTALL).findall(link)
+    print match
     for name,url in match:
         addLink(name,url,53,icon,fanart)
     
@@ -292,10 +281,10 @@ def playmovies(name,url):
 ##RESOLVE##
         url = urlparse.urlparse(videomega_url).query
         url = urlparse.parse_qs(url)['ref'][0]
-        url = 'http://videomega.tv/iframe.php?ref=%s' % url
+        url = 'http://videomega.tv/cdn.php?ref=%s' % url
         referer = videomega_url
         req = urllib2.Request(url,None)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         req.add_header('Referer', referer)
         response = urllib2.urlopen(req)
         link=response.read()
@@ -303,7 +292,8 @@ def playmovies(name,url):
         url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
         url = urllib.unquote_plus(url)
         stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
-##RESOLVE##      
+##RESOLVE##
+        
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
