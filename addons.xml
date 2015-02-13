@@ -105,6 +105,22 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.0.7" provider-name="AAA">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">AAA Live TV - downloaded for free from:
+http://aaastream.com</summary>
+    <description lang="en">AAA Live TV - downloaded for free from:
+http://aaastream.com</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.aswizard" name="..DroidSticks Wizard" version="2.0.3" provider-name="Droidsticks / MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
