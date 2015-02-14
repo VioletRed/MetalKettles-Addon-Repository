@@ -1,0 +1,4 @@
+1.1.0:
+- Initial release
+  support plx and m3u lists.
+  Download from Server
