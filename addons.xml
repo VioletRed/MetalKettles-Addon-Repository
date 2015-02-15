@@ -183,7 +183,7 @@ http://aaastream.com</description>
 
 <addon id="plugin.video.Halow"
        name="HALOW LIVE"
-       version="4.3"
+       version="4.4"
        provider-name="Halow">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
