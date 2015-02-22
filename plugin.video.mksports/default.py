@@ -1,10 +1,14 @@
-import urllib,urllib2,sys,re,xbmcplugin,xbmcgui,xbmcaddon,xbmc,os,json
+import urllib,urllib2,sys,re,xbmcplugin,xbmcgui,xbmcaddon,xbmc,os,json,base64
 
 AddonID ='plugin.video.mksports'
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + AddonID , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + AddonID, 'icon.png'))
     
-def Collection1():
+def menu():
+    addDir('MK Sports Original Collection','url',1,icon,fanart)
+    addDir('BVLS 2013','url',2,icon,fanart)
+    
+def MKSports():
     channelurl='http://pushpakglobal.dynns.com/cms/cms/jGlobal.php'
     response=Get_url(channelurl)
     link=json.loads(response)
@@ -16,6 +20,45 @@ def Collection1():
             if not "3pm" in channelName:
                 addLink(channelName,channelLink,100,icon,fanart)
     xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_VIDEO_TITLE)
+
+def BVLS():
+    addDir('Daily Schedule','http://bvls2013.com/index.html',4,icon,fanart)
+    addLink('Stream 1','http://bvls2013.com/stream1.html',3,icon,fanart)
+    addLink('Stream 2','http://bvls2013.com/stream2.html',3,icon,fanart)
+    addLink('Stream 3','http://bvls2013.com/stream3.html',3,icon,fanart)
+    addLink('Stream 4','http://bvls2013.com/stream4.html',3,icon,fanart)
+    addLink('Stream 5','http://bvls2013.com/stream5.html',3,icon,fanart)
+    addLink('Stream 6','http://bvls2013.com/stream6.html',3,icon,fanart)
+    addLink('Stream 7','http://bvls2013.com/stream7.html',3,icon,fanart)
+    addLink('Stream 8','http://bvls2013.com/stream8.html',3,icon,fanart)
+    addLink('Stream 9','http://bvls2013.com/stream9.html',3,icon,fanart)
+    addLink('Stream 10','http://bvls2013.com/stream10.html',3,icon,fanart)
+
+def GetBVLSStream(name,url):
+    link = Get_url(url)
+    match=re.compile('src="(.+?)" id="myfr"').findall(link)[0]
+    link = Get_url(match)
+    match=re.compile("file\: window.atob\('(.+?)'\)").findall(link)[0]
+    url = base64.b64decode(match)
+    playlist = xbmc.PlayList(1)
+    playlist.clear()
+    listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+    listitem.setInfo("Video", {"Title":name})
+    listitem.setProperty('mimetype', 'video/x-msvideo')
+    listitem.setProperty('IsPlayable', 'true')
+    playlist.add(url,listitem)
+    xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+    xbmcPlayer.play(playlist)
+
+def BVLSSched(url):
+    link = Get_url(url)
+    datestr=re.compile('<span style="text-decoration: underline;"><b>(.+?)</b></span></span></div>').findall(link)[0]
+    datestr = "[B][COLOR gold]"+datestr+"[/COLOR][/B]"
+    addLink(datestr,'url','mode',icon,fanart)
+    match=re.compile('12px;">(.+?)</span></p>.+?#000000">(.+?)</span></b></p>.+?<p><a href=".+?">(.+?)</a></p>',re.DOTALL).findall(link)
+    for timestr, name, stream in match:
+        name = timestr + " == " + name + " (" + stream + ")"
+        addLink(name,'url','mode',icon,fanart)
 
 def Get_url(url):
     req = urllib2.Request(url)
@@ -84,7 +127,15 @@ try:iconimage=urllib.unquote_plus(params["iconimage"])
 except:pass
 print "Mode: "+str(mode);print "URL: "+str(url);print "Name: "+str(name);print "IconImage: "+str(iconimage)
 
-if mode==None or url==None or len(url)<1:Collection1()
+if mode==None or url==None or len(url)<1:menu()
+elif mode==1:MKSports()
+elif mode==2:BVLS()
+elif mode==3:GetBVLSStream(name,url)
+elif mode==4:BVLSSched(url)
+
+
+
+
 elif mode==100:Play(name,url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
