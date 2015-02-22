@@ -62,14 +62,13 @@ def Index():
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
-    addDir('[COLOR greenyellow]Free[/COLOR] HQ Streaming Channels[COLOR red][I] (Purchase VIP at hqzone.tv and watch VIP streams in HD)  [/I][/COLOR]','http://rarehost.net/amember/free/free.php',2,icon,fanart)
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
         addDir('[COLOR gold]VIP[/COLOR] HQ Streaming Channels','http://rarehost.net/amember/vip/vip.php',2,icon,fanart)
         addDir('[COLOR gold]VIP[/COLOR] HQ Video on Demand','url',4,icon,fanart)
     addLink(' ','url',5,icon,fanart)
-    addLink('Request Zone','url',302,icon,fanart)
+    addLink('How to Subscribe','url',302,icon,fanart)
     addLink('[COLOR blue]Twitter[/COLOR] Feed','url',100,icon,fanart)
     addLink('HQZone Account Status','url',200,icon,fanart)
     addDir('HQ Zone Support','url',300,icon,fanart)
@@ -112,7 +111,7 @@ def playluckydip(name,url):
          
 def reqpop():
     dialog = xbmcgui.Dialog()
-    dialog.ok('[COLOR blue]Request Zone[/COLOR]', 'Email: hqzone@hotmail.com or support@hqzone.tv','to request upcoming events','')    
+    dialog.ok('[COLOR blue]How to Subscribe[/COLOR]', 'Visit http://hqzone.tv','Payments Accepted - Stripe and PayPal','')    
     
 def getchannels(url):
     vip = 0
@@ -213,7 +212,7 @@ def support():
    
 def supportpop():
     dialog = xbmcgui.Dialog()
-    dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)',' support@hqzone.tv / hqzone@hotmail.com (via Email)')
+    dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)',' hqzone@hotmail.com (via Email)')
        
 def vod():
     addDir('Wrestling Weeklies','http://rarehost.net/amember/free/wrestlingplayer.php',8,icon,fanart)
