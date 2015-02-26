@@ -372,7 +372,7 @@ Don't be lazy Add Create and add your list to the group to be shared with everyo
   </extension>
 </addon>
 
-<addon id="plugin.video.xmovies8" name="XMovies8" version="1.0.2" provider-name="MetalKettle">
+<addon id="plugin.video.xmovies8" name="XMovies8" version="1.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>

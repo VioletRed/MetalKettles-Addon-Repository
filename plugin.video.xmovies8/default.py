@@ -20,7 +20,7 @@ def CATEGORIES():
 def GETMOVIES(url,name):
         link = open_url(url)
         link=link.replace('\n','').replace('  ','')
-        match=re.compile('<div class="article-image"><a class="thumbnail darken video" title="(.+?)" href="(.+?)">',re.DOTALL).findall(link)
+        match=re.compile('<a class="thumbnail darken video" title="(.+?)" href="(.+?)">',re.DOTALL).findall(link)
         if len(match)>0:
                 items = len(match)
                 for name,url in match:
@@ -29,7 +29,7 @@ def GETMOVIES(url,name):
                                 if not 'SEASON' in name2:
                                         addDir(name2,url,100,'',len(match))
         if len(match)<1:
-                match=re.compile('<div class="article-image"><a class="thumbnail darken video" href="(.+?)" title="(.+?)">',re.DOTALL).findall(link)
+                match=re.compile('<a class="thumbnail darken video" href="(.+?)" title="(.+?)">',re.DOTALL).findall(link)
                 items = len(match)
                 for url,name in match:
                         name2 = cleanHex(name)
@@ -47,7 +47,7 @@ def GETMOVIES(url,name):
 
 def PLAYLINK(name,url,iconimage):
         link = open_url(url)
-        match=re.compile('<a target="_blank" rel="nofollow" href="(.+?)">.+?.mp4</a>').findall(link)
+        match=re.compile('<a target="_blank" rel="nofollow" href="(.+?)">.+?mp4</a>').findall(link)
         if len(match)>0:
                 match = match[-1]
         else:
