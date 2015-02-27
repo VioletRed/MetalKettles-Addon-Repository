@@ -38,17 +38,24 @@ def GetBVLSStream(name,url):
     link = Get_url(url)
     match=re.compile('src="(.+?)" id="myfr"').findall(link)[0]
     link = Get_url(match)
-    match=re.compile("file\: window.atob\('(.+?)'\)").findall(link)[0]
-    url = base64.b64decode(match)
+    match=re.compile("file\s*\:\s*window.atob\('(.+?)'\)").findall(link)[0]
+    temp_url = base64.b64decode(match)
+    veetleId = getVeetleIdByUrl(temp_url)
+    url = 'plugin://plugin.video.veetle/?channel='+veetleId
     playlist = xbmc.PlayList(1)
     playlist.clear()
-    listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+    listitem = xbmcgui.ListItem(name + " - " + url, iconImage=icon, thumbnailImage=icon)
     listitem.setInfo("Video", {"Title":name})
     listitem.setProperty('mimetype', 'video/x-msvideo')
     listitem.setProperty('IsPlayable', 'true')
     playlist.add(url,listitem)
     xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
     xbmcPlayer.play(playlist)
+
+def getVeetleIdByUrl(url):
+    _regex_getM3u = re.compile("http://(.*?)/flv/(.*?)/1.flv", re.DOTALL)
+    streamId = _regex_getM3u.search(url).group(2)
+    return streamId
 
 def BVLSSched(url):
     link = Get_url(url)
