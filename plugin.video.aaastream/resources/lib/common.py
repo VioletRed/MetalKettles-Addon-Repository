@@ -1,9 +1,10 @@
-import urllib, urllib2, os, io, xbmc, xbmcaddon, xbmcgui, json, re
+import urllib, urllib2, os, io, xbmc, xbmcaddon, xbmcgui, json, re,sys
 
 AddonID = 'plugin.video.aaastream'
 Addon = xbmcaddon.Addon(AddonID)
 icon = Addon.getAddonInfo('icon')
 AddonName = Addon.getAddonInfo("name")
+
 
 def OpenURL(url, headers={}, user_data={}, justCookie=False):
 	if user_data:
@@ -86,14 +87,14 @@ def plx2list(url, group="Main"):
 		list.append(item_data)
 	return list
 
-
 def m3u2list(url):
 	if url.find("http") >= 0:
 		response = OpenURL(url)
 	else:
 		response = ReadFile(url)
 		
-	matches=re.compile('^#EXTINF:-?[0-9]*(.*?),(.*?)\n(.*?)$',re.I+re.M+re.U+re.S).findall(response)
+	response = response.replace('#EXTINF:','#AAASTREAM:')
+	matches=re.compile('^#AAASTREAM:-?[0-9]*(.*?),(.*?)\n(.*?)$',re.I+re.M+re.U+re.S).findall(response)
 	li = []
 	for params, display_name, url in matches:
 		item_data = {"params": params, "display_name": display_name, "url": url}
@@ -107,7 +108,7 @@ def m3u2list(url):
 			item_data[field.strip().lower().replace('-', '_')] = value.strip()
 		list.append(item_data)
 	return list
-	
+            	
 def GetEncodeString(str):
 	try:
 		import chardet

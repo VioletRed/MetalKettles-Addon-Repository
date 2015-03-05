@@ -1,0 +1,332 @@
+[
+    {
+        "url": "http:///youtube.com", 
+        "image": "", 
+        "name": "[COLOR yellow]HD King's Live Streams - The world's best live streaming HD list![/COLOR]"
+    }, 
+    {
+        "url": "http:///youtube.com", 
+        "image": "", 
+        "name": "[COLOR yellow]Updated 1 March 2015[/COLOR]  "
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=106&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "A & E 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=330&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "AMC 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=110&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "AXN 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=479&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Azcorazon HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://beritasatulive-lh.akamaihd.net/i/b1sport_1@121529/index_720_av-p.m3u8", 
+        "image": "", 
+        "name": "Berita Satu Sport HD 720P (Indonesia)"
+    }, 
+    {
+        "url": "rtmp://stream.smcloud.net/live2/best/best_720p", 
+        "image": "", 
+        "name": "Best Music HD"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=310&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Cinecanal HD 1080P"
+    }, 
+    {
+        "url": "http://195.189.238.18/streaming/firstmuz/16/hd/playlist.m3u8", 
+        "image": "", 
+        "name": "Club HD 720P"
+    }, 
+    {
+        "url": "http://91.82.85.16:1935/relay15/nettv_channel_1/HasBahCa.m3u8", 
+        "image": "", 
+        "name": "Dance TV HD 720P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=326&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Dpelicula HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=242&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Discovery Theatre 1080P"
+    }, 
+    {
+        "url": "rtmp://stream.smcloud.net/live2/eska_party/eska_party_720p", 
+        "image": "", 
+        "name": "Eska Party 720P"
+    }, 
+    {
+        "url": "rtmp://stream.smcloud.net/live2/eska_rock/eska_rock_720p", 
+        "image": "", 
+        "name": "Eska Rock 720P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=478&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Estrella HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=322&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Film Zone HD 1080P"
+    }, 
+    {
+        "url": "rtmp://video.fixhd.tv/fix/hd.stream", 
+        "image": "", 
+        "name": "fix tv HD (Hungary)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=298&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Fox 1 HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=302&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Fox Action HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=306&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Fox Movie HD 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=102&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "FX 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=318&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Golden HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "rtmp://hdmedia3d.vintera.tv/hdmedia3d//hdmedia3d.stream", 
+        "image": "", 
+        "name": "HD MEDIA 3D 720P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=246&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "History 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://84.22.33.3:9024", 
+        "image": "", 
+        "name": "KANAL 6 HD 1080P"
+    }, 
+    {
+        "url": "http://antena3-aos1-apple-live.adaptive.level3.net/apple/antena3/channel02/la_sexta_hd_1548K_1280x720_main.m3u8", 
+        "image": "", 
+        "name": "La Sexsta HD 720P (Spanish)"
+    }, 
+    {
+        "url": "http://89.212.240.49:11980/live/smil:324_0.smil/playlist.m3u8?authorization_key=hNj0mnLtB9O5rfIKuCVsX7oWASQayqZg&stream_id=0", 
+        "image": "", 
+        "name": "MTV Live HD 720P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=430&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "MTV Live 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=250&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Natgeo Wild 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=214&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Nick HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://193.23.58.156:8888/udp/234.1.10.21:1234", 
+        "image": "", 
+        "name": "Novorossiya TV HD 720P"
+    }, 
+    {
+        "url": "acestream://653bc491aa1db13d0a11b2abb4e914ccf3c2d10e", 
+        "image": "", 
+        "name": "OTE Sport 2 HD 720P Greek)"
+    }, 
+    {
+        "url": "acestream://77dbb19c6734046bcd870490003e00c57f7ae9c9", 
+        "image": "", 
+        "name": "OTE Sport 3 HD 720P Greek)"
+    }, 
+    {
+        "url": "acestream://9c19b0ef4dd5f4af5e4be2c54f02a84b8878331c", 
+        "image": "", 
+        "name": "OTE Sport 4 HD 720P Greek)"
+    }, 
+    {
+        "url": "acestream://53db4eabf9b77f3cd0e0ab5d9cb1d6c9419e0d10", 
+        "image": "", 
+        "name": "OTE Sport 5 HD 720P Greek)"
+    }, 
+    {
+        "url": "acestream://9e7ff255784280cf59b1bec7c5166f3ac1ad0321", 
+        "image": "", 
+        "name": "OTE Sport 6 HD 720P Greek)"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12moun-4728.m3u8", 
+        "image": "", 
+        "name": "Pac Mountain 1080P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12netw-2328.m3u8", 
+        "image": "", 
+        "name": "PAC National 720P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12ariz-2328.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Arizona) 720P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12ariz-4728.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Arizona) 1080P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12baya-2328.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Bay Area) 720P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12baya-4728.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Bay Area) 1080P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12losa-2328.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Los Angeles) 720P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12oreg-2328.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Oregon) 720P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12oreg-4728.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Oregon) 1080P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12wash-2328.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Washington) 720P"
+    }, 
+    {
+        "url": "http://xrxs.net/video/live-p12wash-4728.m3u8", 
+        "image": "", 
+        "name": "PAC-12 Net. (Washington) 1080P"
+    }, 
+    {
+        "url": "rtmp://stream.smcloud.net/live2/eska_party/eska_party_720p", 
+        "image": "", 
+        "name": "Party Tv HD 720P"
+    }, 
+    {
+        "url": "rtmp://stream.smcloud.net/live2/polo_party/polo_party_720p", 
+        "image": "", 
+        "name": "Polo Party TV 720P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=475&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Px Hits 1080P"
+    }, 
+    {
+        "url": "http://odna.octoshape.net/f3f5m2v4/cds/ch6_720p/playlist.m3u8", 
+        "image": "", 
+        "name": "RT HD 720P (Russian)"
+    }, 
+    {
+        "url": "http://odna.octoshape.net/f3f5m2v4/cds/ch5_720p/chunklist.m3u8?b?b*t$", 
+        "image": "", 
+        "name": "RT Documentary HD 720P (Russian)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=90&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Sony 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=334&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Space HD 1080P"
+    }, 
+    {
+        "url": "http://lswb-de-08.servers.octoshape.net:1935/live/kanalsport_2000k/playlist.m3u8", 
+        "image": "", 
+        "name": "Sport HD 720P"
+    }, 
+    {
+        "url": "rtmp://freeview.fms.visionip.tv/live/sports_tonight-sports_tonight-live-25f-16x9-HD", 
+        "image": "", 
+        "name": "Sports Night HD 720P (German)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=434&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "Telehit 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=254&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "TLC HD 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=314&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "TNT HD 1080P"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=122&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "U 1080P (Spanish)"
+    }, 
+    {
+        "url": "http://200.38.126.38:8081/TPHLSWeb/M3U8LiveFile?format=2&profile=438&lan=2&rows=40&f=.m3u8", 
+        "image": "", 
+        "name": "VH HD 1080P"
+    }, 
+    {
+        "url": "http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch1/06/prog_index.m3u8", 
+        "image": "", 
+        "name": "Vevo HD 1 720P"
+    }, 
+    {
+        "url": "http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch2/06/prog_index.m3u8", 
+        "image": "", 
+        "name": "Vevo HD 2 720P"
+    }, 
+    {
+        "url": "http://vevoplaylist-live.hls.adaptive.level3.net/vevo/ch3/06/prog_index.m3u8", 
+        "image": "", 
+        "name": "Vevo HD 3 720P"
+    }, 
+    {
+        "url": "rtmp://stream.smcloud.net/live2/vox/vox_720p", 
+        "image": "", 
+        "name": "VOX Music HD 720P"
+    }
+]

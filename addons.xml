@@ -105,9 +105,15 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.0.7" provider-name="AAA">
+<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.9.1" provider-name="AAA">
   <requires>
+    <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver"  version="2.1.2"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -229,7 +235,7 @@ http://aaastream.com</description>
 
 <addon id="plugin.video.HQZone"
        name="HQ Zone Live Streams"
-       version="1.1.18"
+       version="1.2.0"
        provider-name="MetalKettle / mFuk">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
