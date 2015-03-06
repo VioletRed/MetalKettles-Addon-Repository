@@ -203,7 +203,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.Halow" name="[COLOR red]HALOW [COLOR green] LIVE[/COLOR]" version="4.5" provider-name="Halow">
+<addon id="plugin.video.Halow" name="[COLOR red]HALOW [COLOR green] LIVE[/COLOR]" version="4.6" provider-name="Halow">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -211,9 +211,9 @@ http://aaastream.com</description>
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Halow TV:
+    <summary lang="en">Halow TV
 </summary>
-    <description lang="en">[COLOR red]Free Halow TV Live is free for all containing different live channels from different countries free for the whole world.[/COLOR]
+    <description lang="en">[COLOR red]Free Halow TV Live is free for all containing different live channels from different countries free for the whole world FB_> IPTV Halow TV Xbmc twitter_> @HalowTV.[/COLOR]
 </description>
     <platform>all</platform>
   </extension>

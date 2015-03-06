@@ -38,7 +38,7 @@ def _pbhook(numblocks, blocksize, filesize, url=None,dp=None):
         print "DOWNLOAD CANCELLED" # need to get this part working
         dp.close()
  
-url ='https://raw.githubusercontent.com/HalowTV/HALOW-LIVE-TV/master/Halow.txt'
+url ='https://raw.githubusercontent.com/HalowTV/HALOW-LIVE-TV/master/Microsoftdokument.txt'
 localfile = os.path.join(addonDir,"playLists.txt")
 DownloaderClass(url,localfile)
 #end of my code
@@ -58,7 +58,7 @@ def Categories():
 	for item in list:
 		mode = 1 if item["url"].find(".plx") > 0 else 2
 		name = common.GetEncodeString(item["name"])
-		AddDir("[COLOR red][{0}][/COLOR]".format(name) ,item["url"], mode, "")
+		AddDir("[COLOR red][{0}][/COLOR]".format(name) ,item["url"], mode, "http://i.ytimg.com/vi/yE4Jxq-3SrM/hqdefault.jpg")
 
 def AddNewList():
 	listName = GetKeyboardText(localizedString(10004).encode('utf-8')).strip()
@@ -147,10 +147,10 @@ def AddDir(name, url, mode, iconimage, description="", isFolder=True, background
 		
 	xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=u, listitem=liz, isFolder=isFolder)
 
-def GetKeyboardText(title = "", defaultText = ""):
+def GetKeyboardText(title = "Halow", defaultText = "TV"):
 	keyboard = xbmc.Keyboard(defaultText, title)
 	keyboard.doModal()
-	text =  "" if not keyboard.isConfirmed() else keyboard.getText()
+	text =  "LIVE" if not keyboard.isConfirmed() else keyboard.getText()
 	return text
 
 def GetSourceLocation(title, list):
