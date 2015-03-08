@@ -9,7 +9,7 @@ def menu():
     addDir('BVLS 2013','url',2,icon,fanart)
     
 def MKSports():
-    channelurl='http://pushpakglobal.dynns.com/cms/cms/jGlobal.php'
+    channelurl='http://pushworldtv.ddns.net/getJ123.php'
     response=Get_url(channelurl)
     link=json.loads(response)
     for field in link:

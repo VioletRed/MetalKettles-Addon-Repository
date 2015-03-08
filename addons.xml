@@ -273,7 +273,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.mksports" name="MK Sports" version="1.0.2" provider-name="MetalKettle">
+<addon id="plugin.video.mksports" name="MK Sports" version="1.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
