@@ -9,14 +9,15 @@ def menu():
     addDir('BVLS 2013','url',2,icon,fanart)
     
 def MKSports():
-    channelurl='http://pushworldtv.ddns.net/getJ123.php'
+    channelurl='http://www.softmagnate.com/CMS-Server-Pak-Hind-HD/getJson.php'
     response=Get_url(channelurl)
     link=json.loads(response)
     for field in link:
         categoryName= field['categoryName'].encode("utf-8")
         channelLink= field['channelLink'].encode("utf-8")
         channelName=field['channelName'].encode("utf-8")
-        if categoryName == 'Sports' or categoryName == 'Bein Sports' or categoryName == 'OTE Sports' or categoryName == 'Football' or categoryName == 'Cricket World Cup 2015':
+        if categoryName == 'Sports' or categoryName == 'Sports HD' or categoryName == 'Sports Time TV' or categoryName == 'Bein Sports' or categoryName == 'OTE Sports' or categoryName == 'Football' or categoryName == 'Cricket World Cup 2015' or categoryName == 'Sports Full HD':
+
             if not "3pm" in channelName:
                 addLink(channelName,channelLink,100,icon,fanart)
     xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_VIDEO_TITLE)
