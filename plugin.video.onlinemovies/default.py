@@ -84,7 +84,7 @@ def PLAYLINK(name,url,iconimage):
         except:
                 match=re.compile('src="http://videomega.tv/cdn.php?ref=(.+?)&').findall(link)
                 videomega_url = 'http://videomega.tv/?ref='+match[0]
-##RESOLVE##
+##RESOLVE##     
         url = urlparse.urlparse(videomega_url).query
         url = urlparse.parse_qs(url)['ref'][0]
         url = 'http://videomega.tv/cdn.php?ref=%s' % url
@@ -94,11 +94,9 @@ def PLAYLINK(name,url,iconimage):
         req.add_header('Referer', referer)
         response = urllib2.urlopen(req)
         link=response.read()
-        response.close()
-        url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
-        url = urllib.unquote_plus(url)
-        print url
-        stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
+        print link
+        response.close()        
+        stream_url = re.compile('<source src="(.+?)" type="video/mp4"/>').findall(link)[0]      
 ##RESOLVE##
         
         playlist = xbmc.PlayList(1)
