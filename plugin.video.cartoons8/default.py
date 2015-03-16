@@ -1,4 +1,4 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,random,urlparse
+import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os
 from t0mm0.common.addon import Addon
 
 addon_id = 'plugin.video.cartoons8'
