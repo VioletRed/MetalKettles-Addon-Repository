@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id="30000">Login data</string>
+  <string id="30001">Username</string>
+  <string id="30002">Password</string>
+  <string id="30101">New videos</string>
+  <string id="30102">Top videos</string>
+  <string id="30103">My favorites</string>
+  <string id="30104">Category</string>
+  <string id="30105">Search</string>
+  <string id="30201">Select quality</string>
+  <string id="30202">Select player</string>
+  <string id="30301">Next...</string>
+  <string id="30401">Film for registered users</string>
+  <string id="30402">Create account at swefilmer.se.</string>
+  <string id="30403">Enter user credentials in settings.</string>
+  <string id="30501">Login failed</string>
+  <string id="30502">Wrong username or password in settings.</string>
+  <string id="30601">Could not find video</string>
+  <string id="30602">The video might be removed</string>
+  <string id="30700">Quality selection</string>
+  <string id="30701">Manually select</string>
+  <string id="30702">Highest available</string>
+  <string id="30703">Lowest available</string>
+  <string id="30704">Near</string>
+</strings>

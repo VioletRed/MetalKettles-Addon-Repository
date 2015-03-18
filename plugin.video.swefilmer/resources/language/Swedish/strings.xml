@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id="30000">Inloggingsuppgifter</string>
+  <string id="30001">Användarnamn</string>
+  <string id="30002">Lösenord</string>
+  <string id="30101">Nya</string>
+  <string id="30102">Topplista</string>
+  <string id="30103">Mina favoriter</string>
+  <string id="30104">Kategorier</string>
+  <string id="30105">Sök</string>
+  <string id="30201">Välj kvalitet</string>
+  <string id="30202">Välj spelare</string>
+  <string id="30301">Nästa...</string>
+  <string id="30401">Film för registrerade användare</string>
+  <string id="30402">Skapa konto hos swefilmer.se.</string>
+  <string id="30403">Skriv in användaruppgifter i inställningarna.</string>
+  <string id="30501">Inloggning misslyckades</string>
+  <string id="30502">Felaktigt användarnamn eller lösenord i inställningarna.</string>
+  <string id="30601">Hittade inte filmen</string>
+  <string id="30602">Filmen kan vara borttagen</string>
+  <string id="30700">Kvalitetsval</string>
+  <string id="30701">Välj manuellt</string>
+  <string id="30702">Högsta möjliga</string>
+  <string id="30703">Lägsta möjliga</string>
+  <string id="30704">Nära</string>
+</strings>

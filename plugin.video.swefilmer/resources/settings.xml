@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <category label="30000">
+    <setting id="username" type="text" label="30001" default=""/>
+    <setting id="password" type="text" label="30002" default=""/>
+  </category>
+  <category label="30700">
+    <setting id="select_quality" type="enum" label="30700" lvalues="30701|30702|30703|30704" default="0"/>
+    <setting id="quality_pref" type="number" label="30704" default="480" enable="eq(-1,3)"/>
+  </category>
+</settings>
