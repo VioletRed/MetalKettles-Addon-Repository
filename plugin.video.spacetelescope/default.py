@@ -23,7 +23,7 @@ def get_video_list(url):
                 url = videobase + url
                 thumb2 = videobase+thumb
                 name2 = name.replace('&#39;','').replace('&amp;','')
-                addDir(name2,url,3,thumb2,'',fanart)
+                addLink(name2,url,3,thumb2,'',fanart)
         nextpage=re.compile('<span class="paginator_next">&nbsp;<a href="(.+?)">').findall(link)
         for Next_Page in nextpage:
                 url = videobase + Next_Page
@@ -35,9 +35,7 @@ def get_video_list(url):
         
 def PLAYLINK(name,url):
         link = open_url(url)
-        match=re.compile('<a href="(.+?)" rel="shadowbox;width=640;height=360" title=".+?">Medium Flash</a></span>').findall(link)
-        for stream in match:
-              vid_link = videobase + stream  
+        vid_link=re.compile('<a href="(.+?)" rel="shadowbox;width=640;height=360" title=".+?">Medium Flash</a></span>').findall(link)[0]
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png")
@@ -85,13 +83,13 @@ def addDir(name,url,mode,iconimage,description,fanart):
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
         return ok
 
-def addLink(name,url,iconimage,description,fanart):
+def addLink(name,url,mode,iconimage,description,fanart):
+        u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)
         ok=True
-        liz=xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage=iconimage)
-        liz.setInfo( type="Video", infoLabels={ "Title": name, "Plot": description } )
-        liz.setProperty("IsPlayable","true")
-        liz.setProperty("fanart_Image",fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz,isFolder=False)
+        liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=icon)
+        liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
+        liz.setProperty('fanart_image', fanart)
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
         return ok
  
  
