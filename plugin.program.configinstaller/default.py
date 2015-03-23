@@ -6,31 +6,8 @@ icon            = xbmc.translatePath(os.path.join('special://home/addons/' + add
 
 def Index():
     addDir('Install ProZone Config','http://prozone.getxbmc.com/ProConfigs/',0,icon,fanart,'')
+    addDir('Install Community Config (coming soon)','http://prozone.getxbmc.com/CommunityConfigs/',0,icon,fanart,'')
     addDir('Upgrade/Downgrade OpenELEC','url',3,icon,fanart,'')
-    addDir('KodiWorld.com Videos','http://kodiworld.com/m/videos/home/',5,icon,fanart,'')
-
-def Videos(url):
-    try:
-        link = GetUrl(url)
-        match = re.compile('<div class="sys_file_search_pic" style="(.+?)">.+?<div class="sys_file_search_title"><a href="(.+?)" title="(.+?)">.+?</a></div>.+?<div class="sys_file_search_from"><a href=".+?">(.+?)</a></div>',re.DOTALL).findall(link)
-        for img,url,name,poster in match:
-            img = re.compile("background\-image\: url\('(.+?)'\)").findall(img)[0]
-            print img
-            name = name.replace('&amp;','')
-            addLink(name+'[I][COLOR blue]    ('+poster+')[/COLOR][/I]',url,6,img,fanart,'')
-        page = re.compile('class="active_page">(.+?)</div>').findall(link)[0]
-        np = int(page)+1
-        np = str(np)
-        npurl = 'http://kodiworld.com/m/videos/home/&status=approved&ownerStatus=Array&albumType=bx_videos&page='+np+'&per_page=12'
-        addDir("Next Page >>",npurl,5,icon,fanart,'')
-    except:pass
-
-def PlayVideo(url,name):
-    link = GetUrl(url)
-    match = re.compile('<param name="movie" value="http://www.youtube.com/v/(.+?)&').findall(link)[0]
-    playback_url = 'plugin://plugin.video.youtube/?action=play_video&videoid=%s' % match
-    ok=True
-    xbmc.Player ().play(playback_url)
     
 def ConfigList(url):
     link = GetUrl(url)
@@ -48,23 +25,24 @@ def DoUpgrade(url):
     base=url
     link = GetUrl(url)
     match = re.compile('<li><a href="(.+?)"> (.+?)</a></li>').findall(link)
-    print match
-    dir = os.path.dirname('/storage/.update/')
-    shutil.rmtree(dir) 
-    os.makedirs(dir, 0755 )
+    filedir = '/storage/.update/'
+    try:
+        shutil.rmtree(filedir)
+    except: pass
+    os.makedirs(filedir, 0755 )
     for url,name in match:
         if not 'Parent' in name:
             url = base+url
             dp = xbmcgui.DialogProgress()
-            dp.create("ProZone Config Installer","Downloading se;ected OpenELEC build",'', 'Please Wait.....')
-            lib=os.path.join(dir, name)
+            dp.create("ProZone Config Installer","Downloading selected OpenELEC build",'', 'Please Wait.....')
+            lib=os.path.join(filedir, name)
             downloader.download(url, lib, dp)
     dialog = xbmcgui.Dialog() 
     ret = dialog.yesno('ProZone Config Installer', 'Click Continue to complete installation','Click Cancel to abort installation','','Cancel','Continue')
     if ret == 1:xbmc.executebuiltin('Reboot')
     else:
-        shutil.rmtree(dir) 
-        os.makedirs(dir, 0755 )
+        shutil.rmtree(filedir) 
+        os.makedirs(filedir, 0755 )
         xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
 
 def GetFile(url):
@@ -77,19 +55,21 @@ def GetFile(url):
         
 def InstallConfig(name,url):
     if not 'Parent' in name:
-        dir = os.path.dirname('/storage/.restore/')
-        shutil.rmtree(dir) 
-        os.makedirs(dir, 0755 )
+        filedir = '/storage/.restore/'
+        try:
+            shutil.rmtree(filedir)
+        except: pass
+        os.makedirs(filedir, 0755 )
         dp = xbmcgui.DialogProgress()
         dp.create("ProZone Config Installer","Downloading Selected Config",'', 'Please Wait.....')
-        lib=os.path.join(dir, name)
+        lib=os.path.join(filedir, name)
         downloader.download(url, lib, dp)
     dialog = xbmcgui.Dialog() 
     ret = dialog.yesno('ProZone Config Installer', 'Click Continue to complete installation','Click Cancel to abort installation','','Cancel','Continue')
     if ret == 1:xbmc.executebuiltin('Reboot')
     else:
-        shutil.rmtree(dir) 
-        os.makedirs(dir, 0755 )
+        shutil.rmtree(filedir) 
+        os.makedirs(filedir, 0755 )
         xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
 
 def GetUrl(url):
