@@ -67,16 +67,19 @@ def PLAYLINK(name,url,iconimage):
         link = open_url(url)
         match=re.compile('<a href="(.+?)" title=".+?">').findall(link)[2]
         link = open_url(match)
-        stream_url=re.compile('file: "(.+?)"').findall(link)[0]
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
-        listitem.setInfo("Video", {"Title":name})
-        listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
-        playlist.add(stream_url,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
+        if 'my.mail.ru' not in link:
+                notification('Stream Unavailable', 'Stream deleted due to DMCA', '4000', icon)
+        else:
+                stream_url=re.compile('file: "(.+?)"').findall(link)[0]
+                playlist = xbmc.PlayList(1)
+                playlist.clear()
+                listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+                listitem.setInfo("Video", {"Title":name})
+                listitem.setProperty('mimetype', 'video/x-msvideo')
+                listitem.setProperty('IsPlayable', 'true')
+                playlist.add(stream_url,listitem)
+                xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+                xbmcPlayer.play(playlist)
 
 def get_params():
         param=[]
@@ -94,6 +97,9 @@ def get_params():
                         if (len(splitparams))==2:
                                 param[splitparams[0]]=splitparams[1]
         return param
+
+def notification(title, message, ms, nart):
+    xbmc.executebuiltin("XBMC.notification(" + title + "," + message + "," + ms + "," + nart + ")")
 
 def addDir2(name,url,mode,iconimage,description,fanart):
         xbmc.executebuiltin('Container.SetViewMode(50)')
