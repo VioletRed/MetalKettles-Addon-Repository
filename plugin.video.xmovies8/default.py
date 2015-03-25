@@ -14,9 +14,52 @@ metaset = selfAddon.getSetting('enable_meta')
 def CATEGORIES():
         addDir2('Cinema Movies','http://xmovies8.co/tag/hotnew/',1,icon,'',fanart)
         addDir2('New Movies','http://xmovies8.co/author/T9611412/',1,icon,'',fanart)
-        addDir2('HD Movies','http://xmovies8.co/movie-quality/hd/',1,icon,'',fanart)
+        addDir2('Movies By Year','http://xmovies8.co/',2,icon,'',fanart)
+        addDir2('Movies By Genre','http://xmovies8.co/movie-quality/hd/',4,icon,'',fanart)
+        addDir2('Movies By Quality','http://xmovies8.co/',5,icon,'',fanart)
+        addDir2('Search','http://xmovies8.co/movie-quality/hd/',3,icon,'',fanart)     
         xbmc.executebuiltin('Container.SetViewMode(50)')
         
+def GETYEARS(url):
+        link = open_url(url)
+        link=link.replace('\n','').replace('  ','')
+        match=re.compile('href="(.+?)">(.+?)</a></li>').findall(link)
+        addDir2('2015','http://xmovies8.co/category/2015/',1,icon,'',fanart)
+        for url,name in match:              
+                if 'category' in url:addDir2(name,url,1,icon,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(50)')
+                
+def GETGENRES(url):                  
+        link = open_url(url)
+        link=link.replace('\n','').replace('  ','')
+        match=re.compile('<li class="cat-item cat-item-.+?"><a href="(.+?)" >(.+?)</a>').findall(link)
+        for url,name in match:
+                if 'game-show' in name:name = 'Game Show'
+                if 'genre' in url:addDir2(name,url,1,icon,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(50)')
+
+def GETQUALITY(url): 
+        addDir2('CAM','http://xmovies8.co/movie-quality/cam/',1,icon,'',fanart)
+        addDir2('DVD RIP','http://xmovies8.co/movie-quality/dvdrip/',1,icon,'',fanart)
+        addDir2('HD','http://xmovies8.co/movie-quality/hd/',1,icon,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(50)')
+
+def SEARCH():
+    search_entered =''
+    keyboard = xbmc.Keyboard(search_entered, 'Search Xmovies8')
+    keyboard.doModal()
+    if keyboard.isConfirmed():
+        search_entered = keyboard.getText().replace(' ','+')
+    if len(search_entered)>1:
+        url = 'http://xmovies8.co/?s='+ search_entered
+        link = open_url(url)
+        match=re.compile('<h2><a href="(.+?)">(.+?)</a></h2>').findall(link)
+        for url,name in match:
+             addDir(name,url,100,'',len(match))
+        if metaset=='true':
+                setView('movies', 'MAIN')
+        else: xbmc.executebuiltin('Container.SetViewMode(50)')
+     
 def GETMOVIES(url,name):
         link = open_url(url)
         link=link.replace('\n','').replace('  ','')
@@ -176,7 +219,10 @@ print params
 
 if mode==None or url==None or len(url)<1: CATEGORIES()
 elif mode==1: GETMOVIES(url,name)
+elif mode==2: GETYEARS(url)
 elif mode==3: SEARCH()
+elif mode==4: GETGENRES(url)
+elif mode==5: GETQUALITY(url)
 elif mode==100: PLAYLINK(name,url,iconimage)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
