@@ -62,7 +62,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.configinstaller" name="ProZone" version="1.0.3" provider-name="MetalKettle">
+<addon id="plugin.program.configinstaller" name="ProZone" version="1.0.4" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="plugin.video.youtube" version="3.0.0"/>

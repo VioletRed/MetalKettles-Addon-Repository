@@ -6,7 +6,7 @@ icon            = xbmc.translatePath(os.path.join('special://home/addons/' + add
 
 def Index():
     addDir('Install ProZone Config','http://prozone.getxbmc.com/ProConfigs/',0,icon,fanart,'')
-    addDir('Install Community Config (coming soon)','http://prozone.getxbmc.com/CommunityConfigs/',0,icon,fanart,'')
+    addDir('Install Community Configs','http://prozone.getxbmc.com/CommunityConfigs/',7,icon,fanart,'')
     addDir('Upgrade/Downgrade OpenELEC','url',3,icon,fanart,'')
     
 def ConfigList(url):
@@ -15,6 +15,14 @@ def ConfigList(url):
     for url,name in match:
         if not 'Tutorials' in name:
             url = 'http://prozone.getxbmc.com/ProConfigs/'+url
+            addDir(name,url,1,icon,fanart,'')
+            
+def ComConfigList(url):
+    link = GetUrl(url)
+    match = re.compile('<li><a href="(.+?)"> (.+?)/</a></li>').findall(link)
+    for url,name in match:
+        if not 'ftpquota' in name:
+            url = 'http://prozone.getxbmc.com/CommunityConfigs/'+url
             addDir(name,url,1,icon,fanart,'')
 
 def Upgrade(url):
@@ -50,6 +58,7 @@ def GetFile(url):
     match = re.compile('<li><a href="(.+?)"> (.+?)</a></li>').findall(link)
     for purl,name in match:
         if not 'Parent' in name:
+          if not 'ftpquota' in name:
             url=url+purl
             addLink(name,url,2,icon,fanart,'')
         
@@ -136,7 +145,7 @@ elif mode==3:Upgrade(url)
 elif mode==4:DoUpgrade(url)
 elif mode==5:Videos(url)
 elif mode==6:PlayVideo(url,name)
-
+elif mode==7:ComConfigList(url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
