@@ -12,11 +12,11 @@ icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'ico
 metaset = selfAddon.getSetting('enable_meta')
 
 def CATEGORIES():
-        addDir2('Latest Cinema Releases','http://www.moviexk.com/cinema/page/1',1,icon,'',fanart)
-        addDir2('Recently Added','http://www.moviexk.com/new-movies/page/1',1,icon,'',fanart)
-        addDir2('Most Viewed','http://www.moviexk.com/popular-movies/page/1',1,icon,'',fanart)
-        addDir2('HD Movies','http://www.moviexk.com/movies-hd/page/1',1,icon,'',fanart)
-        addDir2('Genres','http://www.moviexk.com',2,icon,'',fanart)      
+        addDir2('Latest Cinema Releases','http://www.moviexk.net/cinema/',1,icon,'',fanart)
+        addDir2('Recently Added','http://www.moviexk.net/new-movies/',1,icon,'',fanart)
+        addDir2('Most Viewed','http://www.moviexk.net/popular-movies/',1,icon,'',fanart)
+        addDir2('HD Movies','http://www.moviexk.net/movies-hd/',1,icon,'',fanart)
+        addDir2('Genres','http://www.moviexk.net',2,icon,'',fanart)      
         addDir2('Search','url',3,icon,'',fanart)
         xbmc.executebuiltin('Container.SetViewMode(50)')
                
@@ -59,7 +59,7 @@ def SEARCH():
     if keyboard.isConfirmed():
         search_entered = keyboard.getText().replace(' ','+')
     if len(search_entered)>1:
-        url = 'http://www.moviexk.com/search/'+ search_entered
+        url = 'http://www.moviexk.net/search/'+ search_entered
         link = open_url(url)
         GETMOVIES(url,name)
 
@@ -67,10 +67,10 @@ def PLAYLINK(name,url,iconimage):
         link = open_url(url)
         match=re.compile('<a href="(.+?)" title=".+?">').findall(link)[2]
         link = open_url(match)
-        if 'my.mail.ru' not in link:
+        stream_url=re.compile('file: "(.+?)"').findall(link)[0]
+        if 'moviexk.srt' in stream_url:
                 notification('Stream Unavailable', 'Stream deleted due to DMCA', '4000', icon)
         else:
-                stream_url=re.compile('file: "(.+?)"').findall(link)[0]
                 playlist = xbmc.PlayList(1)
                 playlist.clear()
                 listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
