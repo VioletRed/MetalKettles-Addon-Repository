@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <strings>
-	<string id="10001">HALOW TV FREE</string>
+	<string id="10001">Add a new list</string>
 	<string id="10002">Select playlist source</string>
-	<string id="10003">Favorite channels</string>
+	<string id="10003">Favorites</string>
 	<string id="10004">List name</string>
 	<string id="10005">List URL</string>
 	<string id="10006">Choose list</string>
@@ -17,6 +17,9 @@
 	<string id="10015">Channel URL</string>
 	<string id="10016">New remote-list</string>
 	<string id="10017">New local-list</string>
+	<string id="10018">Update Program</string>
+	<string id="10019">Update Successful</string>
+	
 	
 	<string id="10101">Halow TV Live Add-on</string>
 	<string id="10102">Halow TV Live Add-on</string>
