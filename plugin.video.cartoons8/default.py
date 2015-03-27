@@ -9,11 +9,11 @@ fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , '
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
 def CATEGORIES():
-        addDir('New Cartoons','http://cartoons8.com/new',1,icon,fanart)
-        addDir('Top Cartoons','http://cartoons8.com/top',1,icon,fanart)
-        addDir('Cartoon Series','http://cartoons8.com/series',1,icon,fanart)
-        addDir('Latest Updates','http://cartoons8.com/latestupdate',4,icon,fanart)
-        addDir('Full Cartoon List','http://cartoons8.com/list',5,icon,fanart)
+        addDir('New Cartoons','http://cartoons8.com/new/page/1',1,icon,fanart)
+        addDir('Top Cartoons','http://cartoons8.com/top/page/1',1,icon,fanart)
+        addDir('Cartoon Series','http://cartoons8.com/series/page/1',1,icon,fanart)
+        addDir('Latest Updates','http://cartoons8.com/latestupdate/page/1',4,icon,fanart)
+        addDir('Full Cartoon List','http://cartoons8.com/list/page/1',5,icon,fanart)
         addDir('Cartoon Genres','http://cartoons8.com',6,icon,fanart)
         addLink('','url','mode',icon,fanart)
         addDir('Search','http://cartoons8.com',8,icon,fanart)
@@ -21,6 +21,10 @@ def CATEGORIES():
         xbmc.executebuiltin('Container.SetViewMode(50)')
         
 def GETMOVIES(url,name):
+        pagenum = url.split('page/')
+        curpage = int(pagenum[1])
+        nextpage = curpage + 1
+        nextpageurl = pagenum[0]+'page/'+str(nextpage)
         link = open_url(url)
         link=link.replace('\n','').replace('  ','')
         match=re.compile('<div class="thumbs"><a href="(.+?)"><img alt=".+?" title="(.+?)" src="(.+?)" /></a></div>').findall(link)
@@ -28,8 +32,7 @@ def GETMOVIES(url,name):
                 name = cleanHex(name)
                 addDir(name,url,2,iconimage,fanart)
         try:
-                np=re.compile('<a class="linkNav" href="(.+?)">&raquo;</a>').findall(link)[0]
-                addDir('Next Page>>',np,1,icon,fanart)
+                addDir('Next Page>>',nextpageurl,1,icon,fanart)
         except: pass
                 
 def GETEPISODES(url,name,iconimage):
@@ -51,14 +54,17 @@ def GETLATEST(url,name):
         if len(match)==1:PLAYLINK(name,url)
 
 def GETFULL(url,name):
+        pagenum = url.split('page/')
+        curpage = int(pagenum[1])
+        nextpage = curpage + 1
+        nextpageurl = pagenum[0]+'page/'+str(nextpage)
         link = open_url(url)
         link=link.replace('\n','').replace('  ','')
         match=re.compile('<a style="float: left" title="" href="(.+?)"> (.+?) </a>').findall(link)
         for url, name in match:
                 addDir(name,url,2,iconimage,fanart)
         try:
-                np=re.compile('<a class="linkNav" href="(.+?)">&raquo;</a>').findall(link)[0]
-                addDir('Next Page>>',np,5,icon,fanart)
+                addDir('Next Page>>',nextpageurl,5,icon,fanart)
         except: pass
 
 def GETGENRES(url):

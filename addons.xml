@@ -156,7 +156,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.cartoons8" name="Cartoons8" version="1.0.2" provider-name="MetalKettle">
+<addon id="plugin.video.cartoons8" name="Cartoons8" version="1.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.t0mm0.common" version="2.0.0"/>
