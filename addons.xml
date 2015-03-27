@@ -378,7 +378,6 @@ http://aaastream.com</description>
     <summary lang="en"></summary>
     <description lang="en"></description>
     <platform>all</platform>
-    <broken>Currently not working. Ill update if I find a solution</broken>
   </extension>
 </addon>
 
@@ -419,7 +418,6 @@ http://aaastream.com</description>
     <summary lang="en"></summary>
     <description lang="en"></description>
     <platform>all</platform>
-    <broken>Currently not working. Ill update if I find a solution</broken>
   </extension>
 </addon>
 
