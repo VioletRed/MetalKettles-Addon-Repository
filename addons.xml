@@ -215,6 +215,7 @@ http://aaastream.com</description>
     <summary lang="en">24-7 Streaming of various tv shows or show types</summary>
     <description lang="en">Some of the streams are poor quality, be warned :)</description>
     <platform>all</platform>
+    <broken>Currently not working. Ill update if I find a solution</broken>
   </extension>
 </addon>
 
@@ -418,6 +419,7 @@ http://aaastream.com</description>
     <summary lang="en"></summary>
     <description lang="en"></description>
     <platform>all</platform>
+    <broken>Currently not working. Ill update if I find a solution</broken>
   </extension>
 </addon>
 
