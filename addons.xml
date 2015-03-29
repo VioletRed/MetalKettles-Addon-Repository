@@ -133,7 +133,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.aswizard" name="..DroidSticks Wizard" version="3.0.0" provider-name="Droidsticks / MetalKettle">
+<addon id="plugin.video.aswizard" name="..DroidSticks Wizard" version="3.0.1" provider-name="Droidsticks / MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.t0mm0.common" version="0.0.1"/>
