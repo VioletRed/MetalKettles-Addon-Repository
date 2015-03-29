@@ -1,3 +1,4 @@
+#code by h@k@M@c
 import urllib, urllib2, os, io, xbmc, xbmcaddon, xbmcgui, json, re,sys
 
 AddonID = 'plugin.video.aaastream'
@@ -93,8 +94,9 @@ def m3u2list(url):
 	else:
 		response = ReadFile(url)
 		
-	response = response.replace('#EXTINF:','#AAASTREAM:')
-	matches=re.compile('^#AAASTREAM:-?[0-9]*(.*?),(.*?)\n(.*?)$',re.I+re.M+re.U+re.S).findall(response)
+	response = response.replace('#AAASTREAM:','#A:')
+	response = response.replace('#EXTINF:','#A:')
+	matches=re.compile('^#A:-?[0-9]*(.*?),(.*?)\n(.*?)$',re.I+re.M+re.U+re.S).findall(response)
 	li = []
 	for params, display_name, url in matches:
 		item_data = {"params": params, "display_name": display_name, "url": url}
