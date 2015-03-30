@@ -7,7 +7,7 @@ icon            = xbmc.translatePath(os.path.join('special://home/addons/' + add
 def Index():
     addDir('Install ProZone Config','http://prozone.getxbmc.com/ProConfigs/',0,icon,fanart,'')
     addDir('Install Community Configs','http://prozone.getxbmc.com/CommunityConfigs/',7,icon,fanart,'')
-    addDir('Upgrade/Downgrade OpenELEC','url',3,icon,fanart,'')
+    addDir('Upgrade/Downgrade OpenELEC','http://prozone.getxbmc.com/Builds%20-%20Update%20or%20Downgrade%20HERE/',3,icon,fanart,'')
     
 def ConfigList(url):
     link = GetUrl(url)
@@ -26,9 +26,13 @@ def ComConfigList(url):
             addDir(name,url,1,icon,fanart,'')
 
 def Upgrade(url):
-    addLink('Update To Kodi','http://prozone.getxbmc.com/Update-To-Kodi/',4,icon,fanart,'')
-    addLink('Revert To Gotham','http://prozone.getxbmc.com/Revert-To-Gotham/',4,icon,fanart,'')
-  
+    link = GetUrl(url)
+    match = re.compile('<li><a href="(.+?)"> (.+?)/</a></li>').findall(link)
+    for url,name in match:
+        if not 'ftpquota' in name:
+            url = 'http://prozone.getxbmc.com/Builds%20-%20Update%20or%20Downgrade%20HERE/'+url
+            addDir(name,url,4,icon,fanart,'')
+ 
 def DoUpgrade(url):
     base=url
     link = GetUrl(url)
@@ -40,6 +44,7 @@ def DoUpgrade(url):
     os.makedirs(filedir, 0755 )
     for url,name in match:
         if not 'Parent' in name:
+          if not 'zip' in url:  
             url = base+url
             dp = xbmcgui.DialogProgress()
             dp.create("ProZone Config Installer","Downloading selected OpenELEC build",'', 'Please Wait.....')
@@ -60,26 +65,28 @@ def GetFile(url):
         if not 'Parent' in name:
           if not 'ftpquota' in name:
             url=url+purl
-            addLink(name,url,2,icon,fanart,'')
+            addDir(name,url,2,icon,fanart,'')
         
 def InstallConfig(name,url):
-    if not 'Parent' in name:
-        filedir = '/storage/.restore/'
-        try:
-            shutil.rmtree(filedir)
-        except: pass
-        os.makedirs(filedir, 0755 )
-        dp = xbmcgui.DialogProgress()
-        dp.create("ProZone Config Installer","Downloading Selected Config",'', 'Please Wait.....')
-        lib=os.path.join(filedir, name)
-        downloader.download(url, lib, dp)
-    dialog = xbmcgui.Dialog() 
-    ret = dialog.yesno('ProZone Config Installer', 'Click Continue to complete installation','Click Cancel to abort installation','','Cancel','Continue')
-    if ret == 1:xbmc.executebuiltin('Reboot')
-    else:
-        shutil.rmtree(filedir) 
-        os.makedirs(filedir, 0755 )
-        xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
+    if 'tar' in url:
+        if not 'Parent' in name:
+            filedir = '/storage/.restore/'
+            try:
+                shutil.rmtree(filedir)
+            except: pass
+            os.makedirs(filedir, 0755 )
+            dp = xbmcgui.DialogProgress()
+            dp.create("ProZone Config Installer","Downloading Selected Config",'', 'Please Wait.....')
+            lib=os.path.join(filedir, name)
+            downloader.download(url, lib, dp)
+        dialog = xbmcgui.Dialog() 
+        ret = dialog.yesno('ProZone Config Installer', 'Click Continue to complete installation','Click Cancel to abort installation','','Cancel','Continue')
+        if ret == 1:xbmc.executebuiltin('Reboot')
+        else:
+            shutil.rmtree(filedir) 
+            os.makedirs(filedir, 0755 )
+            xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
+    else:GetFile(url)
 
 def GetUrl(url):
     req = urllib2.Request(url)
