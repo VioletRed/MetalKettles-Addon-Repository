@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+		<setting id="username" type="text" label="PPV Bay Username" default="" visible="true"/>
+		<setting id="password" type="text"label="PPV Bay Password" default="" visible="true" option="hidden" />
+		<setting label="" type="lsep" />
+</settings>
