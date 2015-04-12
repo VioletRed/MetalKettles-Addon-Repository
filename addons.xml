@@ -130,6 +130,7 @@ http://aaastream.com</summary>
     <description lang="en">AAA Live TV - downloaded for free from:
 http://aaastream.com</description>
     <platform>all</platform>
+    <broken> </broken>
   </extension>
 </addon>
 
@@ -424,7 +425,6 @@ http://aaastream.com</description>
     <summary lang="en"></summary>
     <description lang="en"></description>
     <platform>all</platform>
-    <broken>Currently not working. Ill update if I find a solution</broken>
   </extension>
 </addon>
 

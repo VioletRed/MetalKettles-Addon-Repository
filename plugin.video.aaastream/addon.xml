@@ -24,5 +24,6 @@ http://aaastream.com</summary>
     <description lang="en">AAA Live TV - downloaded for free from:
 http://aaastream.com</description>
     <platform>all</platform>
+    <broken> </broken>
   </extension>
 </addon>
