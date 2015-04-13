@@ -24,6 +24,5 @@ http://aaastream.com</summary>
     <description lang="en">AAA Live TV - downloaded for free from:
 http://aaastream.com</description>
     <platform>all</platform>
-    <broken>Remove AAA from Repo</broken>
   </extension>
 </addon>

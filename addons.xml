@@ -225,7 +225,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.Halow" name="[COLOR red]HALOW [COLOR green] LIVE[/COLOR]" version="4.7" provider-name="Halow">
+<addon id="plugin.video.Halow" name="[COLOR red]HALOW [COLOR green] LIVE[/COLOR]" version="4.8" provider-name="Halow">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.t0mm0.common" version="2.0.0"/>
