@@ -84,29 +84,29 @@ if  not (os.path.isfile(favoritesFile)):
 
 #aaastream New security key U1R1A6P4R9I3C1K 
 def Categories():
-    Version = '[COLOR yellow][B]*FAILED TO CONNECT*[/B][/COLOR]'
-    try: Version = net.http_GET(Raw+'1FkZ9aMD').content
-    except: AddDir("[COLOR red][B] BAD CONNECTION [/B][/COLOR]", "Update" ,98, "http://s5.postimg.org/rru49d087/appgraphic.png")
+    #Version = '[COLOR yellow][B]*FAILED TO CONNECT*[/B][/COLOR]'
+    #try: Version = net.http_GET(Raw+'1FkZ9aMD').content
+    #except: AddDir("[COLOR red][B] BAD CONNECTION [/B][/COLOR]", "Update" ,98, "http://s5.postimg.org/rru49d087/appgraphic.png")
 
-    if Version != aaastreamdate and Version != '[COLOR yellow][B]*FAILED TO CONNECT*[/B][/COLOR]':
-           UpdateMe()
-           xbmc.executebuiltin("UpdateLocalAddons")
+    #if Version != aaastreamdate and Version != '[COLOR yellow][B]*FAILED TO CONNECT*[/B][/COLOR]':
+          # UpdateMe()
+          # xbmc.executebuiltin("UpdateLocalAddons")
 
    
-    AddDir("[COLOR white][B] "+aaastreamversion+" [/B][/COLOR]", "Update" ,98, "http://s5.postimg.org/rru49d087/appgraphic.png")
-    AddDir("[COLOR white][B] UPDATE[/B][/COLOR]", "Update" ,50, "http://s5.postimg.org/pgtpss09z/update.png")
-    AddDir("[COLOR white][B] FAVOURITES[/B][/COLOR]", "favorites" ,30 ,"http://s5.postimg.org/60906955z/favorite.png") 
+    #AddDir("[COLOR white][B] "+aaastreamversion+" [/B][/COLOR]", "Update" ,98, "http://s5.postimg.org/rru49d087/appgraphic.png")
+    #AddDir("[COLOR white][B] UPDATE[/B][/COLOR]", "Update" ,50, "http://s5.postimg.org/pgtpss09z/update.png")
+    #AddDir("[COLOR white][B] FAVOURITES[/B][/COLOR]", "favorites" ,30 ,"http://s5.postimg.org/60906955z/favorite.png") 
     AddDir("[COLOR white][B] TV BOXES[/B][/COLOR]", "suppliers" ,6 ,"http://s5.postimg.org/867wehy07/suppliers.png")
-    AddDir("[COLOR white][B] LIVE STREAMS[/B][/COLOR]", "livestreams" ,6 ,"http://s5.postimg.org/eazertq3r/live_streams.png")
-    AddDir("[COLOR white][B] LIVE SPORT[/B][/COLOR]", "livesport" ,6 ,"http://s5.postimg.org/jawuzrvqf/sport.png")
-    AddDir("[COLOR white][B] GRANDSTAND[/B][/COLOR]", "grandstandindex" ,6 ,"http://s5.postimg.org/3tbp8heg7/replays.png")    
-    AddDir("[COLOR white][B] MOVIES[/B][/COLOR]",'indexmovies',6 ,"http://s5.postimg.org/ltik0ghgn/movies.png")
-    AddDir("[COLOR white][B] TV SHOWS[/B][/COLOR]",'TV',45 ,"http://s5.postimg.org/fh3eqmeef/image.png") 	
-    AddDir("[COLOR white][B] MUSIC[/B][/COLOR]", "Music" ,101 ,"http://s5.postimg.org/asoby6n3b/music.png")
-    AddDir('[COLOR white][B] Kidz Corner[/B][/COLOR]','indexkidz', 6,"http://s5.postimg.org/cafukol0n/kidzcorner.png")
-    AddDir("[COLOR white][B] NEWSLETTER[/B][/COLOR]", "newsletter" ,4 ,"http://s5.postimg.org/mmv5t2nhj/newsletter.png")
-    AddDir("[COLOR white][B] SUPPORT[/B][/COLOR]", "support" ,6 ,"http://s5.postimg.org/cbit0evs7/support.png")
-    AddDir("[COLOR white][B] CLICK ME[/B][/COLOR]", "https://www.youtube.com/watch?v=MwXEx0KK0M0" ,46, "http://s5.postimg.org/7hz1vjzaf/facebook.png",isFolder=False)
+    #AddDir("[COLOR white][B] LIVE STREAMS[/B][/COLOR]", "livestreams" ,6 ,"http://s5.postimg.org/eazertq3r/live_streams.png")
+    #AddDir("[COLOR white][B] LIVE SPORT[/B][/COLOR]", "livesport" ,6 ,"http://s5.postimg.org/jawuzrvqf/sport.png")
+    #AddDir("[COLOR white][B] GRANDSTAND[/B][/COLOR]", "grandstandindex" ,6 ,"http://s5.postimg.org/3tbp8heg7/replays.png")    
+    #AddDir("[COLOR white][B] MOVIES[/B][/COLOR]",'indexmovies',6 ,"http://s5.postimg.org/ltik0ghgn/movies.png")
+    #AddDir("[COLOR white][B] TV SHOWS[/B][/COLOR]",'TV',45 ,"http://s5.postimg.org/fh3eqmeef/image.png") 	
+    #AddDir("[COLOR white][B] MUSIC[/B][/COLOR]", "Music" ,101 ,"http://s5.postimg.org/asoby6n3b/music.png")
+    #AddDir('[COLOR white][B] Kidz Corner[/B][/COLOR]','indexkidz', 6,"http://s5.postimg.org/cafukol0n/kidzcorner.png")
+    ##AddDir("[COLOR white][B] NEWSLETTER[/B][/COLOR]", "newsletter" ,4 ,"http://s5.postimg.org/mmv5t2nhj/newsletter.png")
+    #AddDir("[COLOR white][B] SUPPORT[/B][/COLOR]", "support" ,6 ,"http://s5.postimg.org/cbit0evs7/support.png")
+    #AddDir("[COLOR white][B] CLICK ME[/B][/COLOR]", "https://www.youtube.com/watch?v=MwXEx0KK0M0" ,46, "http://s5.postimg.org/7hz1vjzaf/facebook.png",isFolder=False)
    
     xbmc.executebuiltin("Container.SetViewMode(500)") 
     

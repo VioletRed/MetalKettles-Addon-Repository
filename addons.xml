@@ -105,7 +105,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.9.3beta" provider-name="AAA">
+<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.9.31" provider-name="AAA">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.t0mm0.common" version="2.0.0"/>
@@ -130,7 +130,6 @@ http://aaastream.com</summary>
     <description lang="en">AAA Live TV - downloaded for free from:
 http://aaastream.com</description>
     <platform>all</platform>
-    <broken>Remove AAA from Repo</broken>
   </extension>
 </addon>
 
@@ -225,7 +224,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.Halow" name="[COLOR red]HALOW [COLOR green] LIVE[/COLOR]" version="4.7" provider-name="Halow">
+<addon id="plugin.video.Halow" name="[COLOR red]HALOW [COLOR green] LIVE[/COLOR]" version="4.8" provider-name="Halow">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.t0mm0.common" version="2.0.0"/>
@@ -335,26 +334,6 @@ http://aaastream.com</description>
 <addon id="plugin.video.mksports" name="MK Sports" version="1.0.4" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en"></summary>
-    <description lang="en"></description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.movienight" name="Movie Night" version="1.0.0" provider-name="MetalKettle">
-  <requires>
-    <import addon="script.module.simplejson" version="3.3.0"/>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.t0mm0.common" version="2.0.0"/>
-    <import addon="plugin.video.youtube" version="3.0.0"/>
-    <import addon="script.module.urlresolver"  version="2.1.2"/>
-    <import addon="script.common.plugin.cache" version="2.5.2"/>
-    <import addon="script.module.metahandler" version="2.5.1"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>

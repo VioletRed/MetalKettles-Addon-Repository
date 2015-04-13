@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.9.3beta" provider-name="AAA">
+<addon id="plugin.video.aaastream" name=".[COLOR blue]AAA Live TV[/COLOR]" version="1.9.31" provider-name="AAA">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.t0mm0.common" version="2.0.0"/>
@@ -24,6 +24,5 @@ http://aaastream.com</summary>
     <description lang="en">AAA Live TV - downloaded for free from:
 http://aaastream.com</description>
     <platform>all</platform>
-    <broken>Remove AAA from Repo</broken>
   </extension>
 </addon>

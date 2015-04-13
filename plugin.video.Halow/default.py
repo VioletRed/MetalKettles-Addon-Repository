@@ -102,11 +102,11 @@ def Categories():
     AddDir("[COLOR green][B]GREECE LIVE TV[/B][/COLOR]", Raw+"96mMhK4s" ,4 ,"http://www.iconarchive.com/download/i65868/hopstarter/flag-borderless/Greece.ico")
     AddDir("[COLOR green][B]Italia LIVE TV[/B][/COLOR]", Raw+"zyF70nW2" ,4 ,"http://www.iconarchive.com/download/i65883/hopstarter/flag-borderless/Italy.ico")
     AddDir("[COLOR green]Espana LIVE TV[B][/B][/COLOR]", Raw+"bz1aT8vi" ,4 ,"http://www.iconarchive.com/download/i65933/hopstarter/flag-borderless/Spain.ico")
+    AddDir("[COLOR green][B]Latino America LIVE TV[/B][/COLOR]", Raw+"7eqeuVkJ" ,4 ,"http://www.allpago.com/wp-content/uploads/2014/10/Brazil-icon1.png")
     AddDir("[COLOR green][B]Serbian LIVE TV[/B][/COLOR]", Raw+"GzdWMNgg" ,4 ,"http://www.fancyicons.com/free-icons/103/flags/png/256/serbia_flag_256.png")
     AddDir("[COLOR green][B]Albanian LIVE TV[/B][/COLOR]", Raw+"UHLrrvuE" ,4 ,"http://static1.worldcrunch.com/images/flags/Albania.png")
     AddDir("[COLOR green][B]Bosnien LIVE TV[/B][/COLOR]", Raw+"h7Vs46Qi" ,4 ,"http://static1.menstream.pl/i/mundial2014/flagi/bosnia-i-hercegowina.png")
     AddDir("[COLOR green][B]Russia LIVE TV[/B][/COLOR]", Raw+"hVGLQv0m" ,4 ,"http://www.iconarchive.com/download/i65923/hopstarter/flag-borderless/Russia.ico")
-    AddDir("[COLOR green][B]Latino America LIVE TV[/B][/COLOR]", Raw+"7eqeuVkJ" ,4 ,"http://www.allpago.com/wp-content/uploads/2014/10/Brazil-icon1.png")
     AddDir("[COLOR green][B]French LIVE TV[/B][/COLOR]", Raw+"bc4QF6en" ,4 ,"http://www.iconarchive.com/download/i65864/hopstarter/flag-borderless/France.ico")
     AddDir("[COLOR green][B]Ukraine LIVE TV[/B][/COLOR]", Raw+"RT9XrXys" ,4 ,"http://icons.iconarchive.com/icons/iconscity/flags/256/ukraine-icon.png")
     AddDir("[COLOR green][B]Pakistan LIVE TV[/B][/COLOR]", Raw+"08q2MN09" ,4 ,"http://img.freeflagicons.com/thumb/round_icon/pakistan/pakistan_640.png")
@@ -121,8 +121,24 @@ def Categories():
     AddDir("[COLOR green][B]Austria LIVE TV[/B][/COLOR]", Raw+"CQfMR62W" ,4 ,"http://www.iconarchive.com/download/i65836/hopstarter/flag-borderless/Austria.ico")
     AddDir("[COLOR green][B]Holland LIVE TV[/B][/COLOR]", Raw+"NPen5ZCV" ,4 ,"http://images.mystockphoto.com/files/premium/thumbs/150/netherlands-3d-button-on-white-background_150145484.jpg")
     AddDir("[COLOR green][B]Poland LIVE TV[/B][/COLOR]", Raw+"PwGujQHR" ,4 ,"http://www.country-dialing-codes.net/img/png-country-4x2-fancy-res-1280x960/pl.png")
+    AddDir("[COLOR green][B]SOMALI LIVE TV[/B][/COLOR]", Raw+"Z6NpggZ0" ,4 ,"http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/256/Somalia-Flag-icon.png")
+    AddDir("[COLOR green][B]Bulgarian LIVE TV[/B][/COLOR]", Raw+"JZEWDxHh" ,4 ,"http://www.veryicon.com/icon/png/Flag/Rounded%20World%20Flags/Bulgaria%20Flag.png")
+    AddDir("[COLOR green][B]world LIVE TV[/B][/COLOR]", Raw+"y8iNNZJS" ,4 ,"http://findicons.com/files/icons/662/preview/world_flag_full.png")
+    AddDir("[COLOR green][B]Poland LIVE TV[/B][/COLOR]", Raw+"xeyTWEjc" ,4 ,"https://cdn2.iconfinder.com/data/icons/world-flag-icons/256/Flag_of_Poland.png")
+    AddDir("[COLOR green][B]CHILE LIVE TV[/B][/COLOR]", Raw+"heRxPkem" ,4 ,"http://icons.iconarchive.com/icons/iconscity/flags/256/chile-icon.png")
+    AddDir("[COLOR green][B]COSTA RICA LIVE TV[/B][/COLOR]", Raw+"fnnC6LWW" ,4 ,"http://img.freeflagicons.com/thumb/round_icon/costa_rica/costa_rica_640.png")
+    AddDir("[COLOR green][B]MEXICO LIVE TV[/B][/COLOR]", Raw+"WNty2W1s" ,4 ,"http://icons.iconarchive.com/icons/hopstarter/flag/256/Mexico-icon.png")
+    AddDir("[COLOR green][B]COLOMBIA LIVE TV[/B][/COLOR]", Raw+"8wqHrZEV" ,4 ,"http://img.freeflagicons.com/thumb/glossy_square_icon/colombia/colombia_640.png")
+    AddDir("[COLOR green][B]ARGENTINA LIVE TV[/B][/COLOR]", Raw+"SfJupvk8" ,4 ,"http://img.freeflagicons.com/thumb/glossy_square_icon/argentina/argentina_640.png")
+    AddDir("[COLOR green][B]Trinidad LIVE TV[/B][/COLOR]", Raw+"tSR1LCKA" ,4 ,"http://icons.iconseeker.com/png/fullsize/rounded-world-flags/trinidad-and-tobago-flag.png")
+    AddDir("[COLOR green][B]GHANA LIVE TV[/B][/COLOR]", Raw+"37qch7SJ" ,4 ,"http://www.fancyicons.com/free-icons/103/flags/png/256/ghana_flag_256.png")
+    AddDir("[COLOR green][B]Ireland LIVE TV[/B][/COLOR]", Raw+"Er6tEtp9" ,4 ,"http://icons.iconarchive.com/icons/hopstarter/flag/256/Ireland-icon.png")
+    AddDir("[COLOR green][B]Canada LIVE TV[/B][/COLOR]", Raw+"H48aVN7Z" ,4 ,"http://icons.iconarchive.com/icons/custom-icon-design/flag-2/256/Canada-Flag-icon.png")
+    AddDir("[COLOR green][B]Chinia LIVE TV[/B][/COLOR]", Raw+"yw4yLJMm" ,4 ,"http://icons.iconarchive.com/icons/custom-icon-design/flag-2/256/China-Flag-icon.png")
+    AddDir("[COLOR green][B]Webcams  LIVE TV[/B][/COLOR]", Raw+"3QsyXVHa" ,4 ,"http://www.mhub.tv/wp-content/uploads/2013/12/webcam.png")
 
-    xbmc.executebuiltin("Container.SetViewMode(20)") 
+
+    xbmc.executebuiltin('Container.SetViewMode(25)') 
    
 
 def MOVIES():
