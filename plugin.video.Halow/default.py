@@ -85,6 +85,7 @@ def Categories():
 
            
     AddDir("[COLOR red][B]ALL MOVIES[/B][/COLOR]",'movies',44 ,"http://tooply.com/photo/item/570/6705854011001.jpg")
+    AddDir("[COLOR red][B]TV Series[/B][/COLOR]",'TV',45 ,"http://fc09.deviantart.net/fs70/i/2013/002/d/a/tv_series_folder_icons_pack_2_by_atti12-d5q5h7z.png") 	
     AddDir("[COLOR blue][B]Football Replays[/B][/COLOR]", "REPLAYS" ,150 ,"http://3.bp.blogspot.com/-a3BcIcfxTTw/VO7-K7t9tgI/AAAAAAAAKdA/_yDy5iOo7sE/s1600/FOOTBALL%2BREPLAYS.PNG")    
     AddDir("[COLOR green][B]Live Football today[/B][/COLOR]", Raw+"CzHx9fYM" ,4 ,"http://www.bestappspoint.com/wp-content/uploads/2012/02/epl-live.jpg")
     AddDir("[COLOR green][B]SPORT  LIVE TV[/B][/COLOR]", Raw+"MqqxxXaT" ,4 ,"http://themetoday.com/wp-content/uploads/2010/01/Various-Sport_Icons.jpg")
@@ -102,11 +103,11 @@ def Categories():
     AddDir("[COLOR green][B]GREECE LIVE TV[/B][/COLOR]", Raw+"96mMhK4s" ,4 ,"http://www.iconarchive.com/download/i65868/hopstarter/flag-borderless/Greece.ico")
     AddDir("[COLOR green][B]Italia LIVE TV[/B][/COLOR]", Raw+"zyF70nW2" ,4 ,"http://www.iconarchive.com/download/i65883/hopstarter/flag-borderless/Italy.ico")
     AddDir("[COLOR green]Espana LIVE TV[B][/B][/COLOR]", Raw+"bz1aT8vi" ,4 ,"http://www.iconarchive.com/download/i65933/hopstarter/flag-borderless/Spain.ico")
-    AddDir("[COLOR green][B]Latino America LIVE TV[/B][/COLOR]", Raw+"7eqeuVkJ" ,4 ,"http://www.allpago.com/wp-content/uploads/2014/10/Brazil-icon1.png")
     AddDir("[COLOR green][B]Serbian LIVE TV[/B][/COLOR]", Raw+"GzdWMNgg" ,4 ,"http://www.fancyicons.com/free-icons/103/flags/png/256/serbia_flag_256.png")
     AddDir("[COLOR green][B]Albanian LIVE TV[/B][/COLOR]", Raw+"UHLrrvuE" ,4 ,"http://static1.worldcrunch.com/images/flags/Albania.png")
     AddDir("[COLOR green][B]Bosnien LIVE TV[/B][/COLOR]", Raw+"h7Vs46Qi" ,4 ,"http://static1.menstream.pl/i/mundial2014/flagi/bosnia-i-hercegowina.png")
     AddDir("[COLOR green][B]Russia LIVE TV[/B][/COLOR]", Raw+"hVGLQv0m" ,4 ,"http://www.iconarchive.com/download/i65923/hopstarter/flag-borderless/Russia.ico")
+    AddDir("[COLOR green][B]Latino America LIVE TV[/B][/COLOR]", Raw+"7eqeuVkJ" ,4 ,"http://www.allpago.com/wp-content/uploads/2014/10/Brazil-icon1.png")
     AddDir("[COLOR green][B]French LIVE TV[/B][/COLOR]", Raw+"bc4QF6en" ,4 ,"http://www.iconarchive.com/download/i65864/hopstarter/flag-borderless/France.ico")
     AddDir("[COLOR green][B]Ukraine LIVE TV[/B][/COLOR]", Raw+"RT9XrXys" ,4 ,"http://icons.iconarchive.com/icons/iconscity/flags/256/ukraine-icon.png")
     AddDir("[COLOR green][B]Pakistan LIVE TV[/B][/COLOR]", Raw+"08q2MN09" ,4 ,"http://img.freeflagicons.com/thumb/round_icon/pakistan/pakistan_640.png")
@@ -136,26 +137,25 @@ def Categories():
     AddDir("[COLOR green][B]Canada LIVE TV[/B][/COLOR]", Raw+"H48aVN7Z" ,4 ,"http://icons.iconarchive.com/icons/custom-icon-design/flag-2/256/Canada-Flag-icon.png")
     AddDir("[COLOR green][B]Chinia LIVE TV[/B][/COLOR]", Raw+"yw4yLJMm" ,4 ,"http://icons.iconarchive.com/icons/custom-icon-design/flag-2/256/China-Flag-icon.png")
     AddDir("[COLOR green][B]Webcams  LIVE TV[/B][/COLOR]", Raw+"3QsyXVHa" ,4 ,"http://www.mhub.tv/wp-content/uploads/2013/12/webcam.png")
-
-
-    xbmc.executebuiltin('Container.SetViewMode(25)') 
+    xbmc.executebuiltin("Container.SetViewMode(20)") 
    
 
 def MOVIES():
-        AddDir('[COLOR white][B]Featured[/B][/COLOR]',custurl1+'featured-movies/',52,"http://www.mrcolionnoir.com/wp-content/uploads/2013/08/Featured.png")
-        AddDir('[COLOR white][B]New Releases[/B][/COLOR]',custurl1+'new-releases/',52,"http://www.presentation-process.com/images/New-icon.gif")
-        AddDir('[COLOR white][B]Latest Added[/B][/COLOR]',custurl1+'latest-added/',52,"http://comps.canstockphoto.com/can-stock-photo_csp16348546.jpg")
-        AddDir('[COLOR white][B]HD[/B][/COLOR]',custurl1+'latest-hd-movies/',52,"http://s5.postimg.org/pwa1iwsiv/image.png")
-        AddDir('[COLOR white][B]Most Viewed[/B][/COLOR]',custurl1+'most-viewed/',52,"https://www.colourbox.com/preview/10743341-most-viewed-sign-icon-most-watched-symbol.jpg")
-        AddDir('[COLOR white][B]Search[/B][/COLOR]',custurl1+'most-viewed/',79,"http://c.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/movie_search.png")
-        AddDir('[COLOR white][B]TRAILERS[/B][/COLOR]','movieclipsTRAILERS',11,"http://i292.photobucket.com/albums/mm16/kiwijunglist/category/th_Trailers.png")
+        AddDir('[COLOR yellow][B]Featured[/B][/COLOR]',custurl1+'featured-movies/',52,"http://www.mrcolionnoir.com/wp-content/uploads/2013/08/Featured.png")
+        AddDir('[COLOR yellow][B]New Releases[/B][/COLOR]',custurl1+'new-releases/',52,"http://www.presentation-process.com/images/New-icon.gif")
+        AddDir('[COLOR yellow][B]Latest Added[/B][/COLOR]',custurl1+'latest-added/',52,"http://comps.canstockphoto.com/can-stock-photo_csp16348546.jpg")
+        AddDir('[COLOR yellow][B]HD[/B][/COLOR]',custurl1+'latest-hd-movies/',52,"http://s5.postimg.org/pwa1iwsiv/image.png")
+        AddDir('[COLOR yellow][B]Most Viewed[/B][/COLOR]',custurl1+'most-viewed/',52,"https://www.colourbox.com/preview/10743341-most-viewed-sign-icon-most-watched-symbol.jpg")
+        AddDir('[COLOR yellow][B]Search[/B][/COLOR]',custurl1+'most-viewed/',79,"http://c.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/movie_search.png")
+        AddDir('[COLOR yellow][B]TRAILERS[/B][/COLOR]','movieclipsTRAILERS',11,"http://i292.photobucket.com/albums/mm16/kiwijunglist/category/th_Trailers.png")
+        AddDir("[COLOR yellow][B]Cartoon [/B][/COLOR]", Raw+"a44ww8ni" ,4 ,"http://forums.windowscentral.com/attachments/app-spotlight/61347d1396600938t-tomjerry_icon.png")
         xbmc.executebuiltin("Container.SetViewMode(500)") 
         
 def TV():
-        AddDir('[COLOR white]Newest Episodes [/COLOR]',custurltv+'new-episodes/',77,'http://s5.postimg.org/xsuir53zb/new.png')
-        AddDir('[COLOR white]Latest Added[/COLOR]',custurltv+'latest-added/',75,'http://s5.postimg.org/5rghdfyp3/latest_added.png')
-        AddDir('[COLOR white]Search[/COLOR]',custurltv,78,'http://s5.postimg.org/rhpbaq2qv/search.png')
-        AddDir('[COLOR white]A-Z[/COLOR]',custurltv+'tv-listings/0-9',82,'http://s5.postimg.org/t19z1a4x3/tvshows.jpg')
+        AddDir('[COLOR red]Newest Episodes [/COLOR]',custurltv+'new-episodes/',77,'http://www.allchilliwackrealestate.com/wp-content/uploads/2014/04/new_icon.jpg')
+        AddDir('[COLOR red]Latest Added[/COLOR]',custurltv+'latest-added/',75,'http://blog.bansaltestprep.com/wp-content/uploads/2012/09/latest_icon_2_by_tiennythe-d2zo547.jpg')
+        AddDir('[COLOR red]Search[/COLOR]',custurltv,78,'http://www.tutorialsscripts.com/free-icons/search-icons/purple-search-icon-256-x-256.jpg')
+        AddDir('[COLOR red]A-Z[/COLOR]',custurltv+'tv-listings/0-9',82,'http://cdn.marketplaceimages.windowsphone.com/v8/images/fa2d07e9-3132-4cb7-867a-cf69f1294793?imageType=ws_icon_large')
   		
         GenresPage = net.http_GET(custurltv+'genres/action').content
         GenresPage = GenresPage.encode('ascii', 'ignore').decode('ascii')
@@ -166,18 +166,18 @@ def TV():
 		
         for url,name in match:
                 name = CLEAN(name)
-                AddDir('[COLOR white]'+name+'[/COLOR]',custurltv+url,83,"http://www.iconarchive.com/download/i14263/hydrattz/multipurpose-alphabet/Letter-"+name[:1]+"-black.ico")
+                AddDir('[COLOR red]'+name+'[/COLOR]',custurltv+url,83,"http://www.iconarchive.com/download/i14263/hydrattz/multipurpose-alphabet/Letter-"+name[:1]+"-red.ico")
 
-        xbmc.executebuiltin("Container.SetViewMode(500)")
+        xbmc.executebuiltin("Container.SetViewMode(50)")
 		
 def REPLAYS():
         custurlreplay = str(base64.decodestring(LocalisedReplay))
-        AddDir("[COLOR Pink][B]Full Matches[/B][/COLOR]",custurlreplay+'fullmatch',151 ,"http://livefootballvideo.com/images/xlivefootballvideologo.png.pagespeed.ic.3kxaAupa3O.png")
-        AddDir("[COLOR Pink][B]Highlights[/B][/COLOR]", Raw+"2BnErJa1",155 ,"http://livefootballvideo.com/images/xlivefootballvideologo.png.pagespeed.ic.3kxaAupa3O.png")
-        AddDir('[COLOR Pink][B]Search[/B][/COLOR]','search',154,"http://thumbs.dreamstime.com/x/green-3d-search-icon-7724318.jpg")
-        AddDir("[COLOR Pink][B]FOOTBALL TEAMS[/B][/COLOR]", "7FpJGU86", 7 ,"http://forzafutbol.com/wp-content/uploads/2011/08/Primera-La-Liga-clubs-logos-fixtures-El-classico-2011-2012.jpeg")
-        AddDir("[COLOR Pink][B]UFC HD[/B][/COLOR]", "http://watchwrestling.ch/category/ufc/", 9 ,"http://fc04.deviantart.net/fs71/f/2011/287/2/b/icon_ufc__by_evgeniysi-d4csp8a.png")
-        AddDir("[COLOR Pink][B]WWE HD[/B][/COLOR]", "http://watchwrestling.ch/category/wwe/ppv/", 9 ,"http://media.wrestlenewz.com/wp-content/uploads/2014/09/wwe-logo1-750x340-1412163784.jpg")
+        AddDir("[COLOR yellow][B]Full Matches[/B][/COLOR]",custurlreplay+'fullmatch',151 ,"http://livefootballvideo.com/images/xlivefootballvideologo.png.pagespeed.ic.3kxaAupa3O.png")
+        AddDir("[COLOR yellow][B]Highlights[/B][/COLOR]", Raw+"2BnErJa1",155 ,"http://livefootballvideo.com/images/xlivefootballvideologo.png.pagespeed.ic.3kxaAupa3O.png")
+        AddDir('[COLOR yellow][B]Search[/B][/COLOR]','search',154,"http://thumbs.dreamstime.com/x/green-3d-search-icon-7724318.jpg")
+        AddDir("[COLOR yellow][B]FOOTBALL TEAMS[/B][/COLOR]", "7FpJGU86", 7 ,"http://forzafutbol.com/wp-content/uploads/2011/08/Primera-La-Liga-clubs-logos-fixtures-El-classico-2011-2012.jpeg")
+        AddDir("[COLOR yellow][B]UFC HD[/B][/COLOR]", "http://watchwrestling.ch/category/ufc/", 9 ,"http://fc04.deviantart.net/fs71/f/2011/287/2/b/icon_ufc__by_evgeniysi-d4csp8a.png")
+        AddDir("[COLOR yellow][B]WWE HD[/B][/COLOR]", "http://watchwrestling.ch/category/wwe/ppv/", 9 ,"http://media.wrestlenewz.com/wp-content/uploads/2014/09/wwe-logo1-750x340-1412163784.jpg")
 		
         xbmc.executebuiltin("Container.SetViewMode(500)")
 
@@ -616,9 +616,9 @@ def getStreamUrl(id):
 def video_artists(name,url):
     alphabet =  ['0-9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U','V', 'W', 'X', 'Y', 'Z']
     for a in alphabet:
-        MusicAddDir(a,url+a.lower(),106,"http://www.iconarchive.com/download/i14263/hydrattz/multipurpose-alphabet/Letter-"+a.upper()+"-black.ico",'1')
+        MusicAddDir(a,url+a.lower(),106,"http://www.iconarchive.com/download/i14263/hydrattz/multipurpose-alphabet/Letter-"+a.upper()+"-red.ico",'1')
     
-    xbmc.executebuiltin("Container.SetViewMode(500)")
+    xbmc.executebuiltin("Container.SetViewMode(50)")
 	
 def Get_video_artists_AZ(name,url):
     link = net.http_GET(url).content
