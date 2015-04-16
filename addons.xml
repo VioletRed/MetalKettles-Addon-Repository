@@ -536,6 +536,20 @@ http://www.husham.com</summary>
   </extension>
 </addon>
 
+<addon id="plugin.video.ukturk" name="UK Turk Live Streams" version="1.0.0" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Free Sports Streams courtesy of @uk_turk</summary>
+    <description lang="en">Free Sports Streams courtesy of @uk_turk</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.xmovies8" name="XMovies8" version="1.0.5" provider-name="MetalKettle">
   <requires>
     <import addon="script.module.simplejson" version="3.3.0"/>
