@@ -96,30 +96,30 @@ def PLAYLINK(name,url,iconimage):
                 match=re.compile("hashkey=(.+?)'>").findall(link)
         if (len(match) > 0):
                 hashurl="http://videomega.tv/validatehash.php?hashkey="+ match[0]
-                req = urllib2.Request(hashurl,None)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+                req = urllib2.Request(hashurl)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
                 req.add_header('Referer', url)
                 response = urllib2.urlopen(req)
                 link=response.read()
                 response.close()
                 match=re.compile('var ref="(.+?)"').findall(link)[0]
+                print match
                 videomega_url = 'http://videomega.tv/?ref='+match 
         else:
                 match=re.compile("javascript'\>ref='(.+?)'").findall(link)[0]
                 videomega_url = "http://videomega.tv/?ref=" + match
                 
 ##RESOLVE##     
-        url = urlparse.urlparse(videomega_url).query
-        url = urlparse.parse_qs(url)['ref'][0]
-        url = 'http://videomega.tv/cdn.php?ref=%s' % url
+        url = 'http://videomega.tv/cdn.php?ref=%s' % match
         referer = videomega_url
-        req = urllib2.Request(url,None)
+        req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         req.add_header('Referer', referer)
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()        
-        stream_url = re.compile('<source src="(.+?)" type="video/mp4"/>').findall(link)[0]      
+        stream_url = re.compile('<source src="(.+?)" type="video/mp4"/>').findall(link)[0]
+        stream_url = stream_url + '|User-Agent: Mozilla/5.0 (Linux; U; Android 4.1.2; en-gb; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
 ##RESOLVE##
         
         playlist = xbmc.PlayList(1)
@@ -127,7 +127,6 @@ def PLAYLINK(name,url,iconimage):
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
         listitem.setInfo("Video", {"Title":name})
         listitem.setProperty('mimetype', 'video/x-msvideo')
-        listitem.setProperty('IsPlayable', 'true')
         playlist.add(stream_url,listitem)
         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
         xbmcPlayer.play(playlist)
