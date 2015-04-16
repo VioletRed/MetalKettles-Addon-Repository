@@ -51,37 +51,32 @@ def GETMOVIESCATS(url,name):
 
 def PLAYLINK(name,url):
         req = urllib2.Request(url)
-        print 'here'
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('src="http://videomega.tv/validatehash.php\?hashkey=(.+?)"').findall(link)[0]
-        videomega_id_url = "http://videomega.tv/validatehash.php?hashkey="+ match
-        req = urllib2.Request(videomega_id_url)
+        match=re.compile('hashkey=(.+?)">').findall(link)
+        hashurl="http://videomega.tv/validatehash.php?hashkey="+ match[0]
+        req = urllib2.Request(hashurl)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         req.add_header('Referer', url)
-
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('var ref="(.+?)";').findall(link)
-        vididresolved = match[0]
-        videomega_url = 'http://videomega.tv/?ref='+vididresolved
+        match=re.compile('var ref="(.+?)"').findall(link)[0]
+        videomega_url = 'http://videomega.tv/?ref='+match
 
 ##RESOLVE##     
-        url = urlparse.urlparse(videomega_url).query
-        url = urlparse.parse_qs(url)['ref'][0]
-        url = 'http://videomega.tv/cdn.php?ref=%s' % url
+        url = 'http://videomega.tv/cdn.php?ref=%s' % match
         referer = videomega_url
-        req = urllib2.Request(url,None)
+        req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         req.add_header('Referer', referer)
         response = urllib2.urlopen(req)
         link=response.read()
-        print link
         response.close()        
-        stream_url = re.compile('<source src="(.+?)" type="video/mp4"/>').findall(link)[0]      
+        stream_url = re.compile('<source src="(.+?)" type="video/mp4"/>').findall(link)[0]
+        stream_url = stream_url + '|User-Agent: Mozilla/5.0 (Linux; U; Android 4.1.2; en-gb; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
 ##RESOLVE##
 
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
