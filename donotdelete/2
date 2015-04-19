@@ -1,4 +1,4 @@
-#A:-1,Sky Sports 1 HD
+#A:-1,Sky Sports 1 HDx
 rtmp://5.79.75.215:2195/live4/channel14a playpath=channel14a swfUrl=http://supremecater.com/player/src.swf token=gMEqjB9e8MtQjeu  pageurl=http://www.plus1hd.com/forums/live_stream.php?cid=5&nid=e3 live=true timeout=10
 
 #A:-1,Sky Sports 1 (Updated 10.04.15)
@@ -44,8 +44,14 @@ rtmp://31.220.0.195:80/live playpath=sno swfUrl=http://p.jwpcdn.com/6/11/jwplaye
 #A:-1,TSN 1 (Shows Premier League) 
 http://ams-lp5.9c9media.com/hls-live/livepkgr/_definst_/liveeventNoDRM/tsnOpen8.m3u8
 
+#A:-1,TSN 1 SD (Alternative)
+rtmp://178.18.31.65:443/liverepeater/ playpath=191783 token=#atd%#$ZH swfUrl=http://static.surk.tv/atdedead.swf live=1 pageUrl=http://biggestplayer.me/UKTurk
+
 #A:-1,TSN 2 (Shows Premier League) 
 rtmp://31.220.0.195:80/live/ playpath=tsnx2 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://reytv.co
+
+#A:-1,TSN 2 SD (Alternative)
+rtmp://178.18.31.56:443/liverepeater/ playpath=191784 token=#atd%#$ZH swfUrl=http://static.surk.tv/atdedead.swf live=1 pageUrl=http://biggestplayer.me/UKTurk
 
 #A:-1,TSN 2 (Shows Premier League) (Alternative)
 http://ams-lp7.9c9media.com/hls-live/livepkgr/_definst_/liveeventNoDRM/TSN2Open8.m3u8
