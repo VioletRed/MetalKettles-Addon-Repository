@@ -553,7 +553,7 @@ http://www.husham.com</summary>
   </extension>
 </addon>
 
-<addon id="plugin.video.ukturk" name="UK Turk Live Streams" version="1.0.3" provider-name="MetalKettle">
+<addon id="plugin.video.ukturk" name="UK Turk Live Streams" version="1.0.4" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
