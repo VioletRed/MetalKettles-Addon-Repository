@@ -1,8 +1,8 @@
 import urllib,urllib2,re,xbmcplugin,xbmcgui,sys,xbmc,xbmcaddon,os
 
 addon_id        = 'plugin.video.pythontut'
-BaseURL         = 'https://buckysroom.org/videos.php?cat=36'
-url2            = 'https://buckysroom.org'
+BaseURL         = 'https://www.thenewboston.com/videos.php?cat=36'
+url2            = 'https://www.thenewboston.com/'
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
 def CATEGORIES():

@@ -302,7 +302,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.learningzone" name="Learning Zone" version="1.0.1" provider-name="MetalKettle">
+<addon id="plugin.video.learningzone" name="Learning Zone" version="1.0.2" provider-name="MetalKettle">
   <requires>
     <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -439,7 +439,7 @@ http://aaastream.com</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.pythontut" name="Python Tutorial Videos" version="1.0.2" provider-name="MetalKettle">
+<addon id="plugin.video.pythontut" name="Python Tutorial Videos" version="1.0.3" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
