@@ -88,14 +88,15 @@ def schedule(url):
     response = net.http_GET('http://www.ppvbay.com/calendar.php?c=1&do=displayweek')
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
+    print link
     month=re.findall('<h2 class="blockhead">([^<]+?)</h2>',link)
     match=re.findall('<h3><span class=".+?">([^<]+?)</span><span class="daynum" style=".+?" onclick=".+?">(\d+)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
     for day,num,data in match:
-		addLink('[COLOR cyan][B]'+day+' '+num+'[/B][/COLOR]','url','mode',icon,fanart)
-                match2=re.compile('<span class="eventtime">(.+?)</span>.+?title="(.+?)">',re.DOTALL).findall(link)
+		addLink('[COLOR greenyellow][B]'+day+' '+num+'[/B][/COLOR]','url','mode',icon,fanart)
+		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="(.+?)"',data)
 		for time,title in match2:
                         title = title.replace('amp;','')
-			addLink('[COLOR blue]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
+			addLink('[COLOR gold]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(51)')
     
 def suppop():
