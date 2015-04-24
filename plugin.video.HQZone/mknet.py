@@ -25,7 +25,7 @@ import urllib2
 import socket
 
 #Set Global timeout - Useful for slow connections and Putlocker.
-socket.setdefaulttimeout(25)
+socket.setdefaulttimeout(60)
 
 class HeadRequest(urllib2.Request):
     '''A Request class that sends HEAD requests'''

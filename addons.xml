@@ -270,7 +270,7 @@
 
 <addon id="plugin.video.HQZone"
        name="HQ Zone Live Streams"
-       version="1.2.2"
+       version="1.2.3"
        provider-name="MetalKettle">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>

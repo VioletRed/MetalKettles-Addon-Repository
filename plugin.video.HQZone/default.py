@@ -1,4 +1,4 @@
-import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime,urlparse,mknet,socket
+import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime,urlparse,mknet
 
 addon_id        = 'plugin.video.HQZone'
 selfAddon       = xbmcaddon.Addon(id=addon_id)
@@ -9,7 +9,7 @@ user            = selfAddon.getSetting('hqusername')
 passw           = selfAddon.getSetting('hqpassword')
 cookie_file     = os.path.join(os.path.join(datapath,''), 'hqzone.lwp')
 net             = mknet.Net()
-socket.setdefaulttimeout(25)
+
 exec("import re;import base64");exec((lambda p,y:(lambda o,b,f:re.sub(o,b,f))(r"([0-9a-f]+)",lambda m:p(m,y),base64.b64decode("MWEgMWUgPT0gJycgNTEgMjYgPT0gJycgNTEgMWUgPT0gJzNjJzoKCTFhIDM0LjE2LjFjKDczKToKCQkzNC41Nig3MykKCTZjOgoJCTIgPSAyNC5lKDM0LjE2LjQ1KCcyYjovLzQ0LzI1LzE5LzMzLjNmLjRiJywgJzIwLjUwJykpCgkJNyA9IDI0LmUoMzQuMTYuNDUoJzJiOi8vNDQvMjUvMTkvMzMuM2YuMmYnLCAnMjAuNTAnKSkKCQkxYSAzNC4xNi4xYygyKToKCQkJIDQgPSAiMWY6Ly8yMi40YS8yYS8zNiIKCQkJIDEyID0gIjFmOi8vMjIuNGEvMmEvNS9mLzQ3LzgvIgoJCTFhIDM0LjE2LjFjKDcpOgoJCQk0ID0gIjFmOi8vMzkuMjMuNGEuNjAvMzYiCgkJCTEyID0gIjFmOi8vMzkuMjMuNGEuNjAvNS9mLzQ3LzMvIgoJCQkyID0gNwoJCTNiID0gNWYoMiwgJzY5JykKCQkxZCA9IDNiLjY0KCkKCQkyYyA9IDM3LmQoJzwyZCA0Nz0iNDAiIDcyPSIoLis/KSInKS42KDFkKVswXQoJCTI4ID0gMzcuZCgnPDJkIDQ3PSIzZSIgNzI9IiguKz8pIicpLjYoMWQpWzBdCSAKCQk0NiA9IDEzLjkoNCkuNQoJCTY5ID0gMzcuNig2OSc8NWIgNjg9IjU4IiAzMT0iKC4rPykiIDcyPSIoLis/KSIgLz4nLCA0NiwgMzcuNzQpCgkJNjMgPSB7fQoJCTYzWyczMCddID0gMmMKCQk2M1snMzInXSA9IDI4CgkJNmEgMzEsIDcyIDUyIDY5OgoJCQk2M1szMV0gPSA3MgoJCTEzLjkoNCkKCQkxMy40Mig0LDYzKQoJCTEzLjM1KDczKQoJCTEzLjNkKDczKQoJCWEgPSAxMy45KDQpCgkJMWEgJzRmIDUyIDcxJyA1MiBhLjU6CgkJCWEgPSAxMy45KDEyKQoJCQkzYSA9IGEuNQoJCQkxZT0zNy5kKCc8Yj4oLis/KTwvYj4nKS42KDNhKVswXQoJCQkyNj0zNy5kKCc8NzU+KC4rPyk8Lzc1PicpLjYoM2EpWzBdCgk1NzoKCQk1ZCAiNWUiCgkJMzggPSA0ZC41MygpCgkJNTUgPSAzOC41YygnMWInLCAnNGUgNWEgNjUgMWIgMjcgNGMnLCc1MSA0MyAxYSA2YiA2NiA2MiA3MCAyNycsJzZmIDZkLjFiLjZlJywnNTQnLCc1OScpCgkJMWEgNTUgPT0gMToKCQkJYyA9IDI0LjIxKCcnLCAnNDEgNDgnKQoJCQljLjI5KCkKCQkJMWEgKGMuMTEoKSk6CgkJCQkxMCA9IGMuMmUoKQoJCQkJYj0xMAoJCQkJYyA9IDI0LjIxKCcnLCAnNDEgNDk6JykKCQkJCWMuMjkoKQoJCQkJMWEgKGMuMTEoKSk6CgkJCQkJMTAgPSBjLjJlKCkKCQkJCQk3NT0xMAoJCQkJCTc2LjE4KCcxNScsYikKCQkJCQk3Ni4xOCgnMTcnLDc1KQoJCTY3OjYxKCkKCQkxZSA9IDc2LjE0KCcxNScpCgkJMjYgPSA3Ni4xNCgnMTcnKQ==")))(lambda a,b:b[int("0x"+a.group(1),16)],"0|1|wizardpath|3|wizurl|content|findall|wizardpath2|8|http_GET|response|username|keyb|compile|translatePath|f|search|isConfirmed|wizfile|net|getSetting|hqusername|path|hqpassword|setSetting|addon_data|if|HQZone|exists|wizlog|user|http|settings|Keyboard|dswizard|droidbox|xbmc|userdata|passw|account|wizpass|doModal|amember|special|wizuser|setting|getText|droidboxwizard|amember_login|name|amember_pass|plugin|os|save_cookies|member|re|dialog|wizard|link|wizset|Droidsticks|set_cookies|dspassword|video|dsusername|Enter|http_POST|register|home|join|html|id|Username|Password|co|aswizard|details|xbmcgui|Please|Logged|xml|or|in|Dialog|Cancel|ret|remove|except|hidden|Login|enter|input|yesno|print|error|open|uk|quit|have|post_data|read|your|dont|else|type|r|for|you|try|www|Tv|at|an|as|value|cookie_file|I|password|selfAddon".split("|")))
 
 #############################################################################################################################
@@ -36,7 +36,7 @@ def Index():
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    #free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
+    free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
@@ -55,7 +55,6 @@ def Index():
     link = response.content
     ticker=re.compile('<ticker>(.+?)</ticker>').findall(link)[0]
     addLink('[COLOR red][I]'+ ticker +'[/I][/COLOR]','url','mode',icon,fanart)
-    xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def luckydip(url):
     response = net.http_GET(url)
@@ -66,32 +65,27 @@ def luckydip(url):
         addLink(channel,url,53,icon,fanart)
 
 def playluckydip(name,url):
+    try:
         swf='http://p.jwpcdn.com/6/11/jwplayer.flash.swf'
-        url2 = url.split('/vod/')
-        print url2
-        #playable = strurl+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
-        playable =  url+ ' swfUrl='+swf+' pageUrl=http://rarehost.net/amember/free/wrestlingplayer.php live=true timeout=20 token=WY846p1E1g15W7s'
-        #rtmp://37.48.86.45:1935/vod/wweraw415.mp4#
-#
-#                match=re.compile('flashvars="streamer=(.+?)&amp;file=(.+?)&').findall(link)
-
-
-                
-#        for one,two in match:
- #           url = one + '/' + two + ' swfUrl='+swf+' pageUrl='+page
-
-            
-#rtmp://37.48.86.45:1935/vod/<playpath>mp4:wweraw415.mp4 <swfUrl>http://p.jwpcdn.com/6/12/jwplayer.flash.swf <pageUrl>http://rarehost.net/amember/free/wrestlingplayer.php
-                
-
-        #playable = url+' swfUrl='+swf+' pageUrl=http://rarehost.net/amember/free/wrestlingweeklies.rss live=true timeout=20 token=WY846p1E1g15W7s'
-        print playable
+        strurl=re.compile("file: '(.+?)',").findall(link)[0]
+        playable = strurl+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
         ok=True
         liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-        xbmc.Player ().play(playable , liz, False)
-        return ok
-        
+        try:
+            xbmc.Player ().play(playable, liz, False)
+            return ok
+        except:
+            pass
+    except:
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        try:
+            xbmc.Player().play(url, liz, False)
+            return ok
+        except:
+            pass
          
 def reqpop():
     dialog = xbmcgui.Dialog()
@@ -108,18 +102,10 @@ def getchannels(url):
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    print link
-    match=re.compile("<a href='(.+?)'></br><font color= '\#fff' size='\+1'><b>(.+?)</b>").findall(link)
+    match=re.compile('<a href="(.+?)"></br><font color= "\#fff" size="\+1"><b>(.+?)</b>').findall(link)
     for url,channel in match:
-        if not ':' in channel:
-            channel = channel + ':'
-        channel = channel.replace('</font>','').replace('Online','[COLOR limegreen]Online[/COLOR]').replace('Offline','[COLOR red]Offline[/COLOR]').replace('online','[COLOR limegreen]Online[/COLOR]').replace('offline','[COLOR red]Offline[/COLOR]')
-        channel = channel.replace('**HD**','[COLOR gold]**HD**[/COLOR]').replace('**720p**','[COLOR gold]**720p**[/COLOR]')
-        chsplit = channel.split(':')   
-        channel = '[COLOR blue]'+chsplit[0]+'[/COLOR]'+' '+chsplit[1]
         url = baseurl+url
         addLink(channel,url,3,icon,fanart)
-    xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def getstreams(url,name):
     setCookie('http://rarehost.net/amember/member')
@@ -127,7 +113,7 @@ def getstreams(url,name):
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    swf='http://p.jwpcdn.com/6/12/jwplayer.flash.swf'
+    swf='http://p.jwpcdn.com/6/11/jwplayer.flash.swf'
     strurl=re.compile("file: '(.+?)',").findall(link)[0]
     playable = strurl+' swfUrl='+swf+' pageUrl='+url+' live=true timeout=20 token=WY846p1E1g15W7s'
     ok=True
@@ -163,11 +149,7 @@ def schedule(url):
 		match2=re.findall('<span class="eventtime">(.+?)</span><a href=".+?" title="">(.+?)</a>',data)
 		for time,title in match2:
                         timeuk = time.split(' - ')
-                        try:
-                            title = title.encode('ascii', 'ignore')
-                        except:
-                            title = title.encode('utf-8','ignore')
-                        title = cleanHex(title)
+                        title = title.encode('ascii', 'ignore')
                         title = title.replace('amp;','')
 			addLink('[COLOR yellow]'+time+'[/COLOR] '+title,'url','mode',icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(51)')
@@ -179,10 +161,8 @@ def todayschedule(url):
     now = str(datetime.datetime.now().date())
     addLink('[COLOR blue][B]'+now+' '+'[/B][/COLOR]','url','mode',icon,fanart)
     for event in match:
-        try:
-            event = event.encode('ascii','ignore')
-        except:
-             event = event.encode('utf-8','ignore')           
+        event = cleanHex(event)
+        event = event.encode('ascii', 'ignore')
         addLink(event,'url','mode',icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(51)')
 
@@ -217,8 +197,7 @@ def vod():
     addDir('MMA PPVs','http://rarehost.net/amember/vip/mmappvsplayer.php',8,icon,fanart)
     addDir('Boxing PPVs','http://rarehost.net/amember/vip/boxingppvsplayer.php',8,icon,fanart)
     addDir('HQ Movies','http://www.moviexk.com/cinema/page/1',50,icon,fanart)
-    xbmc.executebuiltin('Container.SetViewMode(50)')
-
+    
 def vodlisting(name,url):
     setCookie('http://rarehost.net/amember/member')
     response = net.http_GET(url)
@@ -234,8 +213,7 @@ def vodlisting(name,url):
     match=re.compile('<title>(.+?)</title>.+?source file="(.+?)"',re.DOTALL).findall(link)
     for name,url in match:
         addLink(name,url,53,icon,fanart)
-    xbmc.executebuiltin('Container.SetViewMode(50)')
-
+    
 def getmovies(url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -252,8 +230,7 @@ def getmovies(url):
                         npurl = np.split("href='")[-1]
                         addDir('Next Page>>>',npurl,50,icon,fanart)              
         except: pass
-        xbmc.executebuiltin('Container.SetViewMode(50)')
-
+       
 def playmovies(name,url):       
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
@@ -334,7 +311,7 @@ def twitter():
             dte = '[COLOR blue][B]'+dte+'[/B][/COLOR]'
             text = text+dte+'\n'+status+'\n'+'\n'
         showText('[COLOR blue][B]@HQZoneTv[/B][/COLOR]', text)
-
+        quit()
 
 def deletecachefiles():
     xbmc_cache_path = os.path.join(xbmc.translatePath('special://home'), 'cache')
