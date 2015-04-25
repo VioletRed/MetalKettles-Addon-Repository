@@ -36,7 +36,7 @@ def Index():
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
+    #free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
