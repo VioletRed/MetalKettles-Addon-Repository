@@ -1,4 +1,5 @@
-import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime,urlparse,mknet
+import base64,urllib,urllib2,re,cookielib,string,os,xbmc, xbmcgui, xbmcaddon, xbmcplugin, random, datetime,urlparse
+from t0mm0.common.net import Net as net
 
 addon_id        = 'plugin.video.HQZone'
 selfAddon       = xbmcaddon.Addon(id=addon_id)
@@ -8,14 +9,13 @@ icon            = xbmc.translatePath(os.path.join('special://home/addons/' + add
 user            = selfAddon.getSetting('hqusername')
 passw           = selfAddon.getSetting('hqpassword')
 cookie_file     = os.path.join(os.path.join(datapath,''), 'hqzone.lwp')
-net             = mknet.Net()
-
-exec("import re;import base64");exec((lambda p,y:(lambda o,b,f:re.sub(o,b,f))(r"([0-9a-f]+)",lambda m:p(m,y),base64.b64decode("MWEgMWUgPT0gJycgNTEgMjYgPT0gJycgNTEgMWUgPT0gJzNjJzoKCTFhIDM0LjE2LjFjKDczKToKCQkzNC41Nig3MykKCTZjOgoJCTIgPSAyNC5lKDM0LjE2LjQ1KCcyYjovLzQ0LzI1LzE5LzMzLjNmLjRiJywgJzIwLjUwJykpCgkJNyA9IDI0LmUoMzQuMTYuNDUoJzJiOi8vNDQvMjUvMTkvMzMuM2YuMmYnLCAnMjAuNTAnKSkKCQkxYSAzNC4xNi4xYygyKToKCQkJIDQgPSAiMWY6Ly8yMi40YS8yYS8zNiIKCQkJIDEyID0gIjFmOi8vMjIuNGEvMmEvNS9mLzQ3LzgvIgoJCTFhIDM0LjE2LjFjKDcpOgoJCQk0ID0gIjFmOi8vMzkuMjMuNGEuNjAvMzYiCgkJCTEyID0gIjFmOi8vMzkuMjMuNGEuNjAvNS9mLzQ3LzMvIgoJCQkyID0gNwoJCTNiID0gNWYoMiwgJzY5JykKCQkxZCA9IDNiLjY0KCkKCQkyYyA9IDM3LmQoJzwyZCA0Nz0iNDAiIDcyPSIoLis/KSInKS42KDFkKVswXQoJCTI4ID0gMzcuZCgnPDJkIDQ3PSIzZSIgNzI9IiguKz8pIicpLjYoMWQpWzBdCSAKCQk0NiA9IDEzLjkoNCkuNQoJCTY5ID0gMzcuNig2OSc8NWIgNjg9IjU4IiAzMT0iKC4rPykiIDcyPSIoLis/KSIgLz4nLCA0NiwgMzcuNzQpCgkJNjMgPSB7fQoJCTYzWyczMCddID0gMmMKCQk2M1snMzInXSA9IDI4CgkJNmEgMzEsIDcyIDUyIDY5OgoJCQk2M1szMV0gPSA3MgoJCTEzLjkoNCkKCQkxMy40Mig0LDYzKQoJCTEzLjM1KDczKQoJCTEzLjNkKDczKQoJCWEgPSAxMy45KDQpCgkJMWEgJzRmIDUyIDcxJyA1MiBhLjU6CgkJCWEgPSAxMy45KDEyKQoJCQkzYSA9IGEuNQoJCQkxZT0zNy5kKCc8Yj4oLis/KTwvYj4nKS42KDNhKVswXQoJCQkyNj0zNy5kKCc8NzU+KC4rPyk8Lzc1PicpLjYoM2EpWzBdCgk1NzoKCQk1ZCAiNWUiCgkJMzggPSA0ZC41MygpCgkJNTUgPSAzOC41YygnMWInLCAnNGUgNWEgNjUgMWIgMjcgNGMnLCc1MSA0MyAxYSA2YiA2NiA2MiA3MCAyNycsJzZmIDZkLjFiLjZlJywnNTQnLCc1OScpCgkJMWEgNTUgPT0gMToKCQkJYyA9IDI0LjIxKCcnLCAnNDEgNDgnKQoJCQljLjI5KCkKCQkJMWEgKGMuMTEoKSk6CgkJCQkxMCA9IGMuMmUoKQoJCQkJYj0xMAoJCQkJYyA9IDI0LjIxKCcnLCAnNDEgNDk6JykKCQkJCWMuMjkoKQoJCQkJMWEgKGMuMTEoKSk6CgkJCQkJMTAgPSBjLjJlKCkKCQkJCQk3NT0xMAoJCQkJCTc2LjE4KCcxNScsYikKCQkJCQk3Ni4xOCgnMTcnLDc1KQoJCTY3OjYxKCkKCQkxZSA9IDc2LjE0KCcxNScpCgkJMjYgPSA3Ni4xNCgnMTcnKQ==")))(lambda a,b:b[int("0x"+a.group(1),16)],"0|1|wizardpath|3|wizurl|content|findall|wizardpath2|8|http_GET|response|username|keyb|compile|translatePath|f|search|isConfirmed|wizfile|net|getSetting|hqusername|path|hqpassword|setSetting|addon_data|if|HQZone|exists|wizlog|user|http|settings|Keyboard|dswizard|droidbox|xbmc|userdata|passw|account|wizpass|doModal|amember|special|wizuser|setting|getText|droidboxwizard|amember_login|name|amember_pass|plugin|os|save_cookies|member|re|dialog|wizard|link|wizset|Droidsticks|set_cookies|dspassword|video|dsusername|Enter|http_POST|register|home|join|html|id|Username|Password|co|aswizard|details|xbmcgui|Please|Logged|xml|or|in|Dialog|Cancel|ret|remove|except|hidden|Login|enter|input|yesno|print|error|open|uk|quit|have|post_data|read|your|dont|else|type|r|for|you|try|www|Tv|at|an|as|value|cookie_file|I|password|selfAddon".split("|")))
+    
+exec("import re;import base64");exec((lambda p,y:(lambda o,b,f:re.sub(o,b,f))(r"([0-9a-f]+)",lambda m:p(m,y),base64.b64decode("MjIgMWIgPT0gJycgNGQgMWMgPT0gJycgNGQgMWIgPT0gJzJmJzoKCTIyIDRjLjNkLjQ0KDZiKToKCQk0Yy40Nig2YikKCTYzOgoJCTE1ID0gMmQuMjUoNGMuM2QuNTcoJzNlOi8vNTkvMzkvMzQvNDUuNTAuMzcnLCAnM2EuNjInKSkKCQkyYSA9IDViKDE1LCAnNWQnKQoJCTE5ID0gMmEuNTQoKQoJCTIxID0gMmMuYygnPDIzIDQ4PSIzMyIgZD0iKC4rPykiJykuNCgxOSlbMF0KCQkxZCA9IDJjLmMoJzwyMyA0OD0iMzIiIGQ9IiguKz8pIicpLjQoMTkpWzBdCgkJMzYgPSAxMSgpLjYoJzE2Oi8vMi4zMS81L2UnKS5iCgkJNWQgPSAyYy40KDVkJzw1MSA1YT0iNDciIDI2PSIoLis/KSIgZD0iKC4rPykiIC8+JywgMzYsIDJjLjZhKQoJCTU4ID0ge30KCQk1OFsnMjQnXSA9IDIxCgkJNThbJzJiJ10gPSAxZAoJCTYxIDI2LCBkIDQ5IDVkOgoJCQk1OFsyNl0gPSBkCgkJMTEoKS42KCcxNjovLzIuMzEvNS9lJykKCQkxMSgpLjM1KCcxNjovLzIuMzEvNS9lJyw1OCkKCQkxMSgpLjI5KDZiKQoJCTExKCkuMmUoNmIpCgkJNjkgPSAxMSgpLjYoJzE2Oi8vMi4zMS81L2UnKQoJCTIyICc0ZSA0OSA2NycgNDkgNjkuYjoKCQkJNjkgPSAxMSgpLjYoJzE2Oi8vMi4zMS81L2IvZi80OC84LycpCgkJCTI3ID0gNjkuYgoJCQkxYj0yYy5jKCc8Nz4oLis/KTwvNz4nKS40KDI3KVswXQoJCQkxYz0yYy5jKCc8OT4oLis/KTwvOT4nKS40KDI3KVswXQoJNGE6CgkJMjggPSAzZi40YigpCgkJNDIgPSAyOC41MygnMTgnLCAnNDMgNGYgNTYgMTggMWUgNDAnLCc0ZCAzYyAyMiA2MCA1ZiA1YyA2NSAxZScsJzY2IDY0LjE4LjY4JywnNDEnLCc1MicpCgkJMjIgNDIgPT0gMToKCQkJYSA9IDJkLjFhKCcnLCAnMzAgMzgnKQoJCQlhLjFmKCkKCQkJMjIgKGEuMTAoKSk6CgkJCQk2YyA9IGEuMjAoKQoJCQkJNz02YwoJCQkJYSA9IDJkLjFhKCcnLCAnMzAgM2I6JykKCQkJCWEuMWYoKQoJCQkJMjIgKGEuMTAoKSk6CgkJCQkJNmMgPSBhLjIwKCkKCQkJCQk5PTZjCgkJCQkJMy4xNCgnMTcnLDcpCgkJCQkJMy4xNCgnMTMnLDkpCgkJNTU6NWUoKQoJCTFiID0gMy4xMignMTcnKQoJCTFjID0gMy4xMignMTMnKQ==")))(lambda a,b:b[int("0x"+a.group(1),16)],"0|1|dswizard|selfAddon|findall|amember|http_GET|username|8|password|keyb|content|compile|value|member|f|isConfirmed|net|getSetting|hqpassword|setSetting|wizardpath|http|hqusername|HQZone|wizlog|Keyboard|user|passw|wizpass|account|doModal|getText|wizuser|if|setting|amember_login|translatePath|name|link|dialog|save_cookies|wizset|amember_pass|re|xbmc|set_cookies|Droidsticks|Enter|co|dspassword|dsusername|addon_data|http_POST|html|aswizard|Username|userdata|settings|Password|register|path|special|xbmcgui|details|Cancel|ret|Please|exists|plugin|remove|hidden|id|in|except|Dialog|os|or|Logged|enter|video|input|Login|yesno|read|else|your|join|post_data|home|type|open|have|r|quit|dont|you|for|xml|try|www|an|at|as|Tv|response|I|cookie_file|search".split("|")))
 
 #############################################################################################################################
 def announce():
     try:
-        response = net.http_GET('http://pastebin.com/raw.php?i=Jp76gEmp')
+        response = net().http_GET('http://pastebin.com/raw.php?i=Jp76gEmp')
         link = response.content
         link=link.replace('\n','')
         match=re.compile('<titlepop>(.+?)</titlepop>.+?<line1>(.+?)</line1>.+?<line2>(.+?)</line2>.+?<line3>(.+?)</line3>').findall(link)
@@ -28,7 +28,7 @@ def Index():
     deletecachefiles()
     announce()
     setCookie('http://rarehost.net/amember/member')
-    response = net.http_GET('http://rarehost.net/amember/member')
+    response = net().http_GET('http://rarehost.net/amember/member')
     if not 'Logged in as' in response.content:
         dialog = xbmcgui.Dialog()
         dialog.ok('HQZone', 'Login Error','An error ocurred logging in. Please check your details','Ensure your account is active on http://hqzone.tv')
@@ -36,7 +36,6 @@ def Index():
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
-    #free=re.compile('<li><a href="(.+?)">Free Streams</a>').findall(link)[0]
     addDir('[COLOR blue][B]--- View Todays Overview ---[/B][/COLOR]','http://hqzone.tv/forums/forum.php',7,icon,fanart)
     addDir('[COLOR blue][B]--- View This Weeks Schedule ---[/B][/COLOR]','http://hqzone.tv/forums/calendar.php?c=1&do=displayweek',6,icon,fanart)
     addLink(' ','url',5,icon,fanart)
@@ -51,13 +50,14 @@ def Index():
     addLink('HQZone Account Status','url',200,icon,fanart)
     addDir('HQ Zone Support','url',300,icon,fanart)
     addLink(' ','url',5,icon,fanart)
-    response = net.http_GET('http://pastebin.com/raw.php?i=Jp76gEmp')
+    response = net().http_GET('http://pastebin.com/raw.php?i=Jp76gEmp')
     link = response.content
     ticker=re.compile('<ticker>(.+?)</ticker>').findall(link)[0]
     addLink('[COLOR red][I]'+ ticker +'[/I][/COLOR]','url','mode',icon,fanart)
+    xbmc.executebuiltin('Container.SetViewMode(50)')
 
 def luckydip(url):
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     match=re.compile('<title>(.+?)</title><link>(.+?)</link>').findall(link)
@@ -98,18 +98,25 @@ def getchannels(url):
         vip = 1
     else:baseurl = 'http://rarehost.net/amember/free/'
     setCookie('http://rarehost.net/amember/member')
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     match=re.compile('<a href="(.+?)"></br><font color= "\#fff" size="\+1"><b>(.+?)</b>').findall(link)
     for url,channel in match:
+        channel = channel + ':'+ ':'+ ':'+ ':'
+        channel = channel.replace('</font>','').replace('Online','[COLOR limegreen]Online[/COLOR]').replace('Offline','[COLOR red]Offline[/COLOR]').replace('online','[COLOR limegreen]Online[/COLOR]').replace('offline','[COLOR red]Offline[/COLOR]')
+        channel = channel.replace('**HD**','[COLOR gold]**HD**[/COLOR]').replace('**720p**','[COLOR gold]**720p**[/COLOR]')
+        chsplit = channel.split(':')   
+        channel = '[COLOR blue]'+chsplit[0]+'[/COLOR]'+' '+chsplit[1]+chsplit[2]
         url = baseurl+url
         addLink(channel,url,3,icon,fanart)
+    xbmc.executebuiltin('Container.SetViewMode(50)')
+
 
 def getstreams(url,name):
     setCookie('http://rarehost.net/amember/member')
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -127,20 +134,20 @@ def getstreams(url,name):
     
 
 def setCookie(srDomain):
-    html = net.http_GET(srDomain).content
+    html = net().http_GET(srDomain).content
     r = re.findall(r'<input type="hidden" name="(.+?)" value="(.+?)" />', html, re.I)
     post_data = {}
     post_data['amember_login'] = user
     post_data['amember_pass'] = passw
     for name, value in r:
         post_data[name] = value
-    net.http_GET('http://rarehost.net/amember/member')
-    net.http_POST('http://rarehost.net/amember/member',post_data)
-    net.save_cookies(cookie_file)
-    net.set_cookies(cookie_file)
+    net().http_GET('http://rarehost.net/amember/member')
+    net().http_POST('http://rarehost.net/amember/member',post_data)
+    net().save_cookies(cookie_file)
+    net().set_cookies(cookie_file)
 
 def schedule(url):
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
     match=re.findall('<h3><span class=".+?">(.+?)</span><span class="daynum" style=".+?" onclick=".+?">(.+?)</span></h3><ul class="blockrow eventlist">(.+?)</ul>',link)
@@ -155,7 +162,7 @@ def schedule(url):
     xbmc.executebuiltin('Container.SetViewMode(51)')
   
 def todayschedule(url):
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     match=re.compile('<li><a href=".+?">(.+?)</a>.+?</li>').findall(link)
     now = str(datetime.datetime.now().date())
@@ -169,7 +176,7 @@ def todayschedule(url):
 
 def account():
     setCookie('http://rarehost.net/amember/member')
-    response = net.http_GET('http://rarehost.net/amember/member')
+    response = net().http_GET('http://rarehost.net/amember/member')
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -196,18 +203,18 @@ def vod():
     addDir('Wrestling PPVs','http://rarehost.net/amember/vip/wrestlingppvsplayer.php',8,icon,fanart)
     addDir('MMA PPVs','http://rarehost.net/amember/vip/mmappvsplayer.php',8,icon,fanart)
     addDir('Boxing PPVs','http://rarehost.net/amember/vip/boxingppvsplayer.php',8,icon,fanart)
-    addDir('HQ Movies','http://www.moviexk.com/cinema/page/1',50,icon,fanart)
+    addDir('HQ Movies','http://movieshd.co/watch-online/category/featured?filtre=date',50,icon,fanart)
     
 def vodlisting(name,url):
     setCookie('http://rarehost.net/amember/member')
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
     match=re.compile("playlist: '(.+?)'").findall(link)[0]
     if 'Weeklies' in name:url='http://rarehost.net/amember/free/'+match
     else:url = 'http://rarehost.net/amember/vip/'+match
     setCookie('http://rarehost.net/amember/member')
-    response = net.http_GET(url)
+    response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
     match=re.compile('<title>(.+?)</title>.+?source file="(.+?)"',re.DOTALL).findall(link)
@@ -220,30 +227,55 @@ def getmovies(url):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<a href="(.+?)" title="Movie (.+?)"><img class="lazy"').findall(link)
+        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
         for url,name in match:
-                name=cleanHex(name)
-                addLink(name,url,51,icon,fanart)
+                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
+                addLink(name2,url,51,icon,fanart)
         try:
-                match=re.compile("<a href='(.+?)' class='nextpostslink'>").findall(link)
-                for np in match:
-                        npurl = np.split("href='")[-1]
-                        addDir('Next Page>>>',npurl,50,icon,fanart)              
+                match=re.compile('"nextLink":"(.+?)"').findall(link)
+                url= match[0]
+                url = url.replace('\/','/')
+                addDir('Next Page>>',url,50,icon,fanart)
         except: pass
        
-def playmovies(name,url):       
+def playmovies(name,url):
         req = urllib2.Request(url)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<a href="(.+?)" title=".+?">').findall(link)[2]
-        req = urllib2.Request(match)
+        match=re.compile('hashkey=(.+?)">').findall(link)
+        if len(match) == 0:
+                match=re.compile("hashkey=(.+?)'>").findall(link)
+        if (len(match) > 0):
+                hashurl="http://videomega.tv/validatehash.php?hashkey="+ match[0]
+                req = urllib2.Request(hashurl,None)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
+                req.add_header('Referer', url)
+                response = urllib2.urlopen(req)
+                link=response.read()
+                response.close()
+                match=re.compile('var ref="(.+?)"').findall(link)[0]
+                videomega_url = 'http://videomega.tv/?ref='+match 
+        else:
+                match=re.compile("javascript'\>ref='(.+?)'").findall(link)[0]
+                videomega_url = "http://videomega.tv/?ref=" + match
+##RESOLVE##
+        url = urlparse.urlparse(videomega_url).query
+        url = urlparse.parse_qs(url)['ref'][0]
+        url = 'http://videomega.tv/cdn.php?ref=%s' % url
+        referer = videomega_url
+        req = urllib2.Request(url,None)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        req.add_header('Referer', referer)
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        stream_url=re.compile('file: "(.+?)"').findall(link)[0]
+        url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
+        url = urllib.unquote_plus(url)
+        stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
+##RESOLVE##
+        
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
@@ -301,7 +333,7 @@ def showText(heading, text):
 def twitter():
         text = ''
         twit = 'https://script.google.com/macros/s/AKfycbyBcUa5TlEQudk6Y_0o0ZubnmhGL_-b7Up8kQt11xgVwz3ErTo/exec?560773938943627264'
-        response = net.http_GET(twit)
+        response = net().http_GET(twit)
         link = response.content
         link = link.replace('/n','')
         link = link.encode('ascii', 'ignore').decode('ascii').decode('ascii').replace('&#39;','\'').replace('&#xA0;','').replace('&#x2026;','')
