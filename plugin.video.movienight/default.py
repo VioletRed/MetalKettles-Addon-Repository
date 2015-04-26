@@ -1,4 +1,4 @@
-import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os
+import urllib,urllib2,re,xbmcplugin,xbmcgui,urlresolver,sys,xbmc,xbmcaddon,os,base64
 from t0mm0.common.addon import Addon
 from metahandler import metahandlers
 
@@ -69,8 +69,13 @@ def cleanHex(text):
 
 def PLAYLINK(name,url,iconimage):
         link = open_url(url)
-        match=re.compile('<iframe src="(.+?)"').findall(link)[0]
-        link = open_url(match)
+        try:    
+                codedlink=re.compile("onClick=\"javascript:replaceb64Text\('b64block-.+?-1', '(.+?)'").findall(link)[0]
+                decodedlink = base64.b64decode(codedlink)
+                url=re.compile('src=\&quot\;(.+?)\&quot').findall(decodedlink)[0]
+        except:
+                url=re.compile('<iframe src="(.+?)" frameborder').findall(link)[0]
+        link = open_url(url)
         stream_url=re.compile('<source src="(.+?)"').findall(link)[0]
         playlist = xbmc.PlayList(1)
         playlist.clear()
