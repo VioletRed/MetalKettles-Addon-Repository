@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.stalker" name="IPTV Stalker" version="1.0.62" provider-name="esxbr">
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.stalker" name="IPTV Stalker" version="1.0.7" provider-name="esxbr">
     <requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 	</requires>
