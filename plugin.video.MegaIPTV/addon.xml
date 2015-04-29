@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.MegaIPTV" name="Mega IPTV" version="1.6" provider-name="Adam Fishley">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>Donate</summary>
+    <description>Channels are free. Source goes to Podgod. </description>
+	<description>Mega IPTV Is Launched and is exclusive with many channels added. You can only install this by a zip file and i will be launching a website very soon so keep a look out. These channels are not mine and are someone elses link do not depend on me to fix all of them. I will do my best.</description>
+  </extension>
+</addon>
