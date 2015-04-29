@@ -203,7 +203,7 @@ def vod():
     addDir('Wrestling PPVs','http://rarehost.net/amember/vip/wrestlingppvsplayer.php',8,icon,fanart)
     addDir('MMA PPVs','http://rarehost.net/amember/vip/mmappvsplayer.php',8,icon,fanart)
     addDir('Boxing PPVs','http://rarehost.net/amember/vip/boxingppvsplayer.php',8,icon,fanart)
-    addDir('HQ Movies','http://movieshd.co/watch-online/category/featured?filtre=date',50,icon,fanart)
+    addDir('HQ Movies','http://xmovies8.co/tag/hotnew/',50,icon,fanart)
     
 def vodlisting(name,url):
     setCookie('http://rarehost.net/amember/member')
@@ -227,15 +227,27 @@ def getmovies(url):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<a href="(.+?)" title="(.+?)">').findall(link)
-        for url,name in match:
-                name2 = name.decode("ascii","ignore").replace('&#8217;','').replace('&amp;','').replace('&#8211;','').replace('#038;','')
-                addLink(name2,url,51,icon,fanart)
+        link=link.replace('\n','').replace('  ','')
+        match=re.compile('<a class="thumbnail darken video" title="(.+?)" href="(.+?)">',re.DOTALL).findall(link)
+        if len(match)>0:
+                items = len(match)
+                for name,url in match:
+                        name2 = cleanHex(name)
+                        if not 'Season' in name2:
+                                if not 'SEASON' in name2:
+                                        addLink(name2,url,51,icon,fanart)
+        if len(match)<1:
+                match=re.compile('<a class="thumbnail darken video" href="(.+?)" title="(.+?)">',re.DOTALL).findall(link)
+                items = len(match)
+                for url,name in match:
+                        name2 = cleanHex(name)
+                        if not 'Season' in name2:
+                                if not 'SEASON' in name2:
+                                        addLink(name2,url,51,icon,fanart)
         try:
-                match=re.compile('"nextLink":"(.+?)"').findall(link)
+                match=re.compile('link rel="next" href="(.+?)"').findall(link)
                 url= match[0]
-                url = url.replace('\/','/')
-                addDir('Next Page>>',url,50,icon,fanart)
+                addDir('Next Page>>',url,1,icon,fanart)
         except: pass
        
 def playmovies(name,url):
@@ -244,45 +256,36 @@ def playmovies(name,url):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('hashkey=(.+?)">').findall(link)
-        if len(match) == 0:
-                match=re.compile("hashkey=(.+?)'>").findall(link)
-        if (len(match) > 0):
-                hashurl="http://videomega.tv/validatehash.php?hashkey="+ match[0]
-                req = urllib2.Request(hashurl,None)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; rv:34.0) Gecko/20100101 Firefox/34.0')
-                req.add_header('Referer', url)
+        match=re.compile('<a target="_blank" rel="nofollow" href="(.+?)">.+?mp4</a>').findall(link)
+        if len(match)>0:
+                match = match[-1]
+        else:
+                match=re.compile('src="http://videomega.tv/cdn.php\?ref=(.+?)\&width=700\&height=430"').findall(link)
+                if len(match)<1:
+                        match=re.compile('src="http://videomega.tv/iframe.php\?ref=(.+?)"').findall(link)
+                videomega_url = "http://videomega.tv/?ref=" + match[0]
+                
+##RESOLVE##     
+                url = urlparse.urlparse(videomega_url).query
+                url = urlparse.parse_qs(url)['ref'][0]
+                url = 'http://videomega.tv/cdn.php?ref=%s' % url
+                referer = videomega_url
+                req = urllib2.Request(url,None)
+                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+                req.add_header('Referer', referer)
                 response = urllib2.urlopen(req)
                 link=response.read()
-                response.close()
-                match=re.compile('var ref="(.+?)"').findall(link)[0]
-                videomega_url = 'http://videomega.tv/?ref='+match 
-        else:
-                match=re.compile("javascript'\>ref='(.+?)'").findall(link)[0]
-                videomega_url = "http://videomega.tv/?ref=" + match
+                response.close()        
+                match = re.compile('<source src="(.+?)" type="video/mp4"/>').findall(link)[0]      
 ##RESOLVE##
-        url = urlparse.urlparse(videomega_url).query
-        url = urlparse.parse_qs(url)['ref'][0]
-        url = 'http://videomega.tv/cdn.php?ref=%s' % url
-        referer = videomega_url
-        req = urllib2.Request(url,None)
-        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-        req.add_header('Referer', referer)
-        response = urllib2.urlopen(req)
-        link=response.read()
-        response.close()
-        url = re.compile('document.write.unescape."(.+?)"').findall(link)[-1]
-        url = urllib.unquote_plus(url)
-        stream_url = re.compile('file *: *"(.+?)"').findall(url)[0]
-##RESOLVE##
-        
+        print match       
         playlist = xbmc.PlayList(1)
         playlist.clear()
         listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
         listitem.setInfo("Video", {"Title":name})
         listitem.setProperty('mimetype', 'video/x-msvideo')
         listitem.setProperty('IsPlayable', 'true')
-        playlist.add(stream_url,listitem)
+        playlist.add(match,listitem)
         xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
         xbmcPlayer.play(playlist)
 
