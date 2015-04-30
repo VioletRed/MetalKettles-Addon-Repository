@@ -384,6 +384,20 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.NJMSOCCER" name="NJM Soccer" version="1.0.0" provider-name="MetalKettle">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Free Soccer Streams courtesy of NJM</summary>
+    <description lang="en">Free Soccer Streams courtesy of NJM</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.onlinemovies" name="Online Movies Pro" version="1.0.14" provider-name="MetalKettle">
   <requires>
     <import addon="script.module.simplejson" version="3.3.0"/>
