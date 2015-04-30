@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.highlights" name="Football Highlights" version="1.0.0" provider-name="MetalKettle">
+<addon id="plugin.video.highlights" name="Football Highlights" version="1.1.0" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -7,8 +7,8 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en"></summary>
-    <description lang="en"></description>
+    <summary lang="en">Watch TV from S4U Media</summary>
+    <description lang="en">Watch TV from S4U Media</description>
     <platform>all</platform>
   </extension>
 </addon>

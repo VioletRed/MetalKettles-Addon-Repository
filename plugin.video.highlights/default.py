@@ -5,19 +5,57 @@ addon_id = 'plugin.video.highlights'
 addon = Addon(addon_id, sys.argv)
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
-
+#http://89.45.201.242/dude/foot/
 def INDEX():
-        link = open_url('http://doctortips.net/wss/footballhighlights.html')
-        match=re.compile('<a href="(.+?)">(.+?)</a></div>').findall(link)
-        for url, name in match:
-                addLink(name,url,2,icon,'',fanart)
+        addDir(' ','http://89.45.201.242/dude/foot/dl.html',1,'http://89.45.201.242/dude/foot/website/dl.jpg','',fanart)
+        addDir(' ','http://89.45.201.242/dude/foot/uefa.html',2,'http://89.45.201.242/dude/foot/website/uefa.jpg','',fanart)
+        addDir(' ','http://89.45.201.242/dude/foot/euroqgrupe.html',2,'http://89.45.201.242/dude/foot/website/euroq.png','',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+        
+def GETLEAGUES(url):
+        link = open_url(url)
+        match = re.compile("<a href=\"(.+?)\"><img src='(.+?)' /></a></div>").findall(link)
+        for url,thumb in match:
+                url = 'http://89.45.201.242/dude/foot/'+url
+                thumb = 'http://89.45.201.242/dude/foot/'+thumb
+                addDir(' ',url,3,thumb,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+
+def GETWEEKS(url):
+        link = open_url(url)
+        match = re.compile("<a href=\"(.+?)\"><img src='(.+?)' /></a>").findall(link)
+        for url,thumb in match:
+                url = 'http://89.45.201.242/dude/foot/'+url
+                thumb = 'http://89.45.201.242/dude/foot/'+thumb
+                thumb = thumb.replace(' ','%20')
+                addDir(' ',url,4,thumb,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+
+def GETGAMES(url):
+        link = open_url(url)
+        match = re.compile("<a href=\"(.+?)\"><img src='(.+?)' /></a>").findall(link)
+        for url,thumb in match:
+                thumb = 'http://89.45.201.242/dude/foot'+thumb
+                thumb = thumb.replace(' ','%20').replace('..','')
+                addLink(' ',url,2,thumb,'',fanart)
+        xbmc.executebuiltin('Container.SetViewMode(500)')
+
+
+
+
+
+
+
+
+
+
 
 def PLAYLINK(name,url):
-    ok=True
-    liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-    xbmc.Player ().play(url, liz, False)
-    return ok
+        ok=True
+        liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
+        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+        xbmc.Player ().play(url, liz, False)
+        return ok
 
 def open_url(url):
         req = urllib2.Request(url)
@@ -77,5 +115,8 @@ print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); prin
  
 if mode==None or url==None or len(url)<1: INDEX()
 elif mode==2: PLAYLINK(name,url)
+elif mode==1: GETLEAGUES(url)
+elif mode==3: GETWEEKS(url)
+elif mode==4: GETGAMES(url)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
