@@ -6,7 +6,7 @@ addon           = Addon(addon_id, sys.argv)
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 
 def Index():
-        GetLinks('http://njmweb.we.bs/XBMC/njmc.plx')
+        GetLinks('https://dl.dropboxusercontent.com/s/9n106bmhlbc56ct/soccerpublic.plx')
 
 def GetLinks(url):
         link = open_url(url)
