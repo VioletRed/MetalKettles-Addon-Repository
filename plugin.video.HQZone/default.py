@@ -27,8 +27,8 @@ def announce():
 def Index():
     deletecachefiles()
     announce()
-    setCookie('http://rarehost.net/amember/member')
-    response = net().http_GET('http://rarehost.net/amember/member')
+    setCookie('http://rarehost.net/site/member')
+    response = net().http_GET('http://rarehost.net/site/member')
     if not 'Logged in as' in response.content:
         dialog = xbmcgui.Dialog()
         dialog.ok('HQZone', 'Login Error','An error ocurred logging in. Please check your details','Ensure your account is active on http://hqzone.tv')
@@ -42,7 +42,7 @@ def Index():
     vip=re.compile('<li><a href="(.+?)">VIP Streams</a>').findall(link)
     if len(vip)>0:
         vip=vip[0]
-        addDir('[COLOR gold]VIP[/COLOR] HQ Streaming Channels','http://rarehost.net/amember/vip/vip.php',2,icon,fanart)
+        addDir('[COLOR gold]VIP[/COLOR] HQ Streaming Channels','http://rarehost.net/site/vip/vip.php',2,icon,fanart)
         addDir('[COLOR gold]VIP[/COLOR] HQ Video on Demand','url',4,icon,fanart)
     addLink(' ','url',5,icon,fanart)
     addLink('How to Subscribe','url',302,icon,fanart)
@@ -94,10 +94,10 @@ def reqpop():
 def getchannels(url):
     vip = 0
     if 'vip' in url:
-        baseurl = 'http://rarehost.net/amember/vip/'
+        baseurl = 'http://rarehost.net/site/vip/'
         vip = 1
-    else:baseurl = 'http://rarehost.net/amember/free/'
-    setCookie('http://rarehost.net/amember/member')
+    else:baseurl = 'http://rarehost.net/site/free/'
+    setCookie('http://rarehost.net/site/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -115,7 +115,7 @@ def getchannels(url):
 
 
 def getstreams(url,name):
-    setCookie('http://rarehost.net/amember/member')
+    setCookie('http://rarehost.net/site/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
@@ -141,8 +141,8 @@ def setCookie(srDomain):
     post_data['amember_pass'] = passw
     for name, value in r:
         post_data[name] = value
-    net().http_GET('http://rarehost.net/amember/member')
-    net().http_POST('http://rarehost.net/amember/member',post_data)
+    net().http_GET('http://rarehost.net/site/member')
+    net().http_POST('http://rarehost.net/site/member',post_data)
     net().save_cookies(cookie_file)
     net().set_cookies(cookie_file)
 
@@ -175,8 +175,8 @@ def todayschedule(url):
 
 
 def account():
-    setCookie('http://rarehost.net/amember/member')
-    response = net().http_GET('http://rarehost.net/amember/member')
+    setCookie('http://rarehost.net/site/member')
+    response = net().http_GET('http://rarehost.net/site/member')
     link = response.content
     link = cleanHex(link)
     link=link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','').replace('  ','')
@@ -199,21 +199,21 @@ def supportpop():
     dialog.ok('[COLOR blue]HQZone Account Support[/COLOR]', 'For account queries please contact us at:','@HQZoneTV (via Twitter)',' hqzone@hotmail.com (via Email)')
        
 def vod():
-    addDir('Wrestling Weeklies','http://rarehost.net/amember/free/wrestlingplayer.php',8,icon,fanart)
-    addDir('Wrestling PPVs','http://rarehost.net/amember/vip/wrestlingppvsplayer.php',8,icon,fanart)
-    addDir('MMA PPVs','http://rarehost.net/amember/vip/mmappvsplayer.php',8,icon,fanart)
-    addDir('Boxing PPVs','http://rarehost.net/amember/vip/boxingppvsplayer.php',8,icon,fanart)
+    addDir('Wrestling Weeklies','http://rarehost.net/site/free/wrestlingplayer.php',8,icon,fanart)
+    addDir('Wrestling PPVs','http://rarehost.net/site/vip/wrestlingppvsplayer.php',8,icon,fanart)
+    addDir('MMA PPVs','http://rarehost.net/site/vip/mmappvsplayer.php',8,icon,fanart)
+    addDir('Boxing PPVs','http://rarehost.net/site/vip/boxingppvsplayer.php',8,icon,fanart)
     addDir('HQ Movies','http://xmovies8.co/tag/hotnew/',50,icon,fanart)
     
 def vodlisting(name,url):
-    setCookie('http://rarehost.net/amember/member')
+    setCookie('http://rarehost.net/site/member')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
     match=re.compile("playlist: '(.+?)'").findall(link)[0]
-    if 'Weeklies' in name:url='http://rarehost.net/amember/free/'+match
-    else:url = 'http://rarehost.net/amember/vip/'+match
-    setCookie('http://rarehost.net/amember/member')
+    if 'Weeklies' in name:url='http://rarehost.net/site/free/'+match
+    else:url = 'http://rarehost.net/site/vip/'+match
+    setCookie('http://rarehost.net/site/meember')
     response = net().http_GET(url)
     link = response.content
     link = cleanHex(link)
