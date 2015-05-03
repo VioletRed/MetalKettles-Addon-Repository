@@ -384,7 +384,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.NJMSOCCER" name="NJM Soccer" version="1.0.1" provider-name="MetalKettle">
+<addon id="plugin.video.NJMSOCCER" name="NJM Soccer" version="1.0.2" provider-name="MetalKettle">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
