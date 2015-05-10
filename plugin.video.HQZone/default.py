@@ -111,6 +111,19 @@ def getchannels(url):
         channel = '[COLOR blue]'+chsplit[0]+'[/COLOR]'+' '+chsplit[1]+chsplit[2]
         url = baseurl+url
         addLink(channel,url,3,icon,fanart)
+
+        
+    match=re.compile("<a href='(.+?)'></br><font color= '\#fff' size='\+1'><b>(.+?)</b>").findall(link)
+    print match
+    for url,channel in match:
+      
+        channel = channel + ':'+ ':'+ ':'+ ':'
+        channel = channel.replace('</font>','').replace('Online','[COLOR limegreen]Online[/COLOR]').replace('Offline','[COLOR red]Offline[/COLOR]').replace('online','[COLOR limegreen]Online[/COLOR]').replace('offline','[COLOR red]Offline[/COLOR]')
+        channel = channel.replace('**HD**','[COLOR gold]**HD**[/COLOR]').replace('**720p**','[COLOR gold]**720p**[/COLOR]')
+        chsplit = channel.split(':')   
+        channel = '[COLOR blue]'+chsplit[0]+'[/COLOR]'+' '+chsplit[1]+chsplit[2]
+        url = baseurl+url
+        addLink(channel,url,3,icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(50)')
 
 
