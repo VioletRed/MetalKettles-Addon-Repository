@@ -66,7 +66,7 @@ def StreamMenu(name,url):
         response = net.http_GET(channelurl)
         link=json.loads(response.content)
         data=link['channels']
-        for field in data:
+        for field in (sorted(data, key=lambda k: k['title'])):
             channel_title= field["title"]
             channel_online= '1'
             channel_url= 'http://sportsmania.eu/matrixuplink.php?do=getStreamLink&channel='+field["id"]
