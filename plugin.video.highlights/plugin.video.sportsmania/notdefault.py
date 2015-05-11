@@ -40,6 +40,7 @@ def MainMenu():
     if '<li class="welcomelink">Welcome, <a href="member.php?' in response.content:
         addDir('[COLOR cyan]----Calendar----[/COLOR]','url',3,icon,fanart)
         addLink('','url','mode',icon,fanart)
+        addDir('[COLOR greenyellow]Free[/COLOR] Streams','channels',1,icon,fanart)
         setCookie('http://sportsmania.eu/view.php?pg=navigation')
         net.set_cookies(cookie_file)
         response = net.http_GET('http://sportsmania.eu/view.php?pg=navigation')
@@ -61,66 +62,34 @@ def refresh():
 
 def StreamMenu(name,url):
     net.set_cookies(cookie_file)
-    if url == 'channels':
-        channelurl='http://sportsmania.eu/matrixuplink.php?do=getStreamChannels'
-        response = net.http_GET(channelurl)
-        link=json.loads(response.content)
-        data=link['channels']
-        for field in data:
-            channel_title= field["title"]
-            channel_online= '1'
-            channel_url= 'http://sportsmania.eu/matrixuplink.php?do=getStreamLink&channel='+field["id"]
-            premium= '1'
-            if channel_online == '1':channel_online = '[COLOR green][B] (Online)[/B][/COLOR]'
-            else:channel_online = '[COLOR red] (Offline)[/COLOR]'
-            namestring = channel_title+channel_online
-            print name
-            if 'Free' in name:
-                if premium == '0':
-                    addLink(namestring,channel_url,7,icon,fanart)
-            else:addLink(namestring,channel_url,7,icon,fanart)
-    else:
-        channelurl='http://sportsmania.eu/apis/channels.php'
-        response = net.http_GET(channelurl)
-        link=json.loads(response.content)
-        data=link [url]
-        for field in data:
-            channel_name= field["channel_name"]
-            channel_title= field["channel_title"]
-            channel_online= field["channel_online"]
-            channel_url= field["channel_url"]
-            channel_description= field["channel_description"]
-            premium= field["premium"]
-            if channel_online == '1':channel_online = '[COLOR green][B] (Online)[/B][/COLOR]'
-            else:channel_online = '[COLOR red] (Offline)[/COLOR]'
-            if channel_title =='':
-                channel_title=channel_name.replace('Channel','Channel ')
-            namestring = channel_title+channel_online
-            print name
-            if 'Free' in name:
-                if premium == '0':
-                    addLink(namestring,channel_url,2,icon,fanart)
-            else:addLink(namestring,channel_url,2,icon,fanart)
+    channelurl='http://sportsmania.eu/matrixuplink.php?do=getStreamChannels'
+    response = net.http_GET(channelurl)
+    link=json.loads(response.content)
+    data=link['channels']
+    for field in data:
+        channel_title= field["title"]
+        channel_online= '1'
+        channel_url= 'http://sportsmania.eu/matrixuplink.php?do=getStreamLink&channel='+field["id"]
+        premium= '1'
+        if channel_online == '1':channel_online = '[COLOR green][B] (Online)[/B][/COLOR]'
+        else:channel_online = '[COLOR red] (Offline)[/COLOR]'
+        namestring = channel_title+channel_online
+        print name
+        if 'Free' in name:
+            if premium == '0':
+                addLink(namestring,channel_url,2,icon,fanart)
+        else:addLink(namestring,channel_url,2,icon,fanart)
     xbmc.executebuiltin('Container.SetViewMode(51)')
 
-def PlayMatrixStream(url):
+def PlayStream(url):
     net.set_cookies(cookie_file)
-    link = net.http_GET(url).content
+    response = net.http_GET(url)
+    link=response.content
     ok=True
     liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
     ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=link,listitem=liz)
     try:
         xbmc.Player().play(link, liz, False)
-        return ok
-    except:
-        pass
-
-def PlayStream(url):
-    ok=True
-    liz=xbmcgui.ListItem(name, iconImage=icon,thumbnailImage=icon); liz.setInfo( type="Video", infoLabels={ "Title": name } )
-    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
-    try:
-        xbmc.Player ().play(url, liz, False)
         return ok
     except:
         pass
@@ -244,5 +213,4 @@ elif mode==3:schedule(url)
 elif mode==4:suppop()
 elif mode==5:twitter()
 elif mode==6:refresh()
-elif mode==7:PlayMatrixStream(url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
