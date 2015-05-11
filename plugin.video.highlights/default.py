@@ -5,14 +5,15 @@ addon_id = 'plugin.video.highlights'
 addon = Addon(addon_id, sys.argv)
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.PNG'))
-#http://89.45.201.242/dude/foot/
+
 def INDEX():
         addDir(' ','http://89.45.201.242/dude/foot/dl.html',1,'http://89.45.201.242/dude/foot/website/dl.jpg','',fanart)
         addDir(' ','http://89.45.201.242/dude/foot/uefa.html',2,'http://89.45.201.242/dude/foot/website/uefa.jpg','',fanart)
         addDir(' ','http://89.45.201.242/dude/foot/euroqgrupe.html',2,'http://89.45.201.242/dude/foot/website/euroq.png','',fanart)
         xbmc.executebuiltin('Container.SetViewMode(500)')
         
-def GETLEAGUES(url):
+def GETLEAGUES():
+        url = 'http://89.45.201.242/dude/foot/dl.html'
         link = open_url(url)
         match = re.compile("<a href=\"(.+?)\"><img src='(.+?)' /></a></div>").findall(link)
         for url,thumb in match:
@@ -113,7 +114,7 @@ except: pass
  
 print "Site: "+str(site); print "Mode: "+str(mode); print "URL: "+str(url); print "Name: "+str(name)
  
-if mode==None or url==None or len(url)<1: INDEX()
+if mode==None or url==None or len(url)<1: GETLEAGUES()
 elif mode==2: PLAYLINK(name,url)
 elif mode==1: GETLEAGUES(url)
 elif mode==3: GETWEEKS(url)
