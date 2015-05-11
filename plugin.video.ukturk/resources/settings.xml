@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<setting label="Show Adult Section in list" type="bool" id="adult" default="false" />
+	<setting id="password" type="text"label="Adult Password" default="" visible="true" option="hidden" enable="!eq(-1,false)"/>		
+</settings>
