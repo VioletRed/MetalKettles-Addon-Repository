@@ -122,14 +122,10 @@ def PLAYLINK(name,url,iconimage):
         stream_url = stream_url + '|User-Agent: Mozilla/5.0 (Linux; U; Android 4.1.2; en-gb; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
 ##RESOLVE##
         
-        playlist = xbmc.PlayList(1)
-        playlist.clear()
-        listitem = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+        listitem = xbmcgui.ListItem(label= name, path=stream_url, iconImage=icon, thumbnailImage=icon)
         listitem.setInfo("Video", {"Title":name})
         listitem.setProperty('mimetype', 'video/x-msvideo')
-        playlist.add(stream_url,listitem)
-        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
-        xbmcPlayer.play(playlist)
+        xbmcplugin.setResolvedUrl(addon_handle, succeeded=True, listitem=listitem)
 
 def get_params():
         param=[]
@@ -155,7 +151,7 @@ def addDir2(name,url,mode,iconimage,description,fanart):
         liz=xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
+        ok=xbmcplugin.addDirectoryItem(handle=addon_handle,url=u,listitem=liz,isFolder=True)
         return ok
 
 def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
@@ -175,10 +171,10 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
             liz.setInfo( type="Video", infoLabels= meta )
             contextMenuItems = []
             contextMenuItems.append(('Movie Information', 'XBMC.Action(Info)'))
-            liz.addContextMenuItems(contextMenuItems, replaceItems=True)
+            liz.addContextMenuItems(contextMenuItems, replaceItems=False)
             if not meta['backdrop_url'] == '': liz.setProperty('fanart_image', meta['backdrop_url'])
             else: liz.setProperty('fanart_image', fanart)
-            ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
+            ok=xbmcplugin.addDirectoryItem(handle=addon_handle,url=u,listitem=liz,isFolder=isFolder,totalItems=itemcount)
             return ok
         else:
             u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&site="+str(site)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)
@@ -186,7 +182,7 @@ def addDir(name,url,mode,iconimage,itemcount,isFolder=False):
             liz=xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
             liz.setInfo( type="Video", infoLabels={ "Title": name } )
             liz.setProperty('fanart_image', fanart)
-            ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=isFolder)
+            ok=xbmcplugin.addDirectoryItem(handle=addon_handle,url=u,listitem=liz,isFolder=isFolder)
             return ok
             
 
@@ -196,7 +192,7 @@ def addLink(name,url,mode,iconimage,fanart,description=''):
         liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name, 'plot': description } )
         liz.setProperty('fanart_image', fanart)
-        ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+        ok=xbmcplugin.addDirectoryItem(handle=addon_handle,url=u,listitem=liz,isFolder=False)
         return ok
     
 def showText(heading, text):
@@ -232,9 +228,14 @@ def cleanHex(text):
 
 def setView(content, viewType):
     if content:
-        xbmcplugin.setContent(int(sys.argv[1]), content)
+        xbmcplugin.setContent(addon_handle, content)
     if selfAddon.getSetting('auto-view')=='true':
         xbmc.executebuiltin("Container.SetViewMode(%s)" % selfAddon.getSetting(viewType) )
+
+try: base_url = sys.argv[0]
+except: pass
+try: addon_handle = int(sys.argv[1])
+except: pass
 
 params=get_params(); url=None; name=None; mode=None; site=None; iconimage=None
 try: site=urllib.unquote_plus(params["site"])
@@ -258,5 +259,5 @@ elif mode==3: SEARCH()
 elif mode==4: TWITTER()
 elif mode==100: PLAYLINK(name,url,iconimage)
 
-xbmcplugin.endOfDirectory(int(sys.argv[1]))
+xbmcplugin.endOfDirectory(addon_handle)
 
