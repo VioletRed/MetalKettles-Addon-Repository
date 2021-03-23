@@ -16,18 +16,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import cookielib
+import http.cookiejar
 import gzip
 import re
-import StringIO
-import urllib
-import urllib2
+import io
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import socket
 
 #Set Global timeout - Useful for slow connections and Putlocker.
 socket.setdefaulttimeout(60)
 
-class HeadRequest(urllib2.Request):
+class HeadRequest(urllib.request.Request):
     '''A Request class that sends HEAD requests'''
     def get_method(self):
         return 'HEAD'
@@ -46,7 +46,7 @@ class Net:
         print response.content
     '''
     
-    _cj = cookielib.LWPCookieJar()
+    _cj = http.cookiejar.LWPCookieJar()
     _proxy = None
     _user_agent = 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/535.1 ' + \
                   '(KHTML, like Gecko) Chrome/13.0.782.99 Safari/535.1'
@@ -144,22 +144,22 @@ class Net:
         :func:`urllib2.urlopen`.
         '''
         if self._http_debug:
-            http = urllib2.HTTPHandler(debuglevel=1)
+            http = urllib.request.HTTPHandler(debuglevel=1)
         else:
-            http = urllib2.HTTPHandler()
+            http = urllib.request.HTTPHandler()
             
         if self._proxy:
-            opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self._cj),
-                                          urllib2.ProxyHandler({'http': 
+            opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(self._cj),
+                                          urllib.request.ProxyHandler({'http': 
                                                                 self._proxy}), 
-                                          urllib2.HTTPBasicAuthHandler(),
+                                          urllib.request.HTTPBasicAuthHandler(),
                                           http)
         
         else:
-            opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self._cj),
-                                          urllib2.HTTPBasicAuthHandler(),
+            opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(self._cj),
+                                          urllib.request.HTTPBasicAuthHandler(),
                                           http)
-        urllib2.install_opener(opener)
+        urllib.request.install_opener(opener)
         
 
     def http_GET(self, url, headers={}, compression=True):
@@ -224,9 +224,9 @@ class Net:
         '''
         req = HeadRequest(url)
         req.add_header('User-Agent', self._user_agent)
-        for k, v in headers.items():
+        for k, v in list(headers.items()):
             req.add_header(k, v)
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         return HttpResponse(response)
 
 
@@ -252,16 +252,16 @@ class Net:
             meta-information about the page and the page content.
         '''
         encoding = ''
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         if form_data:
-            form_data = urllib.urlencode(form_data)
-            req = urllib2.Request(url, form_data)
+            form_data = urllib.parse.urlencode(form_data)
+            req = urllib.request.Request(url, form_data)
         req.add_header('User-Agent', self._user_agent)
-        for k, v in headers.items():
+        for k, v in list(headers.items()):
             req.add_header(k, v)
         if compression:
             req.add_header('Accept-Encoding', 'gzip')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         return HttpResponse(response)
 
 
@@ -291,7 +291,7 @@ class HttpResponse:
         html = response.read()
         try:
             if response.headers['content-encoding'].lower() == 'gzip':
-                html = gzip.GzipFile(fileobj=StringIO.StringIO(html)).read()
+                html = gzip.GzipFile(fileobj=io.StringIO(html)).read()
         except:
             pass
         
@@ -308,7 +308,7 @@ class HttpResponse:
             encoding = r.group(1) 
                    
         try:
-            html = unicode(html, encoding)
+            html = str(html, encoding)
         except:
             pass
             
